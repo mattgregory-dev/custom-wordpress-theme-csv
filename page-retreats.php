@@ -23,23 +23,14 @@ if ( have_posts() ) :
     <div class="bg-white">
       <?php include get_template_directory() . '/partials/slots/hero-slot.php'; ?>
 
-      <section id="retreats-hero" class="page-hero">
-
-        <div class="max-w-3xl mx-auto text-center space-y-8">
-
-          <p class="text-gray-600 uppercase tracking-[0.2em] text-sm">
-            Retreats
-          </p>
-
-          <h1 class="text-gray-900 text-[3.5rem] font-normal leading-[1.1]">
-            Upcoming Retreats in Sedona
-          </h1>
-
-          <p class="text-gray-700 text-lg leading-relaxed max-w-2xl mx-auto">
-            Small group retreats designed for depth, care, and meaningful personal transformation.
-          </p>
-
-          <div class="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+      <section class="page-hero">
+        <div class="hero-wrapper">
+          <div class="hero-eyebrow-wrapper">
+            <span class="hero-eyebrow">Retreats</span>
+          </div>
+          <h1 class="hero-title">Upcoming Retreats in Sedona</h1>
+          <p class="hero-description">Small group retreats designed for depth, care, and meaningful personal transformation.</p>
+          <div class="hero-actions-wrapper">
             <a class="cwp-btn cwp-btn--primary" href="#">
               View Upcoming Retreats
             </a>
@@ -47,15 +38,12 @@ if ( have_posts() ) :
               Apply
             </a>
           </div>
-
-          <div class="flex flex-wrap gap-3 justify-center pt-6">
+          <div class="flex flex-wrap gap-3 justify-center pt-12">
             <span class="px-4 py-2 border border-gray-400 text-gray-700 text-sm">Small Groups</span>
             <span class="px-4 py-2 border border-gray-400 text-gray-700 text-sm">Sedona, Arizona</span>
             <span class="px-4 py-2 border border-gray-400 text-gray-700 text-sm">Guided Ceremonies</span>
           </div>
-
         </div>
-
       </section>
 
       <section class="py-32 px-8">

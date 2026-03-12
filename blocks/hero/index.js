@@ -2,7 +2,7 @@
 const { registerBlockType } = wp.blocks;
 const { createElement, Fragment } = wp.element;
 const { InspectorControls, MediaUpload, MediaUploadCheck, useBlockProps } = wp.blockEditor;
-const { Button, ColorPicker, PanelBody, TextControl } = wp.components;
+const { Button, ColorPicker, PanelBody, SelectControl, TextControl } = wp.components;
 
 // Normalize ColorPicker output into a stable string for block attributes.
 const normalizeColorValue = (value) => {
@@ -31,6 +31,8 @@ const normalizeColorValue = (value) => {
 const renderHero = ({
   eyebrow,
   title,
+  titleSize,
+  heroTextColor,
   description,
   button1Text,
   button1Url,
@@ -42,7 +44,11 @@ const renderHero = ({
     blockProps,
     createElement(
       'div',
-      { className: 'hero-wrapper' },
+      {
+        className: heroTextColor === 'white'
+          ? 'hero-wrapper white'
+          : 'hero-wrapper',
+      },
       createElement(
         'div',
         { className: 'hero-eyebrow-wrapper' },
@@ -54,7 +60,7 @@ const renderHero = ({
       ),
       createElement(
         'h1',
-        { className: 'hero-title' },
+        { className: titleSize === 'large' ? 'hero-title large' : 'hero-title' },
         title || 'Hero title'
       ),
       createElement(
@@ -85,6 +91,8 @@ const renderHero = ({
 const renderEditorPreview = ({
   eyebrow,
   title,
+  titleSize,
+  heroTextColor,
   description,
   button1Text,
   button2Text,
@@ -95,9 +103,35 @@ const renderEditorPreview = ({
     createElement(
       'div',
       { className: 'cwp-hero-editor__inner' },
-      createElement('span', { className: 'cwp-hero-editor__eyebrow' }, eyebrow || 'Hero eyebrow'),
-      createElement('h1', { className: 'cwp-hero-editor__title' }, title || 'Hero title'),
-      createElement('p', { className: 'cwp-hero-editor__description' }, description || 'Hero description'),
+      createElement(
+        'span',
+        {
+          className: heroTextColor === 'white'
+            ? 'cwp-hero-editor__eyebrow cwp-hero-editor__eyebrow--white'
+            : 'cwp-hero-editor__eyebrow',
+        },
+        eyebrow || 'Hero eyebrow'
+      ),
+      createElement(
+        'h1',
+        {
+          className: [
+            'cwp-hero-editor__title',
+            titleSize === 'large' ? 'cwp-hero-editor__title--large' : '',
+            heroTextColor === 'white' ? 'cwp-hero-editor__title--white' : '',
+          ].filter(Boolean).join(' '),
+        },
+        title || 'Hero title'
+      ),
+      createElement(
+        'p',
+        {
+          className: heroTextColor === 'white'
+            ? 'cwp-hero-editor__description cwp-hero-editor__description--white'
+            : 'cwp-hero-editor__description',
+        },
+        description || 'Hero description'
+      ),
       createElement(
         'div',
         { className: 'cwp-hero-editor__buttons' },
@@ -133,6 +167,15 @@ registerBlockType('cwp/hero', {
           PanelBody,
           { title: 'Hero Content', initialOpen: true },
           // Text fields update block attributes.
+          createElement(SelectControl, {
+            label: 'Hero Text Color',
+            value: attributes.heroTextColor || 'default',
+            options: [
+              { label: 'Default', value: 'default' },
+              { label: 'White', value: 'white' },
+            ],
+            onChange: (value) => setAttributes({ heroTextColor: value }),
+          }),
           createElement(TextControl, {
             label: 'Hero Eyebrow',
             value: attributes.eyebrow,
@@ -142,6 +185,15 @@ registerBlockType('cwp/hero', {
             label: 'Hero Title',
             value: attributes.title,
             onChange: (value) => setAttributes({ title: value }),
+          }),
+          createElement(SelectControl, {
+            label: 'Hero Title Size',
+            value: attributes.titleSize || 'default',
+            options: [
+              { label: 'Default', value: 'default' },
+              { label: 'Large', value: 'large' },
+            ],
+            onChange: (value) => setAttributes({ titleSize: value }),
           }),
           createElement(TextControl, {
             label: 'Hero Description',

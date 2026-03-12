@@ -154,7 +154,6 @@ section#preparation {
   }
 }
 
-
 // Hero header images
 .page-hero {
   position: relative;
@@ -162,13 +161,11 @@ section#preparation {
   display: flex;
   justify-content: center;
   align-items: center;
-
   .hero-wrapper {
     max-width: 48rem;
     margin-inline: auto;
     padding-inline: 2rem;
     text-align: center;
-
     .hero-eyebrow-wrapper {
       margin-bottom: 1.5rem;
       .hero-eyebrow {
@@ -181,8 +178,8 @@ section#preparation {
         background-color: var(--white);
       }
     }
-    h1 {
-      font-size: 4.5rem;
+    .hero-title {
+      font-size: 3rem;
       line-height: 1.4;
       color: rgb(17 24 39 / 100%);
       letter-spacing: -0.025em;
@@ -191,6 +188,9 @@ section#preparation {
       margin-bottom: 2rem;
       border-bottom: 2px solid rgb(17 24 39 / 100%);
       font-weight: 400;
+      &.large {
+        font-size: 4rem;
+      }
     }
     .hero-description {
       font-size: 1.25rem;
@@ -200,28 +200,23 @@ section#preparation {
       margin-inline: auto;
       color: var(--black);
     }
-
     .hero-actions-wrapper {
       gap: 1rem;
       justify-content: center;
       display: flex;
     }
-
-  }
-
-
-  &.white {
-    .label {
+    &.white {
       color: var(--white);
-      &::before {
-        filter: grayscale(100%) brightness(120%) contrast(100%);
+      .hero-eyebrow {
+        color: var(--black);
       }
-    }
-    h1 {
-      color: var(--white);
-    }
-    .description {
-      color: var(--white);
+      .hero-title {
+        color: var(--white);
+        border-color: rgba(255, 255, 255, 0.85);
+      }
+      .hero-description {
+        color: var(--white);
+      }
     }
   }
   // Fallback image - Pink / Green Watercolor
@@ -243,82 +238,14 @@ section#preparation {
     left: 0;
     right: 0;
   }
-  // Homepage
-  &#front-page-hero {
-    background-image: url("#{$theme-root}/images/bg/47JaGXkaZU.webp");
-    &::before {
-      background-color: rgb(103 197 191 / 40%);
-    }
-  }
-  // Approach
-  &#approach-hero {
-    background-image: url("#{$theme-root}/images/bg/1zikZJVXSfA.webp");
-    background-position-x: center;
-    background-position-y: top;
-    &::before {
-      background-color: rgb(136 211 222 / 40%);
-    }
-  }
-  // // Your Journey - Orientation
-  // &#orientation-hero {
-  //   background-image: url("#{$theme-root}/images/bg/EwKXn5CapA4.webp");
-  //   background-position-x: center;
-  //   background-position-y: center;
-  //   &::before {
-  //     background-color: rgb(136 211 222 / 40%);
-  //   }
-  // }
-  // Your Journey - Intentions
-  &#intentions-hero {
-    background-image: url("#{$theme-root}/images/bg/tt7kqCbqGDI.webp");
-    background-position-x: center;
-    background-position-y: center;
-    &::before {
-      background-color: rgb(136 211 222 / 40%);
-    }
-  }
-  // Your Journey - Preparation
-  &#preparation-hero {
-    background-image: url("#{$theme-root}/images/bg/TEWLhkplCOo2.webp");
-    &::before {
-      background-color: rgb(136 211 222 / 40%);
-    }
-  }
-  // Your Journey - The Ceremony
-  &#ceremony-hero {
-    background-image: url("#{$theme-root}/images/bg/eodA_8CTOFo.webp");
-    background-position-y: center;
-    background-position-y: center;
-    &::before {
-      background-color: rgb(88 70 113 / 40%);
-    }
-  }
-  // Your Journey - Integration
-  &#integration-hero {
-    background-image: url("#{$theme-root}/images/bg/3Rw2JLz1wo.webp");
-    background-position-y: -110px;
-    &::before {
-      background-color: rgb(136 211 222 / 40%);
-    }
-  }
-  // Your Journey - Safety
-  &#safety-hero {
-    background-image: url("#{$theme-root}/images/bg/Ydj_lckko4M.webp");
-    background-position-y: center;
-    background-position-y: center;
-    &::before {
-      background-color: rgb(136 211 222 / 40%);
-    }
-  }
-  // Retreats
-  // &#retreats-hero {
-  //   background-image: url("#{$theme-root}/images/eodA_8CTOFo.webp");
-  //   background-position-y: center;
-  //   background-position-y: center;
-  //   &::before {
-  //     background-color: rgb(136 211 222 / 40%);
-  //   }
-  // }
+}
+
+.page-title {
+  background-image: url("#{$theme-root}/images/bg/background.webp");
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: center;
+  overflow: hidden;
 }
 
 // Parallax section

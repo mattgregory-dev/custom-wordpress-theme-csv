@@ -25,6 +25,23 @@
   margin: 10px 0;
 }
 
+.wp-block-cwp-hero.cwp-hero-editor .cwp-hero-editor__title--large {
+  font-size: 42px;
+}
+
+.wp-block-cwp-hero.cwp-hero-editor .cwp-hero-editor__title--white {
+  color: #fff;
+}
+
+.wp-block-cwp-hero.cwp-hero-editor .cwp-hero-editor__eyebrow--white {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.75);
+}
+
+.wp-block-cwp-hero.cwp-hero-editor .cwp-hero-editor__description--white {
+  color: #fff;
+}
+
 .wp-block-cwp-hero.cwp-hero-editor .cwp-hero-editor__description {
   max-width: 600px;
   margin: 0 auto;

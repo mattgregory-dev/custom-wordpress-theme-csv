@@ -16,6 +16,14 @@
       "type": "string",
       "default": "Hero Title"
     },
+    "titleSize": {
+      "type": "string",
+      "default": "default"
+    },
+    "heroTextColor": {
+      "type": "string",
+      "default": "default"
+    },
     "description": {
       "type": "string",
       "default": "Hero description text"
