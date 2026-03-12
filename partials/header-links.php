@@ -19,13 +19,13 @@
         <span class="menu-item2">Home</span>
       </a>
     </li>
+
     <li class="no-sub-menu">
-      <a href="<?php echo esc_url( home_url( '/approach/' ) ); ?>">
-        <span class="menu-item">Approach</span>
-        <span class="menu-item2">Approach</span>
+      <a href="<?php echo esc_url( home_url( '/retreats/' ) ); ?>">
+        <span class="menu-item">Retreats</span>
+        <span class="menu-item2">Retreats</span>
       </a>
     </li>
-
 
     <li>
       <a href="#">
@@ -42,10 +42,12 @@
       </ul>
     </li>
 
+
+
     <li class="no-sub-menu">
-      <a href="<?php echo esc_url( home_url( '/retreats/' ) ); ?>">
-        <span class="menu-item">Retreats</span>
-        <span class="menu-item2">Retreats</span>
+      <a href="<?php echo esc_url( home_url( '/approach/' ) ); ?>">
+        <span class="menu-item">Approach</span>
+        <span class="menu-item2">Approach</span>
       </a>
     </li>
 

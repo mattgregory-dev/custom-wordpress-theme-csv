@@ -33,9 +33,9 @@ if ( have_posts() ) :
         </div>
       </section>
 
-      <section class="py-24 px-8">
+      <section class="py-12 pb-24 px-8">
         <div class="max-w-4xl mx-auto">
-          <div class="mb-16">
+          <div class="mb-8">
             <div class="w-36 h-36 mx-auto mb-8 flex items-center justify-center"><!--rounded-full border-2 border-gray-300 -->
               <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 58.415 39.35"><g transform="translate(0.5 0.5)"><g transform="translate(0 0)"><path d="M491.939,190.138a19.11,19.11,0,0,1-21.945-18.963c0-.053,0,.054,0,0s0,.054,0,0a19.094,19.094,0,1,1,38.188-.081c0,.054,0,.107,0,.161v-.161q0,.081,0,.162a19.08,19.08,0,0,1-8.834,16.106" transform="translate(-469.993 -152)" fill="none" stroke="#aea17e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"></path><line x2="9.02" y2="7.684" transform="translate(19.646 18.257)" fill="none" stroke="#aea17e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"></line><path d="M567.09,200.014s3.238,2.537,7.318,6.364" transform="translate(-545.742 -189.457)" fill="none" stroke="#aea17e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"></path><line x1="9.02" y2="7.684" transform="translate(28.666 18.257)" fill="none" stroke="#aea17e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"></line><path d="M607.693,200.014s-3.238,2.537-7.318,6.364" transform="translate(-571.709 -189.457)" fill="none" stroke="#aea17e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"></path><path d="M573.74,152.205a19.1,19.1,0,0,1,21.891,18.889c0,.054,0,.107,0,.161v-.161c0,.054,0,.108,0,.162a19.094,19.094,0,1,1-38.188-.081c0-.053,0,.054,0,0s0,.054,0,0a19.214,19.214,0,0,1,9.288-16.446" transform="translate(-538.216 -152)" fill="none" stroke="#aea17e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"></path><line y2="32.407" transform="translate(28.666 2.889)" fill="none" stroke="#aea17e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"></line></g></g></svg>
               <svg class="hidden" xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 45.944 42.646"><g transform="translate(0.495 0.413)"><g transform="translate(0 0)"><path d="M838.018,866.051c.294-3.833,4.183-6.437,6.211-9.4,2.093-3.052,3.173-7.595,6.508-9.2,3.233-1.554,7.412.394,11.246.688s8.261-.994,11.219,1.034c3.052,2.092,3.426,6.747,5.029,10.082,1.554,3.233,5,6.4,4.706,10.232s-4.183,6.437-6.211,9.4c-2.093,3.052-3.172,7.595-6.508,9.2-3.233,1.554-7.412-.394-11.246-.688s-8.261.994-11.219-1.034c-3.052-2.093-3.426-6.747-5.029-10.082C841.171,873.05,837.724,869.884,838.018,866.051Z" transform="translate(-838.001 -846.864)" fill="none" stroke="#aea17e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"></path><path d="M851.591,864.652c.992-3.386,5.172-4.867,7.555-7.137,2.458-2.342,4.182-6.414,7.482-7.22,3.2-.781,6.575,1.988,9.961,2.98s7.723.484,9.994,2.867c2.342,2.458,1.6,6.817,2.4,10.116.781,3.2,3.5,6.7,2.507,10.086s-5.172,4.867-7.554,7.137c-2.459,2.343-4.183,6.414-7.482,7.22-3.2.781-6.575-1.988-9.961-2.981s-7.723-.484-9.994-2.867c-2.342-2.458-1.6-6.817-2.4-10.115C853.318,871.54,850.6,868.038,851.591,864.652Z" transform="translate(-849.064 -849.589)" fill="none" stroke="#aea17e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"></path></g></g></svg>
@@ -50,23 +50,34 @@ if ( have_posts() ) :
 
             <p>
               Before we talk about preparation&hellip;<br />
-              before ceremony&hellip;<br />
-              before the medicine, the dieta, the intentions, or the calendar&hellip;
+              Before ceremony&hellip;<br />
+              Before the medicine, the dieta, the intentions, or the calendar&hellip;
             </p>
 
-            <p class="text-xl">let&rsquo;s pause.</p>
+            <p class="text-2xl">Let&rsquo;s pause.</p>
 
             <p>
               Right here, right now, something is already effortlessly present.
             </p>
 
-            <div class="py-12">
+            <div class="py-12 hidden">
               <div class="border border-gray-900 py-12 px-12 text-center">
                 <p class="text-3xl tracking-tight">
                   Awareness.
                 </p>
               </div>
             </div>
+
+            <section class="parallax-banner mt-24 mb-18">
+              <div class="parallax-wrap">
+                <img src="<?php echo esc_url( get_template_directory_uri() . '/images/bg/background.webp' ); ?>" alt="Banner" class="parallax-img">
+              </div>
+              <div class="content">
+                <h2 class="title">
+                  Awareness.
+                </h2>
+              </div>
+            </section>
 
             <p>
               Not as a concept.<br />
@@ -108,8 +119,8 @@ if ( have_posts() ) :
         <div class="max-w-6xl mx-auto">
           <div class="grid grid-cols-12 gap-12 items-start">
             <div class="col-span-5">
-              <div class="aspect-[3/4] border-2 border-gray-300 bg-gray-100 flex items-center justify-center sticky top-24">
-                <span class="text-gray-400 text-sm">[ IMAGE ]</span>
+              <div class="aspect-[3/4] border-0 border-gray-300 bg-gray-100 flex items-center justify-center sticky top-24">
+                <img src="<?php echo esc_url( get_template_directory_uri() . '/images/bg/8n00CqwnqO8.webp' ); ?>">
               </div>
             </div>
 
@@ -168,7 +179,7 @@ if ( have_posts() ) :
       <section class="py-32 px-8">
         <div class="max-w-5xl mx-auto">
           <div class="text-center mb-20">
-            <h2 class="text-4xl tracking-tight mb-6">
+            <h2 class="text-4xl tracking-tight mb-10">
               A Gentle Reframing of the Medicine
             </h2>
             <div class="flex justify-center">
@@ -188,7 +199,7 @@ if ( have_posts() ) :
             <div class="py-12 space-y-12">
               <div class="flex justify-start">
                 <div class="max-w-xl">
-                  <div class="border-2 border-gray-900 p-8">
+                  <div class="border-2 border-gray-900 p-8 bg-[#f0f8ff]">
                     <p class="text-lg leading-relaxed">
                       The medicine does not awaken Awareness.<br />
                       The medicine appears within Awareness.
@@ -199,7 +210,7 @@ if ( have_posts() ) :
 
               <div class="flex justify-end">
                 <div class="max-w-xl">
-                  <div class="border-2 border-gray-900 p-8">
+                  <div class="border-2 border-gray-900 p-8 bg-[#f0f8ff]">
                     <p class="text-lg leading-relaxed">
                       The medicine does not heal Awareness.
                     </p>
@@ -213,7 +224,7 @@ if ( have_posts() ) :
             </p>
 
             <div class="py-8">
-              <div class="border-2 border-gray-900 p-8 text-center max-w-xl mx-auto">
+              <div class="border-2 border-gray-900 p-8 text-center max-w-xl mx-auto bg-[#f0f8ff]">
                 <p class="text-lg leading-relaxed">
                   The medicine does not complete you.
                 </p>
@@ -233,7 +244,7 @@ if ( have_posts() ) :
             </p>
 
             <div class="py-8">
-              <div class="border-t-2 border-b-2 border-gray-900 py-12 px-8 text-center">
+              <div class="border-t-2 border-b-2 border-gray-900 py-12 px-8 text-center bg-[#f0f8ff]">
                 <p class="text-3xl tracking-tight">
                   &ldquo;Imaginary medicine for an imaginary disease.&rdquo;
                 </p>
@@ -256,8 +267,8 @@ if ( have_posts() ) :
           <div class="grid grid-cols-12 gap-16">
             <div class="col-span-4">
               <div class="sticky top-24">
-                <div class="w-16 h-16 border-2 border-gray-900 mb-6 flex items-center justify-center">
-                  <span class="text-xs text-gray-400">~</span>
+                <div class="w-16 h-16 border-0 border-gray-900 mb-6 flex items-center justify-center">
+                  <img src="<?php echo esc_url( get_template_directory_uri() . '/images/icons/rhombus.png' ); ?>">
                 </div>
                 <h2 class="text-3xl tracking-tight mb-6">
                   What to Expect (and Not Expect)
@@ -306,8 +317,8 @@ if ( have_posts() ) :
       <section class="py-32 px-8">
         <div class="max-w-4xl mx-auto">
           <div class="text-center mb-16">
-            <div class="w-32 h-32 mx-auto rounded-full border-2 border-gray-300 bg-gray-100 flex items-center justify-center mb-8">
-              <span class="text-gray-400 text-xs">ICON</span>
+            <div class="w-32 h-32 mx-auto rounded-full border-0 border-gray-300 bg-gray-000 flex items-center justify-center mb-8">
+              <img class="w-lg translate-2" src="<?php echo esc_url( get_template_directory_uri() . '/images/icons/flower.png' ); ?>">
             </div>
             <h2 class="text-4xl tracking-tight">
               A Loving Word on Responsibility
@@ -323,13 +334,13 @@ if ( have_posts() ) :
               That&rsquo;s why this preparation includes:
             </p>
 
-            <div class="py-8">
-              <ul class="border-t border-b border-gray-900 py-8 space-y-4">
-                <li>&bull; clear medical screening</li>
-                <li>&bull; dieta guidelines</li>
-                <li>&bull; nervous-system care</li>
-                <li>&bull; honest self-inquiry</li>
-                <li>&bull; and ongoing support</li>
+            <div class="py-8 border-t border-b border-gray-900 py-8 space-y-4 text-left flex items-center flex-col">
+              <ul class="space-y-4 text-left w-80">
+                <li><i class="fa fa-check"></i> Clear medical screening</li>
+                <li><i class="fa fa-check"></i> Dieta guidelines</li>
+                <li><i class="fa fa-check"></i> Nervous-system care</li>
+                <li><i class="fa fa-check"></i> Honest self-inquiry</li>
+                <li><i class="fa fa-check"></i> And ongoing support</li>
               </ul>
             </div>
 
@@ -392,8 +403,8 @@ if ( have_posts() ) :
             </div>
 
             <div class="col-span-5">
-              <div class="aspect-square border-2 border-gray-300 bg-gray-100 flex items-center justify-center">
-                <span class="text-gray-400 text-sm">[ IMAGE ]</span>
+              <div class="aspect-square border-0 border-gray-300 bg-gray-100 flex items-center justify-center">
+                <img src="<?php echo esc_url( get_template_directory_uri() . '/images/bg/IQwFRLTQPLY.webp' ); ?>">
               </div>
             </div>
           </div>

@@ -22,13 +22,11 @@ if ( have_posts() ) :
 
     <div class="bg-white">
       <?php include get_template_directory() . '/partials/slots/hero-slot.php'; ?>
-      <section id="retreats-hero" class="page-hero relative min-h-[85vh] flex items-center justify-center px-8 py-24">
-        <div class="absolute inset-0">
-          <div class="absolute inset-0 flex items-center justify-center">
-          </div>
-        </div>
 
-        <div class="relative z-10 max-w-3xl mx-auto text-center space-y-8">
+      <section id="retreats-hero" class="page-hero">
+
+        <div class="max-w-3xl mx-auto text-center space-y-8">
+
           <p class="text-gray-600 uppercase tracking-[0.2em] text-sm">
             Retreats
           </p>
@@ -42,10 +40,10 @@ if ( have_posts() ) :
           </p>
 
           <div class="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-            <a class="px-8 py-3 bg-gray-900 text-white border-2 border-gray-900 hover:bg-gray-800 transition-colors" href="#">
+            <a class="cwp-btn cwp-btn--primary" href="#">
               View Upcoming Retreats
             </a>
-            <a class="px-8 py-3 bg-white text-gray-900 border-2 border-gray-900 hover:bg-gray-50 transition-colors" href="#">
+            <a class="cwp-btn cwp-btn--secondary" href="#">
               Apply
             </a>
           </div>
@@ -55,7 +53,9 @@ if ( have_posts() ) :
             <span class="px-4 py-2 border border-gray-400 text-gray-700 text-sm">Sedona, Arizona</span>
             <span class="px-4 py-2 border border-gray-400 text-gray-700 text-sm">Guided Ceremonies</span>
           </div>
+
         </div>
+
       </section>
 
       <section class="py-32 px-8">
@@ -517,10 +517,10 @@ if ( have_posts() ) :
           </p>
 
           <div class="flex flex-col sm:flex-row gap-4 justify-center pt-6">
-            <a class="px-8 py-3 bg-gray-900 text-white border-2 border-gray-900 hover:bg-gray-800 transition-colors" href="#">
+            <a class="cwp-btn cwp-btn--primary" href="#">
               View Retreats
             </a>
-            <a class="px-8 py-3 bg-white text-gray-900 border-2 border-gray-900 hover:bg-gray-50 transition-colors" href="#">
+            <a class="cwp-btn cwp-btn--secondary" href="#">
               Contact Us
             </a>
           </div>
