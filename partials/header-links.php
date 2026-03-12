@@ -29,8 +29,8 @@
 
     <li>
       <a href="#">
-        <span class="menu-item">Your Journey</span>
-        <span class="menu-item2">Your Journey</span>
+        <span class="menu-item">The Journey</span>
+        <span class="menu-item2">The Journey</span>
       </a>
       <ul class="sub-menu">
         <li><a href="<?php echo esc_url( home_url( '/orientation/' ) ); ?>">Orientation</a></li>

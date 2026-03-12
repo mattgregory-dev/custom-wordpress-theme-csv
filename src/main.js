@@ -215,7 +215,7 @@ const scrollToTop = () => {
   if (!scrollBtn) return;
 
   window.addEventListener("scroll", () => {
-    scrollBtn.style.display = window.scrollY > 200 ? "block" : "none";
+    scrollBtn.style.display = window.scrollY > 200 ? "flex" : "none";
   });
 
   scrollBtn.addEventListener("click", () => {

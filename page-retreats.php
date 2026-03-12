@@ -493,8 +493,6 @@ if ( have_posts() ) :
       </section>
 
       <section class="relative py-32 px-8 bg-[#c3ddd5]">
-        <div class="absolute inset-0 bg-gray-100 border-y-2 border-gray-300"></div>
-
         <div class="relative z-10 max-w-3xl mx-auto text-center space-y-8">
           <h2 class="text-gray-900 text-[2.5rem] font-normal">
             Begin the Journey

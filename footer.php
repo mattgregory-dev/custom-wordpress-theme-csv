@@ -72,7 +72,7 @@
 
   </div>
 </footer>
-<button id="scrollBtn" title="Go to top">
+<button id="scrollBtn">
   <i class="fas fa-angle-up"></i>
 </button>
 <?php wp_footer(); ?>
