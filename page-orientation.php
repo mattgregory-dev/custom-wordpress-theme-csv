@@ -113,9 +113,9 @@ if ( have_posts() ) :
 
       <section class="py-24 px-8 bg-gray-50">
         <div class="max-w-6xl mx-auto">
-          <div class="grid grid-cols-12 gap-12 items-start">
+          <div class="grid grid-cols-12 gap-12">
             <div class="col-span-5">
-              <div class="aspect-[3/4] border-0 border-gray-300 bg-gray-100 flex items-center justify-center sticky top-24">
+              <div>
                 <img src="<?php echo esc_url( get_template_directory_uri() . '/images/bg/8n00CqwnqO8.webp' ); ?>">
               </div>
             </div>
@@ -331,7 +331,7 @@ if ( have_posts() ) :
             </p>
 
             <div class="py-8 border-t border-b border-gray-900 py-8 space-y-4 text-left flex items-center flex-col">
-              <ul class="space-y-4 text-left w-80">
+              <ul class="space-y-4 text-left w-80 styled-list">
                 <li><i class="fa fa-check"></i> Clear medical screening</li>
                 <li><i class="fa fa-check"></i> Dieta guidelines</li>
                 <li><i class="fa fa-check"></i> Nervous-system care</li>

@@ -4,70 +4,6 @@ const { createElement, Fragment } = wp.element;
 const { InspectorControls, MediaUpload, MediaUploadCheck, useBlockProps } = wp.blockEditor;
 const { Button, PanelBody, TextControl } = wp.components;
 
-const renderEditorPreview = ({
-  eyebrow,
-  title,
-  description,
-  buttonText,
-  buttonUrl,
-  imageUrl,
-}, blockProps) => (
-  createElement(
-    'section',
-    blockProps,
-    createElement(
-      'div',
-      { className: 'cwp-next-step-editor__container' },
-      createElement(
-        'div',
-        { className: 'cwp-next-step-editor__grid' },
-        createElement(
-          'div',
-          { className: 'cwp-next-step-editor__media' },
-          createElement(
-            'div',
-            { className: 'cwp-next-step-editor__media-frame' },
-            imageUrl
-              ? createElement('img', {
-                  src: imageUrl,
-                  alt: '',
-                  className: 'cwp-next-step-editor__media-image',
-                })
-              : createElement('span', { className: 'cwp-next-step-editor__media-placeholder' }, '[ IMAGE ]')
-          )
-        ),
-        createElement(
-          'div',
-          { className: 'cwp-next-step-editor__content' },
-          createElement(
-            'div',
-            { className: 'cwp-next-step-editor__eyebrow' },
-            eyebrow || 'eyebrow'
-          ),
-          createElement(
-            'h2',
-            { className: 'cwp-next-step-editor__title' },
-            title || 'title'
-          ),
-          createElement(
-            'p',
-            { className: 'cwp-next-step-editor__description' },
-            description || 'description'
-          ),
-          createElement(
-            'a',
-            {
-              className: 'cwp-next-step-editor__button',
-              href: buttonUrl || '#',
-            },
-            `${buttonText || 'button text'} \u2192`
-          )
-        )
-      )
-    )
-  )
-);
-
 const renderNextStep = ({
   eyebrow,
   title,
@@ -128,11 +64,75 @@ const renderNextStep = ({
             createElement(
               'a',
               {
-                className: 'px-12 py-4 border-2 border-gray-900 bg-gray-900 text-white text-left',
+                className: 'cwp-btn cwp-btn--primary',
                 href: buttonUrl || '#',
               },
               `${buttonText || 'button text'} \u2192`
             )
+          )
+        )
+      )
+    )
+  )
+);
+
+const renderEditorPreview = ({
+  eyebrow,
+  title,
+  description,
+  buttonText,
+  buttonUrl,
+  imageUrl,
+}, blockProps) => (
+  createElement(
+    'section',
+    blockProps,
+    createElement(
+      'div',
+      { className: 'cwp-next-step-editor__container' },
+      createElement(
+        'div',
+        { className: 'cwp-next-step-editor__grid' },
+        createElement(
+          'div',
+          { className: 'cwp-next-step-editor__media' },
+          createElement(
+            'div',
+            { className: 'cwp-next-step-editor__media-frame' },
+            imageUrl
+              ? createElement('img', {
+                  src: imageUrl,
+                  alt: '',
+                  className: 'cwp-next-step-editor__media-image',
+                })
+              : createElement('span', { className: 'cwp-next-step-editor__media-placeholder' }, '[ IMAGE ]')
+          )
+        ),
+        createElement(
+          'div',
+          { className: 'cwp-next-step-editor__content' },
+          createElement(
+            'div',
+            { className: 'cwp-next-step-editor__eyebrow' },
+            eyebrow || 'eyebrow'
+          ),
+          createElement(
+            'h2',
+            { className: 'cwp-next-step-editor__title' },
+            title || 'title'
+          ),
+          createElement(
+            'p',
+            { className: 'cwp-next-step-editor__description' },
+            description || 'description'
+          ),
+          createElement(
+            'a',
+            {
+              className: 'cwp-next-step-editor__button',
+              href: buttonUrl || '#',
+            },
+            `${buttonText || 'button text'} \u2192`
           )
         )
       )

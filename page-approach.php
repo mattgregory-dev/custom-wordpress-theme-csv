@@ -268,10 +268,10 @@ if ( have_posts() ) :
           </p>
 
           <div class="flex gap-4 justify-center">
-            <a class="px-8 py-3 bg-gray-900 text-white border-2 border-gray-900 hover:bg-gray-800 transition-colors" href="#">
-              Explore the Journey
+            <a class="cwp-btn cwp-btn--primary" href="<?php echo esc_url( home_url( '/apply/' ) ); ?>">
+              Apply
             </a>
-            <a class="px-8 py-3 bg-white text-gray-900 border-2 border-gray-900 hover:bg-gray-50 transition-colors" href="#">
+            <a class="cwp-btn cwp-btn--secondary" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">
               Contact Us
             </a>
           </div>

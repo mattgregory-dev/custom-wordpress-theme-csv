@@ -20,7 +20,7 @@ if ( have_posts() ) :
     $blocks = parse_blocks( $raw_content );
     ?>
 
-    <section id="faq-hero" class="page-hero section">
+    <section id="faq-hero" class="page-title section">
       <div class="section-container">
         <p class="label">About Lumina</p>
         <h1>Frequently Asked Questions</h1>

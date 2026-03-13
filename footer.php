@@ -27,9 +27,9 @@
 
     </div>
 
-    <div class="footer-links grid grid-cols-2 gap-12 hidden sm:grid">
+    <div class="footer-links grid grid-cols-1 gap-12"><!-- grid grid-cols-2 gap-12 hidden sm:grid -->
 
-      <div class="text-center">
+      <div class="text-center" style="display:none;">
         <h3 class="mb-4">Site Links</h3>
         <a class="footer-link" href="<?php echo esc_url( home_url( '/blog/' ) ); ?>">Blog</a>
         <a class="footer-link" href="<?php echo esc_url( home_url( '/faq/' ) ); ?>">FAQs</a>

@@ -65,7 +65,7 @@ $grid_query = new WP_Query(array(
 ));
 ?>
 
-<section id="blog-header" class="page-hero section">
+<section id="blog-header" class="page-title section">
 
   <div class="section-container">
 

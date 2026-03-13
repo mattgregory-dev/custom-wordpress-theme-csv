@@ -31,11 +31,11 @@ if ( have_posts() ) :
           <h1 class="hero-title">Upcoming Retreats in Sedona</h1>
           <p class="hero-description">Small group retreats designed for depth, care, and meaningful personal transformation.</p>
           <div class="hero-actions-wrapper">
-            <a class="cwp-btn cwp-btn--primary" href="/apply/">
-              Apply
-            </a>
-            <a class="cwp-btn cwp-btn--secondary" href="#retreats">
+            <a class="cwp-btn cwp-btn--primary" href="#retreats">
               View Upcoming Retreats
+            </a>
+            <a class="cwp-btn cwp-btn--secondary" href="/apply/">
+              Apply
             </a>
           </div>
           <div class="flex flex-wrap gap-3 justify-center pt-12">
@@ -414,7 +414,7 @@ if ( have_posts() ) :
                 <h3 class="text-gray-900 pr-8 text-[1.25rem] font-normal">How many people attend each retreat?</h3>
                 <div class="flex-shrink-0">
                   <div class="w-6 h-6 border-2 border-gray-900 flex items-center justify-center">
-                    <div class="text-gray-900 text-xl leading-none">+</div>
+                    <div class="text-gray-900 text-xl leading-none plus-icon">+</div>
                   </div>
                 </div>
               </summary>
@@ -430,7 +430,7 @@ if ( have_posts() ) :
                 <h3 class="text-gray-900 pr-8 text-[1.25rem] font-normal">Do I need previous experience with plant medicine?</h3>
                 <div class="flex-shrink-0">
                   <div class="w-6 h-6 border-2 border-gray-900 flex items-center justify-center">
-                    <div class="text-gray-900 text-xl leading-none">+</div>
+                    <div class="text-gray-900 text-xl leading-none plus-icon">+</div>
                   </div>
                 </div>
               </summary>
@@ -446,7 +446,7 @@ if ( have_posts() ) :
                 <h3 class="text-gray-900 pr-8 text-[1.25rem] font-normal">Where do I stay during the retreat?</h3>
                 <div class="flex-shrink-0">
                   <div class="w-6 h-6 border-2 border-gray-900 flex items-center justify-center">
-                    <div class="text-gray-900 text-xl leading-none">+</div>
+                    <div class="text-gray-900 text-xl leading-none plus-icon">+</div>
                   </div>
                 </div>
               </summary>
@@ -462,7 +462,7 @@ if ( have_posts() ) :
                 <h3 class="text-gray-900 pr-8 text-[1.25rem] font-normal">What should I bring with me?</h3>
                 <div class="flex-shrink-0">
                   <div class="w-6 h-6 border-2 border-gray-900 flex items-center justify-center">
-                    <div class="text-gray-900 text-xl leading-none">+</div>
+                    <div class="text-gray-900 text-xl leading-none plus-icon">+</div>
                   </div>
                 </div>
               </summary>
@@ -478,7 +478,7 @@ if ( have_posts() ) :
                 <h3 class="text-gray-900 pr-8 text-[1.25rem] font-normal">What happens after the retreat?</h3>
                 <div class="flex-shrink-0">
                   <div class="w-6 h-6 border-2 border-gray-900 flex items-center justify-center">
-                    <div class="text-gray-900 text-xl leading-none">+</div>
+                    <div class="text-gray-900 text-xl leading-none plus-icon">+</div>
                   </div>
                 </div>
               </summary>
@@ -503,10 +503,10 @@ if ( have_posts() ) :
           </p>
 
           <div class="flex flex-col sm:flex-row gap-4 justify-center pt-6">
-            <a class="cwp-btn cwp-btn--primary" href="#">
-              View Retreats
+            <a class="cwp-btn cwp-btn--primary" href="<?php echo esc_url( home_url( '/apply/' ) ); ?>">
+              Apply
             </a>
-            <a class="cwp-btn cwp-btn--secondary" href="#">
+            <a class="cwp-btn cwp-btn--secondary" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">
               Contact Us
             </a>
           </div>

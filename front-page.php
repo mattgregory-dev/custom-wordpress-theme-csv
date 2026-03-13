@@ -25,7 +25,7 @@ if ( have_posts() ) :
           <?php get_template_part('partials/aya-motif') ?>
 
           <div class="text-gray-600 text-sm uppercase tracking-[0.2em]">
-            OUR ORIENTATION
+            OUR APPROACH
           </div>
 
           <h2 class="text-4xl md:text-5xl text-gray-900 font-normal leading-[1.3]">
@@ -239,7 +239,7 @@ if ( have_posts() ) :
           </div>
 
           <div class="text-center">
-            <a href="/retreats" class="inline-block text-gray-900 hover:text-gray-700 border-b border-gray-900 pb-1">
+            <a href="<?php echo esc_url( home_url( '/retreats/#retreats' ) ); ?>" class="inline-block text-gray-900 hover:text-gray-700 border-b border-gray-900 pb-1">
               View All Retreats
             </a>
           </div>
@@ -357,10 +357,10 @@ if ( have_posts() ) :
           </p>
 
           <div class="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-            <a class="px-8 py-3 bg-gray-900 text-white hover:bg-gray-800 transition-colors" href="#">
-              Explore the Journey
+            <a class="px-8 py-3 bg-gray-900 text-white hover:bg-gray-800 transition-colors" href="<?php echo esc_url( home_url( '/orientation/' ) ); ?>">
+              Explore The Journey
             </a>
-            <a class="px-8 py-3 border-2 border-gray-900 text-gray-900 hover:bg-gray-50 transition-colors" href="#">
+            <a class="px-8 py-3 border-2 border-gray-900 text-gray-900 hover:bg-gray-50 transition-colors" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">
               Contact Us
             </a>
           </div>
@@ -369,6 +369,7 @@ if ( have_posts() ) :
 
       <section class="py-32 px-8 bg-[#c3ddd5]">
         <div class="max-w-3xl mx-auto">
+
           <div class="text-center space-y-4 mb-12">
             <h2 class="text-4xl text-gray-900 font-normal">
               Have Questions? Let's Talk
@@ -378,55 +379,7 @@ if ( have_posts() ) :
             </p>
           </div>
 
-          <form class="space-y-6">
-            <div class="grid md:grid-cols-2 gap-6">
-              <div class="space-y-2">
-                <label for="firstName" class="block text-sm text-gray-700">First Name</label>
-                <input type="text" id="firstName" class="w-full px-4 py-3 border border-gray-300 bg-white focus:outline-none focus:border-gray-500 transition-colors" />
-              </div>
-              <div class="space-y-2">
-                <label for="lastName" class="block text-sm text-gray-700">Last Name</label>
-                <input type="text" id="lastName" class="w-full px-4 py-3 border border-gray-300 bg-white focus:outline-none focus:border-gray-500 transition-colors" />
-              </div>
-            </div>
-
-            <div class="space-y-2">
-              <label for="email" class="block text-sm text-gray-700">Email</label>
-              <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 bg-white focus:outline-none focus:border-gray-500 transition-colors" />
-            </div>
-
-            <div class="space-y-2">
-              <label for="phone" class="block text-sm text-gray-700">Phone Number</label>
-              <input type="tel" id="phone" class="w-full px-4 py-3 border border-gray-300 bg-white focus:outline-none focus:border-gray-500 transition-colors" />
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-6">
-              <div class="space-y-2">
-                <label for="city" class="block text-sm text-gray-700">City</label>
-                <input type="text" id="city" class="w-full px-4 py-3 border border-gray-300 bg-white focus:outline-none focus:border-gray-500 transition-colors" />
-              </div>
-              <div class="space-y-2">
-                <label for="state" class="block text-sm text-gray-700">State</label>
-                <input type="text" id="state" class="w-full px-4 py-3 border border-gray-300 bg-white focus:outline-none focus:border-gray-500 transition-colors" />
-              </div>
-            </div>
-
-            <div class="space-y-2">
-              <label for="referral" class="block text-sm text-gray-700">How did you hear about us?</label>
-              <input type="text" id="referral" class="w-full px-4 py-3 border border-gray-300 bg-white focus:outline-none focus:border-gray-500 transition-colors" />
-            </div>
-
-            <div class="space-y-2">
-              <label for="message" class="block text-sm text-gray-700">Message</label>
-              <textarea id="message" rows="6" class="w-full px-4 py-3 border border-gray-300 bg-white focus:outline-none focus:border-gray-500 transition-colors resize-none"></textarea>
-            </div>
-
-            <div class="pt-4">
-              <button type="submit" class="w-full px-8 py-3.5 bg-gray-900 text-white hover:bg-gray-800 transition-colors">
-                Submit
-              </button>
-            </div>
-          </form>
+          <?php echo do_shortcode('[forminator_form id="213"]'); ?>
         </div>
       </section>
     </div>
