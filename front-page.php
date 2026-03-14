@@ -20,14 +20,14 @@ if ( have_posts() ) :
     <?php include get_template_directory() . '/partials/slots/hero-slot.php'; ?>
 
     <section class="py-24 px-8">
-      <div class="max-w-3xl mx-auto text-center space-y-8">
+      <div class="max-w-3xl mx-auto text-center">
         <?php get_template_part('partials/aya-motif') ?>
 
         <div class="text-gray-600 text-sm uppercase tracking-[0.2em] hidden">
           OUR APPROACH
         </div>
 
-        <h2 class="text-3xl md:text-5xl text-gray-900 font-normal" style="line-height:1.4;">
+        <h2 class="text-3xl md:text-5xl text-gray-900 font-normal" style="line-height:1.4;margin-top:3.2rem;">
           A Moment to Step Away
         </h2>
 
@@ -41,7 +41,7 @@ if ( have_posts() ) :
       </div>
     </section>
 
-    <section id="steps" class="py-32 px-8 bg-[#d6e3e5]">
+    <section id="steps" class="pt-32 pb-32 px-8 bg-[#d6e3e5]">
       <div class="max-w-6xl mx-auto">
         <div class="text-center space-y-4 mb-16">
           <h2 class="text-4xl text-gray-900 font-normal">
@@ -56,14 +56,14 @@ if ( have_posts() ) :
       </div>
     </section>
 
-    <section class="py-32 px-8">
+    <section class="pt-32 pb-32 px-8">
       <div class="max-w-6xl mx-auto">
         <div class="text-center space-y-4 mb-16">
           <h2 class="text-4xl text-gray-900 font-normal">
             What You'll Experience at Lumina
           </h2>
           <p class="text-gray-700 leading-relaxed max-w-2xl mx-auto">
-            Lumina retreats are intentionally structured to support meaningful personal exploration within a calm and steady environment.
+            Lumina retreats are intentionally structured to support meaningful personal exploration.
           </p>
         </div>
 
@@ -191,14 +191,14 @@ if ( have_posts() ) :
       </div>
     </section>
 
-    <section class="py-32 px-8">
+    <section class="pt-32 pb-32 px-8">
       <div class="max-w-7xl mx-auto">
-        <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div class="grid md:grid-cols-2 gap-16 items-start md:items-start lg:items-center">
           <div class="flex items-center justify-center">
             <img class="page-image" src="<?php echo esc_url( get_template_directory_uri() . '/images/bg/mdsH0k7uoQk.webp' ); ?>">
           </div>
 
-          <div class="space-y-6">
+          <div class="space-y-6 ">
             <h2 class="text-4xl text-gray-900 font-normal">
               Sedona, The Perfect Place for a Reset
             </h2>
@@ -219,7 +219,7 @@ if ( have_posts() ) :
       </div>
     </section>
 
-    <section id="retreats" class="py-32 px-8">
+    <section id="retreats" class="pt-20 pb-32 px-8">
       <div class="max-w-6xl mx-auto">
         <div class="text-center space-y-4 mb-16">
           <h2 class="text-4xl text-gray-900 font-normal">
@@ -286,11 +286,11 @@ if ( have_posts() ) :
       </div>
     </section>
 
-    <section class="py-32 px-8">
+    <section class="pt-12 pb-32 px-8">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16">
           <h2 class="text-4xl text-gray-900 font-normal">
-            What Guests Discovered
+            What Our Guests Say
           </h2>
         </div>
 
@@ -328,7 +328,7 @@ if ( have_posts() ) :
       </div>
     </section>
 
-    <section class="py-32 px-8">
+    <section class="pt-24 pb-32 px-8">
       <div class="max-w-5xl mx-auto">
         <div class="text-center mb-16">
           <h2 class="text-4xl text-gray-900 font-normal">
@@ -340,7 +340,7 @@ if ( have_posts() ) :
       </div>
     </section>
 
-    <section class="py-32 px-8">
+    <section class="pt-24 pb-32 px-8">
       <div class="max-w-5xl mx-auto">
         <div class="text-center space-y-6 mb-16">
           <h2 class="text-4xl text-gray-900 font-normal">
@@ -418,7 +418,7 @@ if ( have_posts() ) :
       </div>
     </section>
 
-    <section class="py-32 px-8">
+    <section class="pt-24 pb-32 px-8">
       <div class="max-w-3xl mx-auto text-center space-y-8">
         <h2 class="text-4xl md:text-5xl text-gray-900 font-normal leading-[1.3]">
           Ready to explore this work?
@@ -439,7 +439,7 @@ if ( have_posts() ) :
       </div>
     </section>
 
-    <section class="py-32 px-8 bg-[#c3ddd5]">
+    <section class="pt-32 pb-32 px-8 bg-[#c3ddd5]">
       <div class="max-w-2xl mx-auto">
 
         <div class="text-center space-y-4 mb-12">

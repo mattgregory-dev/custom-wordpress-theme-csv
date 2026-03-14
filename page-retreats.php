@@ -136,7 +136,7 @@ if ( have_posts() ) :
       </div>
     </section>
 
-    <section class="py-32 px-8">
+    <section class="pt-24 pb-32 px-8">
       <div class="max-w-6xl mx-auto">
         <div class="max-w-xl mx-auto text-center mb-20">
           <h2 class="text-gray-900 mb-6 text-[2.5rem] font-normal">
@@ -259,7 +259,7 @@ if ( have_posts() ) :
       </div>
     </section>
 
-    <section class="py-32 px-8">
+    <section class="pt-24 pb-32 px-8">
       <div class="max-w-7xl mx-auto">
         <div class="grid md:grid-cols-2 gap-20 items-start">
           <div class="md:order-1">
@@ -312,9 +312,9 @@ if ( have_posts() ) :
       </div>
     </section>
 
-    <section class="py-32 px-8">
+    <section class="pt-24 pb-24 px-8">
       <div class="max-w-7xl mx-auto">
-        <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div class="grid md:grid-cols-2 gap-16 items-start md:items-start lg:items-center">
           <div class="space-y-12">
             <div class="space-y-4">
               <h2 class="text-gray-900 text-[2.5rem] font-normal">
@@ -365,7 +365,7 @@ if ( have_posts() ) :
       </div>
     </section>
 
-    <section class="py-32 px-8">
+    <section class="pt-24 pb-32 px-8">
       <div class="max-w-4xl mx-auto">
         <div class="text-center mb-20">
           <h2 class="text-gray-900 text-[2.5rem] font-normal">
@@ -457,7 +457,7 @@ if ( have_posts() ) :
       </div>
     </section>
 
-    <section class="relative py-32 px-8 bg-[#c3ddd5]">
+    <section class="relative pt-32 pb-32 px-8 bg-[#c3ddd5]">
       <div class="relative z-10 max-w-3xl mx-auto text-center space-y-8">
         <h2 class="text-gray-900 text-[2.5rem] font-normal">
           Begin the Journey
