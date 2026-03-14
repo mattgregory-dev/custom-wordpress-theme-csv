@@ -121,7 +121,7 @@ h6,
     line-height: 1.5;
   }
   a {
-    color: var(--dusk-soft);
+    color: var(--link-color);
     text-decoration: underline;
     text-underline-offset: 4px;
   }
@@ -146,4 +146,3 @@ h6,
 .post-content > * + * {
   margin-top: 1.5rem;
 }
-

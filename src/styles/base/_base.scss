@@ -1,0 +1,11 @@
+section {
+ .content {
+  a {
+    color: var(--link-color);
+    &:hover {
+      color: #004aff;
+      text-decoration: underline;
+    }
+  }
+ }
+}

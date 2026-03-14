@@ -17,55 +17,50 @@ const renderNextStep = ({
     blockProps,
     createElement(
       'div',
-      { className: 'max-w-4xl mx-auto' },
+      { className: 'footer-banner-wrapper' },
       createElement(
         'div',
-        { className: 'grid grid-cols-12 gap-12 items-center' },
+        { className: 'footer-banner-grid' },
         createElement(
           'div',
-          { className: 'col-span-5' },
+          { className: 'footer-banner-grid-col-5' },
           createElement(
             'div',
-            { className: 'aspect-square bg-gray-100 flex items-center justify-center' },
+            { className: 'image-wrapper' },
             imageUrl
               ? createElement('img', {
                   src: imageUrl,
                   alt: '',
-                  className: 'w-full h-full object-cover',
                 })
               : createElement('span', { className: 'text-gray-400 text-sm' }, '[ IMAGE ]')
           )
         ),
         createElement(
           'div',
-          { className: 'col-span-7' },
+          { className: 'footer-banner-grid-col-7' },
           createElement(
             'div',
-            { className: 'mb-6' },
-            createElement(
-              'span',
-              { className: 'text-xs tracking-[0.2em] text-gray-600' },
-              eyebrow || 'eyebrow'
-            )
+            { className: 'footer-eyebrow' },
+            eyebrow || 'eyebrow'
           ),
           createElement(
             'h2',
-            { className: 'text-5xl mb-8 tracking-tight' },
+            { className: 'footer-banner-title' },
             title || 'title'
           ),
           createElement(
             'p',
-            { className: 'text-lg leading-relaxed mb-10 max-w-lg' },
+            { className: 'footer-banner-description' },
             description || 'description'
           ),
           createElement(
             'div',
-            { className: 'space-y-4' },
+            { className: 'footer-button-wrapper' },
             createElement(
               'a',
               {
                 className: 'cwp-btn cwp-btn--primary',
-                href: buttonUrl || '#',
+                href: buttonUrl || '/',
               },
               `${buttonText || 'button text'} \u2192`
             )
@@ -210,7 +205,7 @@ registerBlockType('cwp/next-step', {
   },
   save: ({ attributes }) => {
     const blockProps = useBlockProps.save({
-      className: 'py-32 px-8 bg-[#c3ddd5]',
+      className: 'footer-banner',
     });
 
     return renderNextStep(attributes, blockProps);
