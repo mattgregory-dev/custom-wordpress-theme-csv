@@ -217,7 +217,6 @@ section#preparation {
 .page-hero {
   position: relative;
   min-height: 100vh;
-  min-height: 100svh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -304,7 +303,7 @@ section#preparation {
 @media (max-width: 900px) {
   .page-hero {
     min-height: auto;
-    padding-block: 7rem 4.5rem;
+    padding: 12rem 0 4.5rem;
     align-items: flex-start;
     .hero-wrapper {
       padding-inline: 1.5rem;
@@ -571,4 +570,19 @@ ul {
   path {
     fill: rgb(174, 161, 126);;
   }
+}
+
+.hack {
+ .cwp-btn--secondary {
+  visibility: hidden;
+ }
+ @media (max-width:900px) {
+  display: block;
+  .cwp-btn--primary {
+    width: 100%;
+  }
+  .cwp-btn--secondary {
+    display: none;
+  }
+ }
 }

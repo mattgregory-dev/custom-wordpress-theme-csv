@@ -131,6 +131,72 @@ const ayaMotifSVGDraw = () => {
   startWhenVisible();
 };
 
+// Anchor link handling with Lenis compatibility.
+const smoothAnchors = () => {
+  const getHeaderOffset = () => {
+    const header = document.querySelector('.sticky-active');
+    if (!header) return 0;
+    const styles = window.getComputedStyle(header);
+    const isFixed = styles.position === 'fixed' || styles.position === 'sticky';
+    return isFixed ? header.offsetHeight : 0;
+  };
+
+  const scrollToHash = (hash, updateHistory = true) => {
+    if (!hash) return;
+    const id = hash.charAt(0) === '#' ? hash : `#${hash}`;
+    const target = document.querySelector(id);
+    if (!target) return false;
+
+    const offset = getHeaderOffset();
+    if (LenisScroll.getInstance()) {
+      LenisScroll.scrollTo(target, { offset: -offset, duration: 2.1 });
+    } else {
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+
+    if (updateHistory) {
+      history.pushState(null, '', id);
+    }
+
+    return true;
+  };
+
+  document.addEventListener('click', (event) => {
+    const link = event.target.closest('a[href]');
+    if (!link) return;
+
+    const href = link.getAttribute('href');
+    if (!href || href === '#' || href.startsWith('mailto:') || href.startsWith('tel:')) {
+      return;
+    }
+
+    let url;
+    try {
+      url = new URL(link.href, window.location.href);
+    } catch (error) {
+      return;
+    }
+
+    const isSamePage = url.origin === window.location.origin
+      && url.pathname.replace(/\/+$/, '') === window.location.pathname.replace(/\/+$/, '')
+      && url.hash;
+
+    if (!isSamePage) return;
+
+    if (!scrollToHash(url.hash)) return;
+    event.preventDefault();
+  });
+
+  window.addEventListener('hashchange', () => {
+    scrollToHash(window.location.hash, false);
+  });
+
+  if (window.location.hash) {
+    window.setTimeout(() => scrollToHash(window.location.hash, false), 0);
+  }
+};
+
 // Lenis smooth scrolling with GSAP ticker integration.
 const LenisScroll = {
   setupLenis() {
@@ -229,72 +295,6 @@ const scrollToTop = () => {
       behavior: "smooth",
     });
   });
-};
-
-// Anchor link handling with Lenis compatibility.
-const smoothAnchors = () => {
-  const getHeaderOffset = () => {
-    const header = document.querySelector('.sticky-active');
-    if (!header) return 0;
-    const styles = window.getComputedStyle(header);
-    const isFixed = styles.position === 'fixed' || styles.position === 'sticky';
-    return isFixed ? header.offsetHeight : 0;
-  };
-
-  const scrollToHash = (hash, updateHistory = true) => {
-    if (!hash) return;
-    const id = hash.charAt(0) === '#' ? hash : `#${hash}`;
-    const target = document.querySelector(id);
-    if (!target) return false;
-
-    const offset = getHeaderOffset();
-    if (LenisScroll.getInstance()) {
-      LenisScroll.scrollTo(target, { offset: -offset, duration: 2.1 });
-    } else {
-      const top = target.getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({ top, behavior: 'smooth' });
-    }
-
-    if (updateHistory) {
-      history.pushState(null, '', id);
-    }
-
-    return true;
-  };
-
-  document.addEventListener('click', (event) => {
-    const link = event.target.closest('a[href]');
-    if (!link) return;
-
-    const href = link.getAttribute('href');
-    if (!href || href === '#' || href.startsWith('mailto:') || href.startsWith('tel:')) {
-      return;
-    }
-
-    let url;
-    try {
-      url = new URL(link.href, window.location.href);
-    } catch (error) {
-      return;
-    }
-
-    const isSamePage = url.origin === window.location.origin
-      && url.pathname.replace(/\/+$/, '') === window.location.pathname.replace(/\/+$/, '')
-      && url.hash;
-
-    if (!isSamePage) return;
-
-    if (!scrollToHash(url.hash)) return;
-    event.preventDefault();
-  });
-
-  window.addEventListener('hashchange', () => {
-    scrollToHash(window.location.hash, false);
-  });
-
-  if (window.location.hash) {
-    window.setTimeout(() => scrollToHash(window.location.hash, false), 0);
-  }
 };
 
 // Sticky header class toggling.
@@ -1120,8 +1120,8 @@ const init = () => {
   ayaMotifSVGDraw();
   scrollToTop();
   smoothAnchors();
-  stickyHeader();
   LenisScroll.init();
+  stickyHeader();
   cwpParallax();
   themeToggle();
   activeMenu();

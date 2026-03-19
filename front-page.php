@@ -19,6 +19,7 @@ if ( have_posts() ) :
 
     <?php include get_template_directory() . '/partials/slots/hero-slot.php'; ?>
 
+    <!-- A Moment to Step Away -->
     <section class="py-24 px-8">
       <div class="max-w-3xl mx-auto text-center">
         <?php get_template_part('partials/aya-motif') ?>
@@ -27,7 +28,7 @@ if ( have_posts() ) :
           OUR APPROACH
         </div>
 
-        <h2 class="text-3xl md:text-5xl text-gray-900 font-normal" style="line-height:1.4;margin-top:3.2rem;">
+        <h2 class="text-4xl md:text-5xl text-gray-900 font-normal mt-[3.2rem] leading-[1.4] sm:leading-9 md:leading-none">
           A Moment to Step Away
         </h2>
 
@@ -41,10 +42,11 @@ if ( have_posts() ) :
       </div>
     </section>
 
+    <!-- The Journey of the Work -->
     <section id="steps" class="pt-32 pb-32 px-8 bg-[#d6e3e5]">
       <div class="max-w-6xl mx-auto">
         <div class="text-center space-y-4 mb-16">
-          <h2 class="text-4xl text-gray-900 font-normal">
+          <h2 class="text-4xl text-gray-900 font-normal leading-[1.4] sm:leading-10">
             The Journey of the Work
           </h2>
           <p class="text-gray-700 leading-relaxed max-w-2xl mx-auto">
@@ -56,10 +58,11 @@ if ( have_posts() ) :
       </div>
     </section>
 
-    <section class="pt-32 pb-32 px-8">
+    <!-- What You'll Experience at Lumina -->
+    <section class="pt-16 sm:pt-32 pb-32 px-8">
       <div class="max-w-6xl mx-auto">
         <div class="text-center space-y-4 mb-16">
-          <h2 class="text-4xl text-gray-900 font-normal">
+          <h2 class="text-4xl text-gray-900 font-normal leading-[1.4] sm:leading-10">
             What You'll Experience at Lumina
           </h2>
           <p class="text-gray-700 leading-relaxed max-w-2xl mx-auto">
@@ -68,8 +71,9 @@ if ( have_posts() ) :
         </div>
 
         <div class="grid md:grid-cols-3 gap-8">
+
           <div class="space-y-4 p-8 bg-gray-50 border border-gray-200 rounded-lg soft-shadow">
-            <div class="w-10 h-10 flex items-center justify-center">
+            <div class="w-10 h-10 flex items-center justify-center mx-auto sm:mx-0">
               <svg class="cwp-icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewBox="-49 141 512 512">
                 <polygon points="206.7,150 130.7,225.3 35.3,316 -40,391.3 -19.3,414.7 96,531.3 205.3,642.7 216,634.7 233.3,617.3 
                   426.7,420.7 452.7,392 446,380.7 352.7,290.7 252.7,192"/>
@@ -81,7 +85,7 @@ if ( have_posts() ) :
               </svg>
             </div>
             <div class="space-y-3">
-              <h3 class="text-xl text-gray-900 font-normal">Preparation</h3>
+              <h3 class="text-xl text-gray-900 font-normal leading-[1.4] sm:leading-7 text-center sm:text-left">Preparation</h3>
               <p class="text-gray-600 leading-relaxed text-sm">
                 Guidance before the retreat to help guests arrive grounded and ready.
               </p>
@@ -89,7 +93,7 @@ if ( have_posts() ) :
           </div>
 
           <div class="space-y-4 p-8 bg-gray-50 border border-gray-200 rounded-lg soft-shadow">
-            <div class="w-10 h-10 flex items-center justify-center">
+            <div class="w-10 h-10 flex items-center justify-center mx-auto sm:mx-0">
               <svg class="cwp-icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewBox="-49 141 512 512">
                 <polygon points="206.7,150 130.7,225.3 35.3,316 -40,391.3 -19.3,414.7 96,531.3 205.3,642.7 216,634.7 233.3,617.3 
                   426.7,420.7 452.7,392 446,380.7 352.7,290.7 252.7,192"/>
@@ -101,7 +105,7 @@ if ( have_posts() ) :
               </svg>
             </div>
             <div class="space-y-3">
-              <h3 class="text-xl text-gray-900 font-normal">Ceremony</h3>
+              <h3 class="text-xl text-gray-900 font-normal leading-[1.4] sm:leading-7 text-center sm:text-left">Ceremony</h3>
               <p class="text-gray-600 leading-relaxed text-sm">
                 Held within a safe and supportive ceremonial environment.
               </p>
@@ -109,7 +113,7 @@ if ( have_posts() ) :
           </div>
 
           <div class="space-y-4 p-8 bg-gray-50 border border-gray-200 rounded-lg soft-shadow">
-            <div class="w-10 h-10 flex items-center justify-center">
+            <div class="w-10 h-10 flex items-center justify-center mx-auto sm:mx-0">
               <svg class="cwp-icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewBox="-49 141 512 512">
                 <polygon points="206.7,150 130.7,225.3 35.3,316 -40,391.3 -19.3,414.7 96,531.3 205.3,642.7 216,634.7 233.3,617.3 
                   426.7,420.7 452.7,392 446,380.7 352.7,290.7 252.7,192"/>
@@ -121,7 +125,7 @@ if ( have_posts() ) :
               </svg>
             </div>
             <div class="space-y-3">
-              <h3 class="text-xl text-gray-900 font-normal">Integration</h3>
+              <h3 class="text-xl text-gray-900 font-normal leading-[1.4] sm:leading-7 text-center sm:text-left">Integration</h3>
               <p class="text-gray-600 leading-relaxed text-sm">
                 Space for reflection and continued support after the retreat.
               </p>
@@ -129,7 +133,7 @@ if ( have_posts() ) :
           </div>
 
           <div class="space-y-4 p-8 bg-gray-50 border border-gray-200 rounded-lg soft-shadow">
-            <div class="w-10 h-10 flex items-center justify-center">
+            <div class="w-10 h-10 flex items-center justify-center mx-auto sm:mx-0">
               <svg class="cwp-icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewBox="-49 141 512 512">
                 <polygon points="206.7,150 130.7,225.3 35.3,316 -40,391.3 -19.3,414.7 96,531.3 205.3,642.7 216,634.7 233.3,617.3 
                   426.7,420.7 452.7,392 446,380.7 352.7,290.7 252.7,192"/>
@@ -141,7 +145,7 @@ if ( have_posts() ) :
               </svg>
             </div>
             <div class="space-y-3">
-              <h3 class="text-xl text-gray-900 font-normal">Support</h3>
+              <h3 class="text-xl text-gray-900 font-normal leading-[1.4] sm:leading-7 text-center sm:text-left">Support</h3>
               <p class="text-gray-600 leading-relaxed text-sm">
                 Experienced facilitators and a small group container.
               </p>
@@ -149,7 +153,7 @@ if ( have_posts() ) :
           </div>
 
           <div class="space-y-4 p-8 bg-gray-50 border border-gray-200 rounded-lg soft-shadow">
-            <div class="w-10 h-10 flex items-center justify-center">
+            <div class="w-10 h-10 flex items-center justify-center mx-auto sm:mx-0">
               <svg class="cwp-icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewBox="-49 141 512 512">
                 <polygon points="206.7,150 130.7,225.3 35.3,316 -40,391.3 -19.3,414.7 96,531.3 205.3,642.7 216,634.7 233.3,617.3 
                   426.7,420.7 452.7,392 446,380.7 352.7,290.7 252.7,192"/>
@@ -161,7 +165,7 @@ if ( have_posts() ) :
               </svg>
             </div>
             <div class="space-y-3">
-              <h3 class="text-xl text-gray-900 font-normal">Nature</h3>
+              <h3 class="text-xl text-gray-900 font-normal leading-[1.4] sm:leading-7 text-center sm:text-left">Nature</h3>
               <p class="text-gray-600 leading-relaxed text-sm">
                 Quiet landscapes and natural beauty support presence and grounding.
               </p>
@@ -169,7 +173,7 @@ if ( have_posts() ) :
           </div>
 
           <div class="space-y-4 p-8 bg-gray-50 border border-gray-200 rounded-lg soft-shadow">
-            <div class="w-10 h-10 flex items-center justify-center">
+            <div class="w-10 h-10 flex items-center justify-center mx-auto sm:mx-0">
               <svg class="cwp-icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewBox="-49 141 512 512">
                 <polygon points="206.7,150 130.7,225.3 35.3,316 -40,391.3 -19.3,414.7 96,531.3 205.3,642.7 216,634.7 233.3,617.3 
                   426.7,420.7 452.7,392 446,380.7 352.7,290.7 252.7,192"/>
@@ -181,7 +185,7 @@ if ( have_posts() ) :
               </svg>
             </div>
             <div class="space-y-3">
-              <h3 class="text-xl text-gray-900 font-normal">Small Groups</h3>
+              <h3 class="text-xl text-gray-900 font-normal leading-[1.4] sm:leading-7 text-center sm:text-left">Small Groups</h3>
               <p class="text-gray-600 leading-relaxed text-sm">
                 Limited group sizes allow for meaningful connection and personal attention.
               </p>
@@ -191,7 +195,8 @@ if ( have_posts() ) :
       </div>
     </section>
 
-    <section class="pt-32 pb-32 px-8">
+    <!-- Sedona, The Perfect Place for a Reset -->
+    <section class="pt-0 sm:pt-16 pb-32 px-8">
       <div class="max-w-7xl mx-auto">
         <div class="grid md:grid-cols-2 gap-16 items-start md:items-start lg:items-center">
           <div class="flex items-center justify-center">
@@ -199,7 +204,7 @@ if ( have_posts() ) :
           </div>
 
           <div class="space-y-6 ">
-            <h2 class="text-4xl text-gray-900 font-normal">
+            <h2 class="text-4xl text-gray-900 font-normal leading-[1.4] sm:leading-10 text-center sm:text-left">
               Sedona, The Perfect Place for a Reset
             </h2>
 
@@ -219,10 +224,11 @@ if ( have_posts() ) :
       </div>
     </section>
 
-    <section id="retreats" class="pt-20 pb-32 px-8">
+    <!-- Upcoming retreats -->
+    <section id="retreats" class="pt-0 md:pt-16 pb-32 px-8">
       <div class="max-w-6xl mx-auto">
         <div class="text-center space-y-4 mb-16">
-          <h2 class="text-4xl text-gray-900 font-normal">
+          <h2 class="text-4xl text-gray-900 font-normal leading-[1.4] sm:leading-10">
             Upcoming Retreats
           </h2>
           <p class="text-gray-700 leading-relaxed">
@@ -238,7 +244,7 @@ if ( have_posts() ) :
             </div>
             <div class="p-8 space-y-6 border-2 border-gray-300 border-t-[0] rounded-b-lg">
               <div class="space-y-3">
-                <h3 class="text-2xl text-gray-900 font-normal">Quiet River Retreat</h3>
+                <h3 class="text-2xl text-gray-900 font-normal leading-[1.4] sm:leading-8 text-center sm:text-left">Quiet River Retreat</h3>
                 <div class="text-sm text-gray-600">
                   <div>May 12&ndash;16</div>
                   <div>5 Days &bull; Sedona, Arizona</div>
@@ -260,7 +266,7 @@ if ( have_posts() ) :
             </div>
             <div class="p-8 space-y-6 border-2 border-gray-300 border-t-[0] rounded-b-lg">
               <div class="space-y-3">
-                <h3 class="text-2xl text-gray-900 font-normal">Desert Spring Retreat</h3>
+                <h3 class="text-2xl text-gray-900 font-normal leading-[1.4] sm:leading-8 text-center sm:text-left">Desert Spring Retreat</h3>
                 <div class="text-sm text-gray-600">
                   <div>June 8&ndash;12</div>
                   <div>5 Days &bull; Sedona, Arizona</div>
@@ -286,10 +292,11 @@ if ( have_posts() ) :
       </div>
     </section>
 
-    <section class="pt-12 pb-32 px-8">
+    <!-- What our guests say -->
+    <section class="pt-0 md:pt-12 pb-32 px-8">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16">
-          <h2 class="text-4xl text-gray-900 font-normal">
+          <h2 class="text-4xl text-gray-900 font-normal leading-[1.4] sm:leading-10">
             What Our Guests Say
           </h2>
         </div>
@@ -328,10 +335,11 @@ if ( have_posts() ) :
       </div>
     </section>
 
-    <section class="pt-24 pb-32 px-8">
+    <!-- Meet Your Guides -->
+    <section class="pt-0 md:pt-16 pb-32 px-8">
       <div class="max-w-5xl mx-auto">
         <div class="text-center mb-16">
-          <h2 class="text-4xl text-gray-900 font-normal">
+          <h2 class="text-4xl text-gray-900 font-normal leading-[1.4] sm:leading-10">
             Meet Your Guides
           </h2>
         </div>
@@ -340,10 +348,11 @@ if ( have_posts() ) :
       </div>
     </section>
 
-    <section class="pt-24 pb-32 px-8">
+    <!-- Safety and Care -->
+    <section class="pt-0 md:pt-16 pb-32 px-8">
       <div class="max-w-5xl mx-auto">
         <div class="text-center space-y-6 mb-16">
-          <h2 class="text-4xl text-gray-900 font-normal">
+          <h2 class="text-4xl text-gray-900 font-normal leading-[1.4] sm:leading-10">
             Safety and Care
           </h2>
 
@@ -370,7 +379,7 @@ if ( have_posts() ) :
                   l-90.4-251.2L117.1,418z M222.3,171.7l88.3,245.3L443,387.5L222.3,171.7z M-28,387.5l132.4,29.4l88.3-245.3L-28,387.5z"/>
               </svg>
             </div>
-            <h3 class="text-sm text-gray-900 font-normal">Medical Screening</h3>
+            <h3 class="text-sm text-gray-900 font-normal leading-[1.4] sm:leading-5">Medical Screening</h3>
           </div>
           <div class="bg-white p-6 border border-gray-200 text-center space-y-4 rounded-lg soft-shadow">
             <div class="w-12 h-12 mx-auto flex items-center justify-center">
@@ -384,7 +393,7 @@ if ( have_posts() ) :
                   l-90.4-251.2L117.1,418z M222.3,171.7l88.3,245.3L443,387.5L222.3,171.7z M-28,387.5l132.4,29.4l88.3-245.3L-28,387.5z"/>
               </svg>
             </div>
-            <h3 class="text-sm text-gray-900 font-normal">Dieta Guidance</h3>
+            <h3 class="text-sm text-gray-900 font-normal leading-[1.4] sm:leading-5">Dieta Guidance</h3>
           </div>
           <div class="bg-white p-6 border border-gray-200 text-center space-y-4 rounded-lg soft-shadow">
             <div class="w-12 h-12 mx-auto flex items-center justify-center">
@@ -398,7 +407,7 @@ if ( have_posts() ) :
                   l-90.4-251.2L117.1,418z M222.3,171.7l88.3,245.3L443,387.5L222.3,171.7z M-28,387.5l132.4,29.4l88.3-245.3L-28,387.5z"/>
               </svg>
             </div>
-            <h3 class="text-sm text-gray-900 font-normal">Nervous System Care</h3>
+            <h3 class="text-sm text-gray-900 font-normal leading-[1.4] sm:leading-5">Nervous System Care</h3>
           </div>
           <div class="bg-white p-6 border border-gray-200 text-center space-y-4 rounded-lg soft-shadow">
             <div class="w-12 h-12 mx-auto flex items-center justify-center">
@@ -412,15 +421,16 @@ if ( have_posts() ) :
                   l-90.4-251.2L117.1,418z M222.3,171.7l88.3,245.3L443,387.5L222.3,171.7z M-28,387.5l132.4,29.4l88.3-245.3L-28,387.5z"/>
               </svg>
             </div>
-            <h3 class="text-sm text-gray-900 font-normal">Integration Support</h3>
+            <h3 class="text-sm text-gray-900 font-normal leading-[1.4] sm:leading-5">Integration Support</h3>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="pt-24 pb-32 px-8">
+    <!-- Ready to explore this work? -->
+    <section class="pt-0 md:pt-16 pb-32 px-8">
       <div class="max-w-3xl mx-auto text-center space-y-8">
-        <h2 class="text-4xl md:text-5xl text-gray-900 font-normal leading-[1.3]">
+        <h2 class="text-4xl md:text-5xl text-gray-900 font-normal leading-[1.4] sm:leading-[1.3]">
           Ready to explore this work?
         </h2>
 
@@ -439,11 +449,12 @@ if ( have_posts() ) :
       </div>
     </section>
 
+    <!-- Have questions? -->
     <section class="pt-32 pb-32 px-8 bg-[#c3ddd5]">
       <div class="max-w-2xl mx-auto">
 
         <div class="text-center space-y-4 mb-12">
-          <h2 class="text-4xl text-gray-900 font-normal">
+          <h2 class="text-4xl text-gray-900 font-normal leading-[1.4] sm:leading-10">
             Have Questions? Let's Talk
           </h2>
           <p class="text-gray-700 leading-relaxed">

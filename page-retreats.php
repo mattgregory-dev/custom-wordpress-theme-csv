@@ -22,6 +22,7 @@ if ( have_posts() ) :
 
     <?php include get_template_directory() . '/partials/slots/hero-slot.php'; ?>
 
+    <!-- Upcoming Retreats in Sedona -->
     <section class="page-hero">
       <div class="hero-wrapper">
         <div class="hero-eyebrow-wrapper">
@@ -45,7 +46,8 @@ if ( have_posts() ) :
       </div>
     </section>
 
-    <section id="retreats" class="py-32 px-8">
+    <!-- Choose Your Retreat -->
+    <section id="retreats" class="pt-24 pb-24 px-8">
       <div class="max-w-7xl mx-auto">
         <div class="max-w-3xl mx-auto text-center mb-20">
           <h2 class="text-gray-900 mb-6 text-[2.5rem] font-normal">
@@ -58,14 +60,14 @@ if ( have_posts() ) :
 
         <div class="grid md:grid-cols-2 gap-12">
 
-          <div class="soft-shadow rounded-b-lg">
+          <div class="rounded-b-lg">
             <div class="flex items-center justify-center relative">
               <img class="retreat-thumb" src="<?php echo esc_url( get_template_directory_uri() . '/images/bg/7AcMUSYRZpU-800.webp' ); ?>">
               <span class="absolute top-4 right-4 px-3 py-1 bg-white border border-gray-400 text-gray-700 text-xs uppercase tracking-wider rounded-md">
                 Small Group
               </span>
             </div>
-            <div class="p-8 space-y-6 border-2 border-gray-300 border-t-[0] rounded-b-lg">
+            <div class="p-8 space-y-6 border-2 border-gray-300 border-t-[0] rounded-b-lg bg-white">
               <h3 class="text-gray-900 text-[1.75rem] font-normal">Quiet River Retreat</h3>
               <div class="grid grid-cols-2 gap-4 text-sm">
                 <div>
@@ -88,21 +90,21 @@ if ( have_posts() ) :
                 <p class="text-gray-500 text-sm mb-1">Starting From</p>
                 <p class="text-gray-900 text-2xl">$2,500</p>
               </div>
-              <div class="grid md:grid-cols-2 gap-12">
+              <div class="grid md:grid-cols-2 gap-4 hack">
                 <a class="cwp-btn cwp-btn--primary" href="<?php echo esc_url( home_url( '/apply/' ) ); ?>">Apply</a>
-                <a style="visibility:hidden;" class="cwp-btn cwp-btn--secondary" href="#">Details</a>
+                <a class="cwp-btn cwp-btn--secondary" href="#">Details</a>
               </div>
             </div>
           </div>
 
-          <div class="soft-shadow rounded-b-lg">
+          <div class="rounded-b-lg">
             <div class="flex items-center justify-center relative">
               <img class="retreat-thumb" src="<?php echo esc_url( get_template_directory_uri() . '/images/bg/7AcMUSYRZpU-800.webp' ); ?>">
               <span class="absolute top-4 right-4 px-3 py-1 bg-white border border-gray-400 text-gray-700 text-xs uppercase tracking-wider rounded-md">
                 Limited Spots
               </span>
             </div>
-            <div class="p-8 space-y-6 border-2 border-gray-300 border-t-[0] rounded-b-lg">
+            <div class="p-8 space-y-6 border-2 border-gray-300 border-t-[0] rounded-b-lg bg-white">
               <h3 class="text-gray-900 text-[1.75rem] font-normal">Desert Awakening Retreat</h3>
               <div class="grid grid-cols-2 gap-4 text-sm">
                 <div>
@@ -125,9 +127,9 @@ if ( have_posts() ) :
                 <p class="text-gray-500 text-sm mb-1">Starting From</p>
                 <p class="text-gray-900 text-2xl">$2,500</p>
               </div>
-              <div class="grid md:grid-cols-2 gap-12">
+              <div class="grid md:grid-cols-2 gap-4 hack">
                 <a class="cwp-btn cwp-btn--primary" href="<?php echo esc_url( home_url( '/apply/' ) ); ?>">Apply</a>
-                <a style="visibility:hidden;" class="cwp-btn cwp-btn--secondary" href="#">Details</a>
+                <a class="cwp-btn cwp-btn--secondary" href="#">Details</a>
               </div>
             </div>
           </div>
@@ -136,7 +138,8 @@ if ( have_posts() ) :
       </div>
     </section>
 
-    <section class="pt-24 pb-32 px-8">
+    <!-- What's Included -->
+    <section class="pt-0 md:pt-12 pb-32 px-8">
       <div class="max-w-6xl mx-auto">
         <div class="max-w-xl mx-auto text-center mb-20">
           <h2 class="text-gray-900 mb-6 text-[2.5rem] font-normal">
@@ -148,8 +151,8 @@ if ( have_posts() ) :
         </div>
 
         <div class="grid md:grid-cols-3 gap-12">
-          <div class="space-y-4">
-            <div class="w-16 h-16 flex items-center justify-center">
+          <div class="space-y-4 text-center md:text-left">
+            <div class="w-16 h-16 flex items-center justify-center mx-auto md:mx-0">
               <svg class="cwp-icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewBox="-49 141 512 512">
                 <polygon points="206.7,150 130.7,225.3 35.3,316 -40,391.3 -19.3,414.7 96,531.3 205.3,642.7 216,634.7 233.3,617.3 
                   426.7,420.7 452.7,392 446,380.7 352.7,290.7 252.7,192"/>
@@ -166,8 +169,8 @@ if ( have_posts() ) :
             </div>
           </div>
 
-          <div class="space-y-4">
-            <div class="w-16 h-16 flex items-center justify-center">
+          <div class="space-y-4 text-center md:text-left">
+            <div class="w-16 h-16 flex items-center justify-center mx-auto md:mx-0">
               <svg class="cwp-icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewBox="-49 141 512 512">
                 <polygon points="206.7,150 130.7,225.3 35.3,316 -40,391.3 -19.3,414.7 96,531.3 205.3,642.7 216,634.7 233.3,617.3 
                   426.7,420.7 452.7,392 446,380.7 352.7,290.7 252.7,192"/>
@@ -184,8 +187,8 @@ if ( have_posts() ) :
             </div>
           </div>
 
-          <div class="space-y-4">
-            <div class="w-16 h-16 flex items-center justify-center">
+          <div class="space-y-4 text-center md:text-left">
+            <div class="w-16 h-16 flex items-center justify-center mx-auto md:mx-0">
               <svg class="cwp-icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewBox="-49 141 512 512">
                 <polygon points="206.7,150 130.7,225.3 35.3,316 -40,391.3 -19.3,414.7 96,531.3 205.3,642.7 216,634.7 233.3,617.3 
                   426.7,420.7 452.7,392 446,380.7 352.7,290.7 252.7,192"/>
@@ -202,8 +205,8 @@ if ( have_posts() ) :
             </div>
           </div>
 
-          <div class="space-y-4">
-            <div class="w-16 h-16 flex items-center justify-center">
+          <div class="space-y-4 text-center md:text-left">
+            <div class="w-16 h-16 flex items-center justify-center mx-auto md:mx-0">
               <svg class="cwp-icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewBox="-49 141 512 512">
                 <polygon points="206.7,150 130.7,225.3 35.3,316 -40,391.3 -19.3,414.7 96,531.3 205.3,642.7 216,634.7 233.3,617.3 
                   426.7,420.7 452.7,392 446,380.7 352.7,290.7 252.7,192"/>
@@ -220,8 +223,8 @@ if ( have_posts() ) :
             </div>
           </div>
 
-          <div class="space-y-4">
-            <div class="w-16 h-16 flex items-center justify-center">
+          <div class="space-y-4 text-center md:text-left">
+            <div class="w-16 h-16 flex items-center justify-center mx-auto md:mx-0">
               <svg class="cwp-icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewBox="-49 141 512 512">
                 <polygon points="206.7,150 130.7,225.3 35.3,316 -40,391.3 -19.3,414.7 96,531.3 205.3,642.7 216,634.7 233.3,617.3 
                   426.7,420.7 452.7,392 446,380.7 352.7,290.7 252.7,192"/>
@@ -238,8 +241,8 @@ if ( have_posts() ) :
             </div>
           </div>
 
-          <div class="space-y-4">
-            <div class="w-16 h-16 flex items-center justify-center">
+          <div class="space-y-4 text-center md:text-left">
+            <div class="w-16 h-16 flex items-center justify-center mx-auto md:mx-0">
               <svg class="cwp-icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewBox="-49 141 512 512">
                 <polygon points="206.7,150 130.7,225.3 35.3,316 -40,391.3 -19.3,414.7 96,531.3 205.3,642.7 216,634.7 233.3,617.3 
                   426.7,420.7 452.7,392 446,380.7 352.7,290.7 252.7,192"/>
@@ -259,9 +262,10 @@ if ( have_posts() ) :
       </div>
     </section>
 
-    <section class="pt-24 pb-32 px-8">
+    <!-- Bringing You the Best Possible Experience -->
+    <section class="pt-0 md:pt-12 pb-32 px-8">
       <div class="max-w-7xl mx-auto">
-        <div class="grid md:grid-cols-2 gap-20 items-start">
+        <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-start">
           <div class="md:order-1">
             <div class="flex items-center justify-center ">
               <img class="page-image" src="<?php echo esc_url( get_template_directory_uri() . '/images/bg/ihMps87XgEQ.webp' ); ?>">
@@ -312,7 +316,8 @@ if ( have_posts() ) :
       </div>
     </section>
 
-    <section class="pt-24 pb-24 px-8">
+    <!-- Traveling to Sedona -->
+    <section class="pt-0 md:pt-12 pb-24 px-8">
       <div class="max-w-7xl mx-auto">
         <div class="grid md:grid-cols-2 gap-16 items-start md:items-start lg:items-center">
           <div class="space-y-12">
@@ -365,7 +370,8 @@ if ( have_posts() ) :
       </div>
     </section>
 
-    <section class="pt-24 pb-32 px-8">
+    <!-- Frequently Asked Questions -->
+    <section class="pt-0 md:pt-12 pb-12 md:pb-32 px-8">
       <div class="max-w-4xl mx-auto">
         <div class="text-center mb-20">
           <h2 class="text-gray-900 text-[2.5rem] font-normal">
@@ -457,6 +463,7 @@ if ( have_posts() ) :
       </div>
     </section>
 
+    <!-- Begin the Journey -->
     <section class="relative pt-32 pb-32 px-8 bg-[#c3ddd5]">
       <div class="relative z-10 max-w-3xl mx-auto text-center space-y-8">
         <h2 class="text-gray-900 text-[2.5rem] font-normal">
