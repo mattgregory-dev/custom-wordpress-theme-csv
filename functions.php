@@ -21,6 +21,25 @@ function cwp_setup() {
 }
 add_action( 'after_setup_theme', 'cwp_setup' );
 
+// ACF Google Maps API key (method 1: filter).
+function cwp_acf_google_map_api( $api ) {
+  $api['key'] = 'AIzaSyBhXc-P0oJLSCbmNRnLOO-Q5XnjcpISEQs';
+  return $api;
+}
+add_filter( 'acf/fields/google_map/api', 'cwp_acf_google_map_api' );
+
+// Add WooCommerce theme support.
+function cwp_add_woocommerce_support() {
+  add_theme_support( 'woocommerce' );
+  // add_theme_support( 'wc-product-gallery-zoom' );
+  // add_theme_support( 'wc-product-gallery-lightbox' );
+  // add_theme_support( 'wc-product-gallery-slider' );
+}
+add_action( 'after_setup_theme', 'cwp_add_woocommerce_support' );
+
+// Dequeue Woocommerce stylesheets
+add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
+
 // Enqueue either Vite dev assets or the built /dist assets.
 function cwp_assets() {
   $theme_uri = get_template_directory_uri();
@@ -77,7 +96,9 @@ function cwp_block_module_scripts( $tag, $handle, $src ) {
 }
 add_filter( 'script_loader_tag', 'cwp_block_module_scripts', 10, 3 );
 
-// Remove WordPress markup that is not needed
+//////////////////////////////////////////////////
+/////////// Remove WordPress features ////////////
+//////////////////////////////////////////////////
 function cwp_cleanup_head() {
   remove_action( 'wp_head', 'rsd_link' );
   remove_action( 'wp_head', 'wlwmanifest_link' );
@@ -141,6 +162,7 @@ add_filter('wp_insert_attachment_data', function ($data, $postarr) {
     return $data;
 }, 10, 2);
 
+// Conveinent way to keep copyright updated
 function shortcode_current_year() {
     return date('Y');
 }

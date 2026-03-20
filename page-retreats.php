@@ -138,6 +138,78 @@ if ( have_posts() ) :
       </div>
     </section>
 
+    <!-- Upcoming Events -->
+    <section id="retreat-events" class="pt-24 pb-24 px-8">
+      <div class="max-w-7xl mx-auto">
+        <div class="max-w-3xl mx-auto text-center mb-20">
+          <h2 class="text-gray-900 mb-6 text-[2.5rem] font-normal">
+            Upcoming Events
+          </h2>
+          <p class="text-gray-700 leading-relaxed text-lg">
+            Explore upcoming Lumina events and reserve your spot.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12">
+          <?php
+          $events_query = new WP_Query(
+            array(
+              'post_type' => 'event',
+              'post_status' => 'publish',
+              'posts_per_page' => -1,
+              'no_found_rows' => true,
+            )
+          );
+
+          if ( $events_query->have_posts() ) :
+            while ( $events_query->have_posts() ) :
+              $events_query->the_post();
+              $event_type_name = 'Event';
+              $event_types = get_the_terms( get_the_ID(), 'event_type' );
+              if ( ! empty( $event_types ) && ! is_wp_error( $event_types ) ) {
+                $event_type_name = $event_types[0]->name;
+              }
+              $event_image = get_the_post_thumbnail_url( get_the_ID(), 'large' );
+              if ( ! $event_image ) {
+                $event_image = get_template_directory_uri() . '/images/bg/7AcMUSYRZpU-800.webp';
+              }
+              ?>
+              <div class="rounded-b-lg">
+                <div class="flex items-center justify-center relative">
+                  <img class="retreat-thumb" src="<?php echo esc_url( $event_image ); ?>" alt="<?php echo esc_attr( get_the_title() ); ?>">
+                  <span class="absolute top-4 right-4 px-3 py-1 bg-white border border-gray-400 text-gray-700 text-xs uppercase tracking-wider rounded-md">
+                    <?php echo esc_html( $event_type_name ); ?>
+                  </span>
+                </div>
+                <div class="p-8 space-y-6 border-2 border-gray-300 border-t-[0] rounded-b-lg bg-white">
+                  <h3 class="text-gray-900 text-[1.75rem] font-normal"><?php the_title(); ?></h3>
+                  <div class="grid grid-cols-2 gap-4 text-sm">
+                    <div class="col-span-2">
+                      <p class="text-gray-500 uppercase tracking-wider text-xs mb-1">Event Type</p>
+                      <p class="text-gray-900"><?php echo esc_html( $event_type_name ); ?></p>
+                    </div>
+                  </div>
+                  <p class="text-gray-700 leading-relaxed">
+                    <?php echo esc_html( wp_trim_words( get_the_excerpt(), 26 ) ); ?>
+                  </p>
+                  <div class="grid md:grid-cols-2 gap-4 hack">
+                    <a class="cwp-btn cwp-btn--primary" href="<?php echo esc_url( get_permalink() ); ?>">Details</a>
+                    <a class="cwp-btn cwp-btn--secondary" href="<?php echo esc_url( home_url( '/apply/' ) ); ?>">Apply</a>
+                  </div>
+                </div>
+              </div>
+            <?php endwhile; ?>
+          <?php else : ?>
+            <p class="text-gray-700 text-center md:col-span-2">
+              No events scheduled yet. Check back soon.
+            </p>
+          <?php endif; ?>
+
+          <?php wp_reset_postdata(); ?>
+        </div>
+      </div>
+    </section>
+
     <!-- What's Included -->
     <section class="pt-0 md:pt-12 pb-32 px-8">
       <div class="max-w-6xl mx-auto">
