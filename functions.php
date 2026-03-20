@@ -37,8 +37,20 @@ function cwp_add_woocommerce_support() {
 }
 add_action( 'after_setup_theme', 'cwp_add_woocommerce_support' );
 
-// Dequeue Woocommerce stylesheets
-add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
+// // Dequeue Woocommerce stylesheets
+// add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
+
+function cwp_dequeue_woocommerce_styles() {
+  wp_dequeue_style( 'woocommerce-general' );
+  //wp_dequeue_style( 'woocommerce-layout' );
+  //wp_dequeue_style( 'woocommerce-smallscreen' );
+  //wp_dequeue_style( 'woocommerce-inline' );
+  //wp_dequeue_style( 'woocommerce-block-style' );
+  //wp_dequeue_style( 'wc-block-style' );
+  //wp_dequeue_style( 'select2' );
+  //wp_dequeue_style( 'woocommerce-select2' );
+}
+add_action( 'wp_enqueue_scripts', 'cwp_dequeue_woocommerce_styles', 20 );
 
 // Enqueue either Vite dev assets or the built /dist assets.
 function cwp_assets() {
