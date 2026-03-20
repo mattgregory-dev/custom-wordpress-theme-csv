@@ -31,6 +31,9 @@ get_header();
       $full_product_id = $acf_available ? get_field( 'full_product_id', $event_id ) : '';
       $deposit_product_id = $acf_available ? get_field( 'deposit_product_id', $event_id ) : '';
       $balance_product_id = $acf_available ? get_field( 'balance_product_id', $event_id ) : '';
+      $full_product_id = $full_product_id ? (int) $full_product_id : 0;
+      $deposit_product_id = $deposit_product_id ? (int) $deposit_product_id : 0;
+      $balance_product_id = $balance_product_id ? (int) $balance_product_id : 0;
       // Details
       $capacity_raw = $acf_available ? get_field( 'capacity', $event_id ) : '';
       $application_required = $acf_available ? (bool) get_field( 'application_required', $event_id ) : false;
@@ -111,11 +114,10 @@ get_header();
       );
       $event_meta_line = $meta_parts ? implode( ' · ', $meta_parts ) : '';
 
-      // Product links
-      $product_link = '';
-      if ( $linked_product_id && function_exists( 'wc_get_product' ) ) {
-        $product_link = get_permalink( (int) $linked_product_id );
-      }
+      // Checkout links for each payment option.
+      $full_checkout_url = $full_product_id ? home_url( '/checkout/?add-to-cart=' . $full_product_id ) : '';
+      $deposit_checkout_url = $deposit_product_id ? home_url( '/checkout/?add-to-cart=' . $deposit_product_id ) : '';
+      $balance_checkout_url = $balance_product_id ? home_url( '/checkout/?add-to-cart=' . $balance_product_id ) : '';
     ?>
 
     <!-- EVENT HERO -->
@@ -263,11 +265,11 @@ get_header();
               <!-- Payment Buttons -->
               <div class="space-y-3 pt-2">
                 <a class="w-full cwp-btn cwp-btn--primary" 
-                    href="<?php echo esc_url( $product_link ? $product_link : '#' ); ?>">
+                    href="<?php echo esc_url( $full_checkout_url ? $full_checkout_url : '#' ); ?>">
                   Pay in Full
                 </a>
                 <a class="w-full cwp-btn cwp-btn--secondary"
-                    href="<?php echo esc_url( $product_link ? $product_link : '#' ); ?>">
+                    href="<?php echo esc_url( $deposit_checkout_url ? $deposit_checkout_url : '#' ); ?>">
                   Pay Deposit
                 </a>
               </div>
@@ -392,9 +394,6 @@ get_header();
 
 <?php
 get_footer();
-
-
-
 
 
 
