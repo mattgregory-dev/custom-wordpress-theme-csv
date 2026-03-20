@@ -1,11 +1,9 @@
 .woocommerce-page {
+  // Removing sticky header on Woocommerce pages
   .sticky-active {
     display: none;
   }
-  main {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
+  // Giving Woocommerce pages a set width and background styles
   &.woocommerce-checkout,
   &.woocommerce-cart {
     main {
@@ -16,10 +14,23 @@
       padding: 0 3rem;
       border-radius: 13px;
       margin-bottom: 3rem;
+      @media (max-width: 1240px) {
+        margin: 0 20px 3rem;
+      }
+    }
+  }
+  // Woocommerce cart styles
+  &.woocommerce-cart {
+    table.wc-block-cart-items {
+      .wc-block-cart-items__row {
+        .wc-block-components-product-name {
+          font-size: 1.2rem;
+        }
+      }
     }
   }
 
-
+  // Overall button styles
   .wc-block-components-button,
   .wc-block-components-checkout-return-to-cart-button {
     display: inline-flex;
@@ -44,8 +55,13 @@
       outline: 2px solid currentColor;
       outline-offset: 3px;
     }
+    &:focus {
+      box-shadow: none !important;
+      outline: none !important;
+    }
   }
 
+  // Primary button styles
   .wc-block-components-button {
     background-color: var(--black);
     color: var(--white);
@@ -63,6 +79,7 @@
     }
   }
 
+  // Secondary button styles
   .wc-block-components-checkout-return-to-cart-button {
     position: relative;
     z-index: 0;

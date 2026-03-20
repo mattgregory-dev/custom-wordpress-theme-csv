@@ -64,9 +64,11 @@
   <a href="#" class="popup-search hidden" data-popup="1">
     <i class="fa fa-search"></i>
   </a>
-  <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="login-btn hidden">
-    <i class="fa fa-user"></i>login
-  </a>
+  <?php if ( function_exists( 'WC' ) && WC()->cart && WC()->cart->get_cart_contents_count() > 0 ) : ?>
+    <a href="<?php echo esc_url( home_url( '/cart/' ) ); ?>" class="login-btn">
+      <i class="fa fa-solid fa-cart-shopping"></i>Cart
+    </a>
+  <?php endif; ?>
   <a href="<?php echo esc_url( home_url( '/apply/' ) ); ?>" class="ibt-btn ibt-btn-outline-3 ibt-btn-rounded">
     <span>Apply</span>
   </a>

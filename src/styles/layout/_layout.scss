@@ -572,17 +572,3 @@ ul {
   }
 }
 
-.hack {
- .cwp-btn--secondary {
-  visibility: hidden;
- }
- @media (max-width:900px) {
-  display: block;
-  .cwp-btn--primary {
-    width: 100%;
-  }
-  .cwp-btn--secondary {
-    display: none;
-  }
- }
-}

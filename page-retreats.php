@@ -46,98 +46,6 @@ if ( have_posts() ) :
       </div>
     </section>
 
-    <!-- Choose Your Retreat -->
-    <section id="retreats" class="pt-24 pb-24 px-8">
-      <div class="max-w-7xl mx-auto">
-        <div class="max-w-3xl mx-auto text-center mb-20">
-          <h2 class="text-gray-900 mb-6 text-[2.5rem] font-normal">
-            Choose Your Retreat
-          </h2>
-          <p class="text-gray-700 leading-relaxed text-lg">
-            Each retreat is held in a small group setting with preparation, ceremony, and integration support.
-          </p>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-12">
-
-          <div class="rounded-b-lg">
-            <div class="flex items-center justify-center relative">
-              <img class="retreat-thumb" src="<?php echo esc_url( get_template_directory_uri() . '/images/bg/7AcMUSYRZpU-800.webp' ); ?>">
-              <span class="absolute top-4 right-4 px-3 py-1 bg-white border border-gray-400 text-gray-700 text-xs uppercase tracking-wider rounded-md">
-                Small Group
-              </span>
-            </div>
-            <div class="p-8 space-y-6 border-2 border-gray-300 border-t-[0] rounded-b-lg bg-white">
-              <h3 class="text-gray-900 text-[1.75rem] font-normal">Quiet River Retreat</h3>
-              <div class="grid grid-cols-2 gap-4 text-sm">
-                <div>
-                  <p class="text-gray-500 uppercase tracking-wider text-xs mb-1">Dates</p>
-                  <p class="text-gray-900">May 12&ndash;16</p>
-                </div>
-                <div>
-                  <p class="text-gray-500 uppercase tracking-wider text-xs mb-1">Duration</p>
-                  <p class="text-gray-900">5 Days</p>
-                </div>
-                <div class="col-span-2">
-                  <p class="text-gray-500 uppercase tracking-wider text-xs mb-1">Location</p>
-                  <p class="text-gray-900">Sedona, Arizona</p>
-                </div>
-              </div>
-              <p class="text-gray-700 leading-relaxed">
-                A small group retreat designed for deep personal reflection, guided ceremony, and integration support.
-              </p>
-              <div class="pt-2">
-                <p class="text-gray-500 text-sm mb-1">Starting From</p>
-                <p class="text-gray-900 text-2xl">$2,500</p>
-              </div>
-              <div class="grid md:grid-cols-2 gap-4 hack">
-                <a class="cwp-btn cwp-btn--primary" href="<?php echo esc_url( home_url( '/apply/' ) ); ?>">Apply</a>
-                <a class="cwp-btn cwp-btn--secondary" href="#">Details</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="rounded-b-lg">
-            <div class="flex items-center justify-center relative">
-              <img class="retreat-thumb" src="<?php echo esc_url( get_template_directory_uri() . '/images/bg/7AcMUSYRZpU-800.webp' ); ?>">
-              <span class="absolute top-4 right-4 px-3 py-1 bg-white border border-gray-400 text-gray-700 text-xs uppercase tracking-wider rounded-md">
-                Limited Spots
-              </span>
-            </div>
-            <div class="p-8 space-y-6 border-2 border-gray-300 border-t-[0] rounded-b-lg bg-white">
-              <h3 class="text-gray-900 text-[1.75rem] font-normal">Desert Awakening Retreat</h3>
-              <div class="grid grid-cols-2 gap-4 text-sm">
-                <div>
-                  <p class="text-gray-500 uppercase tracking-wider text-xs mb-1">Dates</p>
-                  <p class="text-gray-900">June 8&ndash;12</p>
-                </div>
-                <div>
-                  <p class="text-gray-500 uppercase tracking-wider text-xs mb-1">Duration</p>
-                  <p class="text-gray-900">5 Days</p>
-                </div>
-                <div class="col-span-2">
-                  <p class="text-gray-500 uppercase tracking-wider text-xs mb-1">Location</p>
-                  <p class="text-gray-900">Sedona, Arizona</p>
-                </div>
-              </div>
-              <p class="text-gray-700 leading-relaxed">
-                An immersive experience for those seeking clarity, guided transformation, and meaningful connection.
-              </p>
-              <div class="pt-2">
-                <p class="text-gray-500 text-sm mb-1">Starting From</p>
-                <p class="text-gray-900 text-2xl">$2,500</p>
-              </div>
-              <div class="grid md:grid-cols-2 gap-4 hack">
-                <a class="cwp-btn cwp-btn--primary" href="<?php echo esc_url( home_url( '/apply/' ) ); ?>">Apply</a>
-                <a class="cwp-btn cwp-btn--secondary" href="#">Details</a>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
     <!-- Upcoming Events -->
     <section id="retreat-events" class="pt-24 pb-24 px-8">
       <div class="max-w-7xl mx-auto">
@@ -169,6 +77,28 @@ if ( have_posts() ) :
               if ( ! empty( $event_types ) && ! is_wp_error( $event_types ) ) {
                 $event_type_name = $event_types[0]->name;
               }
+              $event_duration = function_exists( 'get_field' ) ? get_field( 'duration' ) : '';
+              $event_duration = '' !== $event_duration ? (int) $event_duration : 0;
+              $event_start_raw = function_exists( 'get_field' ) ? get_field( 'start_date' ) : '';
+              $event_end_raw = function_exists( 'get_field' ) ? get_field( 'end_date' ) : '';
+              $event_start = $event_start_raw ? strtotime( (string) $event_start_raw ) : 0;
+              $event_end = $event_end_raw ? strtotime( (string) $event_end_raw ) : 0;
+              $event_date_range = '';
+              if ( $event_start && $event_end ) {
+                $start_month = date( 'F', $event_start );
+                $start_day = date( 'j', $event_start );
+                $end_month = date( 'F', $event_end );
+                $end_day = date( 'j', $event_end );
+                if ( $start_month === $end_month ) {
+                  $event_date_range = $start_month . ' ' . $start_day . '-' . $end_day;
+                } else {
+                  $event_date_range = $start_month . ' ' . $start_day . '-' . $end_month . ' ' . $end_day;
+                }
+              } elseif ( $event_start ) {
+                $event_date_range = date( 'F j', $event_start );
+              } elseif ( $event_end ) {
+                $event_date_range = date( 'F j', $event_end );
+              }
               $event_image = get_the_post_thumbnail_url( get_the_ID(), 'large' );
               if ( ! $event_image ) {
                 $event_image = get_template_directory_uri() . '/images/bg/7AcMUSYRZpU-800.webp';
@@ -184,13 +114,39 @@ if ( have_posts() ) :
                 <div class="p-8 space-y-6 border-2 border-gray-300 border-t-[0] rounded-b-lg bg-white">
                   <h3 class="text-gray-900 text-[1.75rem] font-normal"><?php the_title(); ?></h3>
                   <div class="grid grid-cols-2 gap-4 text-sm">
-                    <div class="col-span-2">
-                      <p class="text-gray-500 uppercase tracking-wider text-xs mb-1">Event Type</p>
-                      <p class="text-gray-900"><?php echo esc_html( $event_type_name ); ?></p>
+                    <!-- Start: Date Range -->
+                    <div>
+                      <p class="text-gray-500 uppercase tracking-wider text-xs mb-1">Dates</p>
+                      <p class="text-gray-900"><?php echo esc_html( $event_date_range ); ?></p>
                     </div>
+                    <!-- End: Date Range -->
+                    <!-- Start: Duration (Days) -->
+                    <div>
+                      <p class="text-gray-500 uppercase tracking-wider text-xs mb-1">Duration</p>
+                      <p class="text-gray-900">
+                        <?php
+                        if ( $event_duration ) {
+                          echo esc_html( $event_duration . ' ' . ( 1 === $event_duration ? 'Day' : 'Days' ) );
+                        }
+                        ?>
+                      </p>
+                    </div>
+                    <!-- End: Duration (Days) -->
+                    <!-- Start: Location -->
+                    <div>
+                      <p class="text-gray-500 uppercase tracking-wider text-xs mb-1">Location</p>
+                      <p class="text-gray-900">Sedona, Arizona</p>
+                    </div>
+                    <!-- End: Location -->
                   </div>
                   <p class="text-gray-700 leading-relaxed">
-                    <?php echo esc_html( wp_trim_words( get_the_excerpt(), 26 ) ); ?>
+                    <?php
+                    $event_excerpt = trim( get_the_excerpt() );
+                    if ( '' === $event_excerpt ) {
+                      $event_excerpt = wp_trim_words( wp_strip_all_tags( get_the_content() ), 100 );
+                    }
+                    echo esc_html( $event_excerpt );
+                    ?>
                   </p>
                   <div class="grid md:grid-cols-2 gap-4 hack">
                     <a class="cwp-btn cwp-btn--primary" href="<?php echo esc_url( get_permalink() ); ?>">Details</a>
@@ -564,3 +520,4 @@ endif;
 
 <?php
 get_footer();
+

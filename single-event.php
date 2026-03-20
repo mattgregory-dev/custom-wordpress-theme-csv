@@ -93,7 +93,6 @@ get_header();
       $location = $location_raw ? (string) $location_raw : '';
       $duration_days = $duration_raw !== '' ? (int) $duration_raw : 0;
 
-
       $date_range = $start_date;
       if ( $start_date && $end_date && $end_date !== $start_date ) {
         $date_range = $start_date . ' → ' . $end_date;
