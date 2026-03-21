@@ -136,7 +136,8 @@
   .wc-block-components-button,
   .wc-block-components-checkout-return-to-cart-button,
   .woocommerce-MyAccount-content .edit,
-  .woocommerce-Button.button {
+  .woocommerce-Button.button,
+  .woocommerce button.button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -187,7 +188,8 @@
   // Secondary button styles
   .wc-block-components-checkout-return-to-cart-button,
   .woocommerce-MyAccount-content .edit,
-  .woocommerce-Button.button {
+  .woocommerce-Button.button,
+  .woocommerce button.button {
     position: relative;
     z-index: 0;
     overflow: hidden;
