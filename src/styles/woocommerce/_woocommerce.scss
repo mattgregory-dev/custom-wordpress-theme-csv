@@ -5,7 +5,8 @@
   }
   // Giving Woocommerce pages a set width and background styles
   &.woocommerce-checkout,
-  &.woocommerce-cart {
+  &.woocommerce-cart,
+  &.woocommerce-account {
     main {
       max-width: 1200px;
       margin: 0 auto;
@@ -16,6 +17,98 @@
       margin-bottom: 3rem;
       @media (max-width: 1240px) {
         margin: 0 20px 3rem;
+      }
+    }
+  }
+
+  // My Account navigation styling
+  &.woocommerce-account {
+    .woocommerce-MyAccount-navigation {
+      margin: 0;
+      padding: 0;
+
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        li {
+          margin: 0;
+          &.woocommerce-MyAccount-navigation-link--customer-logout a {
+            font-weight: 600;
+          }
+
+          a {
+            display: block;
+            padding: 0.6rem 0.9rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-family: var(--font-secondary);
+            font-size: 0.95rem;
+            color: #111827;
+            border: 1px solid transparent;
+            transition:
+              background-color 200ms ease,
+              color 200ms ease,
+              border-color 200ms ease;
+
+            &:hover {
+              background-color: #f3f4f6;
+              border-color: #e5e7eb;
+              color: #111827;
+            }
+          }
+        }
+      }
+
+      .is-active > a {
+        background-color: #111827;
+        border-color: #111827;
+        color: #fff;
+      }
+    }
+
+    .woocommerce-MyAccount-content {
+      h2 {
+        font-size: 1.4rem;
+        margin: .6rem 0;
+      }
+      .woocommerce-info {
+        border-top-color: #414141;
+      }
+      .woocommerce-info::before {
+        color: #414141;
+      }
+    }
+
+    &.woocommerce-dashboard {
+      .woocommerce-MyAccount-content {
+        font-family: var(--font-secondary);
+        color: #111827;
+
+        p {
+          margin: 0 0 1rem;
+          line-height: 1.6;
+        }
+
+        p:last-child {
+          margin-bottom: 0;
+        }
+
+        a {
+          color: #111827;
+          text-decoration: underline;
+          text-underline-offset: 3px;
+          font-weight: 600;
+          transition: color 200ms ease;
+
+          &:hover {
+            color: #0f172a;
+          }
+        }
       }
     }
   }
@@ -41,12 +134,15 @@
 
   // Overall button styles
   .wc-block-components-button,
-  .wc-block-components-checkout-return-to-cart-button {
+  .wc-block-components-checkout-return-to-cart-button,
+  .woocommerce-MyAccount-content .edit,
+  .woocommerce-Button.button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
     padding: 1rem 2rem;
+    margin: 1rem 0;
     font-family: var(--font-secondary);
     font-size: 1rem;
     font-weight: 500;
@@ -89,7 +185,9 @@
   }
 
   // Secondary button styles
-  .wc-block-components-checkout-return-to-cart-button {
+  .wc-block-components-checkout-return-to-cart-button,
+  .woocommerce-MyAccount-content .edit,
+  .woocommerce-Button.button {
     position: relative;
     z-index: 0;
     overflow: hidden;
