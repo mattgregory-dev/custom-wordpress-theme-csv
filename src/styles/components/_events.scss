@@ -29,4 +29,14 @@
     }
   }
 
+  .event-sidebar-map {
+    .acf-map {
+      height: 240px;
+      margin: 0;
+      border: 0;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+  }
+
 }

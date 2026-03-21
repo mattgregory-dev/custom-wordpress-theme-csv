@@ -1115,18 +1115,98 @@ const gsapAnimations = () => {
   //animateServiceCards();
 };
 
+const initAcfMaps = () => {
+  const mapEls = document.querySelectorAll('.acf-map');
+  if (!mapEls.length) return;
+
+  const isGoogleReady = () =>
+    typeof window.google !== 'undefined' &&
+    window.google.maps &&
+    typeof window.google.maps.Map === 'function';
+
+  const maxRetries = 25;
+  let retryCount = 0;
+
+  if (!isGoogleReady()) {
+    retryCount += 1;
+    if (retryCount <= maxRetries) {
+      window.setTimeout(initAcfMaps, 200);
+    }
+    return;
+  }
+
+  const initMap = (mapEl) => {
+    if (mapEl.dataset.mapInitialized === 'true') return;
+    mapEl.dataset.mapInitialized = 'true';
+
+    const zoom = Number.parseInt(mapEl.dataset.zoom || '16', 10);
+    const markerEls = Array.from(mapEl.querySelectorAll('.marker'));
+
+    const map = new window.google.maps.Map(mapEl, {
+      zoom: Number.isNaN(zoom) ? 16 : zoom,
+      mapTypeId: window.google.maps.MapTypeId.ROADMAP,
+    });
+
+    map.markers = [];
+
+    markerEls.forEach((markerEl) => {
+      let lat = Number.parseFloat(markerEl.dataset.lat);
+      let lng = Number.parseFloat(markerEl.dataset.lng);
+
+      if (Number.isNaN(lat) || Number.isNaN(lng)) {
+        return;
+      }
+
+      const marker = new window.google.maps.Marker({
+        position: { lat, lng },
+        map,
+      });
+
+      map.markers.push(marker);
+
+      const infoContent = markerEl.innerHTML.trim();
+      if (infoContent) {
+        const infoWindow = new window.google.maps.InfoWindow({
+          content: infoContent,
+        });
+        marker.addListener('click', () => {
+          infoWindow.open(map, marker);
+        });
+      }
+    });
+
+    if (!map.markers.length) return;
+
+    const bounds = new window.google.maps.LatLngBounds();
+    map.markers.forEach((marker) => {
+      bounds.extend(marker.getPosition());
+    });
+
+    if (map.markers.length === 1) {
+      map.setCenter(bounds.getCenter());
+    } else {
+      map.fitBounds(bounds);
+    }
+  };
+
+  mapEls.forEach((mapEl) => {
+    initMap(mapEl);
+  });
+};
+
 const init = () => {
   preloader();
   ayaMotifSVGDraw();
   scrollToTop();
-  smoothAnchors();
-  LenisScroll.init();
+  //smoothAnchors();
+  //LenisScroll.init();
   stickyHeader();
   cwpParallax();
   themeToggle();
   activeMenu();
   sideMenu();
   gsapAnimations();
+  initAcfMaps();
   //searchPopup();
   //revealUpAnimation();
   //revealFadeAnimation();

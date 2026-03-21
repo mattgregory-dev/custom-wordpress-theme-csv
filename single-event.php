@@ -37,7 +37,24 @@ get_header();
       // Details
       $capacity_raw = $acf_available ? get_field( 'capacity', $event_id ) : '';
       $application_required = $acf_available ? (bool) get_field( 'application_required', $event_id ) : false;
-      $location_raw = $acf_available ? get_field( 'location', $event_id ) : '';
+      // Sidebar map data (ACF Google Map field).
+      $map_location = null;
+      $map_field_used = '';
+      // Pull the Google Map field from ACF (lat/lng/address) for the sidebar map.
+      if ( $acf_available ) {
+        $map_field = 'google_map';
+        $map_value = get_field( $map_field, $event_id );
+        if (
+          is_array( $map_value ) &&
+          isset( $map_value['lat'], $map_value['lng'] ) &&
+          $map_value['lat'] !== '' &&
+          $map_value['lng'] !== ''
+        ) {
+          $map_location = $map_value;
+          $map_field_used = $map_field;
+        }
+      }
+
       $duration_raw = $acf_available ? get_field( 'duration', $event_id ) : '';
 
       $format_date_value = function ( $value ) {
@@ -90,7 +107,6 @@ get_header();
       $balance_amount = $format_currency_value( $deposit_amount_raw );
       // Details
       $capacity = $capacity_raw !== '' ? (int) $capacity_raw : 0;
-      $location = $location_raw ? (string) $location_raw : '';
       $duration_days = $duration_raw !== '' ? (int) $duration_raw : 0;
 
       $date_range = $start_date;
@@ -207,12 +223,10 @@ get_header();
                   <div class="text-sm text-gray-900"><?php echo esc_html( $duration_days . ' Days' ); ?></div>
                 </div>
               <?php endif; ?>
-              <?php if ( $location ) : ?>
-                <div>
-                  <div class="text-xs text-gray-600 mb-1">LOCATION</div>
-                  <div class="text-sm text-gray-900">Sedona, AZ</div>
-                </div>
-              <?php endif; ?>
+              <div>
+                <div class="text-xs text-gray-600 mb-1">LOCATION</div>
+                <div class="text-sm text-gray-900">Sedona, AZ</div>
+              </div>
             <div>
               <div class="text-xs text-gray-600 mb-1">EVENT TYPE</div>
               <div class="text-sm text-gray-900"><?php echo esc_html( $event_type_list ? $event_type_list : $event_type_label ); ?></div>
@@ -240,6 +254,26 @@ get_header();
               Contact Us
             </a>
           </div>
+
+          <?php if ( $map_location ) : ?>
+            <!-- Sidebar Google Map (ACF Google Map field) -->
+            <div class="bg-white border-2 border-gray-400 p-6 rounded-lg event-sidebar-map">
+              <!-- Map container + marker data for JS initialization -->
+              <div
+                class="acf-map"
+                data-zoom="<?php echo esc_attr( isset( $map_location['zoom'] ) ? $map_location['zoom'] : 16 ); ?>"
+                data-field="<?php echo esc_attr( $map_field_used ); ?>"
+              >
+                <div class="marker"
+                    data-lat="<?php echo esc_attr( $map_location['lat'] ); ?>"
+                    data-lng="<?php echo esc_attr( $map_location['lng'] ); ?>">
+                  <?php if ( ! empty( $map_location['address'] ) ) : ?>
+                    <p class="text-sm text-gray-700"><?php echo esc_html( $map_location['address'] ); ?></p>
+                  <?php endif; ?>
+                </div>
+              </div>
+            </div>
+          <?php endif; ?>
         </div>
       </div>
     </div>
@@ -320,6 +354,3 @@ get_header();
 
 <?php
 get_footer();
-
-
-
