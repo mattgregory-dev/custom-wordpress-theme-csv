@@ -37,9 +37,13 @@ get_header();
       // Details
       $capacity_raw = $acf_available ? get_field( 'capacity', $event_id ) : '';
       $application_required = $acf_available ? (bool) get_field( 'application_required', $event_id ) : false;
-      // Sidebar map data (ACF Google Map field).
+      // Sidebar Google Map data from the ACF `google_map` field.
       $map_location = null;
+      $map_address = '';
+      $map_address_query = '';
       $map_field_used = '';
+      $map_directions_url = '';
+      $map_view_url = '';
       // Pull the Google Map field from ACF (lat/lng/address) for the sidebar map.
       if ( $acf_available ) {
         $map_field = 'google_map';
@@ -52,6 +56,39 @@ get_header();
         ) {
           $map_location = $map_value;
           $map_field_used = $map_field;
+          // Build a formatted address from the Google Map field segments.
+          $street_number = isset( $map_location['street_number'] ) ? (string) $map_location['street_number'] : '';
+          $street_name = isset( $map_location['street_name'] ) ? (string) $map_location['street_name'] : '';
+          $city = isset( $map_location['city'] ) ? (string) $map_location['city'] : '';
+          $state = isset( $map_location['state'] ) ? (string) $map_location['state'] : '';
+          $post_code = isset( $map_location['post_code'] ) ? (string) $map_location['post_code'] : '';
+
+          $line_one = trim( $street_number . ' ' . $street_name );
+          $line_two = trim( $city . ( $city && $state ? ', ' : '' ) . $state . ( $post_code ? ' ' . $post_code : '' ) );
+
+          if ( $line_one || $line_two ) {
+            $map_address = trim( $line_one . "\n" . $line_two );
+            $map_address_query = trim( $line_one . ( $line_two ? ', ' . $line_two : '' ) );
+          } elseif ( ! empty( $map_location['address'] ) ) {
+            $map_address = (string) $map_location['address'];
+            $map_address_query = trim( str_replace( array( "\r\n", "\r", "\n" ), ', ', $map_address ) );
+          }
+
+          $map_lat = isset( $map_location['lat'] ) ? (string) $map_location['lat'] : '';
+          $map_lng = isset( $map_location['lng'] ) ? (string) $map_location['lng'] : '';
+          $place_id = isset( $map_location['place_id'] ) ? (string) $map_location['place_id'] : '';
+          if ( $map_lat !== '' && $map_lng !== '' ) {
+            $map_directions_url = 'https://www.google.com/maps/dir/?api=1&destination=' . rawurlencode( $map_lat . ',' . $map_lng ) . '&zoom=14';
+          }
+          if ( $map_address_query && $map_lat !== '' && $map_lng !== '' ) {
+            $map_address_slug = urlencode( $map_address_query );
+            $map_address_slug = str_replace( '%2C', ',', $map_address_slug );
+            $map_view_url = 'https://www.google.com/maps/place/' . $map_address_slug . '/@' . rawurlencode( $map_lat . ',' . $map_lng . ',14z' );
+          } elseif ( $map_address_query ) {
+            $map_view_url = 'https://www.google.com/maps/search/?api=1&query=' . rawurlencode( $map_address_query );
+          } elseif ( $map_lat !== '' && $map_lng !== '' ) {
+            $map_view_url = 'https://www.google.com/maps/search/?api=1&query=' . rawurlencode( $map_lat . ',' . $map_lng );
+          }
         }
       }
 
@@ -225,7 +262,17 @@ get_header();
               <?php endif; ?>
               <div>
                 <div class="text-xs text-gray-600 mb-1">LOCATION</div>
-                <div class="text-sm text-gray-900">Sedona, AZ</div>
+                <div class="text-sm text-gray-900">
+                  <?php
+                    $display_address = $map_address ? $map_address : 'Sedona, AZ';
+                    echo wp_kses( nl2br( esc_html( $display_address ) ), array( 'br' => array() ) );
+                  ?>
+                </div>
+                <?php if ( $map_view_url ) : ?>
+                  <a class="mt-2 inline-block text-sm font-semibold text-gray-700 hover:text-blue-500" href="<?php echo esc_url( $map_view_url ); ?>" target="_blank" rel="noopener noreferrer">
+                    View Map &raquo;
+                  </a>
+                <?php endif; ?>
               </div>
             <div>
               <div class="text-xs text-gray-600 mb-1">EVENT TYPE</div>
@@ -272,6 +319,20 @@ get_header();
                   <?php endif; ?>
                 </div>
               </div>
+              <?php if ( $map_directions_url || $map_view_url ) : ?>
+                <div class="mt-3 flex items-center justify-between text-sm font-semibold">
+                  <?php if ( $map_directions_url ) : ?>
+                    <a class="text-gray-700 hover:text-blue-500" href="<?php echo esc_url( $map_directions_url ); ?>" target="_blank" rel="noopener noreferrer">
+                      Get Directions
+                    </a>
+                  <?php endif; ?>
+                  <?php if ( $map_view_url ) : ?>
+                    <a class="text-gray-700 hover:text-blue-500" href="<?php echo esc_url( $map_view_url ); ?>" target="_blank" rel="noopener noreferrer">
+                      View Larger Map
+                    </a>
+                  <?php endif; ?>
+                </div>
+              <?php endif; ?>
             </div>
           <?php endif; ?>
         </div>
