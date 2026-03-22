@@ -85,6 +85,7 @@ tailwind.css
   - `dist/tailwind.css`
   - `dist/assets/main.css`
   - `dist/assets/main.js`
+  - Prefer named callback functions for WordPress hooks and filters (avoid anonymous closures unless strictly required).
 
 Dev mode:
 - Toggle with `CUSTOM_WP_VITE_DEV` in `wp-config.php`.

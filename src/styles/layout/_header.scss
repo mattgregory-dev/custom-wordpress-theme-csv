@@ -678,11 +678,13 @@
     margin-right: 10px;
   }
   &:hover {
-    background: linear-gradient(to bottom, #45D0BD, #44B6E9);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: var(--white);
+    color: #45D0BD;
+    // background: linear-gradient(to bottom, #45D0BD, #44B6E9);
+    // background-clip: text;
+    // -webkit-background-clip: text;
+    // -webkit-text-fill-color: transparent;
+    // color: var(--white);
+
   }
 }
 

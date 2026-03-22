@@ -1198,8 +1198,8 @@ const init = () => {
   preloader();
   ayaMotifSVGDraw();
   scrollToTop();
-  //smoothAnchors();
-  //LenisScroll.init();
+  smoothAnchors();
+  LenisScroll.init();
   stickyHeader();
   cwpParallax();
   themeToggle();

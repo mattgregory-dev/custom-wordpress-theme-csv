@@ -166,13 +166,13 @@ get_header();
     ?>
 
     <!-- EVENT HERO -->
-    <section class="bg-gray-200 py-24">
-      <div class="max-w-7xl mx-auto px-8">
+    <section class="bg-gray-200 py-24 page-title">
+      <div class="max-w-7xl mx-auto px-8"><!--page-title-container-->
         <div class="max-w-2xl">
           <!-- Event type (taxonomy) -->
-          <div class="text-xs text-gray-600 mb-4 tracking-wider uppercase"><?php echo esc_html( $event_type_label ); ?></div>
+          <p class="label"><?php echo esc_html( $event_type_label ); ?></p>
           <!-- Event title -->
-          <h1 class="text-5xl font-bold mb-6 text-gray-900 leading-snug"><?php the_title(); ?></h1>
+          <h1 class="text-5xl mb-6 text-gray-900 leading-snug"><?php the_title(); ?></h1>
           <!-- Short summary (excerpt) -->
           <?php if ( has_excerpt() ) : ?>
             <p class="text-lg text-gray-700 mb-4"><?php echo esc_html( get_the_excerpt() ); ?></p>

@@ -64,12 +64,28 @@
   <a href="#" class="popup-search hidden" data-popup="1">
     <i class="fa fa-search"></i>
   </a>
-  <?php if ( function_exists( 'WC' ) && WC()->cart && WC()->cart->get_cart_contents_count() > 0 ) : ?>
-    <a href="<?php echo esc_url( home_url( '/cart/' ) ); ?>" class="login-btn">
-      <i class="fa fa-solid fa-cart-shopping"></i>Cart
+  <?php if ( is_user_logged_in() ) : ?>
+    <a href="<?php echo esc_url( home_url( '/account/' ) ); ?>" class="login-btn">
+      Account
+    </a>
+  <?php else : ?>
+    <a href="<?php echo esc_url( home_url( '/account/' ) ); ?>" class="login-btn">
+      Login
     </a>
   <?php endif; ?>
-  <a href="<?php echo esc_url( home_url( '/apply/' ) ); ?>" class="ibt-btn ibt-btn-outline-3 ibt-btn-rounded">
-    <span>Apply</span>
-  </a>
+  <?php
+  $cart_count = 0;
+  if ( function_exists( 'WC' ) && WC()->cart ) {
+    $cart_count = (int) WC()->cart->get_cart_contents_count();
+  }
+  ?>
+  <?php if ( $cart_count > 0 ) : ?>
+    <a href="<?php echo esc_url( home_url( '/cart/' ) ); ?>" class="ibt-btn ibt-btn-outline-3 ibt-btn-rounded">
+      <i class="fa fa-solid fa-cart-shopping"></i><span>Cart</span>
+    </a>
+  <?php else : ?>
+    <a href="<?php echo esc_url( home_url( '/apply/' ) ); ?>" class="ibt-btn ibt-btn-outline-3 ibt-btn-rounded">
+      <span>Apply</span>
+    </a>
+  <?php endif; ?>
 </div>

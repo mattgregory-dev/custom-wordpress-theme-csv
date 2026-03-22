@@ -33,14 +33,14 @@ if ( have_posts() ) :
     <section id="contact-main" class="w-full py-16 sm:py-20">
       <div class="max-w-[1240px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-16 items-start">
 
-        <div class="soft-shadow rounded-xl border border-slate-300 bg-white/95 p-6 sm:p-8">
+        <div class="soft-shadow rounded-xl border border-slate-300 bg-white/95 p-6 sm:p-8 order-2 lg:order-1">
           <?php echo do_shortcode('[forminator_form id="213"]'); ?>
         </div>
         
-        <aside class="space-y-4 sm:space-y-6">
+        <aside class="space-y-4 sm:space-y-6 order-1 lg:order-2">
           <div class="rounded-xl border border-slate-300 bg-white/95 p-5 sm:p-6 space-y-3">
             <h2 class="text-2xl">Contact details</h2>
-            <p class="text-lg text-[var(--muted)]">(000) 000-0000</p>
+            <p class="text-lg text-[var(--muted)]">928-475-5551</p>
             <p class="text-lg text-[var(--muted)]">Sedona, AZ</p>
           </div>
           <div class="rounded-xl border border-slate-300 bg-white/95 p-5 sm:p-6 space-y-2">
