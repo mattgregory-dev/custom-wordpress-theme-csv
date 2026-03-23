@@ -7,6 +7,7 @@ dist/
 
 .DS_Store
 Thumbs.db
+.gitkeep
 
 npm-debug.log*
 yarn-debug.log*
@@ -16,19 +17,11 @@ pnpm-debug.log*
 .vscode/
 .idea/
 
-# Dev build artifacts
 src/public/
-partials_copied/
-
 src/styles/abstracts/_breakpoints.scss
 src/styles/abstracts/_functions.scss.scss
 src/styles/abstracts/_maps.scss
-# src/styles/abstracts/_mixins.scss
-
-src/styles/base/_base.scss
-
-html/
-aero-dest/
 /components/
 src/styles/aero/
 images/
+woocommerce-templates/
