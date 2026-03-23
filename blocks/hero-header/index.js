@@ -61,13 +61,13 @@ const renderEditorPreview = ({
     blockProps,
     createElement(
       'div',
-      { className: 'cwp-hero-header-editor__inner' },
+      { className: 'csv-hero-header-editor__inner' },
       createElement(
         'span',
         {
           className: heroTextColor === 'white'
-            ? 'cwp-hero-header-editor__eyebrow cwp-hero-header-editor__eyebrow--white'
-            : 'cwp-hero-header-editor__eyebrow',
+            ? 'csv-hero-header-editor__eyebrow csv-hero-header-editor__eyebrow--white'
+            : 'csv-hero-header-editor__eyebrow',
         },
         eyebrow || 'Hero eyebrow'
       ),
@@ -75,9 +75,9 @@ const renderEditorPreview = ({
         'h1',
         {
           className: [
-            'cwp-hero-header-editor__title',
-            titleSize === 'large' ? 'cwp-hero-header-editor__title--large' : '',
-            heroTextColor === 'white' ? 'cwp-hero-header-editor__title--white' : '',
+            'csv-hero-header-editor__title',
+            titleSize === 'large' ? 'csv-hero-header-editor__title--large' : '',
+            heroTextColor === 'white' ? 'csv-hero-header-editor__title--white' : '',
           ].filter(Boolean).join(' '),
         },
         title || 'Hero title'
@@ -86,14 +86,14 @@ const renderEditorPreview = ({
         'p',
         {
           className: heroTextColor === 'white'
-            ? 'cwp-hero-header-editor__description cwp-hero-header-editor__description--white'
-            : 'cwp-hero-header-editor__description',
+            ? 'csv-hero-header-editor__description csv-hero-header-editor__description--white'
+            : 'csv-hero-header-editor__description',
         },
         description || 'Hero description'
       ),
       createElement(
         'div',
-        { className: 'cwp-hero-header-editor__buttons' },
+        { className: 'csv-hero-header-editor__buttons' },
         createElement('a', { href: '#' }, button1Text || 'Button 1 text'),
         createElement('a', { href: '#' }, button2Text || 'Button 2 text')
       )
@@ -101,7 +101,7 @@ const renderEditorPreview = ({
   )
 );
 
-registerBlockType('cwp/hero-header', {
+registerBlockType('csv/hero-header', {
   // Sidebar controls + canvas preview.
   edit: ({ attributes, setAttributes }) => {
     const media = useSelect(
@@ -114,7 +114,7 @@ registerBlockType('cwp/hero-header', {
     );
     const previewImageUrl = getMediaPreviewUrl(media);
     const editorProps = useBlockProps({
-      className: 'cwp-hero-header-editor',
+      className: 'csv-hero-header-editor',
       style: previewImageUrl
         ? {
             backgroundImage: `url(${previewImageUrl})`,

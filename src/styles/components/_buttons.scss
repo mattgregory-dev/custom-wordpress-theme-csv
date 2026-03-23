@@ -57,7 +57,7 @@
   }
 }
 
-.cwp-btn {
+.csv-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -86,7 +86,7 @@
   }
 }
 
-.cwp-btn--primary {
+.csv-btn--primary {
   background-color: var(--black);
   color: var(--white);
   border-color: var(--black);
@@ -103,7 +103,7 @@
   }
 }
 
-.cwp-btn--secondary {
+.csv-btn--secondary {
   position: relative;
   z-index: 0;
   overflow: hidden;

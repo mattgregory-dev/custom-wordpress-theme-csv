@@ -92,7 +92,7 @@
       background-color: unset;
     }
   }
-  .cwp-header-standard {
+  .csv-header-standard {
     @include ml {
       background-color: var(--black);
     }
@@ -130,7 +130,7 @@
       }
     }
   }
-  .cwp-header-absolute {
+  .csv-header-absolute {
     .header-menu-area {
       background-color: unset;
       border-color: #454545;

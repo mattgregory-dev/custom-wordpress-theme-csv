@@ -1,4 +1,4 @@
-.wp-block-cwp-hero-header.cwp-hero-header-editor {
+.wp-block-csv-hero-header.csv-hero-header-editor {
   padding: 60px;
   border: 1px dashed #ddd;
   background: #f9f9f9;
@@ -7,7 +7,7 @@
   overflow: hidden;
 }
 
-.wp-block-cwp-hero-header.cwp-hero-header-editor::before {
+.wp-block-csv-hero-header.csv-hero-header-editor::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -15,39 +15,39 @@
   pointer-events: none;
 }
 
-.wp-block-cwp-hero-header.cwp-hero-header-editor .cwp-hero-header-editor__inner {
+.wp-block-csv-hero-header.csv-hero-header-editor .csv-hero-header-editor__inner {
   position: relative;
   z-index: 1;
 }
 
-.wp-block-cwp-hero-header.cwp-hero-header-editor .cwp-hero-header-editor__title {
+.wp-block-csv-hero-header.csv-hero-header-editor .csv-hero-header-editor__title {
   font-size: 32px;
   margin: 10px 0;
 }
 
-.wp-block-cwp-hero-header.cwp-hero-header-editor .cwp-hero-header-editor__title--large {
+.wp-block-csv-hero-header.csv-hero-header-editor .csv-hero-header-editor__title--large {
   font-size: 42px;
 }
 
-.wp-block-cwp-hero-header.cwp-hero-header-editor .cwp-hero-header-editor__title--white {
+.wp-block-csv-hero-header.csv-hero-header-editor .csv-hero-header-editor__title--white {
   color: #fff;
 }
 
-.wp-block-cwp-hero-header.cwp-hero-header-editor .cwp-hero-header-editor__eyebrow--white {
+.wp-block-csv-hero-header.csv-hero-header-editor .csv-hero-header-editor__eyebrow--white {
   color: #fff;
   border-color: rgba(255, 255, 255, 0.75);
 }
 
-.wp-block-cwp-hero-header.cwp-hero-header-editor .cwp-hero-header-editor__description--white {
+.wp-block-csv-hero-header.csv-hero-header-editor .csv-hero-header-editor__description--white {
   color: #fff;
 }
 
-.wp-block-cwp-hero-header.cwp-hero-header-editor .cwp-hero-header-editor__description {
+.wp-block-csv-hero-header.csv-hero-header-editor .csv-hero-header-editor__description {
   max-width: 600px;
   margin: 0 auto;
 }
 
-.wp-block-cwp-hero-header.cwp-hero-header-editor .cwp-hero-header-editor__eyebrow {
+.wp-block-csv-hero-header.csv-hero-header-editor .csv-hero-header-editor__eyebrow {
   display: inline-block;
   font-size: 12px;
   letter-spacing: 0.2em;
@@ -56,11 +56,11 @@
   margin-bottom: 16px;
 }
 
-.wp-block-cwp-hero-header.cwp-hero-header-editor .cwp-hero-header-editor__buttons {
+.wp-block-csv-hero-header.csv-hero-header-editor .csv-hero-header-editor__buttons {
   margin-top: 20px;
 }
 
-.wp-block-cwp-hero-header.cwp-hero-header-editor .cwp-hero-header-editor__buttons a {
+.wp-block-csv-hero-header.csv-hero-header-editor .csv-hero-header-editor__buttons a {
   display: inline-block;
   margin-right: 10px;
   padding: 8px 14px;

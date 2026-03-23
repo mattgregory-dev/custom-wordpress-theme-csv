@@ -34,47 +34,47 @@ const renderEditorPreview = ({
     blockProps,
     createElement(
       'div',
-      { className: 'cwp-next-step-editor__container' },
+      { className: 'csv-next-step-editor__container' },
       createElement(
         'div',
-        { className: 'cwp-next-step-editor__grid' },
+        { className: 'csv-next-step-editor__grid' },
         createElement(
           'div',
-          { className: 'cwp-next-step-editor__media' },
+          { className: 'csv-next-step-editor__media' },
           createElement(
             'div',
-            { className: 'cwp-next-step-editor__media-frame' },
+            { className: 'csv-next-step-editor__media-frame' },
             previewImageUrl
               ? createElement('img', {
                   src: previewImageUrl,
                   alt: '',
-                  className: 'cwp-next-step-editor__media-image',
+                  className: 'csv-next-step-editor__media-image',
                 })
-              : createElement('span', { className: 'cwp-next-step-editor__media-placeholder' }, '[ IMAGE ]')
+              : createElement('span', { className: 'csv-next-step-editor__media-placeholder' }, '[ IMAGE ]')
           )
         ),
         createElement(
           'div',
-          { className: 'cwp-next-step-editor__content' },
+          { className: 'csv-next-step-editor__content' },
           createElement(
             'div',
-            { className: 'cwp-next-step-editor__eyebrow' },
+            { className: 'csv-next-step-editor__eyebrow' },
             eyebrow || 'eyebrow'
           ),
           createElement(
             'h2',
-            { className: 'cwp-next-step-editor__title' },
+            { className: 'csv-next-step-editor__title' },
             title || 'title'
           ),
           createElement(
             'p',
-            { className: 'cwp-next-step-editor__description' },
+            { className: 'csv-next-step-editor__description' },
             description || 'description'
           ),
           createElement(
             'a',
             {
-              className: 'cwp-next-step-editor__button',
+              className: 'csv-next-step-editor__button',
               href: buttonUrl || '#',
             },
             `${buttonText || 'button text'} \u2192`
@@ -85,7 +85,7 @@ const renderEditorPreview = ({
   )
 );
 
-registerBlockType('cwp/next-step', {
+registerBlockType('csv/next-step', {
   edit: ({ attributes, setAttributes }) => {
     const media = useSelect(
       (select) => (
@@ -97,7 +97,7 @@ registerBlockType('cwp/next-step', {
     );
     const previewImageUrl = getMediaPreviewUrl(media);
     const editorProps = useBlockProps({
-      className: 'cwp-next-step-editor',
+      className: 'csv-next-step-editor',
     });
 
     return createElement(

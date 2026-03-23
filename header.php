@@ -27,7 +27,7 @@ $header_args = isset( $args ) && is_array( $args ) ? $args : array();
 $header_variant = isset( $header_args['header_variant'] ) ? $header_args['header_variant'] : 'default';
 $header_color = isset( $header_args['header_color'] ) ? $header_args['header_color'] : 'default';
 $header_classes = array(
-  $header_variant === 'absolute' ? 'cwp-header-absolute' : 'cwp-header-standard',
+  $header_variant === 'absolute' ? 'csv-header-absolute' : 'csv-header-standard',
 );
 
 if ( $header_color === 'white' ) {

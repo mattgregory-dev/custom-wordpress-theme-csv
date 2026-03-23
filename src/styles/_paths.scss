@@ -1,8 +1,8 @@
-$theme-root: "/wp-content/themes/cwp";
+$theme-root: "/wp-content/themes/csv";
 
 // Move away from these various paths
 // The goal is to only use $theme-root for consistency and
 // to understand quickly at first glance
-$theme-asset-root: "/wp-content/themes/cwp";
+$theme-asset-root: "/wp-content/themes/csv";
 $theme-font-root: "#{$theme-asset-root}/fonts";
 $aero-image-root: "#{$theme-asset-root}/images/aero";

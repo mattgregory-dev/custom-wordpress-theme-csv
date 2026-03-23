@@ -74,7 +74,7 @@ if ( have_posts() ) :
 
           <div class="space-y-4 p-8 bg-gray-50 border border-gray-200 rounded-lg soft-shadow">
             <div class="w-10 h-10 flex items-center justify-center mx-auto sm:mx-0">
-              <svg class="cwp-icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewBox="-49 141 512 512">
+              <svg class="csv-icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewBox="-49 141 512 512">
                 <polygon points="206.7,150 130.7,225.3 35.3,316 -40,391.3 -19.3,414.7 96,531.3 205.3,642.7 216,634.7 233.3,617.3 
                   426.7,420.7 452.7,392 446,380.7 352.7,290.7 252.7,192"/>
                 <path d="M207.4,650.5c-1.6,0-3.2-0.6-4.3-1.8c0,0-247.8-253.3-247.9-253.4c-2.3-2.3-2.3-6.3,0.1-8.7l247.8-242.3
@@ -94,7 +94,7 @@ if ( have_posts() ) :
 
           <div class="space-y-4 p-8 bg-gray-50 border border-gray-200 rounded-lg soft-shadow">
             <div class="w-10 h-10 flex items-center justify-center mx-auto sm:mx-0">
-              <svg class="cwp-icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewBox="-49 141 512 512">
+              <svg class="csv-icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewBox="-49 141 512 512">
                 <polygon points="206.7,150 130.7,225.3 35.3,316 -40,391.3 -19.3,414.7 96,531.3 205.3,642.7 216,634.7 233.3,617.3 
                   426.7,420.7 452.7,392 446,380.7 352.7,290.7 252.7,192"/>
                 <path d="M207.4,650.5c-1.6,0-3.2-0.6-4.3-1.8c0,0-247.8-253.3-247.9-253.4c-2.3-2.3-2.3-6.3,0.1-8.7l247.8-242.3
@@ -114,7 +114,7 @@ if ( have_posts() ) :
 
           <div class="space-y-4 p-8 bg-gray-50 border border-gray-200 rounded-lg soft-shadow">
             <div class="w-10 h-10 flex items-center justify-center mx-auto sm:mx-0">
-              <svg class="cwp-icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewBox="-49 141 512 512">
+              <svg class="csv-icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewBox="-49 141 512 512">
                 <polygon points="206.7,150 130.7,225.3 35.3,316 -40,391.3 -19.3,414.7 96,531.3 205.3,642.7 216,634.7 233.3,617.3 
                   426.7,420.7 452.7,392 446,380.7 352.7,290.7 252.7,192"/>
                 <path d="M207.4,650.5c-1.6,0-3.2-0.6-4.3-1.8c0,0-247.8-253.3-247.9-253.4c-2.3-2.3-2.3-6.3,0.1-8.7l247.8-242.3
@@ -134,7 +134,7 @@ if ( have_posts() ) :
 
           <div class="space-y-4 p-8 bg-gray-50 border border-gray-200 rounded-lg soft-shadow">
             <div class="w-10 h-10 flex items-center justify-center mx-auto sm:mx-0">
-              <svg class="cwp-icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewBox="-49 141 512 512">
+              <svg class="csv-icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewBox="-49 141 512 512">
                 <polygon points="206.7,150 130.7,225.3 35.3,316 -40,391.3 -19.3,414.7 96,531.3 205.3,642.7 216,634.7 233.3,617.3 
                   426.7,420.7 452.7,392 446,380.7 352.7,290.7 252.7,192"/>
                 <path d="M207.4,650.5c-1.6,0-3.2-0.6-4.3-1.8c0,0-247.8-253.3-247.9-253.4c-2.3-2.3-2.3-6.3,0.1-8.7l247.8-242.3
@@ -154,7 +154,7 @@ if ( have_posts() ) :
 
           <div class="space-y-4 p-8 bg-gray-50 border border-gray-200 rounded-lg soft-shadow">
             <div class="w-10 h-10 flex items-center justify-center mx-auto sm:mx-0">
-              <svg class="cwp-icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewBox="-49 141 512 512">
+              <svg class="csv-icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewBox="-49 141 512 512">
                 <polygon points="206.7,150 130.7,225.3 35.3,316 -40,391.3 -19.3,414.7 96,531.3 205.3,642.7 216,634.7 233.3,617.3 
                   426.7,420.7 452.7,392 446,380.7 352.7,290.7 252.7,192"/>
                 <path d="M207.4,650.5c-1.6,0-3.2-0.6-4.3-1.8c0,0-247.8-253.3-247.9-253.4c-2.3-2.3-2.3-6.3,0.1-8.7l247.8-242.3
@@ -174,7 +174,7 @@ if ( have_posts() ) :
 
           <div class="space-y-4 p-8 bg-gray-50 border border-gray-200 rounded-lg soft-shadow">
             <div class="w-10 h-10 flex items-center justify-center mx-auto sm:mx-0">
-              <svg class="cwp-icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewBox="-49 141 512 512">
+              <svg class="csv-icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewBox="-49 141 512 512">
                 <polygon points="206.7,150 130.7,225.3 35.3,316 -40,391.3 -19.3,414.7 96,531.3 205.3,642.7 216,634.7 233.3,617.3 
                   426.7,420.7 452.7,392 446,380.7 352.7,290.7 252.7,192"/>
                 <path d="M207.4,650.5c-1.6,0-3.2-0.6-4.3-1.8c0,0-247.8-253.3-247.9-253.4c-2.3-2.3-2.3-6.3,0.1-8.7l247.8-242.3
@@ -359,8 +359,8 @@ if ( have_posts() ) :
                   <?php endif; ?>
 
                   <div class="grid md:grid-cols-2 gap-4 hack">
-                    <a class="cwp-btn cwp-btn--primary" href="<?php echo esc_url( get_permalink() ); ?>">Details</a>
-                    <a class="cwp-btn cwp-btn--secondary" href="<?php echo esc_url( home_url( '/apply/' ) ); ?>">Apply</a>
+                    <a class="csv-btn csv-btn--primary" href="<?php echo esc_url( get_permalink() ); ?>">Details</a>
+                    <a class="csv-btn csv-btn--secondary" href="<?php echo esc_url( home_url( '/apply/' ) ); ?>">Apply</a>
                   </div>
                 </div>
               </div>
@@ -459,7 +459,7 @@ if ( have_posts() ) :
         <div class="grid md:grid-cols-4 gap-6">
           <div class="bg-white p-6 border border-gray-200 text-center space-y-4 rounded-lg soft-shadow">
             <div class="w-12 h-12 mx-auto flex items-center justify-center">
-              <svg class="cwp-icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewBox="-49 141 512 512">
+              <svg class="csv-icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewBox="-49 141 512 512">
                 <polygon points="206.7,150 130.7,225.3 35.3,316 -40,391.3 -19.3,414.7 96,531.3 205.3,642.7 216,634.7 233.3,617.3 
                   426.7,420.7 452.7,392 446,380.7 352.7,290.7 252.7,192"/>
                 <path d="M207.4,650.5c-1.6,0-3.2-0.6-4.3-1.8c0,0-247.8-253.3-247.9-253.4c-2.3-2.3-2.3-6.3,0.1-8.7l247.8-242.3
@@ -473,7 +473,7 @@ if ( have_posts() ) :
           </div>
           <div class="bg-white p-6 border border-gray-200 text-center space-y-4 rounded-lg soft-shadow">
             <div class="w-12 h-12 mx-auto flex items-center justify-center">
-              <svg class="cwp-icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewBox="-49 141 512 512">
+              <svg class="csv-icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewBox="-49 141 512 512">
                 <polygon points="206.7,150 130.7,225.3 35.3,316 -40,391.3 -19.3,414.7 96,531.3 205.3,642.7 216,634.7 233.3,617.3 
                   426.7,420.7 452.7,392 446,380.7 352.7,290.7 252.7,192"/>
                 <path d="M207.4,650.5c-1.6,0-3.2-0.6-4.3-1.8c0,0-247.8-253.3-247.9-253.4c-2.3-2.3-2.3-6.3,0.1-8.7l247.8-242.3
@@ -487,7 +487,7 @@ if ( have_posts() ) :
           </div>
           <div class="bg-white p-6 border border-gray-200 text-center space-y-4 rounded-lg soft-shadow">
             <div class="w-12 h-12 mx-auto flex items-center justify-center">
-              <svg class="cwp-icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewBox="-49 141 512 512">
+              <svg class="csv-icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewBox="-49 141 512 512">
                 <polygon points="206.7,150 130.7,225.3 35.3,316 -40,391.3 -19.3,414.7 96,531.3 205.3,642.7 216,634.7 233.3,617.3 
                   426.7,420.7 452.7,392 446,380.7 352.7,290.7 252.7,192"/>
                 <path d="M207.4,650.5c-1.6,0-3.2-0.6-4.3-1.8c0,0-247.8-253.3-247.9-253.4c-2.3-2.3-2.3-6.3,0.1-8.7l247.8-242.3
@@ -501,7 +501,7 @@ if ( have_posts() ) :
           </div>
           <div class="bg-white p-6 border border-gray-200 text-center space-y-4 rounded-lg soft-shadow">
             <div class="w-12 h-12 mx-auto flex items-center justify-center">
-              <svg class="cwp-icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewBox="-49 141 512 512">
+              <svg class="csv-icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewBox="-49 141 512 512">
                 <polygon points="206.7,150 130.7,225.3 35.3,316 -40,391.3 -19.3,414.7 96,531.3 205.3,642.7 216,634.7 233.3,617.3 
                   426.7,420.7 452.7,392 446,380.7 352.7,290.7 252.7,192"/>
                 <path d="M207.4,650.5c-1.6,0-3.2-0.6-4.3-1.8c0,0-247.8-253.3-247.9-253.4c-2.3-2.3-2.3-6.3,0.1-8.7l247.8-242.3
@@ -529,10 +529,10 @@ if ( have_posts() ) :
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-          <a class="cwp-btn cwp-btn--primary" href="<?php echo esc_url( home_url( '/orientation/' ) ); ?>">
+          <a class="csv-btn csv-btn--primary" href="<?php echo esc_url( home_url( '/orientation/' ) ); ?>">
             Explore The Journey
           </a>
-          <a class="cwp-btn cwp-btn--secondary" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">
+          <a class="csv-btn csv-btn--secondary" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">
             Contact Us
           </a>
         </div>

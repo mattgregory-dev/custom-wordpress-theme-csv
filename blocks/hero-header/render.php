@@ -57,10 +57,10 @@ $button2_url = $button2_url ? $button2_url : '#';
       <?php echo esc_html( $description ?: 'Hero description' ); ?>
     </p>
     <div class="hero-actions-wrapper">
-      <a class="cwp-btn cwp-btn--primary" href="<?php echo esc_url( $button1_url ); ?>">
+      <a class="csv-btn csv-btn--primary" href="<?php echo esc_url( $button1_url ); ?>">
         <?php echo esc_html( $button1_text ?: 'Button 1 text' ); ?>
       </a>
-      <a class="cwp-btn cwp-btn--secondary" href="<?php echo esc_url( $button2_url ); ?>">
+      <a class="csv-btn csv-btn--secondary" href="<?php echo esc_url( $button2_url ); ?>">
         <?php echo esc_html( $button2_text ?: 'Button 2 text' ); ?>
       </a>
     </div>

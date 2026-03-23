@@ -333,7 +333,7 @@ const preloader = () => {
 };
 
 // Parallax effects for hero/section images.
-const cwpParallax = () => {
+const csvParallax = () => {
   const parallaxSections = Array.from(
     document.querySelectorAll(".parallax-banner")
   )
@@ -1002,7 +1002,7 @@ const animateHeadings = () => {
 // Give hero header top padding based on header height
 /*
 const resizeHeaderHeight = () => {
-  const header = document.querySelector('.cwp-header-absolute');
+  const header = document.querySelector('.csv-header-absolute');
   const hero = document.getElementById('hero-header');
   if (!header || !hero) return;
 
@@ -1201,7 +1201,7 @@ const init = () => {
   smoothAnchors();
   LenisScroll.init();
   stickyHeader();
-  cwpParallax();
+  csvParallax();
   themeToggle();
   activeMenu();
   sideMenu();

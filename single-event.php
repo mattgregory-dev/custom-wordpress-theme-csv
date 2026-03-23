@@ -234,11 +234,11 @@ get_header();
               <?php endif; ?>
               <!-- Payment Buttons -->
               <div class="space-y-3 pt-2">
-                <a class="w-full cwp-btn cwp-btn--primary" 
+                <a class="w-full csv-btn csv-btn--primary" 
                     href="<?php echo esc_url( $full_checkout_url ? $full_checkout_url : '#' ); ?>">
                   Pay in Full
                 </a>
-                <a class="w-full cwp-btn cwp-btn--secondary"
+                <a class="w-full csv-btn csv-btn--secondary"
                     href="<?php echo esc_url( $deposit_checkout_url ? $deposit_checkout_url : '#' ); ?>">
                   Pay Deposit
                 </a>
@@ -286,7 +286,7 @@ get_header();
                 <p class="text-sm text-gray-700">
                   Application required before attending
                 </p>
-                <a class="w-full cwp-btn cwp-btn--secondary" href="<?php echo esc_url( home_url( '/apply/' ) ); ?>">
+                <a class="w-full csv-btn csv-btn--secondary" href="<?php echo esc_url( home_url( '/apply/' ) ); ?>">
                   Apply Now
                 </a>
               </div>
@@ -297,7 +297,7 @@ get_header();
             <p class="text-sm text-gray-700">
               Have questions?
             </p>
-            <a class="w-full cwp-btn cwp-btn--secondary" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">
+            <a class="w-full csv-btn csv-btn--secondary" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">
               Contact Us
             </a>
           </div>
@@ -396,7 +396,7 @@ get_header();
                 <div class="flex min-h-[165px] flex-col p-4">
                   <h3 class="font-bold text-gray-900"><?php the_title(); ?></h3>
                   <p class="text-sm text-gray-600 mt-2"><?php echo esc_html( $related_date ); ?></p>
-                  <a class="mt-auto w-full cwp-btn cwp-btn--secondary small" href="<?php the_permalink(); ?>">
+                  <a class="mt-auto w-full csv-btn csv-btn--secondary small" href="<?php the_permalink(); ?>">
                     Learn More
                   </a>
                 </div>

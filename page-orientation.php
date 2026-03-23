@@ -261,7 +261,7 @@ if ( have_posts() ) :
           <div class="col-span-1 lg:col-span-4 mb-10 lg:mb-0">
             <div class="lg:sticky lg:top-24">
               <div class="w-16 h-16 border-0 border-gray-900 mb-6 flex items-center justify-center">
-                <svg class="cwp-icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewBox="-49 141 512 512">
+                <svg class="csv-icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewBox="-49 141 512 512">
                   <polygon points="205,152 -38,396 -26,413 205,642 227,626 452,397"/>
                   <path d="M206.5,650.5c-1.6,0-3.1-0.6-4.3-1.8L-44.7,401.8c-2.3-2.3-2.3-6.3,0-8.6c0,0,246.8-246.8,246.9-246.9
                     c2.3-2.3,6.3-2.3,8.6,0c0,0,246.6,246.6,246.9,246.9c2.3,2.3,2.3,6.3,0,8.6c0,0-246.6,246.6-246.9,246.9
@@ -321,7 +321,7 @@ if ( have_posts() ) :
       <div class="max-w-4xl mx-auto">
         <div class="text-center mb-16">
           <div class="w-32 h-32 mx-auto rounded-full border-0 border-gray-300 bg-gray-000 flex items-center justify-center mb-8">
-            <svg class="cwp-icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewBox="-49 141 512 512">
+            <svg class="csv-icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewBox="-49 141 512 512">
               <polygon class="st0" points="304.2,217.7 107.3,217.2 4.2,397.3 108.4,575.4 123.6,576.9 304.7,576.4 311,568 409.5,397.9 
                 385.9,355.4 "/>
               <path d="M306,582C306,582,305.9,582,306,582c-0.1,0-197.5,0-197.9,0c-1.8,0-3.6-0.9-4.5-2.6L0.2,399.5c-0.9-1.5-0.9-3.4,0-5

@@ -35,7 +35,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
         <h2 class="footer-banner-title"><?php echo esc_html( $title ?: 'title' ); ?></h2>
         <p class="footer-banner-description"><?php echo esc_html( $description ?: 'description' ); ?></p>
         <div class="footer-button-wrapper">
-          <a class="cwp-btn cwp-btn--primary" href="<?php echo esc_url( $button_url ?: '#' ); ?>">
+          <a class="csv-btn csv-btn--primary" href="<?php echo esc_url( $button_url ?: '#' ); ?>">
             <?php echo esc_html( $button_text ?: 'button text' ); ?> &rarr;
           </a>
         </div>
