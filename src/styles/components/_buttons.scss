@@ -57,7 +57,33 @@
   }
 }
 
-.csv-btn {
+//////////////////////////////////////////////////
+/////// Primary & Secondary Button Styles ////////
+//////////////////////////////////////////////////
+
+// OG button class
+.csv-btn,
+// Forminator buttons
+.forminator-button.forminator-button-submit,
+// LearnDash buttons
+.learndash-wrapper #learndash-registration-wrapper #learndash_registerform #wp-submit,
+.learndash-wrapper #learndash-reset-password-wrapper #learndash_registerform #wp-submit,
+#learndash-registration-wrapper input[type=submit],
+#learndash-registration-wrapper .button.button-primary,
+#learndash-registration-wrapper .button.button-primary.button-large,
+#learndash-reset-password-wrapper input[type=submit],
+#learndash-reset-password-wrapper .button.button-primary,
+#learndash-reset-password-wrapper .button.button-primary.button-large,
+.learndash-wrapper #learndash-registration-wrapper form input[type=submit],
+.learndash-wrapper #learndash-reset-password-wrapper form input[type=submit],
+// WooCommerce buttons
+.wc-block-components-button,
+.wc-block-components-checkout-return-to-cart-button,
+.woocommerce-MyAccount-content .edit,
+.woocommerce-Button.button,
+.woocommerce button.button,
+.woocommerce a.button,
+.browse-retreats {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -70,15 +96,17 @@
   border-radius: 0.3125rem;
   border: 2px solid transparent;
   text-decoration: none;
+  text-transform: capitalize;
   cursor: pointer;
   transition:
     box-shadow 220ms ease,
     background-color 240ms ease,
     color 100ms ease,
     border-color 240ms ease;
-  &:focus-visible {
-    outline: 2px solid currentColor;
-    outline-offset: 3px;
+  &:focus-visible,
+  &:focus {
+    outline: none;
+    box-shadow: none !important;
   }
   &.small {
     padding: .6rem 1rem;
@@ -86,7 +114,24 @@
   }
 }
 
-.csv-btn--primary {
+// OG button class - Primary
+.csv-btn--primary,
+// Forminator buttons
+.forminator-button.forminator-button-submit,
+// LearnDash buttons
+.learndash-wrapper #learndash-registration-wrapper #learndash_registerform #wp-submit,
+.learndash-wrapper #learndash-reset-password-wrapper #learndash_registerform #wp-submit,
+#learndash-registration-wrapper input[type=submit],
+#learndash-registration-wrapper .button.button-primary,
+#learndash-registration-wrapper .button.button-primary.button-large,
+#learndash-reset-password-wrapper input[type=submit],
+#learndash-reset-password-wrapper .button.button-primary,
+#learndash-reset-password-wrapper .button.button-primary.button-large,
+.learndash-wrapper #learndash-registration-wrapper form input[type=submit],
+.learndash-wrapper #learndash-reset-password-wrapper form input[type=submit],
+// WooCommerce buttons
+.wc-block-components-button,
+.browse-retreats {
   background-color: var(--black);
   color: var(--white);
   border-color: var(--black);
@@ -103,7 +148,14 @@
   }
 }
 
-.csv-btn--secondary {
+// OG button class - Secondary
+.csv-btn--secondary,
+// WooCommerce buttons
+.wc-block-components-checkout-return-to-cart-button,
+.woocommerce-MyAccount-content .edit,
+.woocommerce-Button.button,
+.woocommerce button.button,
+.woocommerce a.button {
   position: relative;
   z-index: 0;
   overflow: hidden;

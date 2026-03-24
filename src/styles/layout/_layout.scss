@@ -4,6 +4,7 @@
 
 
 
+
 main {
   z-index: 0;
   position: relative;
@@ -16,6 +17,33 @@ section#preparation {
   position: relative;
   z-index: 0;
 }
+
+
+
+
+// Base logo styles
+.logo img {
+  height: 4.5rem;
+  border-radius: 0.6rem;
+  transform: scale(1.1) translateX(0.7rem);
+}
+
+// Default state (black visible)
+.logo {
+  img.logo-black { display: inline; }
+  img.logo-white { display: none; }
+}
+
+// Variant: white header
+.csv-header-absolute.white {
+  .logo {
+    img.logo-black { display: none; }
+    img.logo-white { display: inline; }
+  }
+}
+
+
+
 
 
 

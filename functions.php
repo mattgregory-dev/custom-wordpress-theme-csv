@@ -3,6 +3,10 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
+//////////////////////////////////////////////////
+//////////// Dev & Build Environment /////////////
+//////////////////////////////////////////////////
+
 function csv_is_vite_dev() {
   return defined('CUSTOM_WP_VITE_DEV') && CUSTOM_WP_VITE_DEV;
 }
@@ -63,6 +67,10 @@ function csv_block_module_scripts( $tag, $handle, $src ) {
 }
 add_filter( 'script_loader_tag', 'csv_block_module_scripts', 10, 3 );
 
+//////////////////////////////////////////////////
+///////////////// WordPress Theme ////////////////
+//////////////////////////////////////////////////
+
 // Register navigation menus
 function csv_setup() {
   add_theme_support( 'title-tag' );
@@ -77,12 +85,18 @@ function csv_setup() {
 }
 add_action( 'after_setup_theme', 'csv_setup' );
 
-// ACF Google Maps API key (method 1: filter).
-function csv_acf_google_map_api( $api ) {
-  $api['key'] = 'AIzaSyBhXc-P0oJLSCbmNRnLOO-Q5XnjcpISEQs';
-  return $api;
+// Conveinent way to keep copyright updated
+function shortcode_current_year() {
+  return date('Y');
 }
-add_filter( 'acf/fields/google_map/api', 'csv_acf_google_map_api' );
+add_shortcode('current_year', 'shortcode_current_year');
+
+// Register Gutenburg custom blocks
+function theme_register_blocks() {
+  register_block_type( __DIR__ . '/blocks/hero-header');
+  register_block_type( __DIR__ . '/blocks/next-step');
+}
+add_action( 'init', 'theme_register_blocks' );
 
 //////////////////////////////////////////////////
 ////////////////// Woocommerce ///////////////////
@@ -177,6 +191,18 @@ function ms_add_logged_out_account_body_class($classes) {
   return $classes;
 }
 add_filter('body_class', 'ms_add_logged_out_account_body_class');
+
+// Redirect to homepage after logout
+function csv_logout_redirect_home( $redirect_to, $requested_redirect_to, $user ) {
+  return home_url( '/' );
+}
+add_filter( 'logout_redirect', 'csv_logout_redirect_home', 10, 3 );
+
+// WooCommerce handles logout redirects separately.
+function csv_woocommerce_logout_redirect_home( $redirect_url ) {
+  return home_url( '/' );
+}
+add_filter( 'woocommerce_logout_default_redirect_url', 'csv_woocommerce_logout_redirect_home' );
 
 // Assset loading on Woocommerce pages
 // Delaying load, so the homepage that does not have Woocommerce elments doesn't take a performance hit
@@ -293,6 +319,24 @@ function csv_filter_woocommerce_enqueue_styles( $styles ) {
 add_filter( 'woocommerce_enqueue_styles', 'csv_filter_woocommerce_enqueue_styles' );
 
 //////////////////////////////////////////////////
+////////////////// LearnDash /////////////////////
+//////////////////////////////////////////////////
+
+// Add body class to LearnDash shortcode pages (slug-based, dev-only).
+function csv_add_learndash_slug_body_class( $classes ) {
+  $learndash_slugs = array(
+    'profile',
+  );
+
+  if ( is_page( $learndash_slugs ) ) {
+    $classes[] = 'learndash-page';
+  }
+
+  return $classes;
+}
+add_filter( 'body_class', 'csv_add_learndash_slug_body_class' );
+
+//////////////////////////////////////////////////
 /////////// Remove WordPress features ////////////
 //////////////////////////////////////////////////
 function csv_cleanup_head() {
@@ -359,19 +403,6 @@ function csv_strip_auto_attachment_title( $data, $postarr ) {
 }
 add_filter( 'wp_insert_attachment_data', 'csv_strip_auto_attachment_title', 10, 2 );
 
-// Conveinent way to keep copyright updated
-function shortcode_current_year() {
-  return date('Y');
-}
-add_shortcode('current_year', 'shortcode_current_year');
-
-// Register Gutenburg custom blocks
-function theme_register_blocks() {
-  register_block_type( __DIR__ . '/blocks/hero-header');
-  register_block_type( __DIR__ . '/blocks/next-step');
-}
-add_action( 'init', 'theme_register_blocks' );
-
 /*
 function csv_cleanup_head() {
   remove_action( 'wp_head', 'wp_oembed_add_discovery_links' );
@@ -390,7 +421,7 @@ add_action( 'init', 'csv_disable_oembed', 20 );
 */
 
 //////////////////////////////////////////////////////////////////
-///////////// [START: FOR DEVELOPMENT ONLY] //////////////////////
+///////////// [FOR DEVELOPMENT ONLY] /////////////////////////////
 //////////////////////////////////////////////////////////////////
 
 /*
@@ -444,7 +475,3 @@ function csv_dev_dequeue_block_assets() {
 }
 add_action( 'wp_enqueue_scripts', 'csv_dev_dequeue_block_assets', 100 );
 */
-
-//////////////////////////////////////////////////////////////////
-///////////// [END: FOR DEVELOPMENT ONLY] ////////////////////////
-//////////////////////////////////////////////////////////////////

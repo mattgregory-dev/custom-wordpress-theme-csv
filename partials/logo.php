@@ -1,12 +1,10 @@
-<a class="logo-group" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+<a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>">
   <img
-      src="/wp-content/uploads/logo.png"
-      width="66px"
-      height="72px"
+      class="logo-black"
+      src="<?php echo esc_url( get_template_directory_uri() . '/images/logo-6.webp' ); ?>"
       alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
-  <div class="flex flex-col items-center logo-text-block">
-    <div class="logo-text">Lumina</div>
-    <div class="logo-sub-text">Healing Center</div>
-    <div class="logo-location flex justify-center items-center"><span>Sedona</span></div>
-  </div>
+  <img
+      class="logo-white"
+      src="<?php echo esc_url( get_template_directory_uri() . '/images/logo-6-white.webp' ); ?>"
+      alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
 </a>

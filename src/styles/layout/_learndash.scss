@@ -1,0 +1,24 @@
+.learndash-page {
+  // Removing sticky header on Woocommerce pages
+  .sticky-active {
+    display: none;
+  }
+  // Giving Woocommerce pages a set width and background styles
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 0 3rem;
+    border-radius: 13px;
+    margin-bottom: 3rem;
+    @media (max-width: 1240px) {
+      margin: 0 2rem 3rem;
+    }
+    @media (max-width:480px) {
+      padding: 0 1rem;
+      margin: 0 1rem 3rem;
+    }
+  }
+
+}
