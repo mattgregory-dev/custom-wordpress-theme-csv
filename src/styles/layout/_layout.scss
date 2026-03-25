@@ -27,6 +27,11 @@ section#preparation {
   border-radius: 0.6rem;
   transform: scale(1.1) translateX(0.7rem);
 }
+header.sticky-active {
+  .logo img {
+    transform: scale(.95);
+  }
+}
 
 // Default state (black visible)
 .logo {

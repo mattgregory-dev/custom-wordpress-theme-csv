@@ -1,9 +1,7 @@
 .learndash-page {
-  // Removing sticky header on Woocommerce pages
   .sticky-active {
     display: none;
   }
-  // Giving Woocommerce pages a set width and background styles
   main {
     max-width: 1200px;
     margin: 0 auto;
@@ -19,6 +17,288 @@
       padding: 0 1rem;
       margin: 0 1rem 3rem;
     }
+    .ld-profile-avatar {
+      display: none;
+    }
   }
+}
 
+.learndash-cpt {
+  .sticky-active {
+    display: none;
+  }
+  main#main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 3rem 3rem;
+    border-radius: 13px;
+    margin-bottom: 3rem;
+    @media (max-width: 1240px) {
+      margin: 0 2rem 3rem;
+    }
+    @media (max-width:480px) {
+      padding: 0 1rem;
+      margin: 0 1rem 3rem;
+    }
+    h1 {
+      font-size: 2.4rem;
+      margin-bottom: 1rem;
+    }
+    .learndash,
+    .learndash-wrapper {
+      .ld-breadcrumbs {
+        background-color: #fff;
+        border-bottom: 1px solid #ccc;
+        border-radius: 0;
+        padding-top: 0;
+        padding-inline: 0;
+        ol.ld-breadcrumbs-segments {
+          li {
+            a {
+              font-size: .95rem;
+              font-weight: 400;
+            }
+            a:hover {
+              text-decoration: underline;
+            }
+            &::after {
+              content: "/";
+              font-size: 1rem;
+              padding: 0 0.3rem;
+              color: #8c8ca2;
+            }
+            &:last-child {
+              a {
+                color: #000 !important;
+              }
+              a:hover {
+                text-decoration: none;
+                cursor: text;
+              }
+            }
+          }
+        }
+        &.ld-breadcrumbs--modern {
+          .ld-breadcrumbs__item {
+            a.ld-breadcrumbs__link,
+            span.ld-breadcrumbs__link {
+              font-size: .95rem;
+              font-weight: 400;
+            }
+            a.ld-breadcrumbs__link:hover {
+              text-decoration: underline;
+            }
+            &:last-child {
+              cursor: text;
+              a.ld-breadcrumbs__link,
+              span.ld-breadcrumbs__link {
+                color: #000 !important;
+              }
+            }
+          }
+        }
+      }
+      .ld-layout__content {
+        .ld-tab-bar__panel {
+          .ld-featured-image {
+            border-radius: .5rem;
+          }
+          h2 {
+            font-size: 2rem;
+            strong {
+              font-weight: 400;
+            }
+            margin-bottom: 1rem;
+          }
+          p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+          }
+          ul {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+            li {
+              padding-bottom: .3em;
+            }
+          }
+        }
+
+        .ld-accordion {
+          .ld-accordion__header {
+            .ld-progress-bar {
+              width: 100%;
+              margin-top: 1rem;
+              margin-bottom: 1rem;
+            }
+          }
+          h2.ld-accordion__heading {
+            font-size: 2rem;
+          }
+        }
+
+      }
+
+      // Standard LearnDash markup
+      .ld-item-list {
+        .ld-item-list-item {
+          .ld-item-details {
+            .ld-expand-button {
+              outline: none;
+              border: none;
+              box-shadow: none;
+            }
+          }
+        }
+      }
+      .ld-progress {
+        .ld-progress-stats {
+          flex-direction: column;
+          row-gap: .4rem;
+          font-size: .8rem;
+          .ld-progress-bar {
+            height: 1.1rem;
+            .ld-progress-percentage {
+              font-size: 1rem;
+              height: 1.1rem;
+            }
+          }
+        }
+      }
+      .ld-tabs-content {
+        p {
+          font-size: 1.1rem;
+          margin-bottom: 1rem;
+        }
+        ul {
+          list-style-type: disc;
+          margin-left: 1.5rem;
+          li {
+            padding-bottom: .3em;
+          }
+        }
+      }
+      .ld-content-actions {
+        .ld-content-action {
+          .ld-course-step-back {
+            font-size: 1rem;
+            text-decoration: none;
+            &::before {
+              content: "\f359";
+              font-family: "Font Awesome 7 Free";
+              font-weight: 400;
+              font-size: 1rem;
+              padding: 0 0.3rem;
+            }
+          }
+        }
+      }
+
+      .wpProQuiz_content {
+        h5.wpProQuiz_header {
+          display: none !important;
+          margin-top: 3rem;
+          margin-bottom: 1.5rem;
+        }
+        fieldset {
+          margin-top: 2rem !important;
+          legend {
+            padding-bottom: 1.2rem;
+            p {
+              font-size: 1.1rem;
+              margin-bottom: 1rem;
+            }
+          }
+          .wpProQuiz_questionList[data-type=multiple],
+          .wpProQuiz_questionList[data-type=single] {
+            .wpProQuiz_questionListItem:hover {
+              label {
+                cursor: pointer;
+                background-color: #f0f8ff;
+              }
+            }
+          }
+        }
+        .wpProQuiz_results {
+          .wpProQuiz_quiz_time {
+            display: none;
+          }
+          .wpProQuiz_resultTable {
+            .progress-meter {
+              border-radius: .3rem;
+              background-color: #008000 !important;
+            }
+          }
+        }
+        .wpProQuiz_button_reShowQuestion {
+          display: none;
+        }
+      }
+    }
+  }
+  &.learndash-cpt-sfwd-courses {
+    h1 {
+      text-align: center;
+    }
+    .learndash {
+      .learndash-wrapper {
+        nav {
+          text-align: center;
+        }
+        &.ld-layout--no-sidebar {
+          grid-template-areas:
+            "breadcrumb"
+            "header"
+            "content";
+        }
+        nav.ld-breadcrumbs {
+          grid-area: breadcrumb;
+        }
+        .ld-progress-bar {
+          justify-content: center;
+        }
+      }
+    }
+  }
+}
+
+// LearnDash
+.learndash-wrapper .wpProQuiz_content .wpProQuiz_button,
+.learndash-wrapper .wpProQuiz_content a#quiz_continue_link,
+.learndash-wrapper .wpProQuiz_content .wpProQuiz_button:not([disabled]):not(.wpProQuiz_button_reShowQuestion):not(.wpProQuiz_button_restartQuiz),
+.learndash-wrapper .ld-item-list .ld-section-heading .ld-item-list-actions .ld-expand-button,
+.learndash-wrapper .ld-button:not([disabled]):not(.ld-button-reverse):not(.ld-button-transparent):not(.ld--ignore-inline-css),
+.learndash-cpt .learndash-wrapper .ld-content-action .ld-button,
+.learndash-cpt .ld-item-list .ld-section-heading .ld-item-list-actions .ld-expand-button,
+.learndash-wrapper:not(.ld-registration__outer-wrapper):not(.learndash-wrapper--modern) #learndash_mark_complete_button,
+.learndash-wrapper:not(.ld-registration__outer-wrapper):not(.learndash-wrapper--modern) .learndash_mark_complete_button,
+.learndash-wrapper:not(.ld-registration__outer-wrapper):not(.learndash-wrapper--modern) .ld-button {
+  font-family: var(--ld-typography-font-family) !important;
+  color: rgb(74, 74, 104) !important;
+  font-size: 1rem !important;
+  letter-spacing: 0.07rem !important;
+  border-radius: .5rem !important;
+  background-color: transparent !important;
+  padding: .8rem 1.2rem !important;
+  border: 2px solid transparent !important;
+  background-color: #fff !important;
+  &:hover {
+    border: 2px solid var(--ld-color-brand-primary) !important;
+    background-color: #f2f2f2 !important;
+    opacity: 1 !important;
+    color: var(--ld-color-brand-primary) !important;
+  }
+  &:focus {
+    outline: 4px solid rgb(214, 222, 251) !important;
+    outline-offset: 0 !important;
+    color: var(--ld-color-brand-primary) !important;
+    // border: none !important;
+    // box-shadow: none !important;
+  }
+}
+.learndash-wrapper .wpProQuiz_content .wpProQuiz_button,
+.learndash-wrapper .wpProQuiz_content a#quiz_continue_link {
+  background-color: var(--ld-color-brand-primary) !important;
+  color: #fff !important;
 }
