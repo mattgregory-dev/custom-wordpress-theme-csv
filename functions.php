@@ -476,7 +476,7 @@ function csv_notify_admin_on_learndash_review( $comment_id, $comment = null, $ra
 
   $subject = 'New Online Course Review';
 
-  $message = "A new course review was submitted.\n\n";
+  $message = "A course was reviewed.\n\n";
   $message .= "Course: {$course_title}\n";
   $message .= "Reviewer: {$author_name}\n";
   if ( '' !== $rating && null !== $rating ) {

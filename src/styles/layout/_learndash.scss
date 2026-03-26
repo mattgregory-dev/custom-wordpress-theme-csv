@@ -160,6 +160,9 @@
             justify-content: flex-start;
             align-items: center;
             column-gap: 1rem;
+            .learndash-course-reviews-review-stars {
+              font-size: 1.9rem;
+            }
           }
           .notices-container {
             display: none;
@@ -439,9 +442,16 @@
 .ld-progress-bar__last-activity {
   color: #32cd32;
 }
+.has-text-align-center {
+  text-align: left !important;
+}
+.logged-in .has-text-align-center {
+  text-align: center !important;
+}
 // .logged-in .reviews-list {
 //   display: none;
 // }
+
 
 @keyframes star-animation {
   0% {
