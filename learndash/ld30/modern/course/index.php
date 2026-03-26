@@ -41,32 +41,34 @@ if ( function_exists( 'get_field' ) && ! empty( $course_post->ID ) ) {
 	data-learndash-breakpoints="<?php echo esc_attr( $this->get_breakpoints_json() ); ?>"
 	data-learndash-breakpoint-pointer="<?php echo esc_attr( $this->get_breakpoint_pointer() ); ?>"
 >
-	<nav
-		aria-label="<?php esc_html_e( 'Breadcrumbs', 'learndash' ); ?>"
-		class="ld-breadcrumbs ld-breadcrumbs--modern"
-	>
-		<ol class="ld-breadcrumbs__items">
-			<li class="ld-breadcrumbs__item ld-breadcrumbs__item--all-courses">
-				<a href="<?php echo esc_url( home_url( '/account/' ) ); ?>" class="ld-breadcrumbs__link">
-					<?php echo esc_html__( 'Courses', 'learndash' ); ?>
-				</a>
-				<?php
-				$this->template(
-					'components/icons/slash-forward',
-					[
-						'classes'        => [ 'ld-breadcrumbs__delimiter' ],
-						'is_aria_hidden' => true,
-					]
-				);
-				?>
-			</li>
-			<li class="ld-breadcrumbs__item ld-breadcrumbs__item--current">
-				<span class="ld-breadcrumbs__link" aria-current="page">
-					<?php echo esc_html( $course_title ); ?>
-				</span>
-			</li>
-		</ol>
-	</nav>
+  <?php if ( is_user_logged_in() ) : ?>
+    <nav
+      aria-label="<?php esc_html_e( 'Breadcrumbs', 'learndash' ); ?>"
+      class="ld-breadcrumbs ld-breadcrumbs--modern"
+    >
+      <ol class="ld-breadcrumbs__items">
+        <li class="ld-breadcrumbs__item ld-breadcrumbs__item--all-courses">
+          <a href="<?php echo esc_url( home_url( '/account/' ) ); ?>" class="ld-breadcrumbs__link">
+            <?php echo esc_html__( 'Courses', 'learndash' ); ?>
+          </a>
+          <?php
+          $this->template(
+            'components/icons/slash-forward',
+            [
+              'classes'        => [ 'ld-breadcrumbs__delimiter' ],
+              'is_aria_hidden' => true,
+            ]
+          );
+          ?>
+        </li>
+        <li class="ld-breadcrumbs__item ld-breadcrumbs__item--current">
+          <span class="ld-breadcrumbs__link" aria-current="page">
+            <?php echo esc_html( $course_title ); ?>
+          </span>
+        </li>
+      </ol>
+    </nav>
+  <?php endif; ?>
 
 	<?php if ( $show_header ) : ?>
 		<?php $this->template( 'modern/course/header' ); ?>

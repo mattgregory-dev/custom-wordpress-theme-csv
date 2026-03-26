@@ -140,6 +140,26 @@ function csv_remove_account_downloads_menu_item( $items ) {
 }
 add_filter( 'woocommerce_account_menu_items', 'csv_remove_account_downloads_menu_item' );
 
+// Rename Dashboard to My Courses in My Account navigation.
+function csv_rename_account_dashboard_menu_item( $items ) {
+  if ( isset( $items['dashboard'] ) ) {
+    $items['dashboard'] = 'My Courses';
+  }
+
+  return $items;
+}
+add_filter( 'woocommerce_account_menu_items', 'csv_rename_account_dashboard_menu_item', 20 );
+
+// Point LearnDash login links to the My Account page.
+function csv_learndash_login_url( $login_url, $context, $args ) {
+  if ( 'login' !== $context ) {
+    return $login_url;
+  }
+
+  return home_url( '/account/' );
+}
+add_filter( 'learndash_login_url', 'csv_learndash_login_url', 10, 3 );
+
 // Rename "Browse products" to "View Retreats" on My Account notices.
 function csv_rename_browse_products_text( $translated, $text, $domain ) {
   if ( 'woocommerce' !== $domain ) {
@@ -335,6 +355,149 @@ function csv_add_learndash_slug_body_class( $classes ) {
   return $classes;
 }
 add_filter( 'body_class', 'csv_add_learndash_slug_body_class' );
+
+// Hide author names on LearnDash course reviews.
+function csv_hide_learndash_review_author_name( $author, $comment_id, $comment ) {
+  if ( ! $comment instanceof WP_Comment ) {
+    $comment = get_comment( $comment_id );
+  }
+
+  if ( ! $comment instanceof WP_Comment ) {
+    return $author;
+  }
+
+  if ( 'ld_review' !== $comment->comment_type ) {
+    return $author;
+  }
+
+  if ( $comment->user_id ) {
+    $first_name = get_user_meta( $comment->user_id, 'first_name', true );
+    if ( ! empty( $first_name ) ) {
+      return $first_name;
+    }
+  }
+
+  return 'Verified Student';
+}
+add_filter( 'get_comment_author', 'csv_hide_learndash_review_author_name', 10, 3 );
+
+// Remove time from LearnDash course review timestamps (keep date).
+function csv_learndash_reviews_strip_time_text( $translated, $text, $domain ) {
+  if ( 'learndash' !== $domain ) {
+    return $translated;
+  }
+
+  if ( '%1$s at %2$s' !== $text ) {
+    return $translated;
+  }
+
+  $comment = get_comment();
+  if ( $comment instanceof WP_Comment && 'ld_review' === $comment->comment_type ) {
+    return '%1$s';
+  }
+
+  return $translated;
+}
+add_filter( 'gettext', 'csv_learndash_reviews_strip_time_text', 10, 3 );
+
+function csv_learndash_reviews_hide_comment_time( $time, $format, $gmt, $comment ) {
+  if ( $comment instanceof WP_Comment && 'ld_review' === $comment->comment_type ) {
+    return '';
+  }
+
+  return $time;
+}
+add_filter( 'get_comment_time', 'csv_learndash_reviews_hide_comment_time', 10, 4 );
+
+// Hide the Reviews tab after a user has left a review.
+// function csv_hide_learndash_reviews_tab_after_review( $tabs, $tabs_object ) {
+//   if ( ! function_exists( 'learndash_course_reviews_get_user_review' ) ) {
+//     return $tabs;
+//   }
+
+//   if ( ! is_user_logged_in() ) {
+//     return $tabs;
+//   }
+
+//   $course_id = get_queried_object_id();
+//   if ( empty( $course_id ) || 'sfwd-courses' !== get_post_type( $course_id ) ) {
+//     return $tabs;
+//   }
+
+//   $review = learndash_course_reviews_get_user_review( $course_id );
+//   if ( ! empty( $review ) ) {
+//     unset( $tabs['reviews'] );
+//   }
+
+//   return $tabs;
+// }
+// add_filter( 'learndash_template_tabs_sorted', 'csv_hide_learndash_reviews_tab_after_review', 10, 2 );
+
+// Notify admin when a LearnDash course review is submitted.
+function csv_decode_mail_text( $text ) {
+  $decoded = wp_specialchars_decode( $text, ENT_QUOTES );
+  $decoded = html_entity_decode( $decoded, ENT_QUOTES, 'UTF-8' );
+  if ( $decoded !== $text ) {
+    $decoded = html_entity_decode( $decoded, ENT_QUOTES, 'UTF-8' );
+  }
+
+  return $decoded;
+}
+
+function csv_notify_admin_on_learndash_review( $comment_id, $comment = null, $rating_override = null ) {
+  if ( ! $comment instanceof WP_Comment ) {
+    $comment = get_comment( $comment_id );
+  }
+
+  if ( ! $comment instanceof WP_Comment ) {
+    return;
+  }
+
+  if ( 'ld_review' !== $comment->comment_type ) {
+    return;
+  }
+
+  $post_id = $comment->comment_post_ID;
+  if ( 'sfwd-courses' !== get_post_type( $post_id ) ) {
+    return;
+  }
+
+  if ( get_comment_meta( $comment_id, '_csv_review_notified', true ) ) {
+    return;
+  }
+
+  $admin_email = get_option( 'admin_email' );
+  $course_title = csv_decode_mail_text( get_the_title( $post_id ) );
+  $author_name = csv_decode_mail_text( $comment->comment_author ?: 'A user' );
+  $review_text = csv_decode_mail_text( $comment->comment_content );
+  $rating = null !== $rating_override ? $rating_override : get_comment_meta( $comment_id, 'rating', true );
+  $comment_status = wp_get_comment_status( $comment );
+  $status = ( 'approved' === $comment_status ) ? 'Approved' : 'Pending moderation';
+
+  $subject = 'New Online Course Review';
+
+  $message = "A new course review was submitted.\n\n";
+  $message .= "Course: {$course_title}\n";
+  $message .= "Reviewer: {$author_name}\n";
+  if ( '' !== $rating && null !== $rating ) {
+    $message .= "Rating: {$rating}/5\n";
+  }
+  $message .= "Status: {$status}\n\n";
+  $message .= "Review:\n{$review_text}\n\n";
+  $message .= 'Edit review:' . "\n" . admin_url( 'comment.php?action=editcomment&c=' . $comment_id );
+
+  wp_mail( $admin_email, $subject, $message );
+  update_comment_meta( $comment_id, '_csv_review_notified', 1 );
+}
+
+function csv_notify_admin_on_learndash_review_rating_meta( $meta_id, $comment_id, $meta_key, $meta_value ) {
+  if ( 'rating' !== $meta_key ) {
+    return;
+  }
+
+  csv_notify_admin_on_learndash_review( $comment_id, null, $meta_value );
+}
+add_action( 'added_comment_meta', 'csv_notify_admin_on_learndash_review_rating_meta', 10, 4 );
 
 //////////////////////////////////////////////////
 /////////// Remove WordPress features ////////////

@@ -126,6 +126,7 @@ Within the same layer, import order controls override priority.
 - `pages/` -> page-specific styles
 
 Never create global styles in `src/style.scss` unless truly one-off.
+Prefer nesting SCSS selectors when writing component or layout styles, unless nesting would reduce clarity, increase specificity risk, or otherwise be less appropriate than flat selectors.
 
 ---
 

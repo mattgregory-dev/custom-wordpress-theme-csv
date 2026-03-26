@@ -175,23 +175,7 @@
   display: none;
 }
 
-// LearnDash registration/login/reset forms.
-#learndash-registration-wrapper,
-#learndash-reset-password-wrapper {
-  font-family: var(--font-secondary);
-  color: var(--ink);
-
-  .learndash-registration-field,
-  .login-username,
-  .login-password,
-  .login-remember,
-  .login-submit {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    margin-bottom: 1.25rem;
-  }
-
+.learndash-course-reviews-container {
   label {
     font-weight: 500;
     letter-spacing: 0.08em;
@@ -200,16 +184,17 @@
     color: var(--ink);
   }
 
-  .learndash-required-field {
+  .required {
     color: var(--accent);
   }
 
+  input[type="hidden"] {
+    display: none;
+  }
+
   input[type="text"],
-  input[type="email"],
   input[type="password"],
-  input[type="search"],
-  input[type="tel"],
-  input[type="url"] {
+  textarea {
     width: 100%;
     border: 1px solid #afafaf;
     border-radius: 0.5rem;
@@ -223,47 +208,224 @@
   }
 
   input[type="text"]::placeholder,
-  input[type="email"]::placeholder,
   input[type="password"]::placeholder,
-  input[type="search"]::placeholder,
-  input[type="tel"]::placeholder,
-  input[type="url"]::placeholder {
+  textarea::placeholder {
     color: rgba(92, 81, 88, 0.55);
   }
 
   input[type="text"]:hover,
-  input[type="email"]:hover,
   input[type="password"]:hover,
-  input[type="search"]:hover,
-  input[type="tel"]:hover,
-  input[type="url"]:hover {
+  textarea:hover {
     border-color: rgba(92, 81, 88, 0.65);
     background: #ececec;
   }
 
   input[type="text"]:focus-visible,
-  input[type="email"]:focus-visible,
   input[type="password"]:focus-visible,
-  input[type="search"]:focus-visible,
-  input[type="tel"]:focus-visible,
-  input[type="url"]:focus-visible {
+  textarea:focus-visible {
     outline: none;
     border-color: rgba(123, 141, 130, 0.8);
     box-shadow: 0 0 0 3px rgba(183, 210, 195, 0.35);
     background: #f5f5f5;
   }
 
-  .login-remember {
-    flex-direction: row;
-    align-items: center;
-    gap: 0.625rem;
-    color: var(--muted);
+  textarea {
+    min-height: 8.75rem;
+    resize: vertical;
   }
 
-  .login-remember input[type="checkbox"] {
-    width: 1.1rem;
-    height: 1.1rem;
-    accent-color: #404040;
-  }
+  // .login-remember {
+  //   input[type="checkbox"] {
+  //     appearance: none;
+  //     -webkit-appearance: none;
+  //     width: 1.4rem;
+  //     height: 1.4rem;
+  //     border: 1px solid rgba(92, 81, 88, 1);
+  //     border-radius: 0.25rem;
+  //     background: #fffdfb;
+  //     display: inline-grid;
+  //     place-content: center;
+  //     margin: 0;
+  //     transition: border-color 200ms ease, box-shadow 200ms ease, background-color 200ms ease;
+  //     cursor: pointer;
+  //   }
 
+  //   input[type="checkbox"]::before {
+  //     content: "";
+  //     width: 0.45rem;
+  //     height: 0.75rem;
+  //     border-right: 2px solid #fffdfb;
+  //     border-bottom: 2px solid #fffdfb;
+  //     transform: rotate(45deg) scale(0);
+  //     transform-origin: center;
+  //     transition: transform 160ms ease;
+  //   }
+
+  //   input[type="checkbox"]:checked {
+  //     background: var(--ld-color-brand-primary);
+  //     border-color: #929292;
+  //   }
+
+  //   input[type="checkbox"]:checked::before {
+  //     transform: rotate(45deg) scale(1);
+  //   }
+
+  //   input[type="checkbox"]:focus-visible {
+  //     outline: none;
+  //     border-color: rgba(123, 141, 130, 0.8);
+  //     box-shadow: 0 0 0 3px rgba(183, 210, 195, 0.35);
+  //   }
+  // }
+
+  // .review-star {
+  //   position: relative;
+  // }
+
+  // .review-star input[type="radio"] {
+  //   position: absolute;
+  //   opacity: 0;
+  //   width: 1px;
+  //   height: 1px;
+  //   margin: 0;
+  //   pointer-events: none;
+  // }
+
+  // .review-star label {
+  //   display: inline-flex;
+  //   align-items: center;
+  //   justify-content: center;
+  //   font-size: 1.4rem;
+  //   line-height: 1;
+  //   padding: 0.15rem;
+  //   border: 0;
+  //   background: transparent;
+  //   box-shadow: none;
+  //   color: #9a9a9a;
+  //   cursor: pointer;
+  //   transition: color 160ms ease;
+  // }
+
+  // .review-star input[type="radio"]:focus-visible + label {
+  //   outline: 2px solid rgba(123, 141, 130, 0.6);
+  //   outline-offset: 2px;
+  // }
+
+  // .review-star input[type="radio"]:checked + label {
+  //   color: #f2c94c;
+  // }
+
+  // .learndash-course-reviews-stars-input {
+  //   flex-direction: row-reverse;
+  // }
+
+  // .review-star:has(input[type="radio"]:checked) ~ .review-star label {
+  //   color: #f2c94c;
+  // }
+
+  // .review-star.active label,
+  // .review-star.active ~ .review-star label {
+  //   color: #f2c94c;
+  // }
+
+  // .learndash-course-reviews-stars-input .review-star label::after {
+  //   content: none !important;
+  // }
+
+  // .learndash-course-reviews-stars-input .review-star.active label,
+  // .learndash-course-reviews-stars-input .review-star.active label::after {
+  //   animation: none !important;
+  // }
 }
+
+// // LearnDash registration/login/reset forms.
+// #learndash-registration-wrapper,
+// #learndash-reset-password-wrapper {
+//   font-family: var(--font-secondary);
+//   color: var(--ink);
+
+//   .learndash-registration-field,
+//   .login-username,
+//   .login-password,
+//   .login-remember,
+//   .login-submit {
+//     display: flex;
+//     flex-direction: column;
+//     gap: 0.5rem;
+//     margin-bottom: 1.25rem;
+//   }
+
+//   label {
+//     font-weight: 500;
+//     letter-spacing: 0.08em;
+//     text-transform: uppercase;
+//     font-size: 0.875rem;
+//     color: var(--ink);
+//   }
+
+//   .learndash-required-field {
+//     color: var(--accent);
+//   }
+
+//   input[type="text"],
+//   input[type="email"],
+//   input[type="password"],
+//   input[type="search"],
+//   input[type="tel"],
+//   input[type="url"] {
+//     width: 100%;
+//     border: 1px solid #afafaf;
+//     border-radius: 0.5rem;
+//     padding: 0.75rem 1rem;
+//     background: #fffdfb;
+//     color: var(--ink);
+//     font-size: 1rem;
+//     line-height: 1.4;
+//     box-shadow: none;
+//     transition: border-color 200ms ease, box-shadow 200ms ease, background-color 200ms ease;
+//   }
+
+//   input[type="text"]::placeholder,
+//   input[type="email"]::placeholder,
+//   input[type="password"]::placeholder,
+//   input[type="search"]::placeholder,
+//   input[type="tel"]::placeholder,
+//   input[type="url"]::placeholder {
+//     color: rgba(92, 81, 88, 0.55);
+//   }
+
+//   input[type="text"]:hover,
+//   input[type="email"]:hover,
+//   input[type="password"]:hover,
+//   input[type="search"]:hover,
+//   input[type="tel"]:hover,
+//   input[type="url"]:hover {
+//     border-color: rgba(92, 81, 88, 0.65);
+//     background: #ececec;
+//   }
+
+//   input[type="text"]:focus-visible,
+//   input[type="email"]:focus-visible,
+//   input[type="password"]:focus-visible,
+//   input[type="search"]:focus-visible,
+//   input[type="tel"]:focus-visible,
+//   input[type="url"]:focus-visible {
+//     outline: none;
+//     border-color: rgba(123, 141, 130, 0.8);
+//     box-shadow: 0 0 0 3px rgba(183, 210, 195, 0.35);
+//     background: #f5f5f5;
+//   }
+
+//   .login-remember {
+//     flex-direction: row;
+//     align-items: center;
+//     gap: 0.625rem;
+//     color: var(--muted);
+//   }
+
+//   .login-remember input[type="checkbox"] {
+//     width: 1.1rem;
+//     height: 1.1rem;
+//     accent-color: #404040;
+//   }
+
+// }

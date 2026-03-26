@@ -158,6 +158,10 @@
           color: #fff;
         }
       }
+      @media (max-width: 1000px) {
+        float: none;
+        width: 100%;
+      }
     }
 
     .woocommerce-MyAccount-content {
@@ -170,6 +174,10 @@
       }
       .woocommerce-info::before {
         color: #414141;
+      }
+      @media (max-width: 1000px) {
+        float: none;
+        width: 100%;
       }
     }
 
