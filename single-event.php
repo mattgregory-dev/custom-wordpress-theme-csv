@@ -197,13 +197,10 @@ get_header();
             <div class="w-full aspect-video bg-gray-300 overflow-hidden rounded-lg">
               <?php the_post_thumbnail( 'large', array( 'class' => 'block w-full h-full object-cover' ) ); ?>
             </div>
-          <?php else : ?>
-            <div class="w-full aspect-video bg-gray-300"></div>
           <?php endif; ?>
 
           <!-- Overview section (main content) -->
           <section>
-            <h2 class="text-2xl font-bold mb-4 text-gray-900">Overview</h2>
             <div class="text-gray-700 post-content">
               <?php the_content(); ?>
             </div>

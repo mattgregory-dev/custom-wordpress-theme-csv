@@ -362,10 +362,11 @@ header.sticky-active {
 }
 
 .page-title {
-  background-image: url("#{$theme-root}/images/bg/background.webp");
+  //background-image: url("#{$theme-root}/images/bg/background.webp");
+  background-image: url("#{$theme-root}/images/bg/background-floral-2.webp");
   background-size: cover;
   background-position-x: center;
-  background-position-y: center;
+  background-position-y: bottom;
   overflow: hidden;
   padding-top: 3rem;
   padding-bottom: 3rem;
@@ -382,6 +383,20 @@ header.sticky-active {
       line-height: 1.75rem;
       color: #666;
     }
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    //background-color: rgb(255 255 255 / 60%);
+    z-index: 0;
+  }
+  & > div {
+    position: relative;
+    z-index: 1;
   }
 }
 

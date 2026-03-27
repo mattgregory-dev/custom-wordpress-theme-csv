@@ -15,7 +15,7 @@
     </li>
 
     <li class="no-sub-menu">
-      <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+      <a href="<?php echo esc_url( home_url( '/learn/' ) ); ?>">
         <span class="menu-item">Learn Live</span>
         <span class="menu-item2">Learn Live</span>
       </a>
@@ -31,14 +31,14 @@
 
 
     <li class="no-sub-menu">
-      <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+      <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>">
         <span class="menu-item">About</span>
         <span class="menu-item2">About</span>
       </a>
     </li>
 
     <li class="no-sub-menu">
-      <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+      <a href="<?php echo esc_url( home_url( '/get-started/' ) ); ?>">
         <span class="menu-item">Get Started</span>
         <span class="menu-item2">Get Started</span>
       </a>

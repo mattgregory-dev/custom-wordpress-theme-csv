@@ -380,7 +380,8 @@
       position: absolute;
       padding: 2px; /* border ki width */
       border-radius: 12px;
-      background: linear-gradient(90deg, #45d0bd, #44b6e9);
+      //background: linear-gradient(90deg, #45d0bd, #44b6e9);
+      background: #569f49;
       -webkit-mask:
         linear-gradient(#fff 0 0) content-box,
         linear-gradient(#fff 0 0);
@@ -389,7 +390,8 @@
     }
 
     &::after {
-      background: var(--gradient-3);
+      //background: var(--gradient-3);
+      background: #569f49;
       opacity: 0;
     }
 
