@@ -22,7 +22,31 @@
     </li>
 
     <li class="no-sub-menu">
-      <a href="<?php echo esc_url( home_url( '/events-home/' ) ); ?>">
+      <?php
+      $events_menu_url = home_url( '/events-home/' );
+      $events_menu_query = new WP_Query(
+        array(
+          'post_type' => 'event',
+          'post_status' => 'publish',
+          'posts_per_page' => 2,
+          'fields' => 'ids',
+          'tax_query' => array(
+            array(
+              'taxonomy' => 'event_type',
+              'field' => 'slug',
+              'terms' => array( 'events', 'field-trips' ),
+            ),
+          ),
+        )
+      );
+
+      if ( 1 === (int) $events_menu_query->found_posts && ! empty( $events_menu_query->posts ) ) {
+        $events_menu_url = get_permalink( $events_menu_query->posts[0] );
+      }
+
+      wp_reset_postdata();
+      ?>
+      <a href="<?php echo esc_url( $events_menu_url ); ?>">
         <span class="menu-item">Events</span>
         <span class="menu-item2">Events</span>
       </a>

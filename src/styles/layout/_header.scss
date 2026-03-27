@@ -2,8 +2,6 @@
 @use "../paths" as *;
 
 // Relative positioned top nav
-// vs-header15
-// -->
 .csv-header-standard {
   position: relative;
   z-index: 2;
@@ -21,8 +19,6 @@
 }
 
 // Full width hero header with overlapping top nav
-// vs-header2
-// -->
 .csv-header-absolute {
   position: absolute;
   z-index: 2;

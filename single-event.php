@@ -168,7 +168,7 @@ get_header();
     <!-- EVENT HERO -->
     <section class="bg-gray-200 py-24 page-title">
       <div class="max-w-7xl mx-auto px-8"><!--page-title-container-->
-        <div class="max-w-2xl">
+        <div class="max-w-3xl">
           <!-- Event type (taxonomy) -->
           <p class="label"><?php echo esc_html( $event_type_label ); ?></p>
           <!-- Event title -->
@@ -231,14 +231,20 @@ get_header();
               <?php endif; ?>
               <!-- Payment Buttons -->
               <div class="space-y-3 pt-2">
-                <a class="w-full csv-btn csv-btn--primary" 
+                <a class="w-full csv-btn csv-btn--primary"
                     href="<?php echo esc_url( $full_checkout_url ? $full_checkout_url : '#' ); ?>">
-                  Pay in Full
+                  <?php if ( $deposit_amount ) : ?>
+                    Pay in Full
+                  <?php else : ?>
+                    Reserve Your Spot
+                  <?php endif; ?>
                 </a>
-                <a class="w-full csv-btn csv-btn--secondary"
-                    href="<?php echo esc_url( $deposit_checkout_url ? $deposit_checkout_url : '#' ); ?>">
-                  Pay Deposit
-                </a>
+                <?php if ( $deposit_amount && $deposit_product_id ) : ?>
+                  <a class="w-full csv-btn csv-btn--secondary"
+                      href="<?php echo esc_url( $deposit_checkout_url ? $deposit_checkout_url : '#' ); ?>">
+                    Pay Deposit
+                  </a>
+                <?php endif; ?>
               </div>
             </div>
 
@@ -336,26 +342,50 @@ get_header();
       </div>
     </div>
 
-    <!-- RELATED EVENTS -->
-    <section class="bg-gray-300 py-16">
-      <div class="max-w-7xl mx-auto px-8">
-        <h2 class="text-2xl font-bold mb-8 text-gray-900">Upcoming Retreats</h2>
-        <?php
-        // Related events loop (exclude current event).
-        $related_events = new WP_Query(
-          array(
-            'post_type' => 'event',
-            'post_status' => 'publish',
-            'posts_per_page' => 4,
-            'post__not_in' => array( $event_id ),
-            'no_found_rows' => true,
-            'meta_key' => 'start_date',
-            'orderby' => 'meta_value_num',
-            'order' => 'ASC',
-          )
-        );
-        ?>
-        <?php if ( $related_events->have_posts() ) : ?>
+    <?php
+    $related_events = null;
+    $related_term_slugs = array();
+    $related_terms = get_the_terms( $event_id, 'event_type' );
+
+    if ( ! empty( $related_terms ) && ! is_wp_error( $related_terms ) ) {
+      $allowed_related_terms = array( 'events', 'field-trips' );
+
+      foreach ( $related_terms as $related_term ) {
+        if ( in_array( $related_term->slug, $allowed_related_terms, true ) ) {
+          $related_term_slugs[] = $related_term->slug;
+        }
+      }
+    }
+
+    if ( $related_term_slugs ) {
+      // Related events loop (exclude current event).
+      $related_events = new WP_Query(
+        array(
+          'post_type' => 'event',
+          'post_status' => 'publish',
+          'posts_per_page' => 4,
+          'post__not_in' => array( $event_id ),
+          'no_found_rows' => true,
+          'meta_key' => 'start_date',
+          'orderby' => 'meta_value_num',
+          'order' => 'ASC',
+          'tax_query' => array(
+            array(
+              'taxonomy' => 'event_type',
+              'field' => 'slug',
+              'terms' => $related_term_slugs,
+            ),
+          ),
+        )
+      );
+    }
+    ?>
+
+    <?php if ( $related_events && $related_events->have_posts() ) : ?>
+      <!-- RELATED EVENTS -->
+      <section class="bg-gray-300 py-16">
+        <div class="max-w-7xl mx-auto px-8">
+          <h2 class="text-2xl font-bold mb-8 text-gray-900">Upcoming Retreats</h2>
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <?php while ( $related_events->have_posts() ) : $related_events->the_post(); ?>
               <?php
@@ -400,12 +430,10 @@ get_header();
               </div>
             <?php endwhile; ?>
           </div>
-        <?php else : ?>
-          <p class="text-gray-600">No upcoming events yet.</p>
-        <?php endif; ?>
-        <?php wp_reset_postdata(); ?>
-      </div>
-    </section>
+        </div>
+      </section>
+      <?php wp_reset_postdata(); ?>
+    <?php endif; ?>
 
   <?php endwhile; ?>
 <?php endif; ?>

@@ -60,8 +60,24 @@ if ( have_posts() ) :
               $event_duration = '' !== $event_duration ? (int) $event_duration : 0;
               $capacity_raw = function_exists( 'get_field' ) ? get_field( 'capacity' ) : '';
               $capacity = $capacity_raw !== '' ? (int) $capacity_raw : 0;
-              $full_product_id = function_exists( 'get_field' ) ? get_field( 'full_product_id' ) : '';
-              $full_product_id = $full_product_id ? (int) $full_product_id : 0;
+              $full_product_value = function_exists( 'get_field' ) ? get_field( 'full_product_id' ) : '';
+              $full_product_id = 0;
+              if ( $full_product_value instanceof WP_Post ) {
+                $full_product_id = $full_product_value->ID;
+              } elseif ( is_array( $full_product_value ) ) {
+                $first_product = reset( $full_product_value );
+                if ( $first_product instanceof WP_Post ) {
+                  $full_product_id = $first_product->ID;
+                } elseif ( is_array( $first_product ) && isset( $first_product['ID'] ) ) {
+                  $full_product_id = (int) $first_product['ID'];
+                } elseif ( is_numeric( $first_product ) ) {
+                  $full_product_id = (int) $first_product;
+                }
+              } elseif ( is_numeric( $full_product_value ) ) {
+                $full_product_id = (int) $full_product_value;
+              }
+
+              $reserve_spot_url = $full_product_id ? home_url( '/checkout/?add-to-cart=' . $full_product_id ) : get_permalink();
               $full_price_display = '';
               if ( $full_product_id && function_exists( 'wc_get_product' ) ) {
                 $full_product = wc_get_product( $full_product_id );
@@ -158,7 +174,7 @@ if ( have_posts() ) :
 
                   <div class="grid md:grid-cols-2 gap-4 hack">
                     <a class="csv-btn csv-btn--primary" href="<?php echo esc_url( get_permalink() ); ?>">Details</a>
-                    <a class="csv-btn csv-btn--secondary" href="<?php echo esc_url( get_permalink() ); ?>">Reserve Your Spot</a>
+                    <a class="csv-btn csv-btn--secondary" href="<?php echo esc_url( $reserve_spot_url ); ?>">Reserve Your Spot</a>
                   </div>
                 </div>
               </div>

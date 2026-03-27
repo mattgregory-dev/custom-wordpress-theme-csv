@@ -1,10 +1,6 @@
 @use "../abstracts" as *;
 @use "../paths" as *;
 
-
-
-
-
 main {
   z-index: 0;
   position: relative;
@@ -17,9 +13,6 @@ section#preparation {
   position: relative;
   z-index: 0;
 }
-
-
-
 
 // Base logo styles
 .logo img {
@@ -47,12 +40,6 @@ header.sticky-active {
   }
 }
 
-
-
-
-
-
-
 // For letter by letter animated reveal effect
 .title.animated-heading .word {
   display: inline-block;
@@ -61,9 +48,6 @@ header.sticky-active {
 .title.animated-heading .letter {
   display: inline-block;
 }
-
-
-
 
 /* Move to utilities when done */
 .soft-shadow {
@@ -82,7 +66,6 @@ header.sticky-active {
   border: 1px solid rgba(92, 81, 88, 0.16);
 }
 
-
 .page-image {
   box-shadow: 0 24px 60px var(--shadow);
   border-radius: 10px;
@@ -91,8 +74,6 @@ header.sticky-active {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
-
-
 
 /* Mask on images, full rounded top, smaller bottom rounded */
 .editorial-image-mask {
@@ -109,7 +90,6 @@ header.sticky-active {
   object-fit: cover;
 }
 
-
 /* Used on Approach page */
 .emphasis {
   font-family: "Marcellus", "Times New Roman", serif;
@@ -118,15 +98,6 @@ header.sticky-active {
   font-family: "Marcellus", "Times New Roman", serif;
   font-weight: 600;
 }
-
-
-
-
-
-
-
-
-
 
 .footer-banner {
   background-color: #c3ddd5;
@@ -222,12 +193,6 @@ header.sticky-active {
   }
 }
 
-
-
- 
-
-
-
 .label {
   font-size: 1rem;
   text-transform: uppercase;
@@ -237,13 +202,13 @@ header.sticky-active {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  &::before {
-    content: "";
-    width: 17px;
-    height: 17px;
-    border-radius: 999px;
-    background: url("#{$theme-root}/images/spindle.webp") center/cover no-repeat;
-  }
+  // &::before {
+  //   content: "";
+  //   width: 17px;
+  //   height: 17px;
+  //   border-radius: 999px;
+  //   background: url("#{$theme-root}/images/spindle.webp") center/cover no-repeat;
+  // }
 }
 
 // Hero header images
@@ -315,8 +280,8 @@ header.sticky-active {
       }
     }
   }
-  // Fallback image - Pink / Green Watercolor
-  background-image: url("#{$theme-root}/images/bg/background.webp");
+  // Fallback image - Watercolor
+  background-image: url("#{$theme-root}/images/bg/background-watercolor-01.webp");
   background-size: cover;
   background-position-x: center;
   background-position-y: center;
@@ -363,7 +328,8 @@ header.sticky-active {
 
 .page-title {
   //background-image: url("#{$theme-root}/images/bg/background.webp");
-  background-image: url("#{$theme-root}/images/bg/background-floral-2.webp");
+  background-image: url("#{$theme-root}/images/bg/background-watercolor-01.webp");
+
   background-size: cover;
   background-position-x: center;
   background-position-y: bottom;
@@ -459,13 +425,6 @@ header.sticky-active {
   }
 }
 
-
-
-
-
-
-
-
 ul {
   &.styled-list {
     li {
@@ -495,11 +454,6 @@ ul {
     }
   }
 }
-
-
-
-
-
 
 .testimonials-band {
   background-image: linear-gradient(
@@ -583,20 +537,12 @@ ul {
   }
 }
 
-
-
-
-
-
 .hero-description::before {
   content: '';
   height: 100%;
   width: 100%;
   background-color: #fff;
 }
-
-
-
 
 .down-caret {
   width: 20px;
@@ -619,4 +565,3 @@ ul {
     fill: rgb(174, 161, 126);;
   }
 }
-
