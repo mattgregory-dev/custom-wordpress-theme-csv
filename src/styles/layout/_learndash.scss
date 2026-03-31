@@ -516,6 +516,7 @@
   padding: .8rem 1.2rem !important;
   border: 2px solid transparent !important;
   background-color: #fff !important;
+  text-transform: capitalize;
   cursor: pointer;
   &:hover {
     border: 2px solid var(--ld-color-brand-primary) !important;
