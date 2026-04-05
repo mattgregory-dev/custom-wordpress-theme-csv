@@ -499,6 +499,74 @@ function csv_notify_admin_on_learndash_review_rating_meta( $meta_id, $comment_id
 }
 add_action( 'added_comment_meta', 'csv_notify_admin_on_learndash_review_rating_meta', 10, 4 );
 
+// Notify admin when a LearnDash quiz essay is submitted.
+function csv_notify_quiz_essay( $quizdata, $user ) {
+  if ( empty( $quizdata['graded'] ) || ! is_array( $quizdata['graded'] ) ) {
+    return;
+  }
+
+  $user_info = get_userdata( $user->ID );
+  $quiz_id = is_object( $quizdata['quiz'] ) ? $quizdata['quiz']->ID : $quizdata['quiz'];
+  $quiz_title = csv_decode_mail_text( get_the_title( $quiz_id ) );
+  $course_id = 0;
+  if ( ! empty( $quizdata['course'] ) ) {
+    $course_id = is_object( $quizdata['course'] ) ? $quizdata['course']->ID : (int) $quizdata['course'];
+  }
+  $course_title = $course_id ? csv_decode_mail_text( get_the_title( $course_id ) ) : '';
+  $user_edit_url = admin_url( 'user-edit.php?user_id=' . $user->ID );
+
+  $display_name = esc_html( csv_decode_mail_text( $user_info->display_name ) );
+  $user_email = esc_html( $user_info->user_email );
+  $user_link = '<a href="' . esc_url( $user_edit_url ) . '">' . $display_name . '</a>';
+
+  //$message = '<strong>New Quiz Submission</strong><br>';
+  if ( '' !== $course_title ) {
+    $message .= 'Course: ' . esc_html( $course_title ) . '<br>';
+  }
+  $message .= 'Quiz: ' . esc_html( $quiz_title ) . '<br><br>';
+  $message .= 'User: ' . $user_link . ' (' . $user_email . ')<br>';
+  $first_name = get_user_meta( $user->ID, 'first_name', true );
+  $last_name = get_user_meta( $user->ID, 'last_name', true );
+  $full_name = trim( $first_name . ' ' . $last_name );
+  if ( '' !== $full_name ) {
+    $message .= 'Name: ' . esc_html( $full_name ) . '<br><br>';
+  }
+
+  foreach ( $quizdata['graded'] as $graded ) {
+    if ( empty( $graded['post_id'] ) ) {
+      continue;
+    }
+
+    $essay_post = get_post( (int) $graded['post_id'] );
+    if ( ! $essay_post instanceof WP_Post ) {
+      continue;
+    }
+
+    $question_text = $essay_post->post_title ? csv_decode_mail_text( $essay_post->post_title ) : 'Question ' . $graded['post_id'];
+    $answer_text = csv_decode_mail_text( $essay_post->post_content );
+
+    if ( '' === trim( $answer_text ) ) {
+      continue;
+    }
+
+    $message .= 'Question: ' . esc_html( $question_text ) . '<br>';
+    $message .= 'Answer:<br>' . nl2br( esc_html( $answer_text ) ) . '<br><br>';
+  }
+
+  $headers = array( 'Content-Type: text/html; charset=UTF-8' );
+  if ( is_email( $user_info->user_email ) ) {
+    $headers[] = 'Reply-To: ' . sanitize_email( $user_info->user_email );
+  }
+
+  wp_mail(
+    get_option( 'admin_email' ),
+    'New Quiz Submission',
+    $message,
+    $headers
+  );
+}
+add_action( 'learndash_quiz_completed', 'csv_notify_quiz_essay', 10, 2 );
+
 //////////////////////////////////////////////////
 /////////// Remove WordPress features ////////////
 //////////////////////////////////////////////////

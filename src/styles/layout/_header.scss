@@ -82,6 +82,20 @@
   //   }
   // }
 }
+
+.logged-in {
+  .csv-header-absolute {
+    top: 32px;
+  }
+  .sticky-active.is-sticky {
+    top: 32px;
+  }
+}
+
+
+
+
+
 // Full width hero header for dark backgrounds
 .csv-header-absolute.white {
   .header-menu-area {
