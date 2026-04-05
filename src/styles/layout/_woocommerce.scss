@@ -179,6 +179,9 @@
         float: none;
         width: 100%;
       }
+      #add_payment_method #payment {
+        background-color: #fff;
+      }
     }
 
     &.woocommerce-dashboard {

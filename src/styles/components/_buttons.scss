@@ -83,6 +83,7 @@
 .woocommerce-Button.button,
 .woocommerce button.button,
 .woocommerce a.button,
+button[type=submit].woocommerce-Button.woocommerce-Button--alt.button.alt,
 .browse-retreats {
   display: inline-flex;
   align-items: center;
@@ -155,7 +156,8 @@
 .woocommerce-MyAccount-content .edit,
 .woocommerce-Button.button,
 .woocommerce button.button,
-.woocommerce a.button {
+.woocommerce a.button,
+button[type=submit].woocommerce-Button.woocommerce-Button--alt.button.alt {
   position: relative;
   z-index: 0;
   overflow: hidden;
