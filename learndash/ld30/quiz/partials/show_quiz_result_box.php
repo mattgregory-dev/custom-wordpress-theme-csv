@@ -126,7 +126,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						'quiz_post_id' => $quiz->getID(),
 						'context'      => 'quiz_have_reached_points_message',
 						// translators: placeholder: points earned, points total.
-						'message'      => sprintf( esc_html_x( 'You have reached %1$s of %2$s point(s), (%3$s)', 'placeholder: points earned, points total', 'learndash' ), '<span>0</span>', '<span>0</span>', '<span>0</span>' ),
+						'message'      => sprintf( esc_html_x( 'You have scored %1$s of %2$s point(s), (%3$s)', 'placeholder: points earned, points total', 'learndash' ), '<span>0</span>', '<span>0</span>', '<span>0</span>' ),
 						'placeholders' => array( '0', '0', '0' ),
 					)
 				)
