@@ -8,7 +8,14 @@
     </li>
 
     <li class="no-sub-menu">
-      <a href="<?php echo esc_url( home_url( '/courses/womens-wellness/' ) ); ?>">
+      <a href="<?php echo esc_url( home_url( '/get-started/' ) ); ?>">
+        <span class="menu-item">Get Started</span>
+        <span class="menu-item2">Get Started</span>
+      </a>
+    </li>
+
+    <li class="no-sub-menu">
+      <a href="<?php echo esc_url( home_url( '/courses-list/' ) ); ?>">
         <span class="menu-item">Courses</span>
         <span class="menu-item2">Courses</span>
       </a>
@@ -19,12 +26,16 @@
         <span class="menu-item">Learn Live</span>
         <span class="menu-item2">Learn Live</span>
       </a>
+      <ul class="sub-menu">
+        <li><a href="<?php echo esc_url( home_url( '/orientation/' ) ); ?>">Group Classes</a></li>
+        <li><a href="<?php echo esc_url( home_url( '/intentions/' ) ); ?>">Private Custom Classes</a></li>
+      </ul>
     </li>
 
     <li class="no-sub-menu">
       <a href="<?php echo esc_url( home_url( '/upcoming-events/' ) ); ?>">
-        <span class="menu-item">Events</span>
-        <span class="menu-item2">Events</span>
+        <span class="menu-item">Field Trip</span>
+        <span class="menu-item2">Field Trip</span>
       </a>
     </li>
 
@@ -32,13 +43,6 @@
       <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>">
         <span class="menu-item">About</span>
         <span class="menu-item2">About</span>
-      </a>
-    </li>
-
-    <li class="no-sub-menu">
-      <a href="<?php echo esc_url( home_url( '/get-started/' ) ); ?>">
-        <span class="menu-item">Get Started</span>
-        <span class="menu-item2">Get Started</span>
       </a>
     </li>
 

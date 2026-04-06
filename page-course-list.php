@@ -61,17 +61,26 @@ if ( have_posts() ) :
       <div class="max-w-6xl mx-auto px-6">
         <div class="flex flex-col gap-10 lg:flex-row lg:items-stretch">
           <div class="w-full lg:w-5/12">
-            <a
-              class="block w-full aspect-[3/4] overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-[#dfe7df] to-[#f7efe7]"
-              href="http://localhost:8080/courses/womens-wellness/"
-            >
+            <div class="relative">
+              <a
+                class="block w-full aspect-[3/4] overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-[#dfe7df] to-[#f7efe7]"
+                href="http://localhost:8080/courses/womens-wellness/"
+              >
                 <img
                   src="http://localhost:8080/wp-content/uploads/7178818.webp"
                   alt="Herbal wellness course featured image"
                   class="h-full w-full object-cover"
                   loading="lazy"
                 />
-            </a>
+              </a>
+              <a
+                class="absolute left-4 top-4 rounded-full bg-white/90 px-4 py-2 text-[11px] uppercase tracking-[0.3em] text-slate-700 shadow-sm backdrop-blur"
+                href="http://localhost:8080/courses/womens-wellness/"
+              >
+                <i class="fa fa-solid fa-list-ul"></i>
+                <span class="ml-2">View Course Outline</span>
+              </a>
+            </div>
           </div>
           <div class="flex-1 space-y-8">
             <div class="space-y-4">
@@ -82,6 +91,9 @@ if ( have_posts() ) :
               <p class="text-lg text-slate-600 leading-relaxed">
                 Learn how to care for your body with herbs through every stage of a woman’s life, from cycle health to
                 menopause, with practical guidance you can use right away.
+                <a class="ml-4 text-sm uppercase tracking-[0.2em] text-blue-600 underline" href="http://localhost:8080/courses/womens-wellness/">
+                  Read more &raquo;
+                </a>
               </p>
             </div>
 
@@ -96,16 +108,16 @@ if ( have_posts() ) :
 
             <div class="grid gap-6 md:grid-cols-2">
               <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-                <h4 class="text-lg">What you’ll learn</h4>
-                <ul class="mt-3 space-y-2 text-sm text-slate-600">
+                <h4 class="text-lg font-semibold">What you’ll learn</h4>
+                <ul class="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-600">
                   <li>Herbal approaches to menstrual health and hormone balance</li>
                   <li>Foundational materia medica for women’s wellness</li>
                   <li>Safe, practical preparation methods and daily protocols</li>
                 </ul>
               </div>
               <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-                <h4 class="text-lg">Who this is for</h4>
-                <ul class="mt-3 space-y-2 text-sm text-slate-600">
+                <h4 class="text-lg font-semibold">Who this is for</h4>
+                <ul class="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-600">
                   <li>Women who want to take an active role in their health</li>
                   <li>Herbal students building a strong foundation</li>
                   <li>Practitioners supporting women’s health</li>
@@ -174,8 +186,13 @@ if ( have_posts() ) :
         </div>
 
         <div class="space-y-6">
-          <article class="flex flex-col gap-6 rounded-3xl border border-slate-200 bg-white p-6 md:flex-row md:items-center">
-            <div class="h-32 w-full rounded-2xl bg-[#e6e7e2] md:h-28 md:w-48"></div>
+          <article class="flex flex-col gap-6 rounded-3xl border border-slate-200 bg-white p-6 md:flex-row md:items-start">
+            <img
+              src="http://localhost:8080/wp-content/uploads/7178818.webp"
+              alt="Course thumbnail"
+              class="h-32 w-full rounded-2xl object-cover md:h-28 md:w-48"
+              loading="lazy"
+            />
             <div class="flex-1 space-y-3">
               <h3 class="text-2xl">Goddess Rhythms: Herbal Support for Women’s Moontime</h3>
               <p class="text-sm text-slate-600">
@@ -201,8 +218,13 @@ if ( have_posts() ) :
             </div>
           </article>
 
-          <article class="flex flex-col gap-6 rounded-3xl border border-slate-200 bg-white p-6 md:flex-row md:items-center">
-            <div class="h-32 w-full rounded-2xl bg-[#e9e3dd] md:h-28 md:w-48"></div>
+          <article class="flex flex-col gap-6 rounded-3xl border border-slate-200 bg-white p-6 md:flex-row md:items-start">
+            <img
+              src="http://localhost:8080/wp-content/uploads/7178818.webp"
+              alt="Course thumbnail"
+              class="h-32 w-full rounded-2xl object-cover md:h-28 md:w-48"
+              loading="lazy"
+            />
             <div class="flex-1 space-y-3">
               <h3 class="text-2xl">Herbal Abortifacients Protocol</h3>
               <p class="text-sm text-slate-600">
@@ -228,8 +250,13 @@ if ( have_posts() ) :
             </div>
           </article>
 
-          <article class="flex flex-col gap-6 rounded-3xl border border-slate-200 bg-white p-6 md:flex-row md:items-center">
-            <div class="h-32 w-full rounded-2xl bg-[#e2e8ea] md:h-28 md:w-48"></div>
+          <article class="flex flex-col gap-6 rounded-3xl border border-slate-200 bg-white p-6 md:flex-row md:items-start">
+            <img
+              src="http://localhost:8080/wp-content/uploads/7178818.webp"
+              alt="Course thumbnail"
+              class="h-32 w-full rounded-2xl object-cover md:h-28 md:w-48"
+              loading="lazy"
+            />
             <div class="flex-1 space-y-3">
               <h3 class="text-2xl">Botanical Support for Motherhood</h3>
               <p class="text-sm text-slate-600">
@@ -254,8 +281,13 @@ if ( have_posts() ) :
             </div>
           </article>
 
-          <article class="flex flex-col gap-6 rounded-3xl border border-slate-200 bg-white p-6 md:flex-row md:items-center">
-            <div class="h-32 w-full rounded-2xl bg-[#efe6e2] md:h-28 md:w-48"></div>
+          <article class="flex flex-col gap-6 rounded-3xl border border-slate-200 bg-white p-6 md:flex-row md:items-start">
+            <img
+              src="http://localhost:8080/wp-content/uploads/7178818.webp"
+              alt="Course thumbnail"
+              class="h-32 w-full rounded-2xl object-cover md:h-28 md:w-48"
+              loading="lazy"
+            />
             <div class="flex-1 space-y-3">
               <h3 class="text-2xl">Menopause &amp; The Wise Elder Woman</h3>
               <p class="text-sm text-slate-600">
@@ -281,8 +313,13 @@ if ( have_posts() ) :
             </div>
           </article>
 
-          <article class="flex flex-col gap-6 rounded-3xl border border-slate-200 bg-white p-6 md:flex-row md:items-center">
-            <div class="h-32 w-full rounded-2xl bg-[#e3e7df] md:h-28 md:w-48"></div>
+          <article class="flex flex-col gap-6 rounded-3xl border border-slate-200 bg-white p-6 md:flex-row md:items-start">
+            <img
+              src="http://localhost:8080/wp-content/uploads/7178818.webp"
+              alt="Course thumbnail"
+              class="h-32 w-full rounded-2xl object-cover md:h-28 md:w-48"
+              loading="lazy"
+            />
             <div class="flex-1 space-y-3">
               <h3 class="text-2xl">Get Your Feet Wet Series: Prickly Pear Harvest To Table</h3>
               <p class="text-sm text-slate-600">
@@ -307,8 +344,13 @@ if ( have_posts() ) :
             </div>
           </article>
 
-          <article class="flex flex-col gap-6 rounded-3xl border border-slate-200 bg-white p-6 md:flex-row md:items-center">
-            <div class="h-32 w-full rounded-2xl bg-[#e5e1ea] md:h-28 md:w-48"></div>
+          <article class="flex flex-col gap-6 rounded-3xl border border-slate-200 bg-white p-6 md:flex-row md:items-start">
+            <img
+              src="http://localhost:8080/wp-content/uploads/7178818.webp"
+              alt="Course thumbnail"
+              class="h-32 w-full rounded-2xl object-cover md:h-28 md:w-48"
+              loading="lazy"
+            />
             <div class="flex-1 space-y-3">
               <h3 class="text-2xl">Get Your Feet Wet Series: Herbal Musings~ Stories Of The Plants</h3>
               <p class="text-sm text-slate-600">
