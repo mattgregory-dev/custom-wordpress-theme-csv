@@ -8,32 +8,28 @@
     </li>
 
     <li class="no-sub-menu">
-      <a href="<?php echo esc_url( home_url( '/get-started/' ) ); ?>">
-        <span class="menu-item">Get Started</span>
-        <span class="menu-item2">Get Started</span>
-      </a>
-    </li>
-
-    <li class="no-sub-menu">
-      <a href="<?php echo esc_url( home_url( '/courses-list/' ) ); ?>">
+      <a href="<?php echo esc_url( home_url( '/courses-catalog/' ) ); ?>">
         <span class="menu-item">Courses</span>
         <span class="menu-item2">Courses</span>
       </a>
     </li>
 
     <li class="no-sub-menu">
-      <a href="<?php echo esc_url( home_url( '/learn/' ) ); ?>">
-        <span class="menu-item">Learn Live</span>
-        <span class="menu-item2">Learn Live</span>
+      <a href="<?php echo esc_url( home_url( '/live-group-classes/' ) ); ?>">
+        <span class="menu-item">Live Group Classes</span>
+        <span class="menu-item2">Live Group Classes</span>
       </a>
-      <ul class="sub-menu">
-        <li><a href="<?php echo esc_url( home_url( '/orientation/' ) ); ?>">Group Classes</a></li>
-        <li><a href="<?php echo esc_url( home_url( '/intentions/' ) ); ?>">Private Custom Classes</a></li>
-      </ul>
     </li>
 
     <li class="no-sub-menu">
-      <a href="<?php echo esc_url( home_url( '/upcoming-events/' ) ); ?>">
+      <a href="<?php echo esc_url( home_url( '/study-with-feather/' ) ); ?>">
+        <span class="menu-item">Study With Feather</span>
+        <span class="menu-item2">Study With Feather</span>
+      </a>
+    </li>
+
+    <li class="no-sub-menu">
+      <a href="<?php echo esc_url( home_url( '/field-trip/' ) ); ?>">
         <span class="menu-item">Field Trip</span>
         <span class="menu-item2">Field Trip</span>
       </a>

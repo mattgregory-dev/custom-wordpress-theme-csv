@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Get Started
+ * Template Name: Study With Feather
  */
 get_header(
   null,

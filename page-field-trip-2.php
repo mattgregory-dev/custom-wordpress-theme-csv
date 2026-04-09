@@ -1,8 +1,11 @@
 <?php
+/**
+ * Template Name: Field Trip 2
+ */
 get_header(
   null,
   array(
-    'header_variant' => 'absolute',
+    //'header_variant' => 'absolute',
     //'header_color' => 'white',
   )
 );

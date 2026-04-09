@@ -1,11 +1,11 @@
 <?php
 /**
- * Template Name: Learn
+ * Template Name: Course Catalog 2
  */
 get_header(
   null,
   array(
-    'header_variant' => 'absolute',
+    // 'header_variant' => 'absolute',
     //'header_color' => 'white',
   )
 );

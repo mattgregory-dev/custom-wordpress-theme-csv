@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Course List
+ * Template Name: Course Catalog
  */
 get_header(
   null,

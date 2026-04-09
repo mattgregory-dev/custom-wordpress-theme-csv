@@ -1,4 +1,7 @@
 <?php
+/**
+ * Template Name: Group Classes
+ */
 get_header(
   null,
   array(
