@@ -493,6 +493,15 @@
     transform: translateY(0);
   }
 }
+.sticky-active.is-sticky.is-hidden {
+  transform: translateY(-110%);
+  box-shadow: none;
+  transition-delay: 0s;
+  .header-menu-area {
+    transform: translateY(-100%);
+    transition-delay: 0s;
+  }
+}
 .sticky-active:not(.is-sticky) {
   .header-menu-area {
     transition-delay: 0s;
@@ -500,6 +509,13 @@
   }
   transform: translateY(-100%);
   transition-delay: 0.2s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sticky-active,
+  .sticky-active .header-menu-area {
+    transition: none;
+  }
 }
 
 .hamburger {

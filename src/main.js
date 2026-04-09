@@ -302,12 +302,75 @@ const stickyHeader = () => {
   const header = document.querySelector('.sticky-active');
   if (!header) return;
 
+  const stickyOffset = 400;
+  const revealOffset = 120;
+  const deltaThreshold = 8;
+
+  let lastScrollY = window.scrollY || 0;
+  let ticking = false;
+  let usingLenis = false;
+
+  const updateHeaderState = (scrollY) => {
+    const currentScroll = Math.max(0, Number(scrollY) || 0);
+    const isSticky = currentScroll > stickyOffset;
+
+    header.classList.toggle('is-sticky', isSticky);
+
+    if (!isSticky) {
+      header.classList.remove('is-hidden');
+      lastScrollY = currentScroll;
+      return;
+    }
+
+    const delta = currentScroll - lastScrollY;
+    if (Math.abs(delta) < deltaThreshold) return;
+
+    if (delta > 0 && currentScroll > revealOffset) {
+      header.classList.add('is-hidden');
+    } else {
+      header.classList.remove('is-hidden');
+    }
+
+    lastScrollY = currentScroll;
+  };
+
   const onScroll = () => {
-    header.classList.toggle('is-sticky', window.scrollY > 400);
+    if (usingLenis) return;
+    if (ticking) return;
+    ticking = true;
+    const currentScroll = window.scrollY || 0;
+    window.requestAnimationFrame(() => {
+      updateHeaderState(currentScroll);
+      ticking = false;
+    });
+  };
+
+  const bindLenis = () => {
+    const lenis = LenisScroll.getInstance();
+    if (!lenis || typeof lenis.on !== 'function') return false;
+
+    usingLenis = true;
+    lenis.on('scroll', ({ scroll }) => {
+      updateHeaderState(scroll);
+    });
+    updateHeaderState(lenis.scroll || window.scrollY || 0);
+    return true;
   };
 
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
+
+  if (!bindLenis()) {
+    let attempts = 0;
+    const maxAttempts = 20;
+    const tryBind = () => {
+      if (bindLenis()) return;
+      attempts += 1;
+      if (attempts >= maxAttempts) return;
+      window.setTimeout(tryBind, 250);
+    };
+    window.setTimeout(tryBind, 250);
+  }
 };
 
 // Preloader fade-out handling.
@@ -675,6 +738,33 @@ const sideMenu = () => {
     elements.forEach((el) => io.observe(el));
   };
 */
+
+// Simple reveal animation for `.reveal` elements.
+const revealOnScroll = () => {
+  const elements = document.querySelectorAll('.reveal');
+  if (!elements.length) return;
+
+  const prefersReducedMotion = window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+    elements.forEach((el) => el.classList.add('visible'));
+    return;
+  }
+
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry || !entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        io.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+  );
+
+  elements.forEach((el) => io.observe(el));
+};
 
 // GSAP subtitle reveal animation.
 const animateSubtitles = () => {
@@ -1198,8 +1288,8 @@ const init = () => {
   preloader();
   ayaMotifSVGDraw();
   scrollToTop();
-  smoothAnchors();
-  LenisScroll.init();
+  //smoothAnchors();
+  //LenisScroll.init();
   stickyHeader();
   csvParallax();
   themeToggle();
@@ -1210,6 +1300,7 @@ const init = () => {
   //searchPopup();
   //revealUpAnimation();
   //revealFadeAnimation();
+  revealOnScroll();
 };
 
 if (document.readyState === "loading") {
