@@ -148,7 +148,90 @@ get_header();
   </div>
 </section>
 
+<section class="section bg-white faq-section" id="faq">
+  <div class="container mx-auto px-4 md:px-6 lg:px-8">
+    <div class="text-center reveal mb-10">
+      <div class="eyebrow">Before You Go</div>
+      <h2>Questions Before You Go</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-1" id="faq-q-1">Do I need herbal experience to attend?</button>
+        <div class="faq-a" id="faq-a-1" role="region" aria-labelledby="faq-q-1" aria-hidden="true">
+          <p>No. Beginners and experienced students both get a lot out of this trip. The field is the teacher&thinsp;&mdash;&thinsp;and it meets you where you are.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-2" id="faq-q-2">I&rsquo;m coming alone. Is that common?</button>
+        <div class="faq-a" id="faq-a-2" role="region" aria-labelledby="faq-q-2" aria-hidden="true">
+          <p>Yes. Most people arrive solo. The small group format makes it easy to connect. By day two, it feels like you&rsquo;ve known everyone for years.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-3" id="faq-q-3">How much does the full trip cost, including travel?</button>
+        <div class="faq-a" id="faq-a-3" role="region" aria-labelledby="faq-q-3" aria-hidden="true">
+          <p>The field trip is $450. You&rsquo;ll also need to budget for travel to Sedona, your own food for four days, and camping gear if you don&rsquo;t already have it. A full packing list is sent after you register so you know exactly what to bring.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-4" id="faq-q-4">Is the price worth it?</button>
+        <div class="faq-a" id="faq-a-4" role="region" aria-labelledby="faq-q-4" aria-hidden="true">
+          <p>Over four days, you&rsquo;ll spend more than 30 hours in the field with a registered clinical herbalist who has been teaching plant medicine for over 40 years. You&rsquo;ll leave with hands-on skills you&rsquo;ll use for years&thinsp;&mdash;&thinsp;and remedies you made yourself. Past participants describe it as one of the most valuable learning experiences of their lives. Many come back.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-5" id="faq-q-5">How physically demanding is it?</button>
+        <div class="faq-a" id="faq-a-5" role="region" aria-labelledby="faq-q-5" aria-hidden="true">
+          <p>You should be comfortable walking on uneven desert terrain for a few hours each day. The pace is steady, not rushed. We stop often to observe, smell, and learn.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-6" id="faq-q-6">What do I need to bring?</button>
+        <div class="faq-a" id="faq-a-6" role="region" aria-labelledby="faq-q-6" aria-hidden="true">
+          <p>Your own camping gear, food, water, a notebook or field journal, sun protection, and sturdy shoes. A full packing list is sent after you register.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-7" id="faq-q-7">Where do we camp?</button>
+        <div class="faq-a" id="faq-a-7" role="region" aria-labelledby="faq-q-7" aria-hidden="true">
+          <p>Camping details and the exact location are shared with registered participants. Medicine-making sessions take place at a private residence in Sedona.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-8" id="faq-q-8">Is food provided?</button>
+        <div class="faq-a" id="faq-a-8" role="region" aria-labelledby="faq-q-8" aria-hidden="true">
+          <p>No. You bring your own food. Past groups have shared meals around the picnic tables in the evenings&thinsp;&mdash;&thinsp;it tends to become part of the experience.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-9" id="faq-q-9">What if the trip is full?</button>
+        <div class="faq-a" id="faq-a-9" role="region" aria-labelledby="faq-q-9" aria-hidden="true">
+          <p>Join the waitlist. If a spot opens due to a cancellation, we&rsquo;ll contact you. You can also join the waitlist to be first to hear when next year&rsquo;s dates are announced.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-10" id="faq-q-10">How long has this trip been running?</button>
+        <div class="faq-a" id="faq-a-10" role="region" aria-labelledby="faq-q-10" aria-hidden="true">
+          <p>Since 1994. This is the 31st year.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<section class="section final-cta text-center bg-deep-teal" id="reserve">
+  <div class="container reveal">
+    <div class="eyebrow">Only 13 Spots</div>
+    <h2>13 Spots. Four Days. A Practice You&rsquo;ll Carry Home.</h2>
+    <p style="font-size:17px;max-width:580px;margin:0 auto 12px;color:rgba(255,255,255,.8);font-weight:300;line-height:1.8;">This trip has run every June since 1994. People come back year after year. People send their friends. The spots fill up.</p>
+    <div class="avail-badge">13 of 13 spots available</div>
+    <div>
+      <a href="#" class="btn btn-primary">Reserve My Spot</a>
+    </div>
+    <p class="meta-line">June 2&ndash;5, 2026 &middot; Sedona, AZ &middot; $450 &middot; 13 of 13 spots available<br>No prior experience required &middot; Packing list sent after registration</p>
+    <p class="cross-sell">Interested in studying with Feather beyond the field trip? Explore the <a href="#">Live Group Classes</a> or <a href="#">self-paced online courses</a>.</p>
+  </div>
+</section>
 
 <?php
 get_footer();

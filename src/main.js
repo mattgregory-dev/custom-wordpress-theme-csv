@@ -766,6 +766,40 @@ const revealOnScroll = () => {
   elements.forEach((el) => io.observe(el));
 };
 
+const initFaqAccordions = () => {
+  const items = document.querySelectorAll('.faq-item');
+  if (!items.length) return;
+
+  let uid = 1;
+  items.forEach((item) => {
+    const button = item.querySelector('.faq-q');
+    const panel = item.querySelector('.faq-a');
+    if (!button || !panel) return;
+
+    if (!button.id) {
+      button.id = `faq-q-${uid}`;
+    }
+    if (!panel.id) {
+      panel.id = `faq-a-${uid}`;
+    }
+    uid += 1;
+
+    button.setAttribute('aria-controls', panel.id);
+    panel.setAttribute('aria-labelledby', button.id);
+
+    const isOpen = item.classList.contains('is-open');
+    button.setAttribute('aria-expanded', String(isOpen));
+    panel.setAttribute('aria-hidden', String(!isOpen));
+
+    button.addEventListener('click', () => {
+      const nowOpen = !item.classList.contains('is-open');
+      item.classList.toggle('is-open', nowOpen);
+      button.setAttribute('aria-expanded', String(nowOpen));
+      panel.setAttribute('aria-hidden', String(!nowOpen));
+    });
+  });
+};
+
 // GSAP subtitle reveal animation.
 const animateSubtitles = () => {
   const subtitles = document.querySelectorAll('.sec-title .sub-title');
@@ -1301,6 +1335,7 @@ const init = () => {
   //revealUpAnimation();
   //revealFadeAnimation();
   revealOnScroll();
+  initFaqAccordions();
 };
 
 if (document.readyState === "loading") {
