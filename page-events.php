@@ -26,8 +26,6 @@ get_header();
   </div>
 </section>
 
-
-
 <section class="section bg-soft-cream">
   <div class="container mx-auto px-4 md:px-6 lg:px-8">
     <div class="grid gap-12 md:grid-cols-[5fr_4fr] md:gap-[4rem] items-start">

@@ -21,8 +21,6 @@ get_header();
   </div>
 </section>
 
-
-
 <section class="py-8 bg-[var(--color-muted)]">
   <div class="container mx-auto px-4 md:px-6 lg:px-8">
     <div class="grid gap-6 md:grid-cols-3 text-center">
@@ -137,7 +135,3 @@ get_header();
 <?php
 get_footer();
 ?>
-
-
-
-
