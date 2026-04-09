@@ -46,7 +46,7 @@
 @font-face {
   font-family: "Lora";
   src: url("#{$theme-root}/fonts/lora-italic.woff2") format("woff2");
-  font-weight: 700;
+  font-weight: 100 900;
   font-style: italic;
   font-display: swap;
 }
@@ -93,11 +93,10 @@ h6,
   font-weight: 400;
 }
 
-// .accent {
-//   font-family: "Playfair Display", "Times New Roman", serif;
-//   font-style: italic;
-//   font-weight: 400;
-// }
+.eyebrow {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+}
 
 .post-content {
   font-size: 1.125rem;

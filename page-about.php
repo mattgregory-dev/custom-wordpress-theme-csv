@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * Template Name: About
  */
@@ -6,11 +6,11 @@ get_header();
 ?>
 
 <section class="section bg-[var(--color-accent)]">
-  <div class="max-w-[1240px] mx-auto px-4 md:px-6 lg:px-8">
+  <div class="container mx-auto px-4 md:px-6 lg:px-8">
     <div class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] items-center">
       <div>
-        <p class="font-semibold text-sm tracking-wide uppercase text-[var(--color-primary)] mb-4">About Feather Jones</p>
-        <h1 class="text-4xl md:text-5xl text-[var(--color-text)] mb-6">She's been learning from the plants for over four decades. She's still at it.</h1>
+        <p class="eyebrow">About Feather Jones</p>
+        <h1>She's been learning from the plants for over four decades. She's still at it.</h1>
         <p class="text-lg text-neutral-700">As a Registered Herbalist with the American Herbalists Guild, Feather has spent more than 40 years in clinical practice, teaching, and walking the land with the plants she knows by name. She has trained over a thousand students in herbal medicine, helped hundreds of clients find their way back to health, and still gets excited every time she spots a patch of wild medicine growing on a hillside.</p>
       </div>
       <div class="w-full">
@@ -20,12 +20,14 @@ get_header();
   </div>
 </section>
 
+
+
 <section class="section">
-  <div class="max-w-[1240px] mx-auto px-4 md:px-6 lg:px-8">
+  <div class="container mx-auto px-4 md:px-6 lg:px-8">
     <div class="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] items-start">
       <div>
-        <p class="font-semibold text-sm tracking-wide uppercase text-[var(--color-primary)] mb-3">Where It Started</p>
-        <h2 class="text-3xl md:text-4xl text-[var(--color-text)] mb-6">A life rooted in the land</h2>
+        <p class="eyebrow">Where It Started</p>
+        <h2>A life rooted in the land</h2>
         <div class="space-y-4 text-neutral-700">
           <p>Feather grew up on a farm. She woke to roosters crowing and the smell of fresh-cut hay. Her bed was stuffed with bedstraw. Clothes dried on a line in the sun. Nature wasn't something she went looking for -- it was simply where she lived.</p>
           <p>That closeness to the land never left her. As a young woman, she found herself drawn to the woods, to creek beds, to wild places. It felt natural to look to those places for answers about health and healing.</p>
@@ -40,30 +42,31 @@ get_header();
   </div>
 </section>
 
-<section class="section bg-[var(--color-muted)]">
-  <div class="max-w-[1240px] mx-auto px-4 md:px-6 lg:px-8">
+<section class="section bg-warm-linen">
+  <div class="container mx-auto px-4 md:px-6 lg:px-8">
     <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] items-center">
       <div class="w-full">
         <div class="bg-white rounded-3xl shadow-sm aspect-[4/3]"></div>
       </div>
       <div>
-        <p class="font-semibold text-sm tracking-wide uppercase text-[var(--color-primary)] mb-3">Her Approach</p>
-        <h2 class="text-3xl md:text-4xl text-[var(--color-text)] mb-6">Teaching from the land itself</h2>
-        <div class="space-y-4 text-neutral-700">
-          <p>Feather doesn't teach about plants from a textbook. She teaches from the land itself.</p>
-          <p>Her approach blends clinical knowledge with something deeper -- a respect for the plants as living beings with their own character and purpose. She teaches her students to sit with the plants, taste them, learn where they grow and why. She believes the plants in your own region have already figured out how to thrive there, and they can teach your body to do the same.</p>
-          <p>Growing up with Mandan tribal heritage gave Feather a way of seeing the world that runs through everything she does. She brings attention to the spiritual and emotional side of healing, not just the physical. She looks at the whole person -- their thoughts, their habits, their relationship with the natural world.</p>
-          <p>She doesn't rush. She doesn't cut corners. She meets each person where they are -- whether that's a brand-new student or someone managing a complex health challenge -- and walks beside them.</p>
-        </div>
+        <p class="eyebrow">Her Approach</p>
+        <h2>Teaching from the land itself</h2>
+        <p>Feather doesn&rsquo;t teach about plants from a textbook. She teaches from the land itself.</p>
+        <p>Her approach blends clinical knowledge with something deeper&thinsp;&mdash;&thinsp;a respect for the plants as living beings with their own character and purpose. She teaches her students to sit with the plants, taste them, learn where they grow and why. She believes the plants in your own region have already figured out how to thrive there, and they can teach your body to do the same.</p>
+        <div class="pull-quote">&ldquo;Plant medicines aren&rsquo;t just for healing the body. They reconnect us to the natural world and remind us of our kinship with all living things.&rdquo;</div>
+        <p>Growing up with Mandan tribal heritage gave Feather a way of seeing the world that runs through everything she does. She brings attention to the spiritual and emotional side of healing, not just the physical. She looks at the whole person&thinsp;&mdash;&thinsp;their thoughts, their habits, their relationship with the natural world.</p>
+        <p>She doesn&rsquo;t rush. She doesn&rsquo;t cut corners. She meets each person where they are&thinsp;&mdash;&thinsp;whether that&rsquo;s a brand-new student or someone managing a complex health challenge&thinsp;&mdash;&thinsp;and walks beside them.</p>
       </div>
     </div>
   </div>
 </section>
 
+<div class="botanical-divider"></div>
+
 <section class="section">
-  <div class="max-w-[1240px] mx-auto px-4 md:px-6 lg:px-8">
-    <p class="font-semibold text-sm tracking-wide uppercase text-[var(--color-primary)] mb-3">Credentials</p>
-    <h2 class="text-3xl md:text-4xl text-[var(--color-text)] mb-10">A career that speaks for itself</h2>
+  <div class="container mx-auto px-4 md:px-6 lg:px-8">
+    <p class="eyebrow">Credentials</p>
+    <h2>A career that speaks for itself</h2>
     <div class="grid gap-6 lg:grid-cols-2">
       <div class="card space-y-4 text-neutral-700">
         <p>Feather has served twice as president of the American Herbalists Guild -- the leading professional organization for herbalists in the United States. She also serves on their Admissions Committee, helping set the standard for who enters the profession. She has been a Botanical Field Guide for the Sonoran University of Health Sciences, teaching alongside naturopathic doctors and medical professionals.</p>
@@ -78,16 +81,16 @@ get_header();
 </section>
 
 <section class="section bg-[var(--color-accent)]">
-  <div class="max-w-[1240px] mx-auto px-4 md:px-6 lg:px-8 text-center">
+  <div class="container mx-auto px-4 md:px-6 lg:px-8 text-center">
     <p class="text-lg text-neutral-700 mb-6">See how Feather teaches today</p>
     <a class="btn btn-primary" href="#">Explore Programs</a>
   </div>
 </section>
 
 <section class="section bg-[var(--color-muted)]">
-  <div class="max-w-[1240px] mx-auto px-4 md:px-6 lg:px-8">
-    <p class="font-semibold text-sm tracking-wide uppercase text-[var(--color-primary)] mb-3">Words from Those Who've Walked With Her</p>
-    <h2 class="text-3xl md:text-4xl text-[var(--color-text)] mb-10">What students and peers say</h2>
+  <div class="container mx-auto px-4 md:px-6 lg:px-8">
+    <p class="eyebrow">Words from Those Who've Walked With Her</p>
+    <h2>What students and peers say</h2>
     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
       <div class="card text-neutral-700">Feather is generous with her knowledge, organized and thorough in her teachings, and a genuinely beautiful human being.</div>
       <div class="card text-neutral-700">Feather, you are such a gift. Your teachings stay with us. You embody such wisdom and respect for the Earth.</div>
@@ -99,11 +102,11 @@ get_header();
 </section>
 
 <section class="section">
-  <div class="max-w-[1240px] mx-auto px-4 md:px-6 lg:px-8">
+  <div class="container mx-auto px-4 md:px-6 lg:px-8">
     <div class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] items-center">
       <div>
-        <p class="font-semibold text-sm tracking-wide uppercase text-[var(--color-primary)] mb-3">More Than the Classroom</p>
-        <h2 class="text-3xl md:text-4xl text-[var(--color-text)] mb-6">More than the classroom</h2>
+        <p class="eyebrow">More Than the Classroom</p>
+        <h2>More than the classroom</h2>
         <div class="space-y-4 text-neutral-700">
           <p>There's more to Feather than the classroom.</p>
           <p>She ran a successful organic herbal tea company called Sedona Tea Blends, which blended desert botanicals with the famed vortex energies of the Sedona landscape. She is a strong advocate for animal rights and the protection of wild plant habitats. And she is an avid hiker who has spent decades exploring off-trail -- finding hidden ruins, quiet side canyons, and overlooks that most people will never see.</p>
@@ -119,26 +122,26 @@ get_header();
 </section>
 
 <section class="section bg-[var(--color-muted)]">
-  <div class="max-w-[1240px] mx-auto px-4 md:px-6 lg:px-8">
-    <p class="font-semibold text-sm tracking-wide uppercase text-[var(--color-primary)] mb-3">What's Next</p>
-    <h2 class="text-3xl md:text-4xl text-[var(--color-text)] mb-6">If This Resonates, Here's Where to Start</h2>
+  <div class="container mx-auto px-4 md:px-6 lg:px-8">
+    <p class="eyebrow">What's Next</p>
+    <h2>If This Resonates, Here's Where to Start</h2>
     <p class="text-lg text-neutral-700 mb-10 max-w-3xl">If you've been looking for an herbalist who teaches from real experience, real relationships with the plants, and real care for her students -- there are a few ways to learn with Feather.</p>
     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mb-10">
       <div class="card">
-        <h3 class="text-lg mb-2">Live Group Classes</h3>
-        <p class="text-sm text-neutral-600">A year-long herbalist training program with live sessions, field trips, and hands-on medicine making.</p>
+        <h3>Live Group Classes</h3>
+        <p class="text-neutral-600">A year-long herbalist training program with live sessions, field trips, and hands-on medicine making.</p>
       </div>
       <div class="card">
-        <h3 class="text-lg mb-2">Study With Feather</h3>
-        <p class="text-sm text-neutral-600">Private one-on-one mentorship, fully customized to your goals and experience level.</p>
+        <h3>Study With Feather</h3>
+        <p class="text-neutral-600">Private one-on-one mentorship, fully customized to your goals and experience level.</p>
       </div>
       <div class="card">
-        <h3 class="text-lg mb-2">Courses</h3>
-        <p class="text-sm text-neutral-600">Self-paced online courses covering women's wellness, foraging, botanical support, and more.</p>
+        <h3>Courses</h3>
+        <p class="text-neutral-600">Self-paced online courses covering women's wellness, foraging, botanical support, and more.</p>
       </div>
       <div class="card">
-        <h3 class="text-lg mb-2">Field Trip</h3>
-        <p class="text-sm text-neutral-600">A four-day herbal immersion in the Sedona desert. Limited to 13 students. Once a year.</p>
+        <h3>Field Trip</h3>
+        <p class="text-neutral-600">A four-day herbal immersion in the Sedona desert. Limited to 13 students. Once a year.</p>
       </div>
     </div>
     <a class="btn btn-primary" href="#">See All Programs</a>
@@ -151,3 +154,7 @@ get_header();
 <?php
 get_footer();
 ?>
+
+
+
+

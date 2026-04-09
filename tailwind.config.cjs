@@ -9,6 +9,13 @@ module.exports = {
     "!./dist/**",
   ],
   theme: {
+    container: {
+      center: true,
+      padding: "1rem",
+      screens: {
+        xl: "1240px",
+      },
+    },
     // screens: {
     //   sm: "640px",
     //   md: "768px",
