@@ -3,3 +3,36 @@
 @tailwind utilities;
 
 /* Add Tailwind layers or custom utilities here. */
+
+@layer base {
+  html {
+    font-size: 17px;
+  }
+
+  body {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-block px-6 py-3 rounded-full font-semibold transition;
+  }
+
+  .btn-primary {
+    @apply bg-[var(--color-primary)] text-white hover:opacity-90;
+  }
+
+  .btn-secondary {
+    @apply border border-[var(--color-primary)] text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl shadow-sm p-6;
+  }
+
+  .section {
+    @apply py-16 md:py-20;
+  }
+}

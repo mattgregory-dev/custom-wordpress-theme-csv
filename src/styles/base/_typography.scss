@@ -1,21 +1,19 @@
 @use "../paths" as *;
 
-@font-face {
-  font-family: "Playfair Display";
-  src: url("#{$theme-root}/fonts/playfair-display.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Marcellus";
-  src: url("#{$theme-root}/fonts/marcellus.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
+// @font-face {
+//   font-family: "Playfair Display";
+//   src: url("#{$theme-root}/fonts/playfair-display.woff2") format("woff2");
+//   font-weight: 400;
+//   font-style: normal;
+//   font-display: swap;
+// }
+// @font-face {
+//   font-family: "Marcellus";
+//   src: url("#{$theme-root}/fonts/marcellus.woff2") format("woff2");
+//   font-weight: 400;
+//   font-style: normal;
+//   font-display: swap;
+// }
 @font-face {
   font-family: "Lato";
   src: url("#{$theme-root}/fonts/lato-300-regular.woff2") format("woff2");
@@ -23,7 +21,6 @@
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
   font-family: "Lato";
   src: url("#{$theme-root}/fonts/lato-400-regular.woff2") format("woff2");
@@ -31,12 +28,33 @@
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
   font-family: "Lato";
   src: url("#{$theme-root}/fonts/lato-700-regular.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lora";
+  src: url("#{$theme-root}/fonts/lora.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Lora";
+  src: url("#{$theme-root}/fonts/lora-italic.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("#{$theme-root}/fonts/montserrat-bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
   font-display: swap;
 }
 
@@ -53,30 +71,6 @@
   font-style: normal;
   font-display: swap;
 }
-
-/*
-@font-face {
-  font-family: "Lato";
-  src: url("#{$theme-root}/fonts/lato-300-italic.woff2") format("woff2");
-  font-weight: 300;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Lato";
-  src: url("#{$theme-root}/fonts/lato-400-italic.woff2") format("woff2");
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Lato";
-  src: url("#{$theme-root}/fonts/lato-700-italic.woff2") format("woff2");
-  font-weight: 700;
-  font-style: italic;
-  font-display: swap;
-}
-*/
 
 body {
   background: var(--light-sage);
@@ -95,15 +89,15 @@ h6,
 .heading,
 .label,
 .emphasis {
-  font-family: "Marcellus", "Times New Roman", serif;
+  font-family: "Lora", "Times New Roman", serif;
   font-weight: 400;
 }
 
-.accent {
-  font-family: "Playfair Display", "Times New Roman", serif;
-  font-style: italic;
-  font-weight: 400;
-}
+// .accent {
+//   font-family: "Playfair Display", "Times New Roman", serif;
+//   font-style: italic;
+//   font-weight: 400;
+// }
 
 .post-content {
   font-size: 1.125rem;
