@@ -35,7 +35,27 @@
   font-style: normal;
   font-display: swap;
 }
-
+@font-face {
+  font-family: "Lato";
+  src: url("#{$theme-root}/fonts/lato-300-italic.woff2") format("woff2");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Lato";
+  src: url("#{$theme-root}/fonts/lato-400-italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Lato";
+  src: url("#{$theme-root}/fonts/lato-700-italic.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
 @font-face {
   font-family: "Lora";
   src: url("#{$theme-root}/fonts/lora.woff2") format("woff2");
@@ -57,7 +77,6 @@
   font-style: italic;
   font-display: swap;
 }
-
 @font-face {
   font-family: "fontello";
   src: url("#{$theme-root}/fonts/fontello.eot");

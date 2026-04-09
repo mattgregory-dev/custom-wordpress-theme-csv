@@ -122,6 +122,15 @@ p {
 }
 
 
+.cta-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.82rem;
+}
+
+
 
 
 .botanical-divider {
@@ -147,4 +156,232 @@ p {
 
 .bg-warm-linen {
   background: var(--warm-linen);
+}
+.bg-soft-cream {
+  background: var(--soft-cream);
+}
+.bg-pale-sage-cream {
+  background: var(--pale-sage-cream);
+}
+.bg-deep-teal {
+  background: var(--deep-teal);
+}
+.bg-mint-green {
+  background: var(--mint-green);
+}
+
+.credentials-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.59rem;
+  margin: 1.65rem 0;
+}
+.credential-tag {
+  font-family: var(--font-eyebrow);
+  font-weight: 700;
+  font-size: 0.59rem;
+  letter-spacing: 0.11rem;
+  text-transform: uppercase;
+  padding: 0.47rem 1.06rem;
+  border-radius: 0.24rem;
+  background: var(--pale-sage-cream);
+  color: var(--deep-teal);
+  border: 1px solid rgba(86,134,115,0.12);
+}
+.content-img {
+  border-radius: 0.71rem;
+  overflow: hidden;
+  box-shadow: 0 12px 48px rgba(58,29,2,0.12);
+}
+
+
+
+
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition-delay: 0.12s;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+
+
+
+
+.testimonial-stack {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  max-width: 800px;
+  margin: 0 auto;
+  transition-delay: 0.1s;
+}
+@media (min-width: 600px) {
+  .testimonial-stack { grid-template-columns: 1fr 1fr; }
+  .testimonial-stack .testimonial-card:first-child { grid-column: 1 / -1; }
+}
+.testimonial-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 36px 30px;
+  border: 1px solid rgba(177,153,134,0.15);
+  position: relative;
+  box-shadow: 0 4px 24px rgba(58,29,2,0.04);
+}
+.testimonial-card::before {
+  content: '\201C';
+  font-family: var(--font-heading);
+  font-size: 52px;
+  color: var(--sage-green);
+  opacity: 0.25;
+  position: absolute;
+  top: 8px;
+  left: 18px;
+  line-height: 1;
+}
+.testimonial-quote {
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--charcoal);
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+}
+.testimonial-attr {
+  font-family: var(--font-eyebrow);
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: var(--warm-taupe);
+  text-transform: uppercase;
+}
+.peer-note {
+  max-width: 660px;
+  margin: 44px auto 0;
+  text-align: center;
+  font-style: italic;
+  color: #777;
+  line-height: 1.8;
+  font-size: 16px;
+  transition-delay: 0.2s;
+}
+
+
+
+
+
+
+
+
+
+
+
+.invitation-section {
+  background: var(--deep-teal);
+  text-align: center;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.invitation-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(132,174,157,0.1), transparent 55%),
+    radial-gradient(ellipse at 80% 50%, rgba(132,174,157,0.07), transparent 55%);
+  pointer-events: none;
+}
+.invitation-section .container { position: relative; z-index: 1; }
+.invitation-section .eyebrow { color: var(--sage-green); }
+.invitation-section h2 { color: #fff; margin-bottom: 16px; }
+.invitation-section p { color: rgba(255,255,255,0.75); }
+.invitation-lead {
+  font-size: 18px;
+  max-width: 600px;
+  margin: 0 auto 48px;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.8) !important;
+  font-weight: 300;
+}
+
+
+.offering-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 24px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: block;
+}
+.offering-card:hover {
+  background: rgba(255,255,255,0.1);
+  transform: translateY(-3px);
+  border-color: rgba(255,255,255,0.18);
+}
+.offering-card h3 {
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+.offering-card p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.6;
+}
+.social-row {
+  margin-top: 40px;
+}
+.social-row p {
+  font-size: 15px;
+  color: var(--sage-green);
+}
+
+.day-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 30px 26px;
+  border: 1px solid rgba(177,153,134,0.1);
+  box-shadow: 0 2px 16px rgba(58,29,2,0.03);
+}
+.day-card .day-label {
+  font-family: var(--font-eyebrow);
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--forest-green);
+  margin-bottom: 8px;
+}
+.day-card h3 {
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+.day-card p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #666;
+}
+.day-card.is-included {
+  background: var(--pale-sage-cream);
+}
+.day-card.is-included .day-label {
+  color: var(--olive-green);
+}
+.friction-text {
+  display: block;
+  margin-top: 14px;
+  font-size: 14px;
+  color: #999;
+  font-style: italic;
+  font-weight: 300;
 }
