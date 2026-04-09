@@ -290,6 +290,14 @@ p {
   font-size: 0.94rem;
   transition-delay: 0.2s;
 }
+.emphasis-note {
+  color: var(--dark-brown);
+  font-weight: 700;
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: 1.12rem;
+  margin-top: 0.47rem;
+}
 
 .invitation-section {
   background: var(--deep-teal);
@@ -882,4 +890,216 @@ p {
     color: #777;
     line-height: 1.7;
   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.commitment-list {
+  margin-top: 32px;
+}
+.commitment-item {
+  display: flex;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(177,153,134,0.15);
+}
+.commitment-item:last-child { border-bottom: none; }
+.commitment-item .ci-label {
+  font-family: var(--font-eyebrow);
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--forest-green);
+  min-width: 120px;
+  padding-top: 2px;
+}
+.commitment-item .ci-value {
+  font-size: 15px; color: #555; line-height: 1.6;
+}
+
+
+
+
+
+
+
+
+.curr-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 28px 24px;
+  border: 1px solid rgba(177,153,134,0.1);
+  box-shadow: 0 2px 16px rgba(58,29,2,0.03);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.curr-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(58,29,2,0.08);
+}
+.curr-card h3 { font-size: 17px; margin-bottom: 8px; }
+.curr-card p { font-size: 14px; line-height: 1.7; color: #666; }
+
+
+
+
+
+.ft-quotes {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.ft-quote {
+  padding-left: 20px;
+  border-left: 3px solid var(--sage-green);
+}
+.ft-quote p {
+  font-style: italic;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--charcoal);
+  margin-bottom: 6px;
+}
+.ft-quote cite {
+  font-style: normal;
+  font-family: var(--font-eyebrow);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: var(--warm-taupe);
+  text-transform: uppercase;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.s-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 32px 28px;
+  border: 1px solid rgba(177,153,134,0.15);
+  position: relative;
+  box-shadow: 0 4px 24px rgba(58,29,2,0.04);
+}
+.s-card::before {
+  content: '\201C';
+  font-family: var(--font-heading);
+  font-size: 50px;
+  color: var(--sage-green);
+  opacity: 0.22;
+  position: absolute;
+  top: 6px; left: 16px;
+  line-height: 1;
+}
+.s-card .sq {
+  font-style: italic; font-size: 16px; line-height: 1.8;
+  color: var(--charcoal); margin-bottom: 14px;
+  position: relative; z-index: 1;
+}
+.s-card .sa {
+  font-family: var(--font-eyebrow);
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: var(--warm-taupe);
+  text-transform: uppercase;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.tuition-intro { max-width: 680px; margin: 0 auto 40px; text-align: center; }
+.tuition-intro p { font-size: 16px; color: #777; }
+.pricing-cards {
+  display: grid; grid-template-columns: 1fr; gap: 20px;
+  max-width: 780px; margin: 0 auto;
+}
+@media (min-width: 600px) {
+  .pricing-cards { grid-template-columns: 1fr 1fr 1fr; }
+}
+.price-card {
+  background: var(--soft-cream);
+  border-radius: 10px;
+  padding: 32px 24px;
+  text-align: center;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  position: relative;
+}
+.price-card.featured {
+  border-color: var(--forest-green);
+  background: #fff;
+  box-shadow: 0 8px 40px rgba(86,134,115,0.12);
+}
+.price-card.featured::before {
+  content: 'BEST VALUE';
+  position: absolute;
+  top: -12px; left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-eyebrow);
+  font-weight: 700;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background: var(--forest-green);
+  color: #fff;
+  padding: 4px 14px;
+  border-radius: 3px;
+}
+.price-card .pc-label {
+  font-family: var(--font-eyebrow);
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--forest-green);
+  margin-bottom: 8px;
+}
+.price-card .pc-amount {
+  font-family: var(--font-heading);
+  font-size: 36px;
+  color: var(--dark-brown);
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+.price-card .pc-note {
+  font-size: 13px;
+  color: #999;
+}
+.tuition-notes {
+  max-width: 680px;
+  margin: 36px auto 0;
+  text-align: center;
+  font-size: 14px;
+  color: #999;
+  line-height: 1.7;
 }
