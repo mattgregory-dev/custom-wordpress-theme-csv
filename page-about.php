@@ -154,7 +154,7 @@ get_header();
     <div class="eyebrow">What&rsquo;s Next</div>
     <h2>If This Resonates, Here&rsquo;s Where to Start</h2>
     <p class="invitation-lead">If you&rsquo;ve been looking for an herbalist who teaches from real experience, real relationships with the plants, and real care for her students&thinsp;&mdash;&thinsp;there are a few ways to learn with Feather.</p>
-    <div class="offering-grid">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12 max-w-2xl mx-auto">
       <a href="#" class="offering-card">
         <h3>Live Group Classes</h3>
         <p>A year-long herbalist training program with live sessions, field trips, and hands-on medicine making.</p>

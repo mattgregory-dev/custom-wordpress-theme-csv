@@ -167,7 +167,7 @@ get_header();
       </div>
       <div class="card space-y-3 text-neutral-700">
         <h3>How does this compare to the Live Group Classes?</h3>
-        <p class="text-neutral-600">The Live Group Classes follow a set curriculum with a cohort of other students. Study With Feather is fully one-on-one with a curriculum built around your specific goals. Both are taught by Feather.</p>
+        <p class="text-neutral-600">The Live Group Classes follow a set curriculum with a group of other students. Study With Feather is fully one-on-one with a curriculum built around your specific goals. Both are taught by Feather.</p>
       </div>
       <div class="card space-y-3 text-neutral-700">
         <h3>Is the certificate accredited?</h3>
