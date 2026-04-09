@@ -26,6 +26,8 @@ get_header();
   </div>
 </section>
 
+
+
 <section class="section bg-soft-cream">
   <div class="container mx-auto px-4 md:px-6 lg:px-8">
     <div class="grid gap-12 md:grid-cols-[5fr_4fr] md:gap-[4rem] items-start">
@@ -108,6 +110,45 @@ get_header();
     </div>
   </div>
 </section>
+
+<div class="botanical-divider"></div>
+
+<section class="section bg-pale-sage-cream">
+  <div class="container mx-auto px-4 md:px-6 lg:px-8">
+    <div class="text-center reveal mb-10">
+      <div class="eyebrow">Voices From the Field</div>
+      <h2>What Past Participants Say</h2>
+    </div>
+    <div class="grid gap-6 max-w-[860px] mx-auto sm:grid-cols-2 reveal">
+      <div class="v-card">
+        <p class="vq">I came thinking I&rsquo;d learn some plant names. I left knowing how to actually make medicine. That shift&thinsp;&mdash;&thinsp;from reading about plants to working with them&thinsp;&mdash;&thinsp;changed everything for me.</p>
+        <div class="va">&mdash; Placeholder Name, City, State</div>
+      </div>
+      <div class="v-card">
+        <p class="vq">Feather doesn&rsquo;t just teach you what a plant is. She teaches you how to pay attention. I&rsquo;ve been back to the desert three times since, and I see it completely differently now.</p>
+        <div class="va">&mdash; Placeholder Name, City, State</div>
+      </div>
+      <div class="v-card">
+        <p class="vq">I was nervous about camping and worried I didn&rsquo;t know enough. By day two, I forgot both of those concerns. The group was warm, the pace was gentle, and I learned more in four days than I did in a full year of online study.</p>
+        <div class="va">&mdash; Placeholder Name, City, State</div>
+      </div>
+      <div class="v-card">
+        <p class="vq">I&rsquo;ve taken courses, read every book I could find, and watched hours of videos. Nothing compared to four days in the field with Feather. There is no substitute for being there.</p>
+        <div class="va">&mdash; Placeholder Name, City, State</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-soft-cream text-center">
+  <div class="container max-w-2xl reveal">
+    <div class="eyebrow">Already Enrolled?</div>
+    <h2>In the Live Group Classes or Private Mentorship?</h2>
+    <p>Your field trip is included in your tuition at no extra cost. Spots are first come, first served&thinsp;&mdash;&thinsp;and there are only 13 of them. If you haven&rsquo;t registered yet, do it now. Waiting until the trip fills up means losing your spot.</p>
+  </div>
+</section>
+
+
 
 <?php
 get_footer();

@@ -14,14 +14,3 @@
     line-height: 1.7;
   }
 }
-
-@layer components {
-
-  .card {
-    @apply bg-white rounded-2xl shadow-sm p-6;
-  }
-
-  .section {
-    @apply py-16 md:py-20;
-  }
-}
