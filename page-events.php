@@ -15,7 +15,7 @@ get_header();
         <p class="text-neutral-600 mb-6">June 2-5, 2026 | Sedona, AZ | $450 | Only 13 spots</p>
         <p class="text-neutral-600 mb-8">No prior experience required | Packing list sent after registration</p>
         <div class="flex flex-wrap gap-4">
-          <a class="btn btn-primary" href="#">Reserve Your Spot</a>
+          <a class="btn btn-primary" href="<?php echo esc_url( home_url( 'checkout/?add-to-cart=1652' ) ); ?>">Reserve Your Spot</a>
           <a class="btn btn-secondary" href="#faq">View FAQ</a>
         </div>
       </div>
@@ -52,14 +52,23 @@ get_header();
 <section class="section bg-white">
   <div class="container mx-auto px-4 md:px-6 lg:px-8">
     <div class="grid gap-12 md:grid-cols-[4fr_5fr] md:gap-[4rem] items-start">
-      <div class="reveal">
-        <div class="content-img aspect-[4/3]">
-          <img src="<?php echo get_template_directory_uri(); ?>/images/sedona-sunset.webp" alt="Sedona sunset over red rock formations" class="w-full h-full object-cover">
+      <div class="reveal md:self-center">
+        <div class="flex flex-col gap-4">
+
+          <div class="content-img aspect-[4/3] mb-6">
+            <img src="<?php echo get_template_directory_uri(); ?>/images/sedona-red-rocks.webp" alt="Sedona red rock landscape at sunset" class="w-full h-full object-cover">
+          </div>
+          <div class="content-img aspect-[4/3]">
+            <img src="<?php echo get_template_directory_uri(); ?>/images/sedona-red-rocks.webp" alt="Sedona red rock landscape at sunset" class="w-full h-full object-cover">
+          </div>
+
         </div>
       </div>
       <div class="reveal">
         <div class="eyebrow">The Experience</div>
+
         <h2>Four Days in the Desert That Change How You See Plants Forever</h2>
+
         <p>The Sedona Herbal Field Trip is a four-day, camping-based immersion led by Feather Jones. She is a registered clinical herbalist with more than 40 years in the field. She served as president of the American Herbalists Guild. She has been leading this trip every June since 1994.</p>
         <p>For three days, you&rsquo;ll walk through some of the richest plant country in the Southwest. Sedona&rsquo;s Verde Valley sits between the Mingus Mountains and the Mogollon Rim. It holds seven of Arizona&rsquo;s nine plant zone communities in one compact area. That means more plant diversity in a short walk than most students see in years of study.</p>
         <p>You won&rsquo;t just look at plants. You&rsquo;ll crouch beside them. Smell them. Learn to read the landscape they chose. Practice harvesting them with care and intention.</p>
@@ -69,6 +78,7 @@ get_header();
         <div class="credentials-list">
           <span class="credential-tag">Standalone experience &mdash; No prior courses required</span>
         </div>
+
       </div>
     </div>
   </div>
@@ -103,7 +113,7 @@ get_header();
       </div>
     </div>
     <div class="text-center reveal mt-11">
-      <a href="#reserve" class="btn btn-primary">Reserve My Spot</a>
+      <a href="<?php echo esc_url( home_url( 'checkout/?add-to-cart=1652' ) ); ?>" class="btn btn-primary">Reserve My Spot</a>
       <span class="friction-text">June 2&ndash;5, 2026 &middot; Sedona, AZ &middot; $450 &middot; Only 13 spots</span>
     </div>
   </div>
@@ -224,10 +234,10 @@ get_header();
     <p style="font-size:17px;max-width:580px;margin:0 auto 12px;color:rgba(255,255,255,.8);font-weight:300;line-height:1.8;">This trip has run every June since 1994. People come back year after year. People send their friends. The spots fill up.</p>
     <div class="avail-badge">13 of 13 spots available</div>
     <div>
-      <a href="#" class="btn btn-primary">Reserve My Spot</a>
+      <a href="<?php echo esc_url( home_url( 'checkout/?add-to-cart=1652' ) ); ?>" target="_blank" class="btn btn-primary">Reserve My Spot</a>
     </div>
     <p class="meta-line">June 2&ndash;5, 2026 &middot; Sedona, AZ &middot; $450 &middot; 13 of 13 spots available<br>No prior experience required &middot; Packing list sent after registration</p>
-    <p class="cross-sell">Interested in studying with Feather beyond the field trip? Explore the <a href="#">Live Group Classes</a> or <a href="#">self-paced online courses</a>.</p>
+    <p class="cross-sell">Interested in studying with Feather beyond the field trip? Explore the <a href="<?php echo esc_url( home_url( '/live-group-classes/' ) ); ?>">Live Group Classes</a> or <a href="<?php echo esc_url( home_url( '/courses-catalog/' ) ); ?>">self-paced online courses</a>.</p>
   </div>
 </section>
 

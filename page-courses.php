@@ -15,7 +15,7 @@ get_header();
         <p class="text-neutral-600 mb-8">Instructor: Feather Jones | <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>">Meet Feather on the About page</a></p>
         <div class="flex flex-wrap gap-4">
           <a class="btn btn-primary" href="#catalog">Browse All Courses</a>
-          <a class="btn btn-secondary" href="/contact/">Contact Us</a>
+          <a class="btn btn-secondary" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Contact Us</a>
         </div>
       </div>
       <div class="w-full">
@@ -74,7 +74,7 @@ get_header();
             </div>
             <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-end sm:gap-4">
               <a href="<?php echo esc_url( home_url( '/courses/womens-wellness/' ) ); ?>" class="btn btn-secondary btn-sm">View Full Course</a>
-              <a href="<?php echo esc_url( home_url( 'checkout/?add-to-cart=1581' ) ); ?>/" class="btn btn-primary btn-sm">Enroll Today</a>
+              <a href="<?php echo esc_url( home_url( 'checkout/?add-to-cart=1581' ) ); ?>" class="btn btn-primary btn-sm">Enroll Today</a>
             </div>
           </div>
         </div>

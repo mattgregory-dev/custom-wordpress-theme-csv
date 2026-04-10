@@ -15,7 +15,7 @@ get_header();
       </div>
       <div class="reveal">
         <div class="content-img aspect-[4/5] w-full max-w-[400px]">
-          <img src="<?php echo get_template_directory_uri(); ?>/images/feather/feather-jones.webp" alt="" class="h-full object-cover">
+          <img src="https://featherjones.com/wp-content/uploads/feather-jones.webp" alt="" class="h-full object-cover">
         </div>
       </div>
     </div>
@@ -35,7 +35,7 @@ get_header();
         <p>In the late 1970s, she enrolled at the Boulder School of Massage. Before she even finished the program, she knew she wanted to go deeper into herbs and plant medicine. It was the start of a renaissance in natural healing. Herb schools were springing up across the country, and people were searching for alternatives to a world dominated by pharmaceuticals.</p>
         <p>Feather studied with some of the most respected herbalists of that era. She trained under Michael Moore at his Southwest School of Botanical Medicine, earning her certification as a Clinical Herbalist in Western Herbalism. She also studied with traditional women healers, including Apache Elder Oshinna FastWolf and medicine woman Judy Whitesinger in North Dakota. These teachers shaped the way she sees healing&thinsp;&mdash;&thinsp;not just as science, but as relationship.</p>
       </div>
-      <div class="reveal">
+      <div class="reveal md:self-center">
         <div class="content-img aspect-[4/5]">
           <img src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="" class="w-full h-full object-cover">
         </div>
@@ -47,8 +47,8 @@ get_header();
 <section class="section bg-warm-linen">
   <div class="container mx-auto px-4 md:px-6 lg:px-8">
     <div class="grid gap-12 md:grid-cols-[4fr_5fr] md:gap-[4rem] items-start">
-      <div class="reveal">
-        <div class="content-img aspect-[1/1]">
+      <div class="reveal md:self-center">
+        <div class="content-img aspect-[4/5]">
           <img src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="" class="w-full h-full object-cover">
         </div>
       </div>
@@ -85,7 +85,7 @@ get_header();
         <p>Her peers in the herbalism world&thinsp;&mdash;&thinsp;people like David Winston, Roy Upton, Brigitte Mars, Rosita Arvigo, and Juliet Blankespoor&thinsp;&mdash;&thinsp;know her as a colleague and a friend. She has been called "legendary" and "a national treasure" by people who have spent their own lifetimes in this work. That kind of respect isn't earned with titles. It's earned with decades of showing up.</p>
         <p>Earlier in her career, Feather co-instructed a three-year program at the Rocky Mountain Center for Botanical Studies in Boulder, Colorado, graduating over 400 students as trained Western herbalists. As a solo instructor through Canyon Spirit Ventures, she has trained roughly another thousand&thinsp;&mdash;&thinsp;through apprenticeships, field studies, online courses, and symposiums. Many of her graduates have gone on to open their own herb schools and build thriving practices.</p>
       </div>
-      <div class="content-img aspect-[1/1] reveal">
+      <div class="content-img aspect-[4/5] reveal md:self-center">
         <img src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="" class="w-full h-full object-cover">
       </div>
     </div>
@@ -95,7 +95,7 @@ get_header();
 <section class="section bg-soft-cream">
   <div class="container mx-auto px-4 md:px-6 lg:px-8 cta-stack reveal">
     <p>See how Feather teaches today</p>
-    <a class="btn btn-primary" href="#">Explore How to Study With Feather</a>
+    <a class="btn btn-primary" href="<?php echo esc_url( home_url( '/study-with-feather/' ) ); ?>">Explore How to Study With Feather</a>
   </div>
 </section>
 
@@ -140,7 +140,7 @@ get_header();
         <p>For years, Feather called Sedona, Arizona home. The red rocks, the desert plants, and the sacred places of that landscape are woven into her teaching and her story. She now lives in Florida, but her connection to the land&thinsp;&mdash;&thinsp;wherever she is&thinsp;&mdash;&thinsp;remains the foundation of everything she does.</p>
         <p>When she&rsquo;s not teaching, you might find her playing flute in a canyon, sitting quietly with a medicine wheel, or simply walking among the plants she has known for a lifetime.</p>
       </div>
-      <div class="reveal">
+      <div class="reveal md:self-center">
         <div class="content-img aspect-[1/1]">
           <img src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="" class="w-full h-full object-cover">
         </div>
@@ -155,24 +155,24 @@ get_header();
     <h2>If This Resonates, Here&rsquo;s Where to Start</h2>
     <p class="invitation-lead">If you&rsquo;ve been looking for an herbalist who teaches from real experience, real relationships with the plants, and real care for her students&thinsp;&mdash;&thinsp;there are a few ways to learn with Feather.</p>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12 max-w-2xl mx-auto">
-      <a href="#" class="offering-card">
+      <a href="<?php echo esc_url( home_url( '/live-group-classes/' ) ); ?>" class="offering-card">
         <h3>Live Group Classes</h3>
         <p>A year-long herbalist training program with live sessions, field trips, and hands-on medicine making.</p>
       </a>
-      <a href="#" class="offering-card">
+      <a href="<?php echo esc_url( home_url( '/study-with-feather/' ) ); ?>" class="offering-card">
         <h3>Study With Feather</h3>
         <p>Private one-on-one mentorship, fully customized to your goals and experience level.</p>
       </a>
-      <a href="#" class="offering-card">
+      <a href="<?php echo esc_url( home_url( '/courses-catalog/' ) ); ?>" class="offering-card">
         <h3>Courses</h3>
         <p>Self-paced online courses covering women&rsquo;s wellness, foraging, botanical support, and more.</p>
       </a>
-      <a href="#" class="offering-card">
+      <a href="<?php echo esc_url( home_url( '/field-trips/' ) ); ?>" class="offering-card">
         <h3>Field Trip</h3>
         <p>A four-day herbal immersion in the Sedona desert. Limited to 13 students. Once a year.</p>
       </a>
     </div>
-    <a href="#" class="btn btn-primary">See All Programs</a>
+    <a href="<?php echo esc_url( home_url( '/#paths' ) ); ?>" class="btn btn-primary">See All Programs</a>
     <div class="social-row">
       <p>Follow Feather&rsquo;s plant walks and herbal wisdom on social media,<br>or join the mailing list for program updates and seasonal insights.</p>
     </div>

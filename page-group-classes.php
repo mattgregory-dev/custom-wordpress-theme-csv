@@ -174,7 +174,7 @@ get_header();
     <div class="grid grid-cols-1 gap-12 items-center md:grid-cols-[1fr_2fr] md:gap-14">
       <div class="reveal">
         <div class="content-img">
-          <img class="object-top" src="<?php echo get_template_directory_uri(); ?>/images/feather/feather-jones.webp" alt="Feather Jones, Registered Herbalist">
+          <img class="object-top" src="https://featherjones.com/wp-content/uploads/feather-jones.webp" alt="Feather Jones, Registered Herbalist">
         </div>
       </div>
       <div class="reveal">
@@ -252,8 +252,8 @@ get_header();
     </div>
     <div class="tuition-notes reveal">
       <p>Half-year and quarterly options are not subscriptions. Each payment covers a set period of the program. Pay the remaining balance when your current period ends to continue.</p>
-      <p class="pt-4"><strong style="color: var(--olive-green);">Sedona field trip:</strong> Valued at $450, included free with all tuition options.</p>
-      <p class="pt-4"><strong style="color: var(--olive-green);">Certificate of Completion:</strong> Awarded to students who attend all classes and complete the required assignment.</p>
+      <p class="pt-4"><strong>Sedona field trip:</strong> Valued at $450, included free with all tuition options.</p>
+      <p class="pt-4 certificate"><strong>Certificate of Completion:</strong> Awarded to students who attend all classes and complete the required assignment.</p>
     </div>
   </div>
 </section>

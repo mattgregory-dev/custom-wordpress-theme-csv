@@ -31,12 +31,13 @@ get_header();
     <div class="proof-dot"></div>
     <div class="proof-stat">
       <div class="ps-num">Registered Herbalist</div>
-      <div class="ps-label">American Herbalists<br>Guild</div>
+      <div class="ps-label">American<br>Herbalists Guild</div>
     </div>
-    <div class="proof-dot"></div>
+
+    <div class="proof-dot hidden"></div>
     <div class="proof-stat">
-      <div class="ps-num">Botanical Field Guide</div>
-      <div class="ps-label">Sonoran University of<br>Health Sciences</div>
+      <div class="ps-num">1000's of Students</div>
+      <div class="ps-label">Taught in the<br>class and the field</div>
     </div>
   </div>
 </div>
@@ -53,7 +54,7 @@ get_header();
         <div class="rc-label">Self-Paced Courses</div>
         <h3>Learn at Your Own Pace</h3>
         <p>Pick a topic, go at your speed, and come back whenever you want. Courses from $75. Lifetime access.</p>
-        <a href="<?php echo esc_url( home_url( '/courses/' ) ); ?>" class="btn btn-secondary">Browse Courses</a>
+        <a href="<?php echo esc_url( home_url( '/courses-catalog/' ) ); ?>" class="btn btn-secondary">Browse Courses</a>
       </div>
       <div class="route-card">
         <div class="rc-label">Live Group Classes</div>
@@ -95,7 +96,7 @@ get_header();
     <div class="grid grid-cols-1 gap-12 items-center md:grid-cols-[1fr_2.2fr] md:gap-14">
       <div class="reveal">
         <div class="content-img">
-          <img class="object-top" src="<?php echo get_template_directory_uri(); ?>/images/feather/feather-jones.webp" alt="Feather Jones, Registered Herbalist">
+          <img class="object-top" src="https://featherjones.com/wp-content/uploads/feather-jones.webp" alt="Feather Jones, Registered Herbalist">
         </div>
       </div>
       <div class="reveal">

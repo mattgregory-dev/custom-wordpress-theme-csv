@@ -159,7 +159,7 @@ get_header();
           </tr>
           <tr>
             <td>Investment</td>
-            <td>~$1,350/year</td>
+            <td>$2,800/year</td>
             <td class="highlight">$2,200/year</td>
           </tr>
         </tbody>
@@ -175,7 +175,7 @@ get_header();
     <div class="grid grid-cols-1 gap-12 items-center md:grid-cols-[1fr_2fr] md:gap-14">
       <div class="reveal">
         <div class="content-img">
-          <img class="object-top" src="<?php echo get_template_directory_uri(); ?>/images/feather/feather-jones.webp" alt="Feather Jones, Registered Herbalist">
+          <img class="object-top" src="https://featherjones.com/wp-content/uploads/feather-jones.webp" alt="Feather Jones, Registered Herbalist">
         </div>
       </div>
       <div class="reveal">
