@@ -13,8 +13,12 @@ get_header();
         <h1>Study One-on-One With Feather Jones and Build the Herbal Practice You've Been Dreaming Of</h1>
         <p class="text-lg text-neutral-700 mb-8">A year-long private mentorship designed around your goals, your pace, and your life. Feather works with you personally to turn your passion for plant medicine into real skill and lasting confidence.</p>
         <div class="flex flex-wrap gap-4">
-          <a class="btn btn-primary" href="#">Apply for Mentorship</a>
-          <a class="btn btn-secondary" href="#details">View Program Details</a>
+          <a class="btn btn-primary" href="#">Book My Free Consultation</a>
+        </div>
+        <p class="text-sm text-neutral-500 mt-4 italic">A free 30-minute Zoom call to talk about your goals and see if this is the right fit. No pressure, no commitment.</p>
+        <div class="hero-quote">
+          <blockquote>&ldquo;Herbalism is not just a study; it&rsquo;s a way of interacting with the world around us. I&rsquo;ve dedicated my life to this, and now want to share that wisdom with you.&rdquo;</blockquote>
+          <cite>&mdash; Feather Jones, Registered Herbalist (AHG)</cite>
         </div>
       </div>
       <div class="w-full">
@@ -28,15 +32,15 @@ get_header();
 <div class="botanical-divider"></div>
 
 <!-- ========== IS THIS FOR YOU ========== -->
-<section class="section profiles-section">
+<section class="section bg-white">
   <div class="container">
     <div class="text-center reveal">
       <div class="eyebrow">Is This for You?</div>
       <h2>This Mentorship Was Made for You If&hellip;</h2>
     </div>
-    <div class="profiles-grid reveal">
+    <div class="grid grid-cols-1 gap-4 mt-10 min-[700px]:grid-cols-3 md:gap-6 reveal">
       <div class="profile-card">
-        <div class="profile-icon">&seedling;</div>
+        <div class="profile-icon">&curren;</div>
         <h3>You&rsquo;re just getting started and want a guide</h3>
         <p>You&rsquo;ve read the books. You&rsquo;ve watched the videos. But you want someone with real experience to walk beside you and show you the path&thinsp;&mdash;&thinsp;not just point at it from a distance.</p>
       </div>
@@ -56,13 +60,13 @@ get_header();
 </section>
 
 <!-- ========== WHAT YOU'LL GET ========== -->
-<section class="section get-section">
+<section class="section bg-warm-linen">
   <div class="container">
     <div class="text-center reveal">
       <div class="eyebrow">What&rsquo;s Included</div>
       <h2>What You&rsquo;ll Get in Your Mentorship Year</h2>
     </div>
-    <div class="get-grid reveal">
+    <div class="grid grid-cols-1 gap-5 mt-10 min-[650px]:grid-cols-2 reveal">
       <div class="get-card">
         <div class="card-num">01</div>
         <h3>A Curriculum Built Around You</h3>
@@ -104,9 +108,9 @@ get_header();
 <div class="botanical-divider"></div>
 
 <!-- ========== WHY PRIVATE ========== -->
-<section class="section why-section">
+<section class="section bg-white">
   <div class="container">
-    <div class="why-grid">
+    <div class="grid grid-cols-1 gap-12 items-center md:grid-cols-[5fr_4fr] md:gap-16">
       <div class="text-block reveal">
         <div class="eyebrow">Why One-on-One</div>
         <h2>Why Private Mentorship Changes Everything</h2>
@@ -117,7 +121,7 @@ get_header();
       </div>
       <div class="reveal" style="transition-delay: 0.12s;">
         <div class="content-img">
-          <img src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="Feather working hands-on with a student in the field, examining plants together" style="object-position: center;">
+          <img class="object-center" src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="">
         </div>
       </div>
     </div>
@@ -165,12 +169,12 @@ get_header();
 </section>
 
 <!-- ========== MEET FEATHER ========== -->
-<section class="section mentor-section">
+<section class="section bg-soft-cream">
   <div class="container">
-    <div class="mentor-grid">
+    <div class="grid grid-cols-1 gap-12 items-center md:grid-cols-[1fr_2fr] md:gap-14">
       <div class="reveal">
-        <div class="mentor-portrait">
-          <img src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="Feather Jones, Registered Herbalist" style="object-position: center top;">
+        <div class="content-img">
+          <img class="object-top" src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="">
         </div>
       </div>
       <div class="reveal">
@@ -180,7 +184,7 @@ get_header();
         <p>But credentials only tell part of the story.</p>
         <p>Feather teaches because she believes the wisdom of herbalism must be passed down. She&rsquo;s watched too many aspiring herbalists feel lost because they lacked one thing: a mentor who could show them the way. That&rsquo;s why she created this program&thinsp;&mdash;&thinsp;not as a product to sell, but as a practice she&rsquo;s chosen, because mentorship is how this knowledge has always traveled.</p>
         <p>She has personally mentored hundreds of students over her career. Many of them have gone on to build their own herbal practices and schools. When you study with Feather, you&rsquo;re not just learning information. You&rsquo;re joining a lineage.</p>
-        <div class="mentor-quote">&ldquo;I don&rsquo;t just teach the basics of herbal medicine. I teach how to work with clients, how to do a proper intake and formulation strategies. How to feel confident and armed with your knowledge in complex case studies.&rdquo;</div>
+        <div class="smaller-quote">&ldquo;I don&rsquo;t just teach the basics of herbal medicine. I teach how to work with clients, how to do a proper intake and formulation strategies. How to feel confident and armed with your knowledge in complex case studies.&rdquo;</div>
       </div>
     </div>
   </div>
@@ -189,7 +193,7 @@ get_header();
 <div class="botanical-divider"></div>
 
 <!-- ========== TESTIMONIALS ========== -->
-<section class="section stories-section">
+<section class="section bg-warm-linen">
   <div class="container">
     <div class="text-center reveal" style="margin-bottom: 40px;">
       <div class="eyebrow">Student Stories</div>
@@ -217,13 +221,13 @@ get_header();
 </section>
 
 <!-- ========== DETAILS & INVESTMENT ========== -->
-<section class="section details-section">
+<section class="section bg-white">
   <div class="container">
-    <div class="text-center reveal" style="margin-bottom: 48px;">
+    <div class="text-center reveal mb-10">
       <div class="eyebrow">The Details</div>
       <h2>Program Details &amp; Investment</h2>
     </div>
-    <div class="details-grid reveal" style="transition-delay: 0.08s;">
+    <div class="grid grid-cols-1 gap-10 items-start min-[700px]:grid-cols-2 min-[700px]:gap-14 reveal">
       <div>
         <div class="detail-item">
           <div class="dl">Duration</div>
@@ -317,14 +321,14 @@ get_header();
 </section>
 
 <!-- ========== FINAL CTA ========== -->
-<section class="section final-cta">
+<section class="section final-cta bg-deep-teal text-center">
   <div class="container reveal">
     <div class="eyebrow">Take the First Step</div>
     <h2>You Don&rsquo;t Need to Have It All Figured Out</h2>
-    <p style="font-size: 18px; max-width: 560px; margin: 0 auto 40px; color: rgba(255,255,255,0.8); font-weight: 300; line-height: 1.8;">You just need to take the first step.</p>
+    <p class="text-lg mx-auto mb-12 sub-line">You just need to take the first step.</p>
     <blockquote>&ldquo;Herbalism is not just a study; it&rsquo;s a way of interacting with the world around us. I&rsquo;ve dedicated my life to this, and now want to share that wisdom with you. Let&rsquo;s embark on a personalized journey to unlock the healing power of plants and transform your life.&rdquo;</blockquote>
     <cite>&mdash; Feather Jones</cite>
-    <div style="margin-top: 40px;">
+    <div class="mt-12">
       <a href="#" class="btn btn-primary">Book My Free Consultation</a>
       <span class="friction-text" style="color: rgba(255,255,255,0.55);">30 minutes. No cost. No commitment. Just a conversation about your goals.</span>
     </div>

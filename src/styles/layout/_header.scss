@@ -498,14 +498,14 @@
   box-shadow: none;
   transition-delay: 0s;
   .header-menu-area {
-    transform: translateY(-100%);
+    transform: translateY(0%);
     transition-delay: 0s;
   }
 }
 .sticky-active:not(.is-sticky) {
   .header-menu-area {
     transition-delay: 0s;
-    transform: translateY(-100%);
+    transform: translateY(0%);
   }
   transform: translateY(-100%);
   transition-delay: 0.2s;

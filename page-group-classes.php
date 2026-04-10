@@ -76,7 +76,7 @@ get_header();
       </div>
       <div class="reveal" style="transition-delay: 0.12s;">
         <div class="content-img">
-          <img src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="Student harvesting herbs in the field during the program" style="object-position: center;">
+          <img class="object-center" src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="Student harvesting herbs in the field during the program">
         </div>
       </div>
     </div>
@@ -139,7 +139,7 @@ get_header();
     <div class="grid grid-cols-1 gap-12 items-center md:grid-cols-[4fr_5fr] md:gap-16">
       <div class="reveal">
         <div class="content-img">
-          <img src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="Prickly pear cactus fruit in the Sedona desert landscape" style="object-position: center;">
+          <img class="object-center" src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="Prickly pear cactus fruit in the Sedona desert landscape">
         </div>
       </div>
       <div class="reveal">
@@ -172,7 +172,7 @@ get_header();
     <div class="grid grid-cols-1 gap-12 items-center md:grid-cols-[1fr_2fr] md:gap-14">
       <div class="reveal">
         <div class="content-img">
-          <img src="<?php echo get_template_directory_uri(); ?>/images/feather/feather-jones.jpg" alt="" style="object-position: center top;">
+          <img class="object-top" src="<?php echo get_template_directory_uri(); ?>/images/feather/feather-jones.jpg" alt="">
         </div>
       </div>
       <div class="reveal">
@@ -215,7 +215,7 @@ get_header();
         <div class="sa">&mdash; Lynn Hanna Leah</div>
       </div>
     </div>
-    <div class="text-center reveal" style="margin-top: 44px; transition-delay: 0.15s;">
+    <div class="text-center reveal mt-8">
       <a href="#final" class="btn btn-primary">Get Notified for 2027 Enrollment</a>
     </div>
   </div>
@@ -248,10 +248,10 @@ get_header();
         <div class="pc-note">per quarter (4 payments)</div>
       </div>
     </div>
-    <div class="tuition-notes reveal" style="transition-delay: 0.15s;">
+    <div class="tuition-notes reveal">
       <p>Half-year and quarterly options are not subscriptions. Each payment covers a set period of the program. Pay the remaining balance when your current period ends to continue.</p>
-      <p style="margin-top: 8px;"><strong style="color: var(--olive-green);">Sedona field trip:</strong> Valued at $450, included free with all tuition options.</p>
-      <p style="margin-top: 8px;"><strong style="color: var(--olive-green);">Certificate of Completion:</strong> Awarded to students who attend all classes and complete the required assignment.</p>
+      <p class="pt-4"><strong style="color: var(--olive-green);">Sedona field trip:</strong> Valued at $450, included free with all tuition options.</p>
+      <p class="pt-4"><strong style="color: var(--olive-green);">Certificate of Completion:</strong> Awarded to students who attend all classes and complete the required assignment.</p>
     </div>
   </div>
 </section>
@@ -311,14 +311,14 @@ get_header();
 </section>
 
 <!-- ========== FINAL CTA ========== -->
-<section class="section final-cta" id="final">
+<section class="section final-cta bg-deep-teal text-center" id="final">
   <div class="container reveal">
     <div class="eyebrow">The 2027 Program Is Coming</div>
-    <h2>Study Herbalism the Way It Was Meant to Be Learned</h2>
-    <p style="font-size: 18px; max-width: 600px; margin: 0 auto 16px; color: rgba(255,255,255,0.8); font-weight: 300; line-height: 1.8;">If you&rsquo;ve been thinking about studying herbalism&thinsp;&mdash;&thinsp;really studying it, with a teacher, a community, and a plan&thinsp;&mdash;&thinsp;this is the program people come back to year after year.</p>
-    <p style="font-size: 16px; max-width: 520px; margin: 0 auto 36px; color: rgba(255,255,255,0.6);">Join the waitlist and we&rsquo;ll email you when enrollment opens for 2027.</p>
+    <h2 class="max-w-2xl mx-auto">Study Herbalism the Way It Was Meant to Be Learned</h2>
+    <p class="description mx-auto mb-8 max-w-xl text-white">If you&rsquo;ve been thinking about studying herbalism&thinsp;&mdash;&thinsp;really studying it, with a teacher, a community, and a plan&thinsp;&mdash;&thinsp;this is the program people come back to year after year.</p>
+    <p class="description mx-auto mb-8 text-white">Join the waitlist and we&rsquo;ll email you when enrollment opens for 2027.</p>
     <a href="#" class="btn btn-primary">Get Notified When Enrollment Opens</a>
-    <span class="friction-text" style="color: rgba(255,255,255,0.5);">One email when enrollment opens. That&rsquo;s it.</span>
+    <span class="friction-text">One email when enrollment opens. That&rsquo;s it.</span>
     <p class="tertiary">Still have questions? <a href="#">Reach out to Feather directly &rarr;</a></p>
   </div>
 </section>
