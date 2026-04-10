@@ -13,7 +13,7 @@ get_header();
         <h1>Study One-on-One With Feather Jones and Build the Herbal Practice You've Been Dreaming Of</h1>
         <p class="text-lg text-neutral-700 mb-8">A year-long private mentorship designed around your goals, your pace, and your life. Feather works with you personally to turn your passion for plant medicine into real skill and lasting confidence.</p>
         <div class="flex flex-wrap gap-4">
-          <a class="btn btn-primary" href="#">Book My Free Consultation</a>
+          <a class="btn btn-primary" href="https://calendly.com/feather-jones/private-mentorship" target="_blank">Book My Free Consultation</a>
         </div>
         <p class="text-sm text-neutral-500 mt-4 italic">A free 30-minute Zoom call to talk about your goals and see if this is the right fit. No pressure, no commitment.</p>
         <div class="hero-quote">
@@ -99,7 +99,7 @@ get_header();
       </div>
     </div>
     <div class="text-center reveal" style="margin-top: 48px; transition-delay: 0.15s;">
-      <a href="#" class="btn btn-primary">Book My Free Consultation</a>
+      <a href="https://calendly.com/feather-jones/private-mentorship" target="_blank" class="btn btn-primary">Book My Free Consultation</a>
       <span class="friction-text">Not sure if this is right for you? That&rsquo;s exactly what the free consultation is for.</span>
     </div>
   </div>
@@ -119,11 +119,12 @@ get_header();
         <p>When you study one-on-one with Feather, the entire experience revolves around you. Your sessions go wherever they need to go. Your curriculum shifts as you grow. And you get the full attention of a clinical herbalist who has been practicing since the early 1980s&thinsp;&mdash;&thinsp;not split across a room of other students, but focused entirely on your development.</p>
         <p>This is how Feather has trained herbalists who have gone on to start their own schools and practices. It&rsquo;s the deepest, most personal way to learn.</p>
       </div>
-      <div class="reveal" style="transition-delay: 0.12s;">
-        <div class="content-img">
-          <img class="object-center" src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="">
+      <div class="reveal md:self-center">
+        <div class="content-img aspect-[1/1]">
+          <img class="w-full h-full object-cover object-center" src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="">
         </div>
       </div>
+
     </div>
     <div class="comparison-wrap reveal" style="transition-delay: 0.15s;">
       <p style="font-style: italic; color: #888; margin-bottom: 20px; font-size: 15px;">Wondering how this compares to the Live Group Classes? Here&rsquo;s a quick side-by-side:</p>
@@ -214,7 +215,7 @@ get_header();
       </div>
     </div>
     <div class="text-center reveal" style="margin-top: 44px; transition-delay: 0.15s;">
-      <a href="#" class="btn btn-primary">Book My Free Consultation</a>
+      <a href="https://calendly.com/feather-jones/private-mentorship" target="_blank" class="btn btn-primary">Book My Free Consultation</a>
       <span class="friction-text">Start with a conversation. See if it&rsquo;s the right fit.</span>
     </div>
   </div>
@@ -252,7 +253,7 @@ get_header();
           <div class="price-period">for the full year</div>
           <div class="price-breakdown">~$42 per two-hour private session</div>
           <p class="price-context">with a Registered Herbalist with over 40 years of clinical experience. Comparable one-on-one instruction in health professions typically runs $150&ndash;$300 per hour. Everything is included.</p>
-          <a href="#" class="btn btn-primary">Book My Free Consultation</a>
+          <a href="https://calendly.com/feather-jones/private-mentorship" target="_blank" class="btn btn-primary">Book My Free Consultation</a>
           <span class="friction-text" style="color: #999;">Start with a free 30-minute conversation.<br>No cost. No commitment.</span>
         </div>
       </div>
@@ -329,7 +330,7 @@ get_header();
     <blockquote>&ldquo;Herbalism is not just a study; it&rsquo;s a way of interacting with the world around us. I&rsquo;ve dedicated my life to this, and now want to share that wisdom with you. Let&rsquo;s embark on a personalized journey to unlock the healing power of plants and transform your life.&rdquo;</blockquote>
     <cite>&mdash; Feather Jones</cite>
     <div class="mt-12">
-      <a href="#" class="btn btn-primary">Book My Free Consultation</a>
+      <a href="https://calendly.com/feather-jones/private-mentorship" target="_blank" class="btn btn-primary">Book My Free Consultation</a>
       <span class="friction-text" style="color: rgba(255,255,255,0.55);">30 minutes. No cost. No commitment. Just a conversation about your goals.</span>
     </div>
     <p class="avail-note">Feather takes on a limited number of private mentorship students each year to ensure everyone gets her full attention.<br>If spots are full, you can join the waitlist to be notified when space opens up.</p>

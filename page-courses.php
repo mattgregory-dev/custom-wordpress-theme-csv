@@ -12,7 +12,7 @@ get_header();
         <p class="eyebrow">Self-Paced Courses</p>
         <h1>Self-Paced Herbal Courses You Can Start Today</h1>
         <p class="text-lg text-neutral-700 mb-4">Learn at your own pace with Feather Jones. Each course blends traditional herbal knowledge with hands-on tools you can use right away. Courses start at $75.</p>
-        <p class="text-neutral-600 mb-8">Instructor: Feather Jones | Meet Feather on the About page</p>
+        <p class="text-neutral-600 mb-8">Instructor: Feather Jones | <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>">Meet Feather on the About page</a></p>
         <div class="flex flex-wrap gap-4">
           <a class="btn btn-primary" href="#catalog">Browse All Courses</a>
           <a class="btn btn-secondary" href="/contact/">Contact Us</a>
@@ -35,7 +35,7 @@ get_header();
         </div>
         <div class="featured-body">
           <div class="eyebrow">Flagship Program</div>
-          <h2><a href="/courses/womens-wellness/">Women&rsquo;s Wellness Complete Herbal Course</a></h2>
+          <h2><a href="<?php echo esc_url( home_url( '/courses/womens-wellness/' ) ); ?>">Women&rsquo;s Wellness Complete Herbal Course</a></h2>
 
           <p class="desc mb-8">Learn how to care for your body with herbs through every stage of a woman&rsquo;s life&thinsp;&mdash;&thinsp;from cycle health to menopause. This is Feather&rsquo;s most complete course, with practical guidance you can use right away.</p>
 
@@ -67,13 +67,15 @@ get_header();
               </ul>
             </div>
           </div>
-          <div class="featured-enroll">
+          <div class="featured-enroll flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <div class="featured-price">$200</div>
               <div class="featured-price-note">One-time purchase &middot; Immediate access</div>
             </div>
-            <a href="#" class="btn btn-secondary btn-sm">View Full Course</a>
-            <a href="#" class="btn btn-primary btn-sm">Enroll Today</a>
+            <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-end sm:gap-4">
+              <a href="<?php echo esc_url( home_url( '/courses/womens-wellness/' ) ); ?>" class="btn btn-secondary btn-sm">View Full Course</a>
+              <a href="<?php echo esc_url( home_url( 'checkout/?add-to-cart=1581' ) ); ?>/" class="btn btn-primary btn-sm">Enroll Today</a>
+            </div>
           </div>
         </div>
       </div>
@@ -96,16 +98,16 @@ get_header();
           <img src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="Herbs in a jar" style="object-position:center">
         </div>
         <div class="course-info">
-          <h3><a href="#">Goddess Rhythms&thinsp;&mdash;&thinsp;Herbal Support for Women&rsquo;s Moontime</a></h3>
-          <p class="cd">Learn how to support your body through each phase of the menstrual cycle with herbs, comfort practices, and gentle daily protocols.</p>
+          <h3><a href="/courses/womens-wellness/">Women&rsquo;s Wellness Complete Herbal Course</a></h3>
+          <p class="cd">Herbal support for every stage of a woman&rsquo;s life, from cycle health to menopause, with practical protocols you can use right away.</p>
           <div class="course-meta">
             <span class="cm">12 Hours</span><span class="cm">48 Lessons</span><span class="cm">Beginner</span><span class="cm">Lifetime Access</span>
           </div>
         </div>
         <div class="course-actions">
           <div class="course-price">$120</div>
-          <a href="#" class="btn btn-secondary btn-sm" style="width:100%">View Course</a>
-          <a href="#" class="btn-ghost">Enroll Today &rarr;</a>
+          <a href="<?php echo esc_url( home_url( '/courses/womens-wellness/' ) ); ?>" class="btn btn-secondary btn-sm w-full mb-4">View Course</a>
+          <a href="<?php echo esc_url( home_url( '/checkout/?add-to-cart=1581' ) ); ?>" class="btn-ghost">Enroll Today &rarr;</a>
         </div>
       </div>
 
@@ -237,7 +239,7 @@ get_header();
       <div class="eyebrow">Support</div>
       <h2>Need Help Choosing a Course?</h2>
       <p class="max-w-2xl mx-auto mb-6">Not sure where to start? Reach out with questions about which course fits your experience level, what&rsquo;s included, or how access works. We&rsquo;re happy to help.</p>
-      <a href="#" class="btn btn-primary" style="margin-bottom:36px">Contact Support</a>
+      <a href="/contact/" class="btn btn-primary" style="margin-bottom:36px">Contact Support</a>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-9 reveal">
       <div class="support-card">

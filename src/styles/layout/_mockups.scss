@@ -724,7 +724,7 @@ p {
     margin-bottom: 0.82rem;
     a {
       &:hover {
-        border-bottom: 1px solid var(--dark-brown);
+        border-bottom: 1px solid rgb(58 29 2 / 44%);
       }
     }
   }
@@ -902,6 +902,11 @@ p {
     font-size: 17px;
     margin-bottom: 6px;
     line-height: 1.35;
+    a {
+      &:hover {
+        border-bottom: 1px solid rgb(58 29 2 / 44%);
+      }
+    }
   }
 
   .cd {

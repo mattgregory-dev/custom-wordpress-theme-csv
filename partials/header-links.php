@@ -29,7 +29,7 @@
     </li>
 
     <li class="no-sub-menu">
-      <a href="<?php echo esc_url( home_url( '/field-trip/' ) ); ?>">
+      <a href="<?php echo esc_url( home_url( '/field-trips/' ) ); ?>">
         <span class="menu-item">Field Trip</span>
         <span class="menu-item2">Field Trip</span>
       </a>

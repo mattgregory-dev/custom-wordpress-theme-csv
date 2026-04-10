@@ -74,9 +74,9 @@ get_header();
           </div>
         </div>
       </div>
-      <div class="reveal" style="transition-delay: 0.12s;">
-        <div class="content-img">
-          <img class="object-center" src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="Student harvesting herbs in the field during the program">
+      <div class="reveal md:self-center">
+        <div class="content-img" style="aspect-ratio:4/5;">
+          <img class="w-full h-full object-cover object-center" src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="">
         </div>
       </div>
     </div>
@@ -137,11 +137,13 @@ get_header();
 <section class="section fieldtrip-section">
   <div class="container">
     <div class="grid grid-cols-1 gap-12 items-center md:grid-cols-[4fr_5fr] md:gap-16">
-      <div class="reveal">
-        <div class="content-img">
-          <img class="object-center" src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="Prickly pear cactus fruit in the Sedona desert landscape">
+
+      <div class="reveal md:self-center">
+        <div class="content-img" style="aspect-ratio:4/5;">
+          <img class="w-full h-full object-cover object-center" src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="">
         </div>
       </div>
+
       <div class="reveal">
         <div class="eyebrow">Included in Your Tuition</div>
         <h2>Four Days in Sedona&thinsp;&mdash;&thinsp;Where the Classroom Meets the Canyon</h2>
@@ -182,7 +184,7 @@ get_header();
         <p>She&rsquo;s served twice as president of the American Herbalists Guild. She&rsquo;s the Botanical Field Guide for the Sonoran University of Health Sciences. And she&rsquo;s trained hundreds of students through this program over the years.</p>
         <p>Feather isn&rsquo;t a content creator reading from a script. She&rsquo;s a practicing clinical herbalist who teaches from decades of real experience&thinsp;&mdash;&thinsp;in the field, in the kitchen, and in the clinic.</p>
         <p>Her students call her &ldquo;herb mama.&rdquo; Her peers in the herbal world&thinsp;&mdash;&thinsp;names like David Winston, Brigitte Mars, and Rosita Arvigo&thinsp;&mdash;&thinsp;respect her deeply. When you learn with Feather, you&rsquo;re learning from someone who has devoted her life to this work.</p>
-        <a href="#" class="btn btn-secondary" style="margin-top: 16px;">Read More About Feather &rarr;</a>
+        <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>" class="btn btn-secondary" style="margin-top: 16px;">Read More About Feather &rarr;</a>
       </div>
     </div>
   </div>
@@ -318,8 +320,8 @@ get_header();
     <p class="description mx-auto mb-8 max-w-xl text-white">If you&rsquo;ve been thinking about studying herbalism&thinsp;&mdash;&thinsp;really studying it, with a teacher, a community, and a plan&thinsp;&mdash;&thinsp;this is the program people come back to year after year.</p>
     <p class="description mx-auto mb-8 text-white">Join the waitlist and we&rsquo;ll email you when enrollment opens for 2027.</p>
     <a href="#" class="btn btn-primary">Get Notified When Enrollment Opens</a>
-    <span class="friction-text">One email when enrollment opens. That&rsquo;s it.</span>
-    <p class="tertiary">Still have questions? <a href="#">Reach out to Feather directly &rarr;</a></p>
+    <span class="friction-text" style="color:rgb(255 255 255 / 60%);">One email when enrollment opens. That&rsquo;s it.</span>
+    <p class="tertiary">Still have questions? <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Reach out to Feather directly &rarr;</a></p>
   </div>
 </section>
 
