@@ -12,7 +12,7 @@ get_header();
         <p class="eyebrow">Year-Long Herbalism Training Program</p>
         <h1 class="mb-6">Learn Herbalism Live&thinsp;&mdash;&thinsp;One Year, One Group, One Dedicated Teacher</h1>
         <p class="text-lg text-neutral-700 mb-4">A 114-hour training program with clinical herbalist Feather Jones. Live weekly classes on Zoom. A hands-on field trip in Sedona. And a community of students learning right alongside you.</p>
-        <p class="text-lg text-neutral-700 mb-8">The Herbal Apprenticeship Program takes you from curious beginner to confident herbalist over 10 months. No prior experience needed. Just bring your love of plants and a willingness to show up each week.</p>
+        <p class="text-lg text-neutral-700 mb-8"><strong>The Herbal Apprenticeship Program</strong> takes you from curious beginner to confident herbalist over 10 months. No prior experience needed. Just bring your love of plants and a willingness to show up each week.</p>
         <div class="flex flex-wrap gap-4">
           <a class="btn btn-primary" href="#">Get Notified for 2027 Enrollment</a>
         </div>
@@ -172,7 +172,7 @@ get_header();
     <div class="grid grid-cols-1 gap-12 items-center md:grid-cols-[1fr_2fr] md:gap-14">
       <div class="reveal">
         <div class="content-img">
-          <img class="object-top" src="<?php echo get_template_directory_uri(); ?>/images/feather/feather-jones.jpg" alt="">
+          <img class="object-top" src="<?php echo get_template_directory_uri(); ?>/images/feather/feather-jones.webp" alt="Feather Jones, Registered Herbalist">
         </div>
       </div>
       <div class="reveal">

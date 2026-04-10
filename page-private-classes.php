@@ -55,7 +55,7 @@ get_header();
         <p>You&rsquo;re a nutritionist, naturopath, health coach, or acupuncturist, and you want to work one-on-one with a clinical herbalist who can help you apply this knowledge with real clients.</p>
       </div>
     </div>
-    <p class="transition-line reveal" style="transition-delay: 0.2s;">No matter where you&rsquo;re starting from, Feather meets you there&thinsp;&mdash;&thinsp;and builds everything around where you want to go.</p>
+    <p class="transition-line reveal">No matter where you&rsquo;re starting from, Feather meets you there&thinsp;&mdash;&thinsp;and builds everything around where you want to go.</p>
   </div>
 </section>
 
@@ -174,7 +174,7 @@ get_header();
     <div class="grid grid-cols-1 gap-12 items-center md:grid-cols-[1fr_2fr] md:gap-14">
       <div class="reveal">
         <div class="content-img">
-          <img class="object-top" src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="">
+          <img class="object-top" src="<?php echo get_template_directory_uri(); ?>/images/feather/feather-jones.webp" alt="Feather Jones, Registered Herbalist">
         </div>
       </div>
       <div class="reveal">

@@ -105,7 +105,8 @@ p {
 }
 .btn-primary {
   background: var(--soft-orange);
-  color: var(--dark-brown);
+  //color: var(--dark-brown);
+  color: var(--white);
   border-color: var(--soft-orange);
   box-shadow: 0 4px 20px rgba(253,160,67,0.3);
   &:hover {
@@ -721,13 +722,17 @@ p {
   h2 {
     font-size: clamp(1.29rem, 3vw, 1.88rem);
     margin-bottom: 0.82rem;
+    a {
+      &:hover {
+        border-bottom: 1px solid var(--dark-brown);
+      }
+    }
   }
 
   .desc {
     font-size: .92rem;
     color: #666;
     line-height: 1.7;
-    margin-bottom: 1rem;
 
     a {
       color: var(--forest-green);
@@ -742,7 +747,6 @@ p {
   display: flex;
   flex-wrap: wrap;
   gap: 0.47rem;
-  margin-bottom: 1.41rem;
 }
 
 .meta-tag {

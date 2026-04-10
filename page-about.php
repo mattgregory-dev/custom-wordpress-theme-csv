@@ -15,7 +15,7 @@ get_header();
       </div>
       <div class="reveal">
         <div class="content-img aspect-[4/5] w-full max-w-[400px]">
-          <img src="<?php echo get_template_directory_uri(); ?>/images/feather/feather-jones.jpg" alt="" class="h-full object-cover">
+          <img src="<?php echo get_template_directory_uri(); ?>/images/feather/feather-jones.webp" alt="" class="h-full object-cover">
         </div>
       </div>
     </div>

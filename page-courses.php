@@ -15,7 +15,7 @@ get_header();
         <p class="text-neutral-600 mb-8">Instructor: Feather Jones | Meet Feather on the About page</p>
         <div class="flex flex-wrap gap-4">
           <a class="btn btn-primary" href="#catalog">Browse All Courses</a>
-          <a class="btn btn-secondary" href="#">Contact Us</a>
+          <a class="btn btn-secondary" href="/contact/">Contact Us</a>
         </div>
       </div>
       <div class="w-full">
@@ -35,12 +35,13 @@ get_header();
         </div>
         <div class="featured-body">
           <div class="eyebrow">Flagship Program</div>
-          <h2>Women&rsquo;s Wellness Complete Herbal Course</h2>
+          <h2><a href="/courses/womens-wellness/">Women&rsquo;s Wellness Complete Herbal Course</a></h2>
 
-          <p class="desc">Learn how to care for your body with herbs through every stage of a woman&rsquo;s life&thinsp;&mdash;&thinsp;from cycle health to menopause. This is Feather&rsquo;s most complete course, with practical guidance you can use right away.</p>
-          <p class="desc"><a href="#">Read more &raquo;</a></p>
+          <p class="desc mb-8">Learn how to care for your body with herbs through every stage of a woman&rsquo;s life&thinsp;&mdash;&thinsp;from cycle health to menopause. This is Feather&rsquo;s most complete course, with practical guidance you can use right away.</p>
 
-          <div class="meta-strip">
+          <p class="desc mb-12 hidden"><a href="#">Read more &raquo;</a></p>
+
+          <div class="meta-strip mb-8">
             <span class="meta-tag">20 Hours</span>
             <span class="meta-tag">18 Lessons</span>
             <span class="meta-tag">19 Quizzes</span>
@@ -80,7 +81,7 @@ get_header();
   </div>
 </section>
 
-<section class="section bg-warm-linen">
+<section class="section bg-warm-linen" id="catalog">
   <div class="container">
     <div class="text-center reveal">
       <div class="eyebrow">Course Catalog</div>
@@ -88,6 +89,25 @@ get_header();
       <p style="font-size:16px;color:#888;max-width:560px;margin:0 auto;">Choose a focused learning path or pair courses together for a deeper herbal practice.</p>
     </div>
     <div class="flex flex-col gap-4 mt-10 reveal">
+
+      <!-- COURSE 0 -->
+      <div class="course-row">
+        <div class="course-thumb">
+          <img src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="Herbs in a jar" style="object-position:center">
+        </div>
+        <div class="course-info">
+          <h3><a href="#">Goddess Rhythms&thinsp;&mdash;&thinsp;Herbal Support for Women&rsquo;s Moontime</a></h3>
+          <p class="cd">Learn how to support your body through each phase of the menstrual cycle with herbs, comfort practices, and gentle daily protocols.</p>
+          <div class="course-meta">
+            <span class="cm">12 Hours</span><span class="cm">48 Lessons</span><span class="cm">Beginner</span><span class="cm">Lifetime Access</span>
+          </div>
+        </div>
+        <div class="course-actions">
+          <div class="course-price">$120</div>
+          <a href="#" class="btn btn-secondary btn-sm" style="width:100%">View Course</a>
+          <a href="#" class="btn-ghost">Enroll Today &rarr;</a>
+        </div>
+      </div>
 
       <!-- COURSE 1 -->
       <div class="course-row">
