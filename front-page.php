@@ -49,6 +49,7 @@ get_header();
       <div class="eyebrow">Ways to Learn</div>
       <h2>Choose the Path That Fits Your Life</h2>
     </div>
+    <!-- <div class="grid grid-cols-1 gap-5 mt-11 sm:grid-cols-2 reveal"> -->
     <div class="grid grid-cols-1 gap-5 mt-11 min-[600px]:grid-cols-2 min-[900px]:grid-cols-4 reveal">
       <div class="route-card">
         <div class="rc-label">Self-Paced Courses</div>

@@ -105,11 +105,38 @@ add_action( 'init', 'theme_register_blocks' );
 // Add WooCommerce theme support.
 function csv_add_woocommerce_support() {
   add_theme_support( 'woocommerce' );
-  // add_theme_support( 'wc-product-gallery-zoom' );
-  // add_theme_support( 'wc-product-gallery-lightbox' );
-  // add_theme_support( 'wc-product-gallery-slider' );
+  //add_theme_support( 'wc-product-gallery-zoom' );
+  //add_theme_support( 'wc-product-gallery-lightbox' );
+  //add_theme_support( 'wc-product-gallery-slider' );
 }
 add_action( 'after_setup_theme', 'csv_add_woocommerce_support' );
+
+// Remove related products on single product pages.
+function csv_remove_single_product_related_products() {
+  remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
+}
+add_action( 'init', 'csv_remove_single_product_related_products' );
+
+// Remove the WooCommerce sidebar on single product pages.
+function csv_remove_woocommerce_sidebar_on_product() {
+  if ( function_exists( 'is_product' ) && is_product() || is_category() ) {
+    remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
+  }
+}
+add_action( 'wp', 'csv_remove_woocommerce_sidebar_on_product' );
+
+// Remove "Additional information" tab on single product pages.
+function csv_remove_additional_information_tab( $tabs ) {
+  unset( $tabs['additional_information'] );
+  return $tabs;
+}
+add_filter( 'woocommerce_product_tabs', 'csv_remove_additional_information_tab', 99 );
+
+// Remove product meta (SKU, category, tags) on single product pages.
+function csv_remove_single_product_meta() {
+  remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+}
+add_action( 'init', 'csv_remove_single_product_meta' );
 
 // Cart/Checkout blocks: link cart items back to the related Event (ACF: event_post).
 function csv_cart_item_permalink_event_link( $permalink, $cart_item, $cart_item_key ) {
@@ -161,24 +188,24 @@ function csv_learndash_login_url( $login_url, $context, $args ) {
 add_filter( 'learndash_login_url', 'csv_learndash_login_url', 10, 3 );
 
 // Rename "Browse products" to "View Retreats" on My Account notices.
-function csv_rename_browse_products_text( $translated, $text, $domain ) {
-  if ( 'woocommerce' !== $domain ) {
-    return $translated;
-  }
+// function csv_rename_browse_products_text( $translated, $text, $domain ) {
+//   if ( 'woocommerce' !== $domain ) {
+//     return $translated;
+//   }
 
-  if ( 'Browse products' === $text && is_page( 'my-account' ) ) {
-    return 'View Retreats';
-  }
+//   if ( 'Browse products' === $text && is_page( 'my-account' ) ) {
+//     return 'View Retreats';
+//   }
 
-  return $translated;
-}
-add_filter( 'gettext', 'csv_rename_browse_products_text', 10, 3 );
+//   return $translated;
+// }
+// add_filter( 'gettext', 'csv_rename_browse_products_text', 10, 3 );
 
 // Point "return to shop" links to Retreats.
-function csv_return_to_shop_redirect( $url ) {
-  return home_url( '/retreats/' );
-}
-add_filter( 'woocommerce_return_to_shop_redirect', 'csv_return_to_shop_redirect' );
+// function csv_return_to_shop_redirect( $url ) {
+//   return home_url( '/retreats/' );
+// }
+// add_filter( 'woocommerce_return_to_shop_redirect', 'csv_return_to_shop_redirect' );
 
 // Move orders from processing to complete after webhook triggers for successful payment
 function auto_complete_paid_orders($order_id) {
@@ -227,116 +254,116 @@ add_filter( 'woocommerce_logout_default_redirect_url', 'csv_woocommerce_logout_r
 // Assset loading on Woocommerce pages
 // Delaying load, so the homepage that does not have Woocommerce elments doesn't take a performance hit
 // Load WooCommerce assets on WooCommerce pages
-function csv_is_woocommerce_page() {
-  $is_cart = function_exists( 'is_cart' ) && is_cart();
-  $is_checkout = function_exists( 'is_checkout' ) && is_checkout();
-  $is_account = function_exists( 'is_account_page' ) && is_account_page();
-  return $is_cart || $is_checkout || $is_account;
-}
+// function csv_is_woocommerce_page() {
+//   $is_cart = function_exists( 'is_cart' ) && is_cart();
+//   $is_checkout = function_exists( 'is_checkout' ) && is_checkout();
+//   $is_account = function_exists( 'is_account_page' ) && is_account_page();
+//   return $is_cart || $is_checkout || $is_account;
+// }
 
 // Disable WooCommerce Blocks assets everywhere except cart/checkout/account.
-function csv_should_load_woocommerce_block_assets( $should_load ) {
-  return csv_is_woocommerce_page();
-}
-add_filter( 'woocommerce_should_load_block_assets', 'csv_should_load_woocommerce_block_assets' );
+// function csv_should_load_woocommerce_block_assets( $should_load ) {
+//   return csv_is_woocommerce_page();
+// }
+// add_filter( 'woocommerce_should_load_block_assets', 'csv_should_load_woocommerce_block_assets' );
 
-function csv_should_load_woocommerce_block_styles( $should_load ) {
-  return csv_is_woocommerce_page();
-}
-add_filter( 'woocommerce_should_load_block_styles', 'csv_should_load_woocommerce_block_styles' );
+// function csv_should_load_woocommerce_block_styles( $should_load ) {
+//   return csv_is_woocommerce_page();
+// }
+// add_filter( 'woocommerce_should_load_block_styles', 'csv_should_load_woocommerce_block_styles' );
 
 // Remove script prefetch hints on the front page.
-function csv_filter_resource_hints( $urls, $relation_type ) {
-  if ( 'prefetch' !== $relation_type ) {
-    return $urls;
-  }
+// function csv_filter_resource_hints( $urls, $relation_type ) {
+//   if ( 'prefetch' !== $relation_type ) {
+//     return $urls;
+//   }
 
-  if ( ! is_admin() ) {
-    return array();
-  }
+//   if ( ! is_admin() ) {
+//     return array();
+//   }
 
-  return $urls;
-}
-add_filter( 'wp_resource_hints', 'csv_filter_resource_hints', 999, 2 );
+//   return $urls;
+// }
+// add_filter( 'wp_resource_hints', 'csv_filter_resource_hints', 999, 2 );
 
 // Dequeue all WooCommerce assets (styles + scripts).
-function csv_dequeue_woocommerce_assets() {
-  if ( ! is_admin() && csv_is_woocommerce_page() ) {
-    return;
-  }
+// function csv_dequeue_woocommerce_assets() {
+//   if ( ! is_admin() && csv_is_woocommerce_page() ) {
+//     return;
+//   }
 
-  $style_handles = array(
-    'woocommerce-general',
-    'woocommerce-layout',
-    'woocommerce-smallscreen',
-    'woocommerce-inline',
-    'woocommerce-block-style',
-    'wc-block-style',
-    'wc-blocks-vendors-style',
-    'wc-blocks-style',
-    'select2',
-    'selectWoo',
-    'woocommerce-select2',
-    'photoswipe',
-    'photoswipe-default-skin',
-    'wc-photoswipe',
-    'wc-photoswipe-lightbox',
-  );
+//   $style_handles = array(
+//     'woocommerce-general',
+//     'woocommerce-layout',
+//     'woocommerce-smallscreen',
+//     'woocommerce-inline',
+//     'woocommerce-block-style',
+//     'wc-block-style',
+//     'wc-blocks-vendors-style',
+//     'wc-blocks-style',
+//     'select2',
+//     'selectWoo',
+//     'woocommerce-select2',
+//     'photoswipe',
+//     'photoswipe-default-skin',
+//     'wc-photoswipe',
+//     'wc-photoswipe-lightbox',
+//   );
 
-  foreach ( $style_handles as $handle ) {
-    wp_dequeue_style( $handle );
-    wp_deregister_style( $handle );
-  }
+//   foreach ( $style_handles as $handle ) {
+//     wp_dequeue_style( $handle );
+//     wp_deregister_style( $handle );
+//   }
 
-  $script_handles = array(
-    'wc-jquery-blockui',
-    'jquery-blockui',
-    'wc-add-to-cart',
-    'wc-add-to-cart-variation',
-    'wc-cart',
-    'wc-cart-fragments',
-    'wc-checkout',
-    'wc-single-product',
-    'wc-single-product-block',
-    'woocommerce',
-    'woocommerce-add-to-cart',
-    'woocommerce-cart',
-    'woocommerce-checkout',
-    'woocommerce-cart-fragments',
-    'wc-js-cookie',
-    'sourcebuster-js',
-    'wc-order-attribution',
-    'jquery-ui-datepicker',
-    'selectWoo',
-    'select2',
-    'photoswipe',
-    'photoswipe-ui-default',
-    'wc-price-slider',
-    'wc-credit-card-form',
-    'wc-address-i18n',
-    'wc-country-select',
-  );
+//   $script_handles = array(
+//     'wc-jquery-blockui',
+//     'jquery-blockui',
+//     'wc-add-to-cart',
+//     'wc-add-to-cart-variation',
+//     'wc-cart',
+//     'wc-cart-fragments',
+//     'wc-checkout',
+//     'wc-single-product',
+//     'wc-single-product-block',
+//     'woocommerce',
+//     'woocommerce-add-to-cart',
+//     'woocommerce-cart',
+//     'woocommerce-checkout',
+//     'woocommerce-cart-fragments',
+//     'wc-js-cookie',
+//     'sourcebuster-js',
+//     'wc-order-attribution',
+//     'jquery-ui-datepicker',
+//     'selectWoo',
+//     'select2',
+//     'photoswipe',
+//     'photoswipe-ui-default',
+//     'wc-price-slider',
+//     'wc-credit-card-form',
+//     'wc-address-i18n',
+//     'wc-country-select',
+//   );
 
-  foreach ( $script_handles as $handle ) {
-    wp_dequeue_script( $handle );
-    wp_deregister_script( $handle );
-  }
+//   foreach ( $script_handles as $handle ) {
+//     wp_dequeue_script( $handle );
+//     wp_deregister_script( $handle );
+//   }
 
-  // if ( ! is_admin() && ! is_woocommerce_page() ) {
-  //   wp_dequeue_script( 'jquery' );
-  //   wp_dequeue_script( 'jquery-core' );
-  //   wp_dequeue_script( 'jquery-migrate' );
-  //   wp_deregister_script( 'jquery' );
-  //   wp_deregister_script( 'jquery-core' );
-  //   wp_deregister_script( 'jquery-migrate' );
-  // }
-}
-add_action( 'wp_enqueue_scripts', 'csv_dequeue_woocommerce_assets', 100 );
-add_action( 'enqueue_block_assets', 'csv_dequeue_woocommerce_assets', 100 );
-function csv_filter_woocommerce_enqueue_styles( $styles ) {
-  return csv_is_woocommerce_page() ? $styles : array();
-}
-add_filter( 'woocommerce_enqueue_styles', 'csv_filter_woocommerce_enqueue_styles' );
+//   // if ( ! is_admin() && ! is_woocommerce_page() ) {
+//   //   wp_dequeue_script( 'jquery' );
+//   //   wp_dequeue_script( 'jquery-core' );
+//   //   wp_dequeue_script( 'jquery-migrate' );
+//   //   wp_deregister_script( 'jquery' );
+//   //   wp_deregister_script( 'jquery-core' );
+//   //   wp_deregister_script( 'jquery-migrate' );
+//   // }
+// }
+// add_action( 'wp_enqueue_scripts', 'csv_dequeue_woocommerce_assets', 100 );
+// add_action( 'enqueue_block_assets', 'csv_dequeue_woocommerce_assets', 100 );
+// function csv_filter_woocommerce_enqueue_styles( $styles ) {
+//   return csv_is_woocommerce_page() ? $styles : array();
+// }
+// add_filter( 'woocommerce_enqueue_styles', 'csv_filter_woocommerce_enqueue_styles' );
 
 //////////////////////////////////////////////////
 ////////////////// LearnDash /////////////////////
