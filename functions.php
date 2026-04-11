@@ -117,9 +117,15 @@ function csv_remove_single_product_related_products() {
 }
 add_action( 'init', 'csv_remove_single_product_related_products' );
 
-// Remove the WooCommerce sidebar on single product pages.
+// Remove the WooCommerce sidebar on product pages, product archives, and blog categories.
 function csv_remove_woocommerce_sidebar_on_product() {
-  if ( function_exists( 'is_product' ) && is_product() || is_category() ) {
+  $is_single_product = function_exists( 'is_product' ) && is_product();
+  $is_blog_category = is_category();
+  $is_product_archive = ( function_exists( 'is_shop' ) && is_shop() )
+    || ( function_exists( 'is_product_taxonomy' ) && is_product_taxonomy() )
+    || is_post_type_archive( 'product' );
+
+  if ( $is_single_product || $is_blog_category || $is_product_archive ) {
     remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
   }
 }
@@ -137,6 +143,76 @@ function csv_remove_single_product_meta() {
   remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
 }
 add_action( 'init', 'csv_remove_single_product_meta' );
+
+// Hide the reset variations link sitewide.
+function csv_remove_reset_variations_link( $link ) {
+  return '';
+}
+add_filter( 'woocommerce_reset_variations_link', 'csv_remove_reset_variations_link' );
+
+// Remove WooCommerce breadcrumbs.
+function csv_remove_woocommerce_breadcrumbs() {
+  remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
+}
+add_action( 'init', 'csv_remove_woocommerce_breadcrumbs' );
+
+// Remove links from single product gallery images.
+function csv_strip_product_image_links( $html ) {
+  if ( false === strpos( $html, '<a' ) ) {
+    return $html;
+  }
+
+  $html = preg_replace( '/<a\\b[^>]*>\\s*/i', '', $html );
+  $html = preg_replace( '/\\s*<\\/a>\\s*/i', '', $html );
+
+  return $html;
+}
+add_filter( 'woocommerce_single_product_image_thumbnail_html', 'csv_strip_product_image_links', 10 );
+add_filter( 'woocommerce_single_product_image_html', 'csv_strip_product_image_links', 10 );
+
+// Disable the Stripe sandbox assistant overlay.
+function csv_disable_stripe_sandbox_assistant() {
+  if ( is_admin() ) {
+    return;
+  }
+
+  if ( ! wp_script_is( 'stripe', 'registered' ) && ! wp_script_is( 'stripe', 'enqueued' ) ) {
+    return;
+  }
+
+  $inline_script = <<<'JS'
+(function () {
+  if (typeof window.Stripe !== 'function') {
+    return;
+  }
+
+  var originalStripe = window.Stripe;
+
+  function wrapStripe(key, options) {
+    var opts = options || {};
+    var developerTools = opts.developerTools || {};
+    var assistant = developerTools.assistant || {};
+
+    assistant.enabled = false;
+    developerTools.assistant = assistant;
+    opts.developerTools = developerTools;
+
+    return originalStripe(key, opts);
+  }
+
+  for (var prop in originalStripe) {
+    if (Object.prototype.hasOwnProperty.call(originalStripe, prop)) {
+      wrapStripe[prop] = originalStripe[prop];
+    }
+  }
+
+  window.Stripe = wrapStripe;
+})();
+JS;
+
+  wp_add_inline_script( 'stripe', $inline_script, 'after' );
+}
+add_action( 'wp_enqueue_scripts', 'csv_disable_stripe_sandbox_assistant', 20 );
 
 // Cart/Checkout blocks: link cart items back to the related Event (ACF: event_post).
 function csv_cart_item_permalink_event_link( $permalink, $cart_item, $cart_item_key ) {
