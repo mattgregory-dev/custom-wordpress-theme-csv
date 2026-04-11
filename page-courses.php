@@ -91,11 +91,163 @@ get_header();
       <p style="font-size:16px;color:#888;max-width:560px;margin:0 auto;">Choose a focused learning path or pair courses together for a deeper herbal practice.</p>
     </div>
     <div class="flex flex-col gap-4 mt-10 reveal">
+      <?php
+      $courses_query = new WP_Query( array(
+        'post_type' => 'sfwd-courses',
+        'post_status' => 'publish',
+        'posts_per_page' => -1,
+        'orderby' => 'menu_order',
+        'order' => 'ASC',
+      ) );
+
+      if ( $courses_query->have_posts() ) :
+        while ( $courses_query->have_posts() ) :
+          $courses_query->the_post();
+          $course_id = get_the_ID();
+          $thumb_id = get_post_thumbnail_id( $course_id );
+          $thumb_url = $thumb_id ? wp_get_attachment_image_url( $thumb_id, 'large' ) : '';
+          $thumb_alt = $thumb_id ? get_post_meta( $thumb_id, '_wp_attachment_image_alt', true ) : '';
+          $fallback_image = get_template_directory_uri() . '/images/bg/2760649.webp';
+          $description = function_exists( 'get_field' )
+            ? get_field( 'course_short_description', $course_id )
+            : '';
+
+          if ( '' === $description ) {
+            $description = get_the_excerpt();
+          }
+
+          if ( '' === $description ) {
+            $description = wp_trim_words( get_the_content(), 28 );
+          }
+
+          $course_title = get_the_title( $course_id );
+          $course_link = get_permalink( $course_id );
+          $course_category_label = '';
+          $course_categories = get_the_terms( $course_id, 'ld_course_category' );
+          if ( ! empty( $course_categories ) && ! is_wp_error( $course_categories ) ) {
+            $course_category_label = $course_categories[0]->name;
+          }
+          $enroll_url = $course_link;
+          if ( function_exists( 'learndash_get_setting' ) ) {
+            $custom_button_url = trim( (string) learndash_get_setting( $course_id, 'custom_button_url' ) );
+            if ( '' !== $custom_button_url ) {
+              $enroll_url = $custom_button_url;
+            }
+          }
+          $meta_items = array();
+          $course_hours = function_exists( 'get_field' )
+            ? get_field( 'course_hours', $course_id )
+            : get_post_meta( $course_id, 'course_hours', true );
+          $course_level = get_post_meta( $course_id, 'course_level', true );
+          $course_access = get_post_meta( $course_id, 'course_access', true );
+
+          if ( $course_hours ) {
+            $meta_items[] = $course_hours . ' Hours';
+          }
+
+          if ( function_exists( 'learndash_get_post_type_slug' ) ) {
+            $course_id_int = absint( $course_id );
+            $count_query_base = array(
+              'post_status' => 'publish',
+              'posts_per_page' => 1,
+              'fields' => 'ids',
+              'no_found_rows' => false,
+              'meta_query' => array(
+                array(
+                  'key' => 'course_id',
+                  'value' => $course_id_int,
+                  'compare' => '=',
+                ),
+              ),
+            );
+
+            $lessons_query = new WP_Query( array_merge( $count_query_base, array(
+              'post_type' => learndash_get_post_type_slug( 'lesson' ),
+            ) ) );
+            $topics_query = new WP_Query( array_merge( $count_query_base, array(
+              'post_type' => learndash_get_post_type_slug( 'topic' ),
+            ) ) );
+            $quizzes_query = new WP_Query( array_merge( $count_query_base, array(
+              'post_type' => learndash_get_post_type_slug( 'quiz' ),
+            ) ) );
+
+            $lessons_count = (int) $lessons_query->found_posts;
+            $topics_count = (int) $topics_query->found_posts;
+            $quizzes_count = (int) $quizzes_query->found_posts;
+
+            wp_reset_postdata();
+
+            if ( $lessons_count > 0 ) {
+              $meta_items[] = $lessons_count . ' ' . _n( 'Lesson', 'Lessons', $lessons_count, 'csv' );
+            }
+
+            if ( $topics_count > 0 ) {
+              $meta_items[] = $topics_count . ' ' . _n( 'Topic', 'Topics', $topics_count, 'csv' );
+            }
+
+            if ( $quizzes_count > 0 ) {
+              $meta_items[] = $quizzes_count . ' ' . _n( 'Quiz', 'Quizzes', $quizzes_count, 'csv' );
+            }
+          }
+
+          if ( $course_level ) {
+            $meta_items[] = $course_level;
+          }
+
+          if ( $course_access ) {
+            $meta_items[] = $course_access;
+          }
+
+          $price_display = '—';
+          if ( function_exists( 'learndash_get_course_price' ) ) {
+            $pricing = learndash_get_course_price( $course_id );
+            if ( isset( $pricing['type'] ) && 'free' === $pricing['type'] ) {
+              $price_display = 'Free';
+            } elseif ( ! empty( $pricing['price'] ) ) {
+              if ( function_exists( 'learndash_get_price_formatted' ) ) {
+                $price_display = learndash_get_price_formatted( $pricing['price'] );
+              } else {
+                $price_display = '$' . $pricing['price'];
+              }
+            }
+          }
+          ?>
+          <div class="course-row">
+            <div class="course-thumb">
+              <img src="<?php echo esc_url( $thumb_url ? $thumb_url : $fallback_image ); ?>" alt="<?php echo esc_attr( $thumb_alt ); ?>" style="object-position:center">
+            </div>
+            <div class="course-info">
+              <?php if ( $course_category_label ) : ?>
+                <div class="series-label"><?php echo esc_html( $course_category_label ); ?></div>
+              <?php endif; ?>
+              <h3><a href="<?php echo esc_url( $course_link ); ?>"><?php echo esc_html( $course_title ); ?></a></h3>
+              <p class="cd"><?php echo esc_html( $description ); ?></p>
+              <?php if ( ! empty( $meta_items ) ) : ?>
+                <div class="course-meta">
+                  <?php foreach ( $meta_items as $meta_item ) : ?>
+                    <span class="cm"><?php echo esc_html( $meta_item ); ?></span>
+                  <?php endforeach; ?>
+                </div>
+              <?php endif; ?>
+            </div>
+            <div class="course-actions">
+              <div class="course-price"><?php echo esc_html( $price_display ); ?></div>
+              <a href="<?php echo esc_url( $course_link ); ?>" class="btn btn-secondary btn-sm w-full mb-4">View Course</a>
+              <a href="<?php echo esc_url( $enroll_url ); ?>" class="btn-ghost">Enroll Today &rarr;</a>
+            </div>
+          </div>
+        <?php
+        endwhile;
+        wp_reset_postdata();
+      endif;
+      ?>
+
+      <hr>
 
       <!-- COURSE 0 -->
       <div class="course-row">
         <div class="course-thumb">
-          <img src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="Herbs in a jar" style="object-position:center">
+          <img src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="" style="object-position:center">
         </div>
         <div class="course-info">
           <h3><a href="/courses/womens-wellness/">Women&rsquo;s Wellness Complete Herbal Course</a></h3>
@@ -114,7 +266,7 @@ get_header();
       <!-- COURSE 1 -->
       <div class="course-row">
         <div class="course-thumb">
-          <img src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="Herbs in a jar" style="object-position:center">
+          <img src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="" style="object-position:center">
         </div>
         <div class="course-info">
           <h3><a href="#">Goddess Rhythms&thinsp;&mdash;&thinsp;Herbal Support for Women&rsquo;s Moontime</a></h3>
@@ -133,7 +285,7 @@ get_header();
       <!-- COURSE 2 -->
       <div class="course-row">
         <div class="course-thumb">
-          <img src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="Botanical illustration" style="object-position:center">
+          <img src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="" style="object-position:center">
         </div>
         <div class="course-info">
           <h3><a href="#">Botanical Support for Motherhood</a></h3>
@@ -152,7 +304,7 @@ get_header();
       <!-- COURSE 3 -->
       <div class="course-row">
         <div class="course-thumb">
-          <img src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="Yarrow plant" style="object-position:center">
+          <img src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="" style="object-position:center">
         </div>
         <div class="course-info">
           <h3><a href="#">Menopause &amp; The Wise Elder Woman</a></h3>
@@ -171,7 +323,7 @@ get_header();
       <!-- COURSE 4 -->
       <div class="course-row">
         <div class="course-thumb">
-          <img src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="Hands holding roots" style="object-position:center">
+          <img src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="" style="object-position:center">
         </div>
         <div class="course-info">
           <h3><a href="#">Herbal Abortifacients Protocol</a></h3>
@@ -190,7 +342,7 @@ get_header();
       <!-- COURSE 5 -->
       <div class="course-row">
         <div class="course-thumb">
-          <img src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="Prickly pear cactus" style="object-position:center">
+          <img src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="" style="object-position:center">
         </div>
         <div class="course-info">
           <span class="series-label">Get Your Feet Wet Series</span>
@@ -210,7 +362,7 @@ get_header();
       <!-- COURSE 6 -->
       <div class="course-row">
         <div class="course-thumb">
-          <img src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="Feather teaching" style="object-position:center top">
+          <img src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="" style="object-position:center top">
         </div>
         <div class="course-info">
           <span class="series-label">Get Your Feet Wet Series</span>

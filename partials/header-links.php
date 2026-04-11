@@ -8,7 +8,7 @@
     </li>
 
     <li class="no-sub-menu">
-      <a href="<?php echo esc_url( home_url( '/courses-catalog/' ) ); ?>">
+      <a href="<?php echo esc_url( home_url( '/courses/' ) ); ?>">
         <span class="menu-item">Courses</span>
         <span class="menu-item2">Courses</span>
       </a>

@@ -163,6 +163,32 @@ function csv_remove_woocommerce_breadcrumbs() {
 }
 add_action( 'init', 'csv_remove_woocommerce_breadcrumbs' );
 
+// Apply coupon codes passed via URL (?coupon_code=XXXX).
+function csv_apply_coupon_code_from_url() {
+  if ( is_admin() || ! function_exists( 'WC' ) ) {
+    return;
+  }
+
+  if ( empty( $_GET['coupon_code'] ) ) {
+    return;
+  }
+
+  $coupon_code = sanitize_text_field( wp_unslash( $_GET['coupon_code'] ) );
+  if ( '' === $coupon_code ) {
+    return;
+  }
+
+  $cart = WC()->cart;
+  if ( ! $cart ) {
+    return;
+  }
+
+  if ( ! $cart->has_discount( $coupon_code ) ) {
+    $cart->apply_coupon( $coupon_code );
+  }
+}
+add_action( 'wp_loaded', 'csv_apply_coupon_code_from_url' );
+
 // Remove links from single product gallery images.
 function csv_strip_product_image_links( $html ) {
   if ( false === strpos( $html, '<a' ) ) {
