@@ -226,34 +226,65 @@ get_header();
 <!-- ========== TUITION ========== -->
 <section class="section bg-white">
   <div class="container">
-    <div class="text-center reveal" style="margin-bottom: 40px;">
-      <div class="eyebrow">Tuition</div>
-      <h2>Simple, Flexible Payment Options</h2>
-    </div>
-    <div class="tuition-intro reveal">
-      <p>The program is priced for the full year. Choose the option that works best for your budget. There are no hidden fees. Your tuition includes all weekly classes, recordings, and the Sedona field trip.</p>
-    </div>
-    <div class="pricing-cards reveal">
-      <div class="price-card featured">
-        <div class="pc-label">Full Year</div>
-        <div class="pc-amount">$2,800</div>
-        <div class="pc-note">One-time payment</div>
+    <div class="tuition-pricing reveal">
+      <p class="section-label">Tuition</p>
+      <h2 class="section-title">Simple, Flexible Payment Options</h2>
+      <p class="section-desc">The program is priced for the full year. Choose the option that works best for your budget. There are no hidden fees. Your tuition includes all weekly classes, recordings, and the Sedona field trip.</p>
+
+      <div class="cards">
+        <div class="card featured">
+          <span class="badge">Best Value</span>
+          <p class="card-plan">Full Year</p>
+          <p class="card-price">$2,800</p>
+          <p class="card-freq">One-time payment</p>
+          <p class="card-total"></p>
+          <span class="card-savings">Save $120 vs. quarterly</span>
+          <a class="cta-btn cta-primary" href="<?php echo esc_url( home_url( '/checkout/?add-to-cart=2166' ) ); ?>">Enroll Now</a>
+        </div>
+
+        <div class="card">
+          <p class="card-plan">Half Year</p>
+          <p class="card-price">$1,430</p>
+          <p class="card-freq">per half (2 payments)</p>
+          <p class="card-total">$2,860 total</p>
+          <span class="card-savings">Save $60 vs. quarterly</span>
+          <a class="cta-btn cta-secondary" href="<?php echo esc_url( home_url( '/checkout/?add-to-cart=2167' ) ); ?>">Choose Plan</a>
+        </div>
+
+        <div class="card">
+          <p class="card-plan">Quarterly</p>
+          <p class="card-price">$730</p>
+          <p class="card-freq">per quarter (4 payments)</p>
+          <p class="card-total">$2,920 total</p>
+          <span class="card-savings"></span>
+          <a class="cta-btn cta-secondary" href="<?php echo esc_url( home_url( '/checkout/?add-to-cart=2168' ) ); ?>">Choose Plan</a>
+        </div>
       </div>
-      <div class="price-card">
-        <div class="pc-label">Half Year</div>
-        <div class="pc-amount">$1,430</div>
-        <div class="pc-note">per half (2 payments)</div>
+
+      <p class="footer-note">Half-year and quarterly options are not subscriptions. Each payment covers a set period of the program. Pay the remaining balance when your current period ends to continue.</p>
+
+      <div class="perks">
+        <span class="perk">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          Secure checkout
+        </span>
+        <span class="perk">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+          Sedona field trip included ($450 value)
+        </span>
+        <span class="perk">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+          Certificate of Completion
+        </span>
       </div>
-      <div class="price-card">
-        <div class="pc-label">Quarterly</div>
-        <div class="pc-amount">$730</div>
-        <div class="pc-note">per quarter (4 payments)</div>
-      </div>
-    </div>
-    <div class="tuition-notes reveal">
-      <p>Half-year and quarterly options are not subscriptions. Each payment covers a set period of the program. Pay the remaining balance when your current period ends to continue.</p>
-      <p class="pt-4"><strong>Sedona field trip:</strong> Valued at $450, included free with all tuition options.</p>
-      <p class="pt-4 certificate"><strong>Certificate of Completion:</strong> Awarded to students who attend all classes and complete the required assignment.</p>
     </div>
   </div>
 </section>

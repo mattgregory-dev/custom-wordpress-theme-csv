@@ -135,14 +135,14 @@
         }
 
         &:hover {
-          color: var(--color-primary);
+          color: var(--deep-teal);
         }
       }
     }
 
     > li.active {
       > a {
-        color: var(--color-primary);
+        color: var(--deep-teal);
 
         &::before {
           transform: rotate(0deg);
@@ -182,13 +182,13 @@
             background 0.2s;
 
           &:hover {
-            color: var(--color-primary);
+            color: var(--deep-teal);
           }
         }
       }
       .active {
         .active {
-          color: var(--color-primary);
+          color: var(--deep-teal);
         }
       }
     }
@@ -223,11 +223,11 @@
 
     &.active {
       > a {
-        color: var(--color-primary);
+        color: var(--deep-teal);
       }
 
       &::before {
-        color: var(--color-primary);
+        color: var(--deep-teal);
         transform: rotate(0deg);
       }
 
@@ -309,7 +309,7 @@
       a {
         color: var(--body);
         &:hover {
-          color: var(--color-primary);
+          color: var(--deep-teal);
         }
       }
     }

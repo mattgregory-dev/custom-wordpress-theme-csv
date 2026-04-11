@@ -46,13 +46,20 @@ function csv_assets() {
     return;
   }
 
+  $main_css_path = get_template_directory() . '/dist/assets/main.css';
+  $tailwind_css_path = get_template_directory() . '/dist/tailwind.css';
+  $main_js_path = get_template_directory() . '/dist/main.js';
+  $main_css_version = file_exists( $main_css_path ) ? filemtime( $main_css_path ) : null;
+  $tailwind_css_version = file_exists( $tailwind_css_path ) ? filemtime( $tailwind_css_path ) : null;
+  $main_js_version = file_exists( $main_js_path ) ? filemtime( $main_js_path ) : null;
+
   // Static stylesheet (not processed by Vite).
-  wp_enqueue_style( 'csv-tailwind', $dist . '/tailwind.css', array(), null );
+  wp_enqueue_style( 'csv-tailwind', $dist . '/tailwind.css', array(), $tailwind_css_version );
   // Main compiled CSS bundle.
-  wp_enqueue_style( 'csv-main', $dist . '/assets/main.css', array( 'csv-tailwind' ), null );
+  wp_enqueue_style( 'csv-main', $dist . '/assets/main.css', array( 'csv-tailwind' ), $main_css_version );
 
   // Main JS bundle (ES module).
-  wp_enqueue_script( 'csv-main', $dist . '/main.js', array(), null, true );
+  wp_enqueue_script( 'csv-main', $dist . '/main.js', array(), $main_js_version, true );
 
   wp_script_add_data( 'csv-main', 'type', 'module' );
 }

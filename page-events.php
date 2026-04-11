@@ -5,7 +5,7 @@
 get_header();
 ?>
 
-<section class="section bg-[var(--color-accent)]">
+<section class="section bg-mint-green">
   <div class="container mx-auto px-4 md:px-6 lg:px-8">
     <div class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] items-center">
       <div>

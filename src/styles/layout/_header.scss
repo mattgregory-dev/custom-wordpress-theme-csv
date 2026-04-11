@@ -294,22 +294,22 @@
                 }
                 &:hover {
                   padding-left: 20px;
-                  color: var(--color-primary);
+                  color: var(--deep-teal);
                   background-color: unset;
                   &::before{
                     opacity: 1;
-                    color: var(--color-primary);
+                    color: var(--deep-teal);
                   }
                 }
               }
               .active {
                 padding-left: 20px;
-                color: var(--color-primary);
+                color: var(--deep-teal);
                 background-color: unset !important;
                 &::before{
                   opacity: 1;
                   visibility: visible;
-                  color: var(--color-primary);
+                  color: var(--deep-teal);
                 }
               }
             }
@@ -332,7 +332,7 @@
                 color: #45d0bd !important;
               }
               &::after {
-                color: var(--color-primary);
+                color: var(--deep-teal);
               }
             }
           }
@@ -355,7 +355,7 @@
               color: #45d0bd !important;
               &::before {
                 opacity: 1;
-                color: var(--color-primary);
+                color: var(--deep-teal);
               }
             }
             &::before{
@@ -395,7 +395,7 @@
             &::before {
               opacity: 1;
               visibility: visible;
-              color: var(--color-primary);
+              color: var(--deep-teal);
             }
           }
           &.menu-has-items {
@@ -412,7 +412,7 @@
             > a {
               &::after {
                 content: '\f105';
-                color: var(--color-primary);
+                color: var(--deep-teal);
               }
             }
           }
@@ -432,7 +432,7 @@
     &:hover{
       &::before{
         content: '\f105';
-        color: var(--color-primary);
+        color: var(--deep-teal);
         background-color: unset;
       }
     }

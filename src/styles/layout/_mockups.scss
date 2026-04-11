@@ -15,36 +15,53 @@
 }
 
 :root {
-  --color-primary: #2E524A;
-  --color-secondary: #93B587;
-  --color-accent: #C3DBC5;
-  --color-muted: #E6DFD9;
-  --color-text: #1a1a1a;
+  // Primary Colors
+  --text: #1a1a1a;
+  --charcoal: #333333;
+  --light-charcoal: #555555;
 
-  --warm-taupe: #B19986;
-  --light-taupe: #E6DFD9;
-  --sage-green: #84AE9D;
+  // Cool Greens
+  --deep-teal: #2E524A;
+  --forest-green-dark: #3d6b5a;
   --forest-green: #568673;
-  --dusty-rose: #BB837C;
+  --sage-green: #84AE9D;
+  --mint-green: #C3DBC5;
+
+  // Warm Greens
   --olive-green: #627B4A;
   --leaf-green: #93B587;
-  --mint-green: #C3DBC5;
   --pale-sage: #C9DABA;
-  --deep-teal: #2E524A;
+
+  // Accents
+  --bright-orange: #FC8411;
+  --soft-orange: #FDA043;
+  --dusty-rose: #BB837C;
+  --light-rose: #FAE1FB;
+  --rose: #FED5FA;
+
+  // Browns & Beiges
+  // 1
+  --taupe-brown: #5c4f3d;
+  --stone-beige: #8a7d6b;
+  --soft-clay: #c8bfab;
+  // 2
+  --amber: #B08437;
+  --wheat-gold: #D2C579;
+  --spring-cream: #EFF7D7;
+  // 3
+  --warm-taupe: #B19986;
+  --light-taupe: #E6DFD9;
   --light-gray: #F1F1F1;
   --warm-linen: #F2EDE1;
   --soft-cream: #F9F6EE;
   --pale-sage-cream: #F3F3E7;
-  --spring-cream: #EFF7D7;
-  --wheat-gold: #D2C579;
-  --amber: #B08437;
-  --soft-orange: #FDA043;
-  --bright-orange: #FC8411;
+
+  // Dark Colors
+  --cocoa-brown: #2a2118;
   --dark-brown: #3A1D02;
   --deep-burgundy: #5B0F0F;
-  --charcoal: #333333;
-  --light-charcoal: #555555;
 
+  // Fonts
   --font-eyebrow: 'Montserrat', sans-serif;
   --font-heading: 'Lora', serif;
   --font-body: 'Lato', sans-serif;
@@ -834,10 +851,6 @@ p {
 
 
 
-// Convert pixels to rem's
-
-
-
 
 .course-row {
   background: #fff;
@@ -1126,79 +1139,203 @@ p {
 
 
 
-
-
-.tuition-intro { max-width: 680px; margin: 0 auto 40px; text-align: center; }
-.tuition-intro p { font-size: 16px; color: #777; }
-.pricing-cards {
-  display: grid; grid-template-columns: 1fr; gap: 20px;
-  max-width: 780px; margin: 0 auto;
-}
-@media (min-width: 600px) {
-  .pricing-cards { grid-template-columns: 1fr 1fr 1fr; }
-}
-.price-card {
-  background: var(--soft-cream);
-  border-radius: 0.59rem;
-  padding: 1.88rem 1.41rem;
+.tuition-pricing {
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto;
   text-align: center;
-  border: 2px solid transparent;
-  transition: all 0.3s ease;
-  position: relative;
-}
-.price-card.featured {
-  border-color: var(--forest-green);
-  background: #fff;
-  box-shadow: 0 8px 40px rgba(86,134,115,0.12);
-}
-.price-card.featured::before {
-  content: 'BEST VALUE';
-  position: absolute;
-  top: -0.71rem; left: 50%;
-  transform: translateX(-50%);
-  font-family: var(--font-eyebrow);
-  font-weight: 700;
-  font-size: 0.53rem;
-  letter-spacing: 0.12rem;
-  text-transform: uppercase;
-  background: var(--forest-green);
-  color: #fff;
-  padding: 0.24rem 0.82rem;
-  border-radius: 0.18rem;
-}
-.price-card .pc-label {
-  font-family: var(--font-eyebrow);
-  font-weight: 700;
-  font-size: 0.59rem;
-  letter-spacing: 0.12rem;
-  text-transform: uppercase;
-  color: var(--forest-green);
-  margin-bottom: 8px;
-}
-.price-card .pc-amount {
-  font-family: var(--font-heading);
-  font-size: 2.12rem;
   color: var(--dark-brown);
-  line-height: 1.1;
-  margin-bottom: 4px;
-}
-.price-card .pc-note {
-  font-size: 0.76rem;
-  color: #999;
-}
-.tuition-notes {
-  max-width: 680px;
-  margin: 2.12rem auto 0;
-  text-align: center;
-  font-size: 0.82rem;
-  color: #999;
-  line-height: 1.7;
-  strong {
-    color: var(--olive-green);
+
+  .section-label {
+    font-family: var(--font-eyebrow);
+    font-weight: 700;
+    font-size: 0.65rem;
+    letter-spacing: 0.15rem;
+    text-transform: uppercase;
+    color: var(--forest-green);
+    margin-bottom: 0.94rem;
+    display: inline-block;
   }
-  .certificate {
-    max-width: 25rem;
-    margin-inline: auto;
+  .section-title {
+    font-family: var(--font-heading);
+    font-size: 2.59rem;
+    font-weight: 400;
+    color: var(--cocoa-brown);
+    margin-bottom: 1.18rem;
+    line-height: 1.2;
+  }
+  .section-desc {
+    font-size: 0.94rem;
+    line-height: 1.7;
+    color: var(--taupe-brown);
+    max-width: 580px;
+    margin: 0 auto 2.82rem;
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.18rem;
+    margin-bottom: 2.12rem;
+  }
+  .card {
+    background: var(--soft-cream);
+    border: 1.5px solid transparent;
+    border-radius: 0.5rem;
+    padding: 2.12rem 1.41rem 1.88rem;
+    position: relative;
+    cursor: default;
+    transition: all 0.3s ease;
+    &:hover {
+      border-color: var(--soft-clay);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(45, 74, 62, 0.08);
+    }
+    &.featured {
+      background: var(--white);
+      border: 2px solid var(--forest-green);
+      box-shadow: 0 4px 20px rgba(45, 74, 62, 0.1);
+    }
+    &.featured:hover {
+      box-shadow: 0 10px 32px rgba(45, 74, 62, 0.15);
+    }
+  }
+  .badge {
+    position: absolute;
+    top: -0.76rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--forest-green);
+    color: var(--white);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.12rem;
+    text-transform: uppercase;
+    padding: 0.29rem 0.94rem;
+    border-radius: 0.25rem;
+    white-space: nowrap;
+  }
+  .card-plan {
+    font-weight: 600;
+    font-size: 0.71rem;
+    letter-spacing: 0.16rem;
+    text-transform: uppercase;
+    color: var(--forest-green);
+    margin-bottom: 0.47rem;
+  }
+  .card-price {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 400;
+    color: var(--cocoa-brown);
+    line-height: 1;
+    margin-bottom: 0.24rem;
+  }
+  .card-freq {
+    font-size: 0.82rem;
+    color: var(--stone-beige);
+    margin-bottom: 0.35rem;
+  }
+  .card-total {
+    font-size: 0.76rem;
+    color: var(--stone-beige);
+    font-weight: 400;
+    margin-bottom: 1.18rem;
+    min-height: 1.18rem;
+  }
+  .card-savings {
+    display: inline-block;
+    font-size: 0.71rem;
+    font-weight: 500;
+    color: var(--forest-green);
+    background: rgba(45, 74, 62, 0.08);
+    padding: 0.18rem 0.59rem;
+    border-radius: 1.18rem;
+    margin-bottom: 1.18rem;
+    min-height: 1.41rem;
+    &:empty {
+      background: none;
+    }
+  }
+  .cta-btn {
+    display: block;
+    width: 100%;
+    padding: 0.82rem 1.18rem;
+    border-radius: 0.38rem;
+    font-family: var(--font-eyebrow);
+    font-size: 0.76rem;
+    font-weight: 600;
+    letter-spacing: 0.12rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    text-decoration: none;
+    text-align: center;
+  }
+  .cta-primary {
+    background: var(--forest-green);
+    color: var(--white);
+    border: 2px solid var(--forest-green);
+    &:hover {
+      background: var(--forest-green-dark);
+      border-color: var(--forest-green-dark);
+    }
+  }
+  .cta-secondary {
+    background: transparent;
+    color: var(--forest-green);
+    border: 1.5px solid var(--soft-clay);
+    &:hover {
+      color: var(--soft-cream);
+      border-color: var(--forest-green);
+      background: var(--forest-green);
+    }
+  }
+  .footer-note {
+    font-size: 0.82rem;
+    color: var(--stone-beige);
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 0 auto 1.41rem;
+  }
+  .perks {
+    display: flex;
+    justify-content: center;
+    gap: 1.88rem;
+    margin-top: 0.71rem;
+    flex-wrap: wrap;
+  }
+  .perk {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.82rem;
+    color: var(--taupe-brown);
+    font-weight: 400;
+    svg {
+      width: 0.94rem;
+      height: 0.94rem;
+      color: var(--forest-green);
+      flex-shrink: 0;
+    }
+  }
+}
+
+@media (max-width: 680px) {
+  .tuition-pricing {
+    .cards {
+      grid-template-columns: 1fr;
+      max-width: 20rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .card.featured {
+      order: -1;
+    }
+    .perks {
+      flex-direction: column;
+      align-items: center;
+      gap: 0.71rem;
+    }
   }
 }
 
@@ -1207,7 +1344,7 @@ p {
 
 .friction-text {
   display: block;
-  margin-top: 14px;
+  margin-top: 0.82rem;
   font-size: 0.82rem;
   color: #999;
   font-style: italic;
@@ -1420,7 +1557,7 @@ p {
 .detail-item .dl {
   font-family: var(--font-eyebrow);
   font-weight: 700;
-  font-size: 0.59rem;
+  font-size: 0.8rem;
   letter-spacing: 0.12rem;
   text-transform: uppercase;
   color: var(--forest-green);
