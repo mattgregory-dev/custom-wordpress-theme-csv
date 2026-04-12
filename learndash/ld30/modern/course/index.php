@@ -48,7 +48,7 @@ if ( function_exists( 'get_field' ) && ! empty( $course_post->ID ) ) {
     >
       <ol class="ld-breadcrumbs__items">
         <li class="ld-breadcrumbs__item ld-breadcrumbs__item--all-courses">
-          <a href="<?php echo esc_url( home_url( '/account/' ) ); ?>" class="ld-breadcrumbs__link">
+          <a href="<?php echo esc_url( home_url( '/courses/' ) ); ?>" class="ld-breadcrumbs__link">
             <?php echo esc_html__( 'Courses', 'learndash' ); ?>
           </a>
           <?php

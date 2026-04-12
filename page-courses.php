@@ -31,7 +31,9 @@ get_header();
       <div class="featured-inner">
         <div class="featured-img">
           <div class="badge-rec">Recommended Starting Point</div>
-          <img src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="" class="w-full h-full object-cover">
+          <a href="<?php echo esc_url( home_url( '/courses/womens-wellness/' ) ); ?>">
+            <img src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="" class="w-full h-full object-cover">
+          </a>
         </div>
         <div class="featured-body">
           <div class="eyebrow">Flagship Program</div>
@@ -43,9 +45,9 @@ get_header();
 
           <div class="meta-strip mb-8">
             <span class="meta-tag">20 Hours</span>
-            <span class="meta-tag">18 Lessons</span>
-            <span class="meta-tag">19 Quizzes</span>
-            <span class="meta-tag">Course PDFs</span>
+            <span class="meta-tag">20 Lessons</span>
+            <span class="meta-tag">17 Quizzes</span>
+            <span class="meta-tag">Printable Guides</span>
             <span class="meta-tag">Beginner Friendly</span>
             <span class="meta-tag">Lifetime Access</span>
           </div>
@@ -191,6 +193,11 @@ get_header();
 
             $lessons_query = new WP_Query( array_merge( $count_query_base, array(
               'post_type' => learndash_get_post_type_slug( 'lesson' ),
+              'posts_per_page' => -1,
+              'fields' => 'ids',
+              'no_found_rows' => true,
+              'update_post_meta_cache' => false,
+              'update_post_term_cache' => false,
             ) ) );
             $topics_query = new WP_Query( array_merge( $count_query_base, array(
               'post_type' => learndash_get_post_type_slug( 'topic' ),
@@ -199,7 +206,16 @@ get_header();
               'post_type' => learndash_get_post_type_slug( 'quiz' ),
             ) ) );
 
-            $lessons_count = (int) $lessons_query->found_posts;
+            $lessons_count = 0;
+            if ( ! empty( $lessons_query->posts ) ) {
+              foreach ( $lessons_query->posts as $lesson_id ) {
+                $lesson_slug = get_post_field( 'post_name', $lesson_id );
+                if ( false !== strpos( $lesson_slug, 'completion' ) || false !== strpos( $lesson_slug, 'introduction' ) ) {
+                  continue;
+                }
+                $lessons_count++;
+              }
+            }
             $topics_count = (int) $topics_query->found_posts;
             $quizzes_count = (int) $quizzes_query->found_posts;
 
@@ -269,7 +285,9 @@ get_header();
           ?>
           <div class="course-row">
             <div class="course-thumb">
-              <img src="<?php echo esc_url( $thumb_url ? $thumb_url : $fallback_image ); ?>" alt="<?php echo esc_attr( $thumb_alt ); ?>" style="object-position:center">
+              <a href="<?php echo esc_url( $course_link ); ?>">
+                <img src="<?php echo esc_url( $thumb_url ? $thumb_url : $fallback_image ); ?>" alt="<?php echo esc_attr( $thumb_alt ); ?>" style="object-position:center">
+              </a>
             </div>
             <div class="course-info">
               <?php if ( $is_featured ) : ?>

@@ -189,25 +189,6 @@ function csv_apply_coupon_code_from_url() {
 }
 add_action( 'wp_loaded', 'csv_apply_coupon_code_from_url' );
 
-// Ensure LearnDash prices use currency symbols even when intl is missing.
-function csv_learndash_currency_symbol_fallback( $symbol ) {
-  if ( ! function_exists( 'learndash_get_currency_code' ) ) {
-    return $symbol;
-  }
-
-  $currency_code = strtoupper( trim( learndash_get_currency_code() ) );
-  if ( '' === $currency_code ) {
-    return $symbol;
-  }
-
-  if ( 'USD' === $currency_code ) {
-    return '$';
-  }
-
-  return $symbol;
-}
-add_filter( 'learndash_currency_symbol', 'csv_learndash_currency_symbol_fallback' );
-
 // Remove links from single product gallery images.
 function csv_strip_product_image_links( $html ) {
   if ( false === strpos( $html, '<a' ) ) {
@@ -304,16 +285,6 @@ function csv_rename_account_dashboard_menu_item( $items ) {
   return $items;
 }
 add_filter( 'woocommerce_account_menu_items', 'csv_rename_account_dashboard_menu_item', 20 );
-
-// Point LearnDash login links to the My Account page.
-function csv_learndash_login_url( $login_url, $context, $args ) {
-  if ( 'login' !== $context ) {
-    return $login_url;
-  }
-
-  return home_url( '/account/' );
-}
-add_filter( 'learndash_login_url', 'csv_learndash_login_url', 10, 3 );
 
 // Rename "Browse products" to "View Retreats" on My Account notices.
 // function csv_rename_browse_products_text( $translated, $text, $domain ) {
@@ -497,6 +468,35 @@ add_filter( 'woocommerce_logout_default_redirect_url', 'csv_woocommerce_logout_r
 ////////////////// LearnDash /////////////////////
 //////////////////////////////////////////////////
 
+// Point LearnDash login links to the My Account page.
+function csv_learndash_login_url( $login_url, $context, $args ) {
+  if ( 'login' !== $context ) {
+    return $login_url;
+  }
+
+  return home_url( '/account/' );
+}
+add_filter( 'learndash_login_url', 'csv_learndash_login_url', 10, 3 );
+
+// Ensure LearnDash prices use currency symbols even when intl is missing.
+function csv_learndash_currency_symbol_fallback( $symbol ) {
+  if ( ! function_exists( 'learndash_get_currency_code' ) ) {
+    return $symbol;
+  }
+
+  $currency_code = strtoupper( trim( learndash_get_currency_code() ) );
+  if ( '' === $currency_code ) {
+    return $symbol;
+  }
+
+  if ( 'USD' === $currency_code ) {
+    return '$';
+  }
+
+  return $symbol;
+}
+add_filter( 'learndash_currency_symbol', 'csv_learndash_currency_symbol_fallback' );
+
 // Add priority field to LearnDash course tags (ld_course_tag).
 function csv_ld_course_tag_add_priority_field() {
   ?>
@@ -627,7 +627,6 @@ function csv_ld_course_tag_quick_edit_populate_script() {
 }
 add_action( 'admin_footer-edit-tags.php', 'csv_ld_course_tag_quick_edit_populate_script' );
 
-
 // Add body class to LearnDash shortcode pages (slug-based, dev-only).
 function csv_add_learndash_slug_body_class( $classes ) {
   $learndash_slugs = array(
@@ -642,7 +641,64 @@ function csv_add_learndash_slug_body_class( $classes ) {
 }
 add_filter( 'body_class', 'csv_add_learndash_slug_body_class' );
 
+// Add Slug column to LearnDash Lessons list table.
+// Inserts the column after Title and ensures it exists even if filters re-order.
+function csv_ld_lessons_add_slug_column( $columns ) {
+  $ordered = array();
+
+  foreach ( $columns as $key => $label ) {
+    $ordered[ $key ] = $label;
+    if ( 'title' === $key ) {
+      $ordered['slug'] = 'Slug';
+    }
+  }
+
+  if ( ! isset( $ordered['slug'] ) ) {
+    $ordered['slug'] = 'Slug';
+  }
+
+  return $ordered;
+}
+add_filter( 'manage_sfwd-lessons_posts_columns', 'csv_ld_lessons_add_slug_column' );
+
+function csv_ld_lessons_render_slug_column( $column, $post_id ) {
+  // Render the slug value in the custom list table column.
+  if ( 'slug' !== $column ) {
+    return;
+  }
+
+  $slug = get_post_field( 'post_name', $post_id );
+  echo esc_html( $slug ? $slug : '—' );
+}
+add_action( 'manage_sfwd-lessons_posts_custom_column', 'csv_ld_lessons_render_slug_column', 10, 2 );
+
+function csv_ld_lessons_sortable_columns( $columns ) {
+  // Declare Slug as a sortable column in the Lessons list table.
+  $columns['slug'] = 'slug';
+  return $columns;
+}
+add_filter( 'manage_edit-sfwd-lessons_sortable_columns', 'csv_ld_lessons_sortable_columns' );
+
+function csv_ld_lessons_sort_by_slug( $query ) {
+  // Map "slug" sorting to the post_name field for admin list tables.
+  if ( ! is_admin() || ! $query->is_main_query() ) {
+    return;
+  }
+
+  if ( 'sfwd-lessons' !== $query->get( 'post_type' ) ) {
+    return;
+  }
+
+  if ( 'slug' !== $query->get( 'orderby' ) ) {
+    return;
+  }
+
+  $query->set( 'orderby', 'name' );
+}
+add_action( 'pre_get_posts', 'csv_ld_lessons_sort_by_slug' );
+
 // Hide author names on LearnDash course reviews.
+// Returns first name when available, otherwise a generic "Verified Student" label.
 function csv_hide_learndash_review_author_name( $author, $comment_id, $comment ) {
   if ( ! $comment instanceof WP_Comment ) {
     $comment = get_comment( $comment_id );
@@ -668,6 +724,7 @@ function csv_hide_learndash_review_author_name( $author, $comment_id, $comment )
 add_filter( 'get_comment_author', 'csv_hide_learndash_review_author_name', 10, 3 );
 
 // Remove time from LearnDash course review timestamps (keep date).
+// Only affects LearnDash review strings that use the "%1$s at %2$s" pattern.
 function csv_learndash_reviews_strip_time_text( $translated, $text, $domain ) {
   if ( 'learndash' !== $domain ) {
     return $translated;
@@ -687,6 +744,7 @@ function csv_learndash_reviews_strip_time_text( $translated, $text, $domain ) {
 add_filter( 'gettext', 'csv_learndash_reviews_strip_time_text', 10, 3 );
 
 function csv_learndash_reviews_hide_comment_time( $time, $format, $gmt, $comment ) {
+  // Suppress the time string entirely for LearnDash review comments.
   if ( $comment instanceof WP_Comment && 'ld_review' === $comment->comment_type ) {
     return '';
   }
@@ -720,7 +778,9 @@ add_filter( 'get_comment_time', 'csv_learndash_reviews_hide_comment_time', 10, 4
 // add_filter( 'learndash_template_tabs_sorted', 'csv_hide_learndash_reviews_tab_after_review', 10, 2 );
 
 // Notify admin when a LearnDash course review is submitted.
+// Generates a plaintext summary email and avoids duplicates via comment meta.
 function csv_decode_mail_text( $text ) {
+  // Decode entity-encoded strings safely for email output.
   $decoded = wp_specialchars_decode( $text, ENT_QUOTES );
   $decoded = html_entity_decode( $decoded, ENT_QUOTES, 'UTF-8' );
   if ( $decoded !== $text ) {
@@ -731,6 +791,7 @@ function csv_decode_mail_text( $text ) {
 }
 
 function csv_notify_admin_on_learndash_review( $comment_id, $comment = null, $rating_override = null ) {
+  // Send review notification for LearnDash course reviews only.
   if ( ! $comment instanceof WP_Comment ) {
     $comment = get_comment( $comment_id );
   }
@@ -777,6 +838,7 @@ function csv_notify_admin_on_learndash_review( $comment_id, $comment = null, $ra
 }
 
 function csv_notify_admin_on_learndash_review_rating_meta( $meta_id, $comment_id, $meta_key, $meta_value ) {
+  // Trigger review notification when LearnDash rating meta is saved.
   if ( 'rating' !== $meta_key ) {
     return;
   }
@@ -786,6 +848,7 @@ function csv_notify_admin_on_learndash_review_rating_meta( $meta_id, $comment_id
 add_action( 'added_comment_meta', 'csv_notify_admin_on_learndash_review_rating_meta', 10, 4 );
 
 // Notify admin when a LearnDash quiz essay is submitted.
+// Builds an HTML email with quiz, course, and answer details.
 function csv_notify_quiz_essay( $quizdata, $user ) {
   if ( empty( $quizdata['graded'] ) || ! is_array( $quizdata['graded'] ) ) {
     return;

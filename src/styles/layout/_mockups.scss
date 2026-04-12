@@ -1,10 +1,3 @@
-.card {
-  background: #fff;
-  border-radius: 1rem;
-  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);
-  padding: 1.5rem;
-}
-
 .section {
   padding: 4rem 0;
 }
@@ -183,6 +176,13 @@ p {
   &:hover{
     color:var(--deep-teal);
   }
+}
+
+.card {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);
+  padding: 1.5rem;
 }
 
 .hero-quote {
@@ -863,11 +863,15 @@ p.course-description {
     .featured {
       background-color: #fff73f;
       border: 1px solid #e6df3a;
-      font-size: .6rem;
+      font-size: .5rem;
       margin-bottom: 1rem;
       display: inline-block;
       width: fit-content;
       padding: .2rem .5rem;
+      border-radius: .2rem;
+      text-transform: uppercase;
+      letter-spacing: .1rem;
+      font-weight: 600;
     }
     .course-meta {
       display: flex;
@@ -946,16 +950,6 @@ p.course-description {
     box-shadow: 0 8px 32px rgba(58,29,2,0.06);
   }
 }
-
-
-
-
-
-
-
-
-
-
 
 .support-card {
   padding: 1.65rem 1.41rem;
