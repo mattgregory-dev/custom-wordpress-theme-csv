@@ -1318,6 +1318,168 @@ const initAcfMaps = () => {
   });
 };
 
+// Feather Jones - Free Class Popup.
+const initFreeClassPopup = () => {
+  // Display timing + cookie settings.
+  const POPUP_DELAY_MS = 6000;
+  const COOKIE_NAME = 'fj_popup_seen';
+  const COOKIE_DAYS = 7;
+  const FORCE_POPUP = true;
+
+  // Core element lookups.
+  const overlay = document.getElementById('fjPopup');
+  if (!overlay) return;
+
+  const card = overlay.querySelector('.popup-card');
+  const closeBtn = overlay.querySelector('.popup-close');
+  const ctaBtn = document.getElementById('fjCtaBtn');
+  const skipBtn = document.getElementById('fjSkipBtn');
+  const form = document.getElementById('fjForm');
+  const errorEl = document.getElementById('fjError');
+  const step1 = document.getElementById('fjStep1');
+  const step2 = document.getElementById('fjStep2');
+  const step3 = document.getElementById('fjStep3');
+  let step2At = 0;
+
+  // Cookie helpers for "seen" state.
+  const setCookie = (name, value, days) => {
+    const dt = new Date();
+    dt.setTime(dt.getTime() + days * 864e5);
+    document.cookie = `${name}=${value};expires=${dt.toUTCString()};path=/;SameSite=Lax`;
+  };
+
+  const getCookie = (name) =>
+    document.cookie.split('; ').find((row) => row.startsWith(`${name}=`));
+
+  // Show/close + scroll lock.
+  const showPopup = () => {
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closePopup = () => {
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+    if (!FORCE_POPUP) {
+      setCookie(COOKIE_NAME, '1', COOKIE_DAYS);
+    }
+  };
+
+  // Step transitions.
+  const goToStep2 = () => {
+    step1.classList.remove('active');
+    step2.classList.add('active');
+    step2At = Date.now();
+    window.setTimeout(() => {
+      const emailInput = form.querySelector('input[type="email"]');
+      if (emailInput) emailInput.focus();
+    }, 100);
+  };
+
+  const goToStep3 = () => {
+    step2.classList.remove('active');
+    step3.classList.add('active');
+    setCookie(COOKIE_NAME, '1', 30);
+  };
+
+  // Form validation + simulated submit success.
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const emailEl = form.querySelector('input[type="email"]');
+    const hpField = form.querySelector('.hp-field');
+    const btn = form.querySelector('button[type="submit"]');
+
+    errorEl.classList.remove('show');
+    errorEl.textContent = '';
+
+    // Honeypot short-circuit.
+    if (hpField.value) {
+      goToStep3();
+      return;
+    }
+
+    // Basic email validation.
+    const email = emailEl.value.trim();
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      errorEl.textContent = 'Please enter a valid email address.';
+      errorEl.classList.add('show');
+      emailEl.focus();
+      return;
+    }
+
+    // Basic bot-timing guard.
+    if (step2At && Date.now() - step2At < 1500) {
+      goToStep3();
+      return;
+    }
+
+    // Simulated async success.
+    btn.textContent = 'Sending...';
+    btn.style.pointerEvents = 'none';
+    btn.style.opacity = '0.8';
+    window.setTimeout(() => {
+      goToStep3();
+    }, 1200);
+  };
+
+  // Primary UI event bindings.
+  closeBtn.addEventListener('click', closePopup);
+  ctaBtn.addEventListener('click', goToStep2);
+  skipBtn.addEventListener('click', closePopup);
+  form.addEventListener('submit', handleSubmit);
+
+  // Click outside card closes overlay.
+  overlay.addEventListener('click', (event) => {
+    if (event.target === overlay) closePopup();
+  });
+
+  // Escape key closes overlay.
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closePopup();
+  });
+
+  // Mobile swipe-to-dismiss.
+  (() => {
+    let startY = 0;
+    let currentY = 0;
+    let dragging = false;
+
+    card.addEventListener('touchstart', (event) => {
+      const touch = event.touches[0];
+      const rect = card.getBoundingClientRect();
+      if (touch.clientY - rect.top > 50) return;
+      startY = touch.clientY;
+      dragging = true;
+      card.style.transition = 'none';
+    });
+
+    card.addEventListener('touchmove', (event) => {
+      if (!dragging) return;
+      currentY = event.touches[0].clientY - startY;
+      if (currentY > 0) {
+        card.style.transform = `translateY(${currentY}px)`;
+      }
+    });
+
+    card.addEventListener('touchend', () => {
+      if (!dragging) return;
+      dragging = false;
+      card.style.transition = '';
+      if (currentY > 120) {
+        closePopup();
+      }
+      card.style.transform = '';
+      currentY = 0;
+    });
+  })();
+
+  // Auto-show after delay if no cookie.
+  if (FORCE_POPUP || !getCookie(COOKIE_NAME)) {
+    window.setTimeout(showPopup, POPUP_DELAY_MS);
+  }
+};
+
 const init = () => {
   preloader();
   ayaMotifSVGDraw();
@@ -1331,6 +1493,7 @@ const init = () => {
   sideMenu();
   gsapAnimations();
   initAcfMaps();
+  initFreeClassPopup();
   //searchPopup();
   //revealUpAnimation();
   //revealFadeAnimation();

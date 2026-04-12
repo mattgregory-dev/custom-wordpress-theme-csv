@@ -39,6 +39,7 @@
 <button id="scrollBtn">
   <i class="fas fa-angle-up"></i>
 </button>
+<?php get_template_part( 'template-parts/components/popup-free-class' ); ?>
 <?php wp_footer(); ?>
 </body>
 </html>
