@@ -189,6 +189,25 @@ function csv_apply_coupon_code_from_url() {
 }
 add_action( 'wp_loaded', 'csv_apply_coupon_code_from_url' );
 
+// Ensure LearnDash prices use currency symbols even when intl is missing.
+function csv_learndash_currency_symbol_fallback( $symbol ) {
+  if ( ! function_exists( 'learndash_get_currency_code' ) ) {
+    return $symbol;
+  }
+
+  $currency_code = strtoupper( trim( learndash_get_currency_code() ) );
+  if ( '' === $currency_code ) {
+    return $symbol;
+  }
+
+  if ( 'USD' === $currency_code ) {
+    return '$';
+  }
+
+  return $symbol;
+}
+add_filter( 'learndash_currency_symbol', 'csv_learndash_currency_symbol_fallback' );
+
 // Remove links from single product gallery images.
 function csv_strip_product_image_links( $html ) {
   if ( false === strpos( $html, '<a' ) ) {

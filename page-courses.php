@@ -88,22 +88,50 @@ get_header();
     <div class="text-center reveal">
       <div class="eyebrow">Course Catalog</div>
       <h2>Browse All Courses</h2>
-      <p style="font-size:16px;color:#888;max-width:560px;margin:0 auto;">Choose a focused learning path or pair courses together for a deeper herbal practice.</p>
+      <p class="course-description">Choose a focused learning path or pair courses together for a deeper herbal practice.</p>
     </div>
     <div class="flex flex-col gap-4 mt-10 reveal">
+
       <?php
       $courses_query = new WP_Query( array(
         'post_type' => 'sfwd-courses',
         'post_status' => 'publish',
         'posts_per_page' => -1,
-        'orderby' => 'menu_order',
+        'orderby' => 'title',
         'order' => 'ASC',
       ) );
 
       if ( $courses_query->have_posts() ) :
-        while ( $courses_query->have_posts() ) :
-          $courses_query->the_post();
-          $course_id = get_the_ID();
+        $featured_posts = array();
+        $regular_posts = array();
+        $featured_ids = array();
+
+        foreach ( $courses_query->posts as $course_post ) {
+          $course_id = $course_post->ID;
+          $is_featured = false;
+
+          if ( function_exists( 'get_field' ) ) {
+            $featured_value = get_field( 'featured_course', $course_id );
+            $is_featured = ! empty( $featured_value );
+          } else {
+            $featured_value = get_post_meta( $course_id, 'featured_course', true );
+            $is_featured = ! empty( $featured_value );
+          }
+
+          if ( $is_featured ) {
+            $featured_posts[] = $course_post;
+            $featured_ids[] = $course_id;
+          } else {
+            $regular_posts[] = $course_post;
+          }
+        }
+
+        $sorted_posts = array_merge( $featured_posts, $regular_posts );
+
+        foreach ( $sorted_posts as $course_post ) :
+          setup_postdata( $course_post );
+          $course_id = $course_post->ID;
+          $is_featured = in_array( $course_id, $featured_ids, true );
           $thumb_id = get_post_thumbnail_id( $course_id );
           $thumb_url = $thumb_id ? wp_get_attachment_image_url( $thumb_id, 'large' ) : '';
           $thumb_alt = $thumb_id ? get_post_meta( $thumb_id, '_wp_attachment_image_alt', true ) : '';
@@ -198,6 +226,25 @@ get_header();
             $meta_items[] = $course_access;
           }
 
+          $course_attributes = function_exists( 'get_field' )
+            ? get_field( 'course_attributes', $course_id )
+            : array();
+
+          if ( ! empty( $course_attributes ) && is_array( $course_attributes ) ) {
+            foreach ( $course_attributes as $key => $attribute ) {
+              $value = '';
+              if ( is_array( $attribute ) ) {
+                $value = isset( $attribute['value'] ) ? $attribute['value'] : '';
+              } else {
+                $value = is_string( $key ) ? $key : $attribute;
+              }
+
+              if ( '' !== $value ) {
+                $meta_items[] = $value;
+              }
+            }
+          }
+
           $price_display = '—';
           if ( function_exists( 'learndash_get_course_price' ) ) {
             $pricing = learndash_get_course_price( $course_id );
@@ -217,6 +264,9 @@ get_header();
               <img src="<?php echo esc_url( $thumb_url ? $thumb_url : $fallback_image ); ?>" alt="<?php echo esc_attr( $thumb_alt ); ?>" style="object-position:center">
             </div>
             <div class="course-info">
+              <?php if ( $is_featured ) : ?>
+                <span class="featured">Featured Course</span>
+              <?php endif; ?>
               <?php if ( $course_category_label ) : ?>
                 <div class="series-label"><?php echo esc_html( $course_category_label ); ?></div>
               <?php endif; ?>
@@ -237,147 +287,10 @@ get_header();
             </div>
           </div>
         <?php
-        endwhile;
+        endforeach;
         wp_reset_postdata();
       endif;
       ?>
-
-      <hr>
-
-      <!-- COURSE 0 -->
-      <div class="course-row">
-        <div class="course-thumb">
-          <img src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="" style="object-position:center">
-        </div>
-        <div class="course-info">
-          <h3><a href="/courses/womens-wellness/">Women&rsquo;s Wellness Complete Herbal Course</a></h3>
-          <p class="cd">Herbal support for every stage of a woman&rsquo;s life, from cycle health to menopause, with practical protocols you can use right away.</p>
-          <div class="course-meta">
-            <span class="cm">12 Hours</span><span class="cm">48 Lessons</span><span class="cm">Beginner</span><span class="cm">Lifetime Access</span>
-          </div>
-        </div>
-        <div class="course-actions">
-          <div class="course-price">$120</div>
-          <a href="<?php echo esc_url( home_url( '/courses/womens-wellness/' ) ); ?>" class="btn btn-secondary btn-sm w-full mb-4">View Course</a>
-          <a href="<?php echo esc_url( home_url( '/checkout/?add-to-cart=1581' ) ); ?>" class="btn-ghost">Enroll Today &rarr;</a>
-        </div>
-      </div>
-
-      <!-- COURSE 1 -->
-      <div class="course-row">
-        <div class="course-thumb">
-          <img src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="" style="object-position:center">
-        </div>
-        <div class="course-info">
-          <h3><a href="#">Goddess Rhythms&thinsp;&mdash;&thinsp;Herbal Support for Women&rsquo;s Moontime</a></h3>
-          <p class="cd">Learn how to support your body through each phase of the menstrual cycle with herbs, comfort practices, and gentle daily protocols.</p>
-          <div class="course-meta">
-            <span class="cm">12 Hours</span><span class="cm">48 Lessons</span><span class="cm">Beginner</span><span class="cm">Lifetime Access</span>
-          </div>
-        </div>
-        <div class="course-actions">
-          <div class="course-price">$120</div>
-          <a href="#" class="btn btn-secondary btn-sm" style="width:100%">View Course</a>
-          <a href="#" class="btn-ghost">Enroll Today &rarr;</a>
-        </div>
-      </div>
-
-      <!-- COURSE 2 -->
-      <div class="course-row">
-        <div class="course-thumb">
-          <img src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="" style="object-position:center">
-        </div>
-        <div class="course-info">
-          <h3><a href="#">Botanical Support for Motherhood</a></h3>
-          <p class="cd">Safety-first herbal guidance for preconception, pregnancy, and postpartum care&thinsp;&mdash;&thinsp;for mothers and the practitioners who support them.</p>
-          <div class="course-meta">
-            <span class="cm">10 Hours</span><span class="cm">36 Lessons</span><span class="cm">Intermediate</span><span class="cm">Audio + PDF</span>
-          </div>
-        </div>
-        <div class="course-actions">
-          <div class="course-price">$110</div>
-          <a href="#" class="btn btn-secondary btn-sm" style="width:100%">View Course</a>
-          <a href="#" class="btn-ghost">Enroll Today &rarr;</a>
-        </div>
-      </div>
-
-      <!-- COURSE 3 -->
-      <div class="course-row">
-        <div class="course-thumb">
-          <img src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="" style="object-position:center">
-        </div>
-        <div class="course-info">
-          <h3><a href="#">Menopause &amp; The Wise Elder Woman</a></h3>
-          <p class="cd">Herbal approaches and lifestyle rhythms that support the menopausal transition with steadiness and vitality.</p>
-          <div class="course-meta">
-            <span class="cm">6 Hours</span><span class="cm">24 Lessons</span><span class="cm">Beginner</span><span class="cm">Worksheets</span>
-          </div>
-        </div>
-        <div class="course-actions">
-          <div class="course-price">$75</div>
-          <a href="#" class="btn btn-secondary btn-sm" style="width:100%">View Course</a>
-          <a href="#" class="btn-ghost">Enroll Today &rarr;</a>
-        </div>
-      </div>
-
-      <!-- COURSE 4 -->
-      <div class="course-row">
-        <div class="course-thumb">
-          <img src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="" style="object-position:center">
-        </div>
-        <div class="course-info">
-          <h3><a href="#">Herbal Abortifacients Protocol</a></h3>
-          <p class="cd">A research-grounded overview of plants historically cited as abortifacients, with emphasis on safety, ethics, and informed practice.</p>
-          <div class="course-meta">
-            <span class="cm">8 Hours</span><span class="cm">32 Lessons</span><span class="cm">All Levels</span><span class="cm">Self-Paced</span>
-          </div>
-        </div>
-        <div class="course-actions">
-          <div class="course-price">$95</div>
-          <a href="#" class="btn btn-secondary btn-sm" style="width:100%">View Course</a>
-          <a href="#" class="btn-ghost">Enroll Today &rarr;</a>
-        </div>
-      </div>
-
-      <!-- COURSE 5 -->
-      <div class="course-row">
-        <div class="course-thumb">
-          <img src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="" style="object-position:center">
-        </div>
-        <div class="course-info">
-          <span class="series-label">Get Your Feet Wet Series</span>
-          <h3><a href="#">Prickly Pear&thinsp;&mdash;&thinsp;Harvest to Table</a></h3>
-          <p class="cd">A hands-on seasonal mini-course on foraging prickly pear, safe preparation, and simple kitchen recipes you can try at home.</p>
-          <div class="course-meta">
-            <span class="cm">7 Hours</span><span class="cm">28 Lessons</span><span class="cm">All Levels</span><span class="cm">Printable Guides</span>
-          </div>
-        </div>
-        <div class="course-actions">
-          <div class="course-price">$85</div>
-          <a href="#" class="btn btn-secondary btn-sm" style="width:100%">View Course</a>
-          <a href="#" class="btn-ghost">Enroll Today &rarr;</a>
-        </div>
-      </div>
-
-      <!-- COURSE 6 -->
-      <div class="course-row">
-        <div class="course-thumb">
-          <img src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="" style="object-position:center top">
-        </div>
-        <div class="course-info">
-          <span class="series-label">Get Your Feet Wet Series</span>
-          <h3><a href="#">Herbal Musings&thinsp;&mdash;&thinsp;Stories of the Plants</a></h3>
-          <p class="cd">Plant stories, clinical reflections, and case studies for experienced herbalists looking to deepen their observation and practice.</p>
-          <div class="course-meta">
-            <span class="cm">14 Hours</span><span class="cm">52 Lessons</span><span class="cm">Advanced</span><span class="cm">Case Studies</span>
-          </div>
-        </div>
-        <div class="course-actions">
-          <div class="course-price">$150</div>
-          <a href="#" class="btn btn-secondary btn-sm" style="width:100%">View Course</a>
-          <a href="#" class="btn-ghost">Enroll Today &rarr;</a>
-        </div>
-      </div>
 
     </div>
   </div>
