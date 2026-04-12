@@ -497,6 +497,137 @@ add_filter( 'woocommerce_logout_default_redirect_url', 'csv_woocommerce_logout_r
 ////////////////// LearnDash /////////////////////
 //////////////////////////////////////////////////
 
+// Add priority field to LearnDash course tags (ld_course_tag).
+function csv_ld_course_tag_add_priority_field() {
+  ?>
+  <div class="form-field term-priority-wrap">
+    <label for="ld_course_tag_priority">Tag Priority</label>
+    <input type="number" name="ld_course_tag_priority" id="ld_course_tag_priority" value="" min="0" step="1">
+    <p class="description">Higher numbers will be treated as higher priority.</p>
+  </div>
+  <?php
+}
+add_action( 'ld_course_tag_add_form_fields', 'csv_ld_course_tag_add_priority_field' );
+
+function csv_ld_course_tag_edit_priority_field( $term ) {
+  $priority = get_term_meta( $term->term_id, 'ld_course_tag_priority', true );
+  ?>
+  <tr class="form-field term-priority-wrap">
+    <th scope="row"><label for="ld_course_tag_priority">Tag Priority</label></th>
+    <td>
+      <input type="number" name="ld_course_tag_priority" id="ld_course_tag_priority" value="<?php echo esc_attr( $priority ); ?>" min="0" step="1">
+      <p class="description">Higher numbers will be treated as higher priority.</p>
+    </td>
+  </tr>
+  <?php
+}
+add_action( 'ld_course_tag_edit_form_fields', 'csv_ld_course_tag_edit_priority_field' );
+
+function csv_ld_course_tag_save_priority( $term_id ) {
+  if ( ! current_user_can( 'manage_categories' ) ) {
+    return;
+  }
+
+  if ( ! isset( $_POST['ld_course_tag_priority'] ) ) {
+    return;
+  }
+
+  $priority = intval( $_POST['ld_course_tag_priority'] );
+  update_term_meta( $term_id, 'ld_course_tag_priority', $priority );
+}
+add_action( 'created_ld_course_tag', 'csv_ld_course_tag_save_priority' );
+add_action( 'edited_ld_course_tag', 'csv_ld_course_tag_save_priority' );
+
+// Show Tag Priority column on Course Tags list table.
+function csv_ld_course_tag_add_priority_column( $columns ) {
+  $ordered = array();
+
+  foreach ( $columns as $key => $label ) {
+    $ordered[ $key ] = $label;
+    if ( 'name' === $key ) {
+      $ordered['ld_course_tag_priority'] = 'Priority';
+    }
+  }
+
+  if ( ! isset( $ordered['ld_course_tag_priority'] ) ) {
+    $ordered['ld_course_tag_priority'] = 'Priority';
+  }
+
+  return $ordered;
+}
+add_filter( 'manage_edit-ld_course_tag_columns', 'csv_ld_course_tag_add_priority_column' );
+
+function csv_ld_course_tag_render_priority_column( $content, $column_name, $term_id ) {
+  if ( 'ld_course_tag_priority' !== $column_name ) {
+    return $content;
+  }
+
+  $priority = get_term_meta( $term_id, 'ld_course_tag_priority', true );
+  if ( '' === $priority ) {
+    return '—';
+  }
+
+  return esc_html( $priority );
+}
+add_filter( 'manage_ld_course_tag_custom_column', 'csv_ld_course_tag_render_priority_column', 10, 3 );
+
+// Add Tag Priority to Quick Edit for course tags.
+function csv_ld_course_tag_quick_edit_field( $column_name, $screen, $taxonomy ) {
+  if ( 'ld_course_tag_priority' !== $column_name || 'ld_course_tag' !== $taxonomy ) {
+    return;
+  }
+  ?>
+  <fieldset class="inline-edit-col-left">
+    <div class="inline-edit-col">
+      <label>
+        <span class="title">Tag Priority</span>
+        <span class="input-text-wrap">
+          <input type="number" name="ld_course_tag_priority" class="ld-course-tag-priority" value="">
+        </span>
+      </label>
+    </div>
+  </fieldset>
+  <?php
+}
+add_action( 'quick_edit_custom_box', 'csv_ld_course_tag_quick_edit_field', 10, 3 );
+
+function csv_ld_course_tag_quick_edit_populate_script() {
+  $screen = get_current_screen();
+  if ( ! $screen || 'edit-ld_course_tag' !== $screen->id ) {
+    return;
+  }
+  ?>
+  <script>
+    (function($) {
+      if (!window.inlineEditTax) {
+        return;
+      }
+
+      var originalEdit = inlineEditTax.edit;
+      inlineEditTax.edit = function(id) {
+        originalEdit.apply(this, arguments);
+
+        var $row = (typeof id === 'object') ? $(id) : $('#tag-' + id);
+        if (!$row.length) {
+          return;
+        }
+
+        var priority = $row.find('td.column-ld_course_tag_priority').text().trim();
+        if (priority === '—') {
+          priority = '';
+        }
+
+        var termId = $row.attr('id').replace('tag-', '');
+        var $editRow = $('#edit-' + termId);
+        $editRow.find('input.ld-course-tag-priority').val(priority);
+      };
+    })(jQuery);
+  </script>
+  <?php
+}
+add_action( 'admin_footer-edit-tags.php', 'csv_ld_course_tag_quick_edit_populate_script' );
+
+
 // Add body class to LearnDash shortcode pages (slug-based, dev-only).
 function csv_add_learndash_slug_body_class( $classes ) {
   $learndash_slugs = array(

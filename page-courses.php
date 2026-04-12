@@ -69,7 +69,7 @@ get_header();
           </div>
           <div class="featured-enroll flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <div class="featured-price">$200</div>
+              <div class="featured-price">$555</div>
               <div class="featured-price-note">One-time purchase &middot; Immediate access</div>
             </div>
             <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-end sm:gap-4">
@@ -226,21 +226,29 @@ get_header();
             $meta_items[] = $course_access;
           }
 
-          $course_attributes = function_exists( 'get_field' )
-            ? get_field( 'course_attributes', $course_id )
-            : array();
+          $course_tags = get_the_terms( $course_id, 'ld_course_tag' );
+          if ( ! empty( $course_tags ) && ! is_wp_error( $course_tags ) ) {
+            $tag_items = array();
 
-          if ( ! empty( $course_attributes ) && is_array( $course_attributes ) ) {
-            foreach ( $course_attributes as $key => $attribute ) {
-              $value = '';
-              if ( is_array( $attribute ) ) {
-                $value = isset( $attribute['value'] ) ? $attribute['value'] : '';
-              } else {
-                $value = is_string( $key ) ? $key : $attribute;
+            foreach ( $course_tags as $course_tag ) {
+              $priority = get_term_meta( $course_tag->term_id, 'ld_course_tag_priority', true );
+              $priority = is_numeric( $priority ) ? (int) $priority : 9999;
+              $tag_items[] = array(
+                'name' => $course_tag->name,
+                'priority' => $priority,
+              );
+            }
+
+            usort( $tag_items, function( $a, $b ) {
+              if ( $a['priority'] === $b['priority'] ) {
+                return strcasecmp( $a['name'], $b['name'] );
               }
+              return $a['priority'] <=> $b['priority'];
+            } );
 
-              if ( '' !== $value ) {
-                $meta_items[] = $value;
+            foreach ( $tag_items as $tag_item ) {
+              if ( ! empty( $tag_item['name'] ) ) {
+                $meta_items[] = $tag_item['name'];
               }
             }
           }
