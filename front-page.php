@@ -130,7 +130,7 @@ get_header();
   <div class="container text-center reveal">
     <div class="eyebrow">Free Class</div>
     <h2>New to Herbs? Start Here&thinsp;&mdash;&thinsp;No Cost.</h2>
-    <p style="font-size:16px;max-width:560px;margin:0 auto 12px;color:rgba(255,255,255,.8);font-weight:300;line-height:1.8;">Sign up and get instant access to <em>Mosquitoes &amp; Other Things That Bug You</em>&thinsp;&mdash;&thinsp;a short, practical class on using herbs and essential oils to repel common pests, naturally. It&rsquo;s 25&ndash;35 minutes and you can use what you learn right away.</p>
+    <p style="font-size:16px;max-width:560px;margin:0 auto 12px;color:rgba(255,255,255,.8);font-weight:300;line-height:1.8;">Sign up and get instant access to <em>Natural Pest Control with Plants: Safe, Herbal Solutions for Home & Pets</em>&thinsp;&mdash;&thinsp;a short, practical class on using herbs and essential oils to repel common pests, naturally. It&rsquo;s 25&ndash;35 minutes and you can use what you learn right away.</p>
     <p style="font-size:14px;max-width:520px;margin:0 auto 32px;color:rgba(255,255,255,.55);">Part of Feather&rsquo;s Get Your Feet Wet Series: short, focused lessons designed for people just getting started.</p>
     <div class="email-row">
       <input type="email" placeholder="Your email address">

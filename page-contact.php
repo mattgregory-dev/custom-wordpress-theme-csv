@@ -33,7 +33,7 @@ if ( have_posts() ) :
     <section id="contact-main" class="w-full py-16 sm:py-20">
       <div class="max-w-[1240px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-16 items-start">
 
-        <div class="soft-shadow rounded-xl border border-slate-300 bg-white/95 p-6 sm:p-8 order-2 lg:order-1">
+        <div class="soft-shadow rounded-xl border border-slate-300 bg-white/95 p-6 sm:p-8 order-2 lg:order-1 forminator-site-form">
           <?php echo do_shortcode('[forminator_form id="213"]'); ?>
         </div>
         

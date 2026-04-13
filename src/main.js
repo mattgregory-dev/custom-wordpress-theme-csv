@@ -1334,7 +1334,8 @@ const initFreeClassPopup = () => {
   const closeBtn = overlay.querySelector('.popup-close');
   const ctaBtn = document.getElementById('fjCtaBtn');
   const skipBtn = document.getElementById('fjSkipBtn');
-  const form = document.getElementById('fjForm');
+  const form = overlay.querySelector('form');
+  const isForminator = !!(form && form.classList.contains('forminator-ui'));
   const errorEl = document.getElementById('fjError');
   const step1 = document.getElementById('fjStep1');
   const step2 = document.getElementById('fjStep2');
@@ -1380,6 +1381,9 @@ const initFreeClassPopup = () => {
     step2.classList.remove('active');
     step3.classList.add('active');
     setCookie(COOKIE_NAME, '1', 30);
+    window.setTimeout(() => {
+      closePopup();
+    }, 4000);
   };
 
   // Form validation + simulated submit success.
@@ -1387,17 +1391,10 @@ const initFreeClassPopup = () => {
     event.preventDefault();
 
     const emailEl = form.querySelector('input[type="email"]');
-    const hpField = form.querySelector('.hp-field');
     const btn = form.querySelector('button[type="submit"]');
 
     errorEl.classList.remove('show');
     errorEl.textContent = '';
-
-    // Honeypot short-circuit.
-    if (hpField.value) {
-      goToStep3();
-      return;
-    }
 
     // Basic email validation.
     const email = emailEl.value.trim();
@@ -1427,7 +1424,32 @@ const initFreeClassPopup = () => {
   closeBtn.addEventListener('click', closePopup);
   ctaBtn.addEventListener('click', goToStep2);
   skipBtn.addEventListener('click', closePopup);
-  form.addEventListener('submit', handleSubmit);
+  if (form && !isForminator) {
+    form.addEventListener('submit', handleSubmit);
+  }
+
+  // Forminator: advance to Step 3 when success message appears.
+  if (form && isForminator) {
+    const responseMessage = form.querySelector('.forminator-response-message');
+    if (responseMessage) {
+      const maybeAdvance = () => {
+        if (
+          responseMessage.classList.contains('forminator-show') &&
+          responseMessage.classList.contains('forminator-success')
+        ) {
+          goToStep3();
+        }
+      };
+
+      maybeAdvance();
+
+      const observer = new MutationObserver(maybeAdvance);
+      observer.observe(responseMessage, {
+        attributes: true,
+        attributeFilter: ['class', 'style', 'aria-hidden'],
+      });
+    }
+  }
 
   // Click outside card closes overlay.
   overlay.addEventListener('click', (event) => {

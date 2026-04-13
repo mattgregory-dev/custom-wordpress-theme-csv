@@ -54,11 +54,14 @@
 
         <p class="popup-error" id="fjError"></p>
 
+        <?php /*
         <form class="popup-form" id="fjForm" novalidate>
           <input type="text" name="website_url" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true" />
           <input type="email" name="email" placeholder="Your email address" required autocomplete="email" />
           <button type="submit">Send It</button>
-        </form>
+        </form> */ ?>
+
+        <?php echo do_shortcode( '[forminator_form id="2338"]' ); ?>
 
         <p class="popup-disclaimer">
           You'll also receive herbal insights and program updates. Unsubscribe any time.
