@@ -39,7 +39,21 @@
 <button id="scrollBtn">
   <i class="fas fa-angle-up"></i>
 </button>
-<?php get_template_part( 'template-parts/components/popup-free-class' ); ?>
+<?php
+$popup_excluded_slugs = array( 'contact', 'faqs', 'profile', 'terms', 'refunds' );
+$is_woocommerce_page = function_exists( 'is_woocommerce' ) && is_woocommerce();
+$is_cart = function_exists( 'is_cart' ) && is_cart();
+$is_checkout = function_exists( 'is_checkout' ) && is_checkout();
+$is_account = function_exists( 'is_account_page' ) && is_account_page();
+$is_shop = function_exists( 'is_shop' ) && is_shop();
+$is_privacy_policy = function_exists( 'is_privacy_policy' ) && is_privacy_policy();
+$is_excluded_slug = is_page( $popup_excluded_slugs );
+$show_popup = ! ( $is_woocommerce_page || $is_cart || $is_checkout || $is_account || $is_shop || $is_privacy_policy || $is_excluded_slug );
+
+if ( $show_popup ) {
+  get_template_part( 'partials/popup-free-class' );
+}
+?>
 <?php wp_footer(); ?>
 </body>
 </html>

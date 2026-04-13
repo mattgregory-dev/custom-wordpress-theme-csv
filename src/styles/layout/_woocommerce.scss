@@ -100,6 +100,14 @@
 
   // My Account navigation styling
   &.woocommerce-account {
+    .my-account-login {
+      h2 {
+        display: none;
+      }
+      .woocommerce form.login {
+        margin-bottom: 0;
+      }
+    }
     .woocommerce-form-login {
       .woocommerce-form-login__rememberme {
         display: none;

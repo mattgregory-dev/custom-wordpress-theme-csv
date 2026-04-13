@@ -352,6 +352,7 @@ add_filter( 'woocommerce_logout_default_redirect_url', 'csv_woocommerce_logout_r
 
 // Handle free-class checkout links (empty cart, add product, apply coupon, redirect)
 // Example URL: https://featherjones.com/checkout/?add-to-cart=2155&coupon_code=freeclass
+// Example URL: http://localhost:8080/checkout/?add-to-cart=2155&coupon_code=freeclass
 add_action('template_redirect', function () {
     // Frontend-only: skip admin and AJAX requests.
     if (is_admin() || wp_doing_ajax()) {
@@ -408,6 +409,29 @@ add_action('template_redirect', function () {
     wp_safe_redirect(wc_get_checkout_url());
     exit;
 }, 20);
+
+// Suppress WooCommerce notices on My Account when returning to checkout.
+function csv_suppress_checkout_redirect_notices() {
+  if ( is_admin() || wp_doing_ajax() || ! function_exists( 'is_account_page' ) ) {
+    return;
+  }
+
+  if ( ! is_account_page() || empty( $_GET['redirect_to'] ) ) {
+    return;
+  }
+
+  if ( ! function_exists( 'WC' ) || ! WC()->session ) {
+    return;
+  }
+
+  $redirect_to = esc_url_raw( wp_unslash( $_GET['redirect_to'] ) );
+  if ( false === strpos( $redirect_to, '/checkout' ) ) {
+    return;
+  }
+
+  wc_clear_notices();
+}
+add_action( 'template_redirect', 'csv_suppress_checkout_redirect_notices', 9 );
 
 // Assset loading on Woocommerce pages
 // Delaying load, so the homepage that does not have Woocommerce elments doesn't take a performance hit
