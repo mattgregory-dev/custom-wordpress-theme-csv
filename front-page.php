@@ -136,6 +136,11 @@ get_header();
       <input type="email" placeholder="Your email address">
       <button type="button">Send Me the Free Class</button>
     </div>
+
+    <div class="forminator-row" style="margin-top:24px!important;">
+      <?php echo do_shortcode( '[forminator_form id="2348"]' ); ?>
+    </div>
+
     <p class="email-micro">You&rsquo;ll also receive herbal insights and program updates. Unsubscribe any time.</p>
     <div class="footer-links">
       <a href="<?php echo esc_url( home_url( '/courses/' ) ); ?>">Explore All Courses</a>

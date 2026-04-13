@@ -1,6 +1,6 @@
 <nav class="main-menu">
   <ul>
-    <li class="no-sub-menu">
+    <li class="no-sub-menu hidden">
       <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
         <span class="menu-item">Home</span>
         <span class="menu-item2">Home</span>
