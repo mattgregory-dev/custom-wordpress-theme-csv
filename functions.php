@@ -350,6 +350,65 @@ function csv_woocommerce_logout_redirect_home( $redirect_url ) {
 }
 add_filter( 'woocommerce_logout_default_redirect_url', 'csv_woocommerce_logout_redirect_home' );
 
+// Handle free-class checkout links (empty cart, add product, apply coupon, redirect)
+// Example URL: https://featherjones.com/checkout/?add-to-cart=2155&coupon_code=freeclass
+add_action('template_redirect', function () {
+    // Frontend-only: skip admin and AJAX requests.
+    if (is_admin() || wp_doing_ajax()) {
+        return;
+    }
+
+    // Bail if WooCommerce or checkout helpers are unavailable.
+    if (!function_exists('WC') || !WC()->cart || !function_exists('is_checkout')) {
+        return;
+    }
+
+    // Only run on the checkout page.
+    if (!is_checkout()) {
+        return;
+    }
+
+    // Require both add-to-cart and coupon_code in the query string.
+    if (empty($_GET['add-to-cart']) || empty($_GET['coupon_code'])) {
+        return;
+    }
+
+    // Sanitize incoming query values.
+    $product_id  = absint(wp_unslash($_GET['add-to-cart']));
+    $coupon_code = wc_format_coupon_code(wp_unslash($_GET['coupon_code']));
+
+    // Ensure both values are valid.
+    if (!$product_id || !$coupon_code) {
+        return;
+    }
+
+    $product = wc_get_product($product_id);
+
+    // Only proceed if the product is purchasable.
+    if (!$product || !$product->is_purchasable()) {
+        return;
+    }
+
+    // Reset cart to ensure only the free-class product is present.
+    WC()->cart->empty_cart();
+
+    $added = WC()->cart->add_to_cart($product_id);
+
+    // Stop if the product could not be added.
+    if (!$added) {
+        return;
+    }
+
+    // Apply coupon if it isn't already on the cart.
+    if (!WC()->cart->has_discount($coupon_code)) {
+        WC()->cart->apply_coupon($coupon_code);
+    }
+
+    // Redirect to clean checkout URL to avoid reprocessing.
+    wp_safe_redirect(wc_get_checkout_url());
+    exit;
+}, 20);
+
 // Assset loading on Woocommerce pages
 // Delaying load, so the homepage that does not have Woocommerce elments doesn't take a performance hit
 // Load WooCommerce assets on WooCommerce pages
