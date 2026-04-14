@@ -66,16 +66,7 @@ get_header();
   <aside class="sidebar">
 
     <!-- Free class offer -->
-    <div class="sidebar-card">
-      <div class="eyebrow">Free Class</div>
-      <h3>Try a Live Class — On Us</h3>
-      <p>Join a real session with Feather and a small group of students. No pitch, no pressure — just plants.</p>
-      <div class="email-input">
-        <input type="email" placeholder="Your email address">
-        <button class="btn btn-primary">Get Your Free Class</button>
-        <p class="micro">Unsubscribe anytime. We don't share your email.</p>
-      </div>
-    </div>
+    <?php get_template_part( 'partials/sidebar-free-class' ); ?>
 
     <!-- Ad slot 1 -->
     <div class="ad-slot">Ad</div>
@@ -91,3 +82,4 @@ get_header();
 
 <?php
 get_footer();
+

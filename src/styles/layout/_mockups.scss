@@ -372,46 +372,6 @@ p {
     max-width: 520px;
     color: rgba(255,255,255,.55);
   }
-  // .email-row {
-  //   display: flex;
-  //   gap: 0;
-  //   max-width: 460px;
-  //   margin: 0 auto;
-  //   border-radius: 0.29rem;
-  //   overflow: hidden;
-  //   box-shadow: 0 4px 24px rgba(0, 0, 0, .2);
-  //   input {
-  //     flex: 1;
-  //     padding: 0.88rem 1.06rem;
-  //     border: none;
-  //     font-family: var(--font-body);
-  //     font-size: 0.88rem;
-  //     color: var(--charcoal);
-  //     outline: none;
-  //     min-width: 0;
-  //     &::placeholder {
-  //       color: #bbb;
-  //     }
-  //   }
-  //   button {
-  //     padding: 0.88rem 1.41rem;
-  //     background: var(--soft-orange);
-  //     color: var(--dark-brown);
-  //     border: none;
-  //     font-family: var(--font-eyebrow);
-  //     font-weight: 700;
-  //     font-size: 0.65rem;
-  //     letter-spacing: 0.09rem;
-  //     text-transform: uppercase;
-  //     cursor: pointer;
-  //     transition: background .3s;
-  //     white-space: nowrap;
-  //     &:hover {
-  //       background: var(--bright-orange);
-  //       color: #fff
-  //     }
-  //   }
-  // }
   .forminator-cta-form {
     .forminator-ui {
       position: relative;
@@ -503,10 +463,13 @@ p {
       }
     }
   }
-  @media (max-width: 480px) {
-    .forminator-row {
+  @media (max-width: 600px) {
+    .forminator-cta-form {
       .forminator-ui {
         flex-direction: column;
+        max-width: 100%;
+        width: 100%;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, .18);
         > .forminator-row:first-of-type,
         > .forminator-row-last,
         > .forminator-row-last .forminator-col,
@@ -514,13 +477,27 @@ p {
           flex: 1 1 100%;
           width: 100%;
         }
+        .forminator-response-message {
+          position: static;
+          margin-top: 8px;
+        }
         .forminator-input.forminator-email--field {
+          padding: 0.98rem 1.1rem;
+          font-size: 0.92rem;
           border-radius: 0.29rem 0.29rem 0 0;
         }
         .forminator-button-submit {
           width: 100%;
+          padding: 0.95rem 1rem;
+          font-size: 0.68rem;
+          letter-spacing: 0.08rem;
           border-radius: 0 0 0.29rem 0.29rem;
         }
+      }
+      .email-micro {
+        max-width: 100%;
+        padding: 0 8px;
+        text-align: center;
       }
     }
   }
@@ -2282,62 +2259,6 @@ p.course-description {
           }
         }
       }
-      // Original static html markup, for archiving
-      .popup-form {
-        display: flex;
-        gap: 0;
-        max-width: 420px;
-        margin: 0 auto 14px;
-        border-radius: 50px;
-        overflow: hidden;
-        background: rgba(255, 255, 255, 0.95);
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-        transition: box-shadow 0.3s;
-        &:focus-within {
-          box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25), 0 0 0 2px var(--sage-green);
-        }
-        input[type='email'] {
-          flex: 1;
-          border: none;
-          outline: none;
-          padding: 15px 22px;
-          font-family: "Lato", sans-serif;
-          font-size: 14px;
-          color: var(--charcoal);
-          background: transparent;
-          min-width: 0;
-          &::placeholder {
-            color: #999;
-          }
-        }
-        .hp-field {
-          position: absolute;
-          left: -9999px;
-          top: -9999px;
-          opacity: 0;
-          height: 0;
-          width: 0;
-          z-index: -1;
-          pointer-events: none;
-        }
-        button[type='submit'] {
-          font-family: "Lato", sans-serif;
-          font-size: 12px;
-          font-weight: 700;
-          letter-spacing: 1.5px;
-          text-transform: uppercase;
-          white-space: nowrap;
-          border: none;
-          background: var(--bright-orange);
-          color: #fff;
-          padding: 15px 26px;
-          cursor: pointer;
-          transition: background 0.25s;
-          &:hover {
-            background: #e87400;
-          }
-        }
-      }
       .popup-disclaimer {
         font-family: "Lato", sans-serif;
         font-size: 11px;
@@ -2457,22 +2378,6 @@ p.course-description {
     transform: translateY(0);
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // Blog post index page
 .page-header {
@@ -2628,6 +2533,9 @@ p.course-description {
 }
 
 // Single blog post
+.single #main-content {
+  background-color: #ffffff;
+}
 .breadcrumb-bar {
   background: var(--soft-cream);
   padding: 16px 24px;
@@ -2763,38 +2671,92 @@ p.course-description {
       color: #777;
       margin-bottom: 16px;
     }
-    .email-input {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    input[type="email"] {
-      padding: 12px 14px;
-      border: 1px solid rgba(177,153,134,.25);
-      border-radius: 5px;
-      font-family: var(--font-body);
-      font-size: 14px;
-      color: var(--charcoal);
-      outline: none;
-      background: #fff;
-      transition: border-color .2s;
-      &:focus {
-        border-color: var(--sage-green);
+    .sidebar-form {
+      .forminator-ui {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin: 0;
       }
-      &::placeholder {
-        color: #bbb;
+      .forminator-error-message {
+        margin-top: 0.4rem;
+        color: rgba(202, 27, 27, 0.59);
+        font-size: 0.85rem;
+        font-style: italic;
+        display: block;
+        text-align: center;
       }
-    }
-    .btn {
-      padding: 12px 20px;
-      font-size: 11px;
-      text-align: center;
-      width: 100%;
+      .forminator-response-message {
+        display: none !important;
+        margin-bottom: 6px;
+        font-size: 12px;
+        color: #b06a6a;
+      }
+      .forminator-response-message[aria-hidden="true"] {
+        display: none;
+      }
+      .forminator-row,
+      .forminator-row-last,
+      .forminator-col,
+      .forminator-field {
+        margin: 0;
+        width: 100%;
+      }
+      .forminator-input.forminator-email--field {
+        padding: 12px 14px;
+        border: 1px solid rgba(177,153,134,.25);
+        border-radius: 5px;
+        font-family: var(--font-body);
+        font-size: 14px;
+        color: var(--charcoal);
+        outline: none;
+        background: #fff;
+        transition: border-color .2s;
+        width: 100%;
+        &::placeholder {
+          color: #bbb;
+        }
+        &:focus {
+          border-color: var(--sage-green);
+        }
+      }
+      .forminator-button-submit {
+        display: inline-block;
+        width: 100%;
+        padding: 0.78rem 1.1rem;
+        font-family: var(--font-eyebrow);
+        font-weight: 700;
+        font-size: 0.65rem;
+        letter-spacing: 0.09rem;
+        text-transform: uppercase;
+        border-radius: 0.29rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 2px solid var(--soft-orange);
+        background: var(--soft-orange);
+        color: var(--white);
+        box-shadow: 0 4px 20px rgba(253,160,67,0.3);
+        &:hover {
+          background: var(--bright-orange);
+          border-color: var(--bright-orange);
+          color: #fff;
+          box-shadow: 0 6px 28px rgba(252,132,17,0.4);
+          transform: translateY(-2px);
+        }
+      }
+      input[type="hidden"],
+      .forminator-hidden {
+        position: absolute;
+        width: 0;
+        height: 0;
+        overflow: hidden;
+      }
     }
     .micro {
+      //text-align: center;
       font-size: 12px;
       color: #bbb;
-      margin-top: 4px;
+      margin-top: .8rem;
       margin-bottom: 0;
       line-height: 1.5;
     }
