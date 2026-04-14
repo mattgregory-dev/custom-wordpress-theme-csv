@@ -1323,8 +1323,8 @@ const initFreeClassPopup = () => {
   // Display timing + cookie settings.
   const POPUP_DELAY_MS = 6000;
   const COOKIE_NAME = 'fj_popup_seen';
-  const COOKIE_DAYS = 7;
-  const FORCE_POPUP = true;
+  const COOKIE_DAYS = 1;
+  const FORCE_POPUP = false;
 
   // Core element lookups.
   const overlay = document.getElementById('fjPopup');
@@ -1334,13 +1334,25 @@ const initFreeClassPopup = () => {
   const closeBtn = overlay.querySelector('.popup-close');
   const ctaBtn = document.getElementById('fjCtaBtn');
   const skipBtn = document.getElementById('fjSkipBtn');
-  const form = overlay.querySelector('form');
-  const isForminator = !!(form && form.classList.contains('forminator-ui'));
+  const getPopupForm = () =>
+    overlay.querySelector('form.forminator-ui') ||
+    overlay.querySelector('form[data-form-id]') ||
+    overlay.querySelector('form');
+  let form = getPopupForm();
+  const isForminatorForm = (node) =>
+    !!(
+      node &&
+      (node.classList.contains('forminator-ui') ||
+        node.hasAttribute('data-form-id') ||
+        node.querySelector('.forminator-response-message'))
+    );
+  let isForminator = isForminatorForm(form);
   const errorEl = document.getElementById('fjError');
   const step1 = document.getElementById('fjStep1');
   const step2 = document.getElementById('fjStep2');
   const step3 = document.getElementById('fjStep3');
   let step2At = 0;
+  let step3Triggered = false;
 
   // Cookie helpers for "seen" state.
   const setCookie = (name, value, days) => {
@@ -1378,6 +1390,8 @@ const initFreeClassPopup = () => {
   };
 
   const goToStep3 = () => {
+    if (step3Triggered) return;
+    step3Triggered = true;
     step2.classList.remove('active');
     step3.classList.add('active');
     setCookie(COOKIE_NAME, '1', 30);
@@ -1429,25 +1443,43 @@ const initFreeClassPopup = () => {
   }
 
   // Forminator: advance to Step 3 when success message appears.
-  if (form && isForminator) {
-    const responseMessage = form.querySelector('.forminator-response-message');
-    if (responseMessage) {
-      const maybeAdvance = () => {
-        if (
-          responseMessage.classList.contains('forminator-show') &&
-          responseMessage.classList.contains('forminator-success')
-        ) {
+    if (form && isForminator) {
+      const checkForminatorSuccess = () => {
+        const successEl = overlay.querySelector(
+          '.forminator-response-message.forminator-success'
+        );
+        if (!successEl) return;
+        const computed = window.getComputedStyle(successEl);
+        const isShown =
+          successEl.classList.contains('forminator-show') ||
+          successEl.getAttribute('aria-hidden') === 'false' ||
+          successEl.style.display === 'block' ||
+          computed.display !== 'none';
+        if (isShown) {
           goToStep3();
         }
       };
 
-      maybeAdvance();
+    checkForminatorSuccess();
 
-      const observer = new MutationObserver(maybeAdvance);
-      observer.observe(responseMessage, {
-        attributes: true,
-        attributeFilter: ['class', 'style', 'aria-hidden'],
-      });
+      const observer = new MutationObserver(checkForminatorSuccess);
+    observer.observe(overlay, {
+      attributes: true,
+      attributeFilter: ['class', 'style', 'aria-hidden'],
+      childList: true,
+      subtree: true,
+    });
+
+      if (window.jQuery) {
+        window.jQuery(document).on(
+          'forminator:form:submit:success',
+          (event, formId) => {
+            const currentId = form.getAttribute('data-form-id');
+            if (!currentId || !formId || `${formId}` === `${currentId}`) {
+              checkForminatorSuccess();
+            }
+          }
+      );
     }
   }
 

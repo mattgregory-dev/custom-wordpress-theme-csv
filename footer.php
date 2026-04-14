@@ -57,7 +57,7 @@ $is_excluded_slug = is_page( $popup_excluded_slugs );
 $show_popup = ! ( $is_woocommerce_page || $is_cart || $is_checkout || $is_account || $is_shop || $is_privacy_policy || $is_excluded_slug );
 
 if ( $show_popup ) {
-  //get_template_part( 'partials/popup-free-class' );
+  get_template_part( 'partials/popup-free-class' );
 }
 ?>
 <?php wp_footer(); ?>
