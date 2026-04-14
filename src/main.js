@@ -22,114 +22,114 @@ if (import.meta.env.DEV) {
 //////////////////////////////////////////
 
 // Register core GSAP plugins.
-gsap.registerPlugin(ScrollTrigger);
+// gsap.registerPlugin(ScrollTrigger);
 
-let drawSvgReady = false;
-let drawSvgPromise = null;
+// let drawSvgReady = false;
+// let drawSvgPromise = null;
 
 // Lazy-load GSAP DrawSVG plugin when needed.
-const loadDrawSVGPlugin = () => {
-  if (drawSvgReady) return Promise.resolve();
-  if (drawSvgPromise) return drawSvgPromise;
+// const loadDrawSVGPlugin = () => {
+//   if (drawSvgReady) return Promise.resolve();
+//   if (drawSvgPromise) return drawSvgPromise;
 
-  drawSvgPromise = import("gsap/DrawSVGPlugin")
-    .then((module) => {
-      const plugin = module.DrawSVGPlugin || module.default;
-      if (!plugin) return;
-      gsap.registerPlugin(plugin);
-      drawSvgReady = true;
-    })
-    .catch((error) => {
-      drawSvgPromise = null;
-      throw error;
-    });
+//   drawSvgPromise = import("gsap/DrawSVGPlugin")
+//     .then((module) => {
+//       const plugin = module.DrawSVGPlugin || module.default;
+//       if (!plugin) return;
+//       gsap.registerPlugin(plugin);
+//       drawSvgReady = true;
+//     })
+//     .catch((error) => {
+//       drawSvgPromise = null;
+//       throw error;
+//     });
 
-  return drawSvgPromise;
-};
+//   return drawSvgPromise;
+// };
 
 // Animated SVG motif (DrawSVG).
-const ayaMotifSVGDraw = () => {
-  const init = () => {
-    const aya = document.getElementById("aya_motif");
-    if (!aya) return;
-    if (!gsap) return;
+// const ayaMotifSVGDraw = () => {
+//   const init = () => {
+//     const aya = document.getElementById("aya_motif");
+//     if (!aya) return;
+//     if (!gsap) return;
 
-    const drawable = aya.querySelectorAll("path, line, polyline, polygon, ellipse, circle, rect");
-    if (!drawable.length) return;
+//     const drawable = aya.querySelectorAll("path, line, polyline, polygon, ellipse, circle, rect");
+//     if (!drawable.length) return;
 
-    // ensure SVG is visible before drawing
-    gsap.set(aya, { opacity: 1, visibility: "visible" });
+//     // ensure SVG is visible before drawing
+//     gsap.set(aya, { opacity: 1, visibility: "visible" });
 
-    const prefersReducedMotion = window.matchMedia &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (prefersReducedMotion) {
-      // skip animation for reduced motion
-      gsap.set(drawable, { drawSVG: "0% 100%" });
-      return;
-    }
-    // initial draw state
-    gsap.set(drawable, { drawSVG: "0% 0%" });
+//     const prefersReducedMotion = window.matchMedia &&
+//       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+//     if (prefersReducedMotion) {
+//       // skip animation for reduced motion
+//       gsap.set(drawable, { drawSVG: "0% 100%" });
+//       return;
+//     }
+//     // initial draw state
+//     gsap.set(drawable, { drawSVG: "0% 0%" });
 
-    const groups = {
-      center: aya.querySelectorAll("#center path, #center line, #center polyline, #center polygon, #center ellipse, #center circle, #center rect"),
-      centerRing: aya.querySelectorAll("#center_ring path, #center_ring line, #center_ring polyline, #center_ring polygon, #center_ring ellipse, #center_ring circle, #center_ring rect"),
-      details: aya.querySelectorAll("#details path, #details line, #details polyline, #details polygon, #details ellipse, #details circle, #details rect"),
-      circle: aya.querySelectorAll("#circle path, #circle line, #circle polyline, #circle polygon, #circle ellipse, #circle circle, #circle rect")
-    };
+//     const groups = {
+//       center: aya.querySelectorAll("#center path, #center line, #center polyline, #center polygon, #center ellipse, #center circle, #center rect"),
+//       centerRing: aya.querySelectorAll("#center_ring path, #center_ring line, #center_ring polyline, #center_ring polygon, #center_ring ellipse, #center_ring circle, #center_ring rect"),
+//       details: aya.querySelectorAll("#details path, #details line, #details polyline, #details polygon, #details ellipse, #details circle, #details rect"),
+//       circle: aya.querySelectorAll("#circle path, #circle line, #circle polyline, #circle polygon, #circle ellipse, #circle circle, #circle rect")
+//     };
 
-    const tl = gsap.timeline({
-      // dial: per-group draw duration + easing
-      defaults: { duration: 0.7, ease: "power1.inOut" }
-    });
-    // dial: fade-in speed + per-element opacity stagger
-    tl.to(drawable, { opacity: 1, duration: 0.6, stagger: 0.005 }, 0);
+//     const tl = gsap.timeline({
+//       // dial: per-group draw duration + easing
+//       defaults: { duration: 0.7, ease: "power1.inOut" }
+//     });
+//     // dial: fade-in speed + per-element opacity stagger
+//     tl.to(drawable, { opacity: 1, duration: 0.6, stagger: 0.005 }, 0);
 
-    if (groups.circle.length) {
-      // dial: overlap timing between groups
-      tl.to(groups.circle, { drawSVG: "0% 100%", stagger: 0.01 }, 0);
-    }
-    if (groups.center.length) {
-      // dial: center line draw stagger
-      tl.to(groups.center, { drawSVG: "0% 100%", stagger: 0.01 }, ">-0.2");
-    }
-    if (groups.centerRing.length) {
-      // dial: overlap timing between groups
-      tl.to(groups.centerRing, { drawSVG: "0% 100%", stagger: 0.01 }, ">-0.2");
-    }
-    if (groups.details.length) {
-      // dial: overlap timing between groups
-      tl.to(groups.details, { drawSVG: "0% 100%", stagger: 0.01 }, ">-0.2");
-    }
-  };
+//     if (groups.circle.length) {
+//       // dial: overlap timing between groups
+//       tl.to(groups.circle, { drawSVG: "0% 100%", stagger: 0.01 }, 0);
+//     }
+//     if (groups.center.length) {
+//       // dial: center line draw stagger
+//       tl.to(groups.center, { drawSVG: "0% 100%", stagger: 0.01 }, ">-0.2");
+//     }
+//     if (groups.centerRing.length) {
+//       // dial: overlap timing between groups
+//       tl.to(groups.centerRing, { drawSVG: "0% 100%", stagger: 0.01 }, ">-0.2");
+//     }
+//     if (groups.details.length) {
+//       // dial: overlap timing between groups
+//       tl.to(groups.details, { drawSVG: "0% 100%", stagger: 0.01 }, ">-0.2");
+//     }
+//   };
 
-  const startWhenVisible = () => {
-    const aya = document.getElementById("aya_motif");
-    if (!aya) return;
+//   const startWhenVisible = () => {
+//     const aya = document.getElementById("aya_motif");
+//     if (!aya) return;
 
-    const runInit = () => {
-      loadDrawSVGPlugin()
-        .then(() => init())
-        .catch(() => {});
-    };
+//     const runInit = () => {
+//       loadDrawSVGPlugin()
+//         .then(() => init())
+//         .catch(() => {});
+//     };
 
-    if (!("IntersectionObserver" in window)) {
-      window.setTimeout(runInit, 300); // dial: delay before starting when IO is unavailable
-      return;
-    }
+//     if (!("IntersectionObserver" in window)) {
+//       window.setTimeout(runInit, 300); // dial: delay before starting when IO is unavailable
+//       return;
+//     }
 
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry || !entry.isIntersecting) return;
-        io.unobserve(entry.target);
-        window.setTimeout(runInit, 300); // dial: delay after entering viewport
-      });
-    }, { threshold: 0.35 }); // dial: how much of SVG must be visible before starting
+//     const io = new IntersectionObserver((entries) => {
+//       entries.forEach((entry) => {
+//         if (!entry || !entry.isIntersecting) return;
+//         io.unobserve(entry.target);
+//         window.setTimeout(runInit, 300); // dial: delay after entering viewport
+//       });
+//     }, { threshold: 0.35 }); // dial: how much of SVG must be visible before starting
 
-    io.observe(aya);
-  };
+//     io.observe(aya);
+//   };
 
-  startWhenVisible();
-};
+//   startWhenVisible();
+// };
 
 // Anchor link handling with Lenis compatibility.
 const smoothAnchors = () => {
@@ -396,120 +396,120 @@ const preloader = () => {
 };
 
 // Parallax effects for hero/section images.
-const csvParallax = () => {
-  const parallaxSections = Array.from(
-    document.querySelectorAll(".parallax-banner")
-  )
-    .map((section) => {
-      const wrap = section.querySelector(".parallax-wrap");
-      const img = section.querySelector(".parallax-img");
-      if (!wrap || !img) return null;
-      return {
-        section,
-        wrap,
-        img,
-        maxTranslate: 0,
-      };
-    })
-    .filter(Boolean);
+// const csvParallax = () => {
+//   const parallaxSections = Array.from(
+//     document.querySelectorAll(".parallax-banner")
+//   )
+//     .map((section) => {
+//       const wrap = section.querySelector(".parallax-wrap");
+//       const img = section.querySelector(".parallax-img");
+//       if (!wrap || !img) return null;
+//       return {
+//         section,
+//         wrap,
+//         img,
+//         maxTranslate: 0,
+//       };
+//     })
+//     .filter(Boolean);
 
-  if (!parallaxSections.length) return;
+//   if (!parallaxSections.length) return;
 
-  let ticking = false;
+//   let ticking = false;
 
-  const updateMetrics = () => {
-    parallaxSections.forEach((item) => {
-      const sectionHeight = item.section.offsetHeight;
-      const wrapHeight = item.wrap.offsetHeight;
-      const extra = Math.max(0, wrapHeight - sectionHeight);
-      item.maxTranslate = extra / 2;
-    });
-  };
+//   const updateMetrics = () => {
+//     parallaxSections.forEach((item) => {
+//       const sectionHeight = item.section.offsetHeight;
+//       const wrapHeight = item.wrap.offsetHeight;
+//       const extra = Math.max(0, wrapHeight - sectionHeight);
+//       item.maxTranslate = extra / 2;
+//     });
+//   };
 
-  const updateParallax = () => {
-    const viewportHeight = window.innerHeight;
+//   const updateParallax = () => {
+//     const viewportHeight = window.innerHeight;
 
-    parallaxSections.forEach((item) => {
-      const rect = item.section.getBoundingClientRect();
-      if (rect.bottom < 0 || rect.top > viewportHeight) return;
+//     parallaxSections.forEach((item) => {
+//       const rect = item.section.getBoundingClientRect();
+//       if (rect.bottom < 0 || rect.top > viewportHeight) return;
 
-      const progress = (viewportHeight - rect.top) / (viewportHeight + rect.height);
-      const clamped = Math.min(1, Math.max(0, progress));
-      const translate = (clamped - 0.5) * 2 * item.maxTranslate;
+//       const progress = (viewportHeight - rect.top) / (viewportHeight + rect.height);
+//       const clamped = Math.min(1, Math.max(0, progress));
+//       const translate = (clamped - 0.5) * 2 * item.maxTranslate;
 
-      item.img.style.transform = `translate3d(0, ${translate.toFixed(2)}px, 0)`;
-    });
+//       item.img.style.transform = `translate3d(0, ${translate.toFixed(2)}px, 0)`;
+//     });
 
-    ticking = false;
-  };
+//     ticking = false;
+//   };
 
-  const requestUpdate = () => {
-    if (ticking) return;
-    ticking = true;
-    window.requestAnimationFrame(updateParallax);
-  };
+//   const requestUpdate = () => {
+//     if (ticking) return;
+//     ticking = true;
+//     window.requestAnimationFrame(updateParallax);
+//   };
 
-  const onResize = () => {
-    updateMetrics();
-    requestUpdate();
-  };
+//   const onResize = () => {
+//     updateMetrics();
+//     requestUpdate();
+//   };
 
-  window.addEventListener("scroll", requestUpdate, { passive: true });
-  window.addEventListener("resize", onResize);
+//   window.addEventListener("scroll", requestUpdate, { passive: true });
+//   window.addEventListener("resize", onResize);
 
-  if ("ResizeObserver" in window) {
-    const ro = new ResizeObserver(() => {
-      updateMetrics();
-      requestUpdate();
-    });
-    parallaxSections.forEach((item) => ro.observe(item.section));
-  }
+//   if ("ResizeObserver" in window) {
+//     const ro = new ResizeObserver(() => {
+//       updateMetrics();
+//       requestUpdate();
+//     });
+//     parallaxSections.forEach((item) => ro.observe(item.section));
+//   }
 
-  updateMetrics();
-  updateParallax();
-};
+//   updateMetrics();
+//   updateParallax();
+// };
 
 // Dark/light theme toggle logic.
-const themeToggle = () => {
-  const body = document.body;
-  const themeBtn = document.getElementById("themeBtn");
-  const darkModeImages = document.querySelectorAll(
-    ".darkModeTrigger, .darkModeTriggerImg, .darkModeTriggerImg2"
-  );
+// const themeToggle = () => {
+//   const body = document.body;
+//   const themeBtn = document.getElementById("themeBtn");
+//   const darkModeImages = document.querySelectorAll(
+//     ".darkModeTrigger, .darkModeTriggerImg, .darkModeTriggerImg2"
+//   );
 
-  if (localStorage.getItem("themeMode") === "active") {
-    body.classList.add("active-body", "dark-mode");
-    if (themeBtn) themeBtn.classList.add("active-btn");
-  }
+//   if (localStorage.getItem("themeMode") === "active") {
+//     body.classList.add("active-body", "dark-mode");
+//     if (themeBtn) themeBtn.classList.add("active-btn");
+//   }
 
-  const toggleDarkMode = () => {
-    if (!body.classList.contains("active-body")) {
-      body.classList.add("active-body", "dark-mode");
-      if (themeBtn) themeBtn.classList.add("active-btn");
-      localStorage.setItem("themeMode", "active");
-      localStorage.setItem("darkMode", "enabled");
-      return;
-    }
+//   const toggleDarkMode = () => {
+//     if (!body.classList.contains("active-body")) {
+//       body.classList.add("active-body", "dark-mode");
+//       if (themeBtn) themeBtn.classList.add("active-btn");
+//       localStorage.setItem("themeMode", "active");
+//       localStorage.setItem("darkMode", "enabled");
+//       return;
+//     }
 
-    body.classList.remove("active-body", "dark-mode");
-    if (themeBtn) themeBtn.classList.remove("active-btn");
-    localStorage.setItem("themeMode", "inactive");
-    localStorage.setItem("darkMode", "disabled");
-  };
+//     body.classList.remove("active-body", "dark-mode");
+//     if (themeBtn) themeBtn.classList.remove("active-btn");
+//     localStorage.setItem("themeMode", "inactive");
+//     localStorage.setItem("darkMode", "disabled");
+//   };
 
-  if (themeBtn) {
-    themeBtn.addEventListener("click", () => {
-      toggleDarkMode();
-    });
-  }
+//   if (themeBtn) {
+//     themeBtn.addEventListener("click", () => {
+//       toggleDarkMode();
+//     });
+//   }
 
-  darkModeImages.forEach((el) => {
-    el.addEventListener("click", (event) => {
-      event.preventDefault();
-      toggleDarkMode();
-    });
-  });
-};
+//   darkModeImages.forEach((el) => {
+//     el.addEventListener("click", (event) => {
+//       event.preventDefault();
+//       toggleDarkMode();
+//     });
+//   });
+// };
 
 // Search popup open/close controls.
 /*
@@ -801,74 +801,74 @@ const initFaqAccordions = () => {
 };
 
 // GSAP subtitle reveal animation.
-const animateSubtitles = () => {
-  const subtitles = document.querySelectorAll('.sec-title .sub-title');
+// const animateSubtitles = () => {
+//   const subtitles = document.querySelectorAll('.sec-title .sub-title');
 
-  subtitles.forEach((sub) => {
-    if (sub.dataset.wrapped === 'true') return;
-    const text = sub.textContent.trim();
-    sub.innerHTML = `<span class="sub-text">${text}</span>`;
-    const innerSpan = sub.querySelector('.sub-text');
-    if (!innerSpan) return;
-    sub.dataset.wrapped = 'true';
+//   subtitles.forEach((sub) => {
+//     if (sub.dataset.wrapped === 'true') return;
+//     const text = sub.textContent.trim();
+//     sub.innerHTML = `<span class="sub-text">${text}</span>`;
+//     const innerSpan = sub.querySelector('.sub-text');
+//     if (!innerSpan) return;
+//     sub.dataset.wrapped = 'true';
 
-    gsap.set(innerSpan, {
-      width: 1,
-      display: 'inline-block',
-      overflow: 'hidden',
-    });
+//     gsap.set(innerSpan, {
+//       width: 1,
+//       display: 'inline-block',
+//       overflow: 'hidden',
+//     });
 
-    gsap.to(innerSpan, {
-      width: innerSpan.scrollWidth,
-      duration: 1.2,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: sub.closest('.sec-title'),
-        start: 'top 90%',
-        toggleActions: 'play none none none',
-      },
-    });
-  });
-};
+//     gsap.to(innerSpan, {
+//       width: innerSpan.scrollWidth,
+//       duration: 1.2,
+//       ease: 'power2.out',
+//       scrollTrigger: {
+//         trigger: sub.closest('.sec-title'),
+//         start: 'top 90%',
+//         toggleActions: 'play none none none',
+//       },
+//     });
+//   });
+// };
 
 // GSAP letter-by-letter heading animation.
-const animateHeadings = () => {
-  const headings = document.querySelectorAll('.title.animated-heading');
+// const animateHeadings = () => {
+//   const headings = document.querySelectorAll('.title.animated-heading');
 
-  headings.forEach((title) => {
-    if (title.dataset.wrapped === 'true') return;
-    const words = title.textContent.trim().split(/\s+/);
+//   headings.forEach((title) => {
+//     if (title.dataset.wrapped === 'true') return;
+//     const words = title.textContent.trim().split(/\s+/);
 
-    const wrappedWords = words
-      .map((word) => {
-        const letters = word
-          .split('')
-          .map((letter) => `<span class="letter">${letter}</span>`)
-          .join('');
-        return `<span class="word">${letters}</span>`;
-      })
-      .join('<span class="space"> </span>');
+//     const wrappedWords = words
+//       .map((word) => {
+//         const letters = word
+//           .split('')
+//           .map((letter) => `<span class="letter">${letter}</span>`)
+//           .join('');
+//         return `<span class="word">${letters}</span>`;
+//       })
+//       .join('<span class="space"> </span>');
 
-    title.innerHTML = wrappedWords;
-    title.dataset.wrapped = 'true';
+//     title.innerHTML = wrappedWords;
+//     title.dataset.wrapped = 'true';
 
-    const letters = title.querySelectorAll('.letter');
+//     const letters = title.querySelectorAll('.letter');
 
-    gsap.from(letters, {
-      y: 40,
-      opacity: 0,
-      stagger: 0.04,
-      duration: 0.9,
-      ease: 'power3.out',
-      delay: 0.3,
-      scrollTrigger: {
-        trigger: title,
-        start: 'top 85%',
-        once: true,
-      },
-    });
-  });
-};
+//     gsap.from(letters, {
+//       y: 40,
+//       opacity: 0,
+//       stagger: 0.04,
+//       duration: 0.9,
+//       ease: 'power3.out',
+//       delay: 0.3,
+//       scrollTrigger: {
+//         trigger: title,
+//         start: 'top 85%',
+//         once: true,
+//       },
+//     });
+//   });
+// };
 
 // GSAP hero slide transition choreography.
 /*
@@ -1215,108 +1215,108 @@ const activeMenu = () => {
 };
 
 // GSAP animation orchestrator.
-const gsapAnimations = () => {
-  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+// const gsapAnimations = () => {
+//   if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
 
-  //////////////////////////////////////////
-  /////// START DEV ENV ANIMATE FIX ////////
-  //////////////////////////////////////////
-  if (import.meta.env.DEV) {
-    window.setTimeout(animateSubtitles, 100);
-    window.setTimeout(animateHeadings, 50);
-  } else {
-    animateSubtitles();
-    animateHeadings();
-  }
-  //////////////////////////////////////////
-  /////// END DEV ENV ANIMATE FIX //////////
-  //////////////////////////////////////////
+//   //////////////////////////////////////////
+//   /////// START DEV ENV ANIMATE FIX ////////
+//   //////////////////////////////////////////
+//   if (import.meta.env.DEV) {
+//     window.setTimeout(animateSubtitles, 100);
+//     window.setTimeout(animateHeadings, 50);
+//   } else {
+//     animateSubtitles();
+//     animateHeadings();
+//   }
+//   //////////////////////////////////////////
+//   /////// END DEV ENV ANIMATE FIX //////////
+//   //////////////////////////////////////////
 
-  //initHeroSlider();
-  //animateContactButtons();
-  //animateDemoImages();
-  //animateSection24();
-  //animateServiceCards();
-};
+//   //initHeroSlider();
+//   //animateContactButtons();
+//   //animateDemoImages();
+//   //animateSection24();
+//   //animateServiceCards();
+// };
 
-const initAcfMaps = () => {
-  const mapEls = document.querySelectorAll('.acf-map');
-  if (!mapEls.length) return;
+// const initAcfMaps = () => {
+//   const mapEls = document.querySelectorAll('.acf-map');
+//   if (!mapEls.length) return;
 
-  const isGoogleReady = () =>
-    typeof window.google !== 'undefined' &&
-    window.google.maps &&
-    typeof window.google.maps.Map === 'function';
+//   const isGoogleReady = () =>
+//     typeof window.google !== 'undefined' &&
+//     window.google.maps &&
+//     typeof window.google.maps.Map === 'function';
 
-  const maxRetries = 25;
-  let retryCount = 0;
+//   const maxRetries = 25;
+//   let retryCount = 0;
 
-  if (!isGoogleReady()) {
-    retryCount += 1;
-    if (retryCount <= maxRetries) {
-      window.setTimeout(initAcfMaps, 200);
-    }
-    return;
-  }
+//   if (!isGoogleReady()) {
+//     retryCount += 1;
+//     if (retryCount <= maxRetries) {
+//       window.setTimeout(initAcfMaps, 200);
+//     }
+//     return;
+//   }
 
-  const initMap = (mapEl) => {
-    if (mapEl.dataset.mapInitialized === 'true') return;
-    mapEl.dataset.mapInitialized = 'true';
+//   const initMap = (mapEl) => {
+//     if (mapEl.dataset.mapInitialized === 'true') return;
+//     mapEl.dataset.mapInitialized = 'true';
 
-    const zoom = Number.parseInt(mapEl.dataset.zoom || '16', 10);
-    const markerEls = Array.from(mapEl.querySelectorAll('.marker'));
+//     const zoom = Number.parseInt(mapEl.dataset.zoom || '16', 10);
+//     const markerEls = Array.from(mapEl.querySelectorAll('.marker'));
 
-    const map = new window.google.maps.Map(mapEl, {
-      zoom: Number.isNaN(zoom) ? 16 : zoom,
-      mapTypeId: window.google.maps.MapTypeId.ROADMAP,
-    });
+//     const map = new window.google.maps.Map(mapEl, {
+//       zoom: Number.isNaN(zoom) ? 16 : zoom,
+//       mapTypeId: window.google.maps.MapTypeId.ROADMAP,
+//     });
 
-    map.markers = [];
+//     map.markers = [];
 
-    markerEls.forEach((markerEl) => {
-      let lat = Number.parseFloat(markerEl.dataset.lat);
-      let lng = Number.parseFloat(markerEl.dataset.lng);
+//     markerEls.forEach((markerEl) => {
+//       let lat = Number.parseFloat(markerEl.dataset.lat);
+//       let lng = Number.parseFloat(markerEl.dataset.lng);
 
-      if (Number.isNaN(lat) || Number.isNaN(lng)) {
-        return;
-      }
+//       if (Number.isNaN(lat) || Number.isNaN(lng)) {
+//         return;
+//       }
 
-      const marker = new window.google.maps.Marker({
-        position: { lat, lng },
-        map,
-      });
+//       const marker = new window.google.maps.Marker({
+//         position: { lat, lng },
+//         map,
+//       });
 
-      map.markers.push(marker);
+//       map.markers.push(marker);
 
-      const infoContent = markerEl.innerHTML.trim();
-      if (infoContent) {
-        const infoWindow = new window.google.maps.InfoWindow({
-          content: infoContent,
-        });
-        marker.addListener('click', () => {
-          infoWindow.open(map, marker);
-        });
-      }
-    });
+//       const infoContent = markerEl.innerHTML.trim();
+//       if (infoContent) {
+//         const infoWindow = new window.google.maps.InfoWindow({
+//           content: infoContent,
+//         });
+//         marker.addListener('click', () => {
+//           infoWindow.open(map, marker);
+//         });
+//       }
+//     });
 
-    if (!map.markers.length) return;
+//     if (!map.markers.length) return;
 
-    const bounds = new window.google.maps.LatLngBounds();
-    map.markers.forEach((marker) => {
-      bounds.extend(marker.getPosition());
-    });
+//     const bounds = new window.google.maps.LatLngBounds();
+//     map.markers.forEach((marker) => {
+//       bounds.extend(marker.getPosition());
+//     });
 
-    if (map.markers.length === 1) {
-      map.setCenter(bounds.getCenter());
-    } else {
-      map.fitBounds(bounds);
-    }
-  };
+//     if (map.markers.length === 1) {
+//       map.setCenter(bounds.getCenter());
+//     } else {
+//       map.fitBounds(bounds);
+//     }
+//   };
 
-  mapEls.forEach((mapEl) => {
-    initMap(mapEl);
-  });
-};
+//   mapEls.forEach((mapEl) => {
+//     initMap(mapEl);
+//   });
+// };
 
 // Feather Jones - Free Class Popup.
 const initFreeClassPopup = () => {
@@ -1504,17 +1504,17 @@ const initFreeClassPopup = () => {
 
 const init = () => {
   preloader();
-  ayaMotifSVGDraw();
+  //ayaMotifSVGDraw();
   scrollToTop();
   //smoothAnchors();
   //LenisScroll.init();
   stickyHeader();
-  csvParallax();
-  themeToggle();
+  //csvParallax();
+  //themeToggle();
   activeMenu();
   sideMenu();
-  gsapAnimations();
-  initAcfMaps();
+  //gsapAnimations();
+  //initAcfMaps();
   initFreeClassPopup();
   //searchPopup();
   //revealUpAnimation();

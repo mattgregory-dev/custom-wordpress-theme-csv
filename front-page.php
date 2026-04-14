@@ -128,23 +128,24 @@ get_header();
 <!-- ========== FOOTER CTA + EMAIL CAPTURE ========== -->
 <section class="section footer-cta bg-deep-teal">
   <div class="container text-center reveal">
-    <div class="eyebrow">Free Class</div>
+    <div class="eyebrow">Free Course</div>
     <h2>New to Herbs? Start Here&thinsp;&mdash;&thinsp;No Cost.</h2>
-    <p style="font-size:16px;max-width:560px;margin:0 auto 12px;color:rgba(255,255,255,.8);font-weight:300;line-height:1.8;">Sign up and get instant access to <em>Natural Pest Control with Plants: Safe, Herbal Solutions for Home & Pets</em>&thinsp;&mdash;&thinsp;a short, practical class on using herbs and essential oils to repel common pests, naturally. It&rsquo;s 25&ndash;35 minutes and you can use what you learn right away.</p>
-    <p style="font-size:14px;max-width:520px;margin:0 auto 32px;color:rgba(255,255,255,.55);">Part of Feather&rsquo;s Get Your Feet Wet Series: short, focused lessons designed for people just getting started.</p>
-    <div class="email-row">
+    <p class="mx-auto mb-4 descriptor">Sign up and get instant access to <em>Natural Pest Control with Plants: Safe, Herbal Solutions for Home & Pets</em>&thinsp;&mdash;&thinsp;a short, practical course on using herbs and essential oils to repel common pests, naturally. It&rsquo;s 25&ndash;35 minutes and you can use what you learn right away.</p>
+    <p class="mx-auto mb-10 sub-line">Part of Feather&rsquo;s Get Your Feet Wet Series: short, focused lessons designed for people just getting started.</p>
+
+    <?php /* <div class="email-row">
       <input type="email" placeholder="Your email address">
       <button type="button">Send Me the Free Class</button>
-    </div>
+    </div> */ ?>
 
-    <div class="forminator-row" style="margin-top:24px!important;">
+    <div class="forminator-cta-form mt-12 mb-10">
       <?php echo do_shortcode( '[forminator_form id="2348"]' ); ?>
     </div>
 
     <p class="email-micro">You&rsquo;ll also receive herbal insights and program updates. Unsubscribe any time.</p>
     <div class="footer-links">
       <a href="<?php echo esc_url( home_url( '/courses/' ) ); ?>">Explore All Courses</a>
-      <a href="<?php echo esc_url( home_url( '/' ) ); ?>">Follow on Facebook</a>
+      <a class="hidden" href="<?php echo esc_url( home_url( '/' ) ); ?>">Follow on Facebook</a>
       <a href="<?php echo esc_url( home_url( '/' ) ); ?>">Follow on Instagram</a>
     </div>
   </div>

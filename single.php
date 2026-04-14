@@ -1,144 +1,163 @@
 <?php
 get_header();
+
+$posts_page_id = (int) get_option( 'page_for_posts' );
+$journal_url = $posts_page_id ? get_permalink( $posts_page_id ) : home_url( '/blog/' );
 ?>
 
-<?php if (have_posts()) : ?>
-  <?php while (have_posts()) : the_post(); ?>
-    <?php
-      $post_id = get_the_ID();
-      $categories = get_the_category($post_id);
-      $primary_category = !empty($categories) ? $categories[0]->name : 'Journal';
-      $author_name = get_the_author();
-      $posts_page_id = (int) get_option('page_for_posts');
-      $blog_link = $posts_page_id ? get_permalink($posts_page_id) : home_url('/');
-    ?>
+<!-- ========== BREADCRUMB ========== -->
+<div class="breadcrumb-bar">
+  <nav>
+    <a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a>
+    <span class="sep">/</span>
+    <a href="<?php echo esc_url( $journal_url ); ?>">Journal</a>
+    <span class="sep">/</span>
+    <span style="color:#999"><?php the_title(); ?></span>
+  </nav>
+</div>
 
-    <!-- ARTICLE HERO / HEADER -->
-    <section id="article-hero" class="w-full py-12">
-      <div class="max-w-[1240px] mx-auto px-6">
-        <div class="max-w-3xl space-y-5">
-          <p class="label text-base uppercase tracking-[0.25em] text-[var(--muted)]"><?php echo esc_html($primary_category); ?></p>
-          <h1 class="text-5xl leading-tight"><?php the_title(); ?></h1>
-          <div class="text-xs uppercase tracking-[0.2em] text-[var(--muted)] flex flex-wrap gap-4">
-            <span><?php echo esc_html(get_the_date()); ?></span>
-            <?php if (!empty($author_name)) : ?>
-              <span><?php // echo esc_html($author_name); ?></span>
-            <?php endif; ?>
-          </div>
-          <?php if (has_excerpt()) : ?>
-            <p class="text-lg leading-relaxed text-[var(--muted)]"><?php echo esc_html(get_the_excerpt()); ?></p>
-          <?php endif; ?>
-        </div>
-      </div>
-    </section>
+<!-- ========== POST LAYOUT ========== -->
+<div class="post-layout">
 
-    <!-- FEATURED IMAGE -->
-    <?php if (has_post_thumbnail()) : ?>
-      <section id="article-image" class="w-full pb-12">
-        <div class="max-w-[1240px] mx-auto px-6">
-          <div class="max-w-[1100px] mx-auto rounded-[32px] border border-slate-300 bg-white/90 soft-shadow overflow-hidden">
-            <?php the_post_thumbnail('large', array('class' => 'block h-full w-full object-cover')); ?>
-          </div>
-        </div>
-      </section>
-    <?php else : ?>
-      <section id="article-image" class="w-full pb-12">
-        <div class="max-w-[1240px] mx-auto px-6">
-          <div class="max-w-[1100px] mx-auto rounded-[32px] border border-slate-300 bg-[var(--dusk)] soft-shadow h-[320px] flex items-center justify-center">
-            <span class="text-xs uppercase tracking-[0.25em] text-white opacity-80">No Image</span>
-          </div>
-        </div>
-      </section>
-    <?php endif; ?>
-
-    <!-- ARTICLE BODY -->
-    <section id="article-body" class="w-full pb-16">
-      <div class="max-w-[1240px] mx-auto px-6">
-        <article class="post-content max-w-3xl mx-auto text-[var(--ink)]">
-          <?php the_content(); ?>
-        </article>
-      </div>
-    </section>
-
-    <!-- ARTICLE FOOTER META -->
-    <section id="article-meta" class="w-full pb-16">
-      <div class="max-w-[1240px] mx-auto px-6">
-        <div class="max-w-3xl mx-auto space-y-4">
-          <div class="border-t border-slate-300 pt-6 text-xs uppercase tracking-[0.2em] text-[var(--muted)]">
-            <?php if (!empty($categories)) : ?>
-              <div class="pb-3">
-                Categories: <?php echo wp_kses_post(get_the_category_list(', ')); ?>
-              </div>
-            <?php endif; ?>
-            <?php
-              $tags_list = get_the_tag_list('Tags: ', ', ');
-              if ($tags_list) :
-            ?>
-              <div><?php echo wp_kses_post($tags_list); ?></div>
-            <?php endif; ?>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- RELATED / CONTINUE READING -->
-    <section id="article-related" class="w-full band-mist py-16">
-      <div class="max-w-[1240px] mx-auto px-6 space-y-8">
-        <div class="flex items-center justify-between">
-          <p class="label text-base uppercase tracking-[0.25em] text-[var(--muted)]">Continue reading</p>
-          <a class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]" href="<?php echo esc_url($blog_link); ?>">
-            &larr; Back to Blog
-          </a>
-        </div>
+  <!-- ===== MAIN: ARTICLE ===== -->
+  <article>
+    <?php if ( have_posts() ) : ?>
+      <?php while ( have_posts() ) : the_post(); ?>
         <?php
-          $related_args = array(
-            'post_status' => 'publish',
-            'posts_per_page' => 3,
-            'post__not_in' => array($post_id),
-            'ignore_sticky_posts' => 1,
-          );
-          if (!empty($categories)) {
-            $related_args['category__in'] = wp_list_pluck($categories, 'term_id');
-          }
-          $related_query = new WP_Query($related_args);
+        $fallback_image = get_template_directory_uri() . '/images/bg/7178818.webp';
+        $thumbnail_url = get_the_post_thumbnail_url( get_the_ID(), 'large' );
+        $image_url = $thumbnail_url ? $thumbnail_url : $fallback_image;
+        $image_alt = '';
+        if ( $thumbnail_url ) {
+          $alt_id = get_post_thumbnail_id( get_the_ID() );
+          $image_alt = $alt_id ? get_post_meta( $alt_id, '_wp_attachment_image_alt', true ) : '';
+        }
+        if ( '' === $image_alt ) {
+          $image_alt = get_the_title();
+        }
+
+        $content = wp_strip_all_tags( get_the_content() );
+        $word_count = str_word_count( $content );
+        $reading_minutes = max( 1, (int) ceil( $word_count / 200 ) );
+        $reading_time = sprintf( '%d min read', $reading_minutes );
+
+        $author_id = (int) get_the_author_meta( 'ID' );
+        $author_name = get_the_author();
+        $author_bio = get_the_author_meta( 'description' );
+        $author_link = get_the_author_meta( 'user_url', $author_id );
+        if ( '' === $author_link ) {
+          $author_link = get_author_posts_url( $author_id );
+        }
+        $author_avatar = get_avatar_url( $author_id, array( 'size' => 112 ) );
+        $author_profile_image = null;
+        $author_profile_image_alt = '';
+        if ( function_exists( 'get_field' ) ) {
+          $author_profile_image = get_field( 'user_profile_image', 'user_' . $author_id );
+        }
+        if ( is_array( $author_profile_image ) ) {
+          $author_profile_image_alt = isset( $author_profile_image['alt'] ) ? $author_profile_image['alt'] : '';
+          $author_profile_image = isset( $author_profile_image['url'] ) ? $author_profile_image['url'] : '';
+        } elseif ( is_numeric( $author_profile_image ) ) {
+          $author_profile_image_alt = get_post_meta( (int) $author_profile_image, '_wp_attachment_image_alt', true );
+          $author_profile_image = wp_get_attachment_image_url( (int) $author_profile_image, 'thumbnail' );
+        }
+        if ( '' === $author_profile_image_alt ) {
+          $author_profile_image_alt = $author_name;
+        }
+        if ( $author_profile_image ) {
+          $author_avatar = $author_profile_image;
+        }
         ?>
-        <?php if ($related_query->have_posts()) : ?>
-          <div class="grid grid-cols-3 gap-6">
-            <?php while ($related_query->have_posts()) : $related_query->the_post(); ?>
-              <?php
-                $related_categories = get_the_category();
-                $related_category = !empty($related_categories) ? $related_categories[0]->name : 'Journal';
-              ?>
-              <article class="rounded-3xl border border-slate-300 bg-white/90 soft-shadow overflow-hidden flex flex-col">
-                <a class="block" href="<?php the_permalink(); ?>">
-                  <div class="h-[180px] w-full">
-                    <?php if (has_post_thumbnail()) : ?>
-                      <?php the_post_thumbnail('large', array('class' => 'h-full w-full object-cover')); ?>
-                    <?php else : ?>
-                      <div class="h-full w-full bg-[var(--dusk)] flex items-center justify-center text-xs uppercase tracking-[0.25em] text-white opacity-80">
-                        No Image
-                      </div>
-                    <?php endif; ?>
-                  </div>
-                </a>
-                <div class="p-5 space-y-2 flex-1 flex flex-col">
-                  <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]"><?php echo esc_html($related_category); ?></p>
-                  <h3 class="text-xl leading-snug"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-                  <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]"><?php echo esc_html(get_the_date()); ?></p>
-                </div>
-              </article>
-            <?php endwhile; ?>
+
+        <!-- Article header -->
+        <header class="article-header">
+          <div class="eyebrow">Journal</div>
+          <h1><?php the_title(); ?></h1>
+          <div class="article-meta">
+            <span><?php echo esc_html( get_the_date() ); ?></span>
+            <span class="dot"></span>
+            <span><?php echo esc_html( $reading_time ); ?></span>
           </div>
-        <?php else : ?>
-          <div class="rounded-3xl border border-slate-300 bg-white/90 soft-shadow p-8 text-center">
-            <p class="text-base text-[var(--muted)]">No related posts yet.</p>
+          <div class="featured-image">
+            <img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $image_alt ); ?>">
           </div>
-        <?php endif; ?>
-        <?php wp_reset_postdata(); ?>
+        </header>
+
+        <!-- Article body -->
+        <div class="article-body">
+          <?php the_content(); ?>
+        </div>
+
+        <!-- Post footer -->
+        <div class="post-footer">
+
+          <!-- Previous / Next -->
+          <nav class="post-nav">
+            <?php
+            $prev_post = get_previous_post();
+            if ( $prev_post ) :
+            ?>
+              <a href="<?php echo esc_url( get_permalink( $prev_post ) ); ?>" class="post-nav-link prev">
+                <span class="nav-label">&larr; Previous</span>
+                <span class="nav-title"><?php echo esc_html( get_the_title( $prev_post ) ); ?></span>
+              </a>
+            <?php endif; ?>
+
+            <?php
+            $next_post = get_next_post();
+            if ( $next_post ) :
+            ?>
+              <a href="<?php echo esc_url( get_permalink( $next_post ) ); ?>" class="post-nav-link next">
+                <span class="nav-label">Next &rarr;</span>
+                <span class="nav-title"><?php echo esc_html( get_the_title( $next_post ) ); ?></span>
+              </a>
+            <?php endif; ?>
+          </nav>
+
+          <!-- Author card -->
+          <div class="author-card">
+            <div class="author-avatar">
+              <img src="<?php echo esc_url( $author_avatar ); ?>" alt="<?php echo esc_attr( $author_profile_image_alt ); ?>">
+            </div>
+            <div class="author-info">
+              <div class="author-name"><?php echo esc_html( $author_name ); ?></div>
+              <?php if ( $author_bio ) : ?>
+                <p class="author-bio"><?php echo esc_html( $author_bio ); ?></p>
+              <?php endif; ?>
+              <a href="<?php echo esc_url( $author_link ); ?>" class="author-link">About <?php echo esc_html( $author_name ); ?> &rarr;</a>
+            </div>
+          </div>
+
+        </div>
+      <?php endwhile; ?>
+    <?php endif; ?>
+  </article>
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar">
+
+    <!-- Free class offer -->
+    <div class="sidebar-card">
+      <div class="eyebrow">Free Class</div>
+      <h3>Try a Live Class &mdash; On Us</h3>
+      <p>Join a real session with Feather and a small group of students. No pitch, no pressure &mdash; just plants.</p>
+      <div class="email-input">
+        <input type="email" placeholder="Your email address">
+        <button class="btn btn-primary">Get Your Free Class</button>
+        <p class="micro">Unsubscribe anytime. We don't share your email.</p>
       </div>
-    </section>
-  <?php endwhile; ?>
-<?php endif; ?>
+    </div>
+
+    <!-- Ad slot 1 -->
+    <div class="ad-slot">Ad</div>
+
+    <!-- Ad slot 2 -->
+    <div class="ad-slot">Ad</div>
+
+  </aside>
+
+</div>
 
 <?php
 get_footer();
+?>

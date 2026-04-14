@@ -36,7 +36,7 @@
       <span class="footer-copy">&copy; 2026 Feather Jones. All rights reserved.</span>
       <div class="footer-legal">
         <a href="/terms">Terms</a>
-        <a href="/refund-and-returns-policy">Refund Policy</a>
+        <a href="/refunds">Refund Policy</a>
         <a href="/privacy-policy">Privacy</a>
       </div>
     </div>
