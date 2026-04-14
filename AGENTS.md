@@ -128,6 +128,21 @@ Within the same layer, import order controls override priority.
 Never create global styles in `src/style.scss` unless truly one-off.
 Prefer nesting SCSS selectors when writing component or layout styles, unless nesting would reduce clarity, increase specificity risk, or otherwise be less appropriate than flat selectors.
 
+# SCSS Formatting
+
+- Match the DOM: Nest selectors to reflect actual HTML structure (parent → child → element)
+- Scope everything: Keep styles inside the top-level component class; avoid global leakage
+- Prefer nesting over repetition: Replace `.parent .child` with nested blocks
+- Use modifiers with `&`: e.g. `&.active`, `&:hover`, `&::before`
+- Group related elements: Nest `h2`, `p`, `a`, etc. inside their parent container
+- Keep layout utilities shallow: Leave reusable layout classes (e.g. `.form-row`) at top level
+- Minimize selector depth: Do not over-nest beyond what the DOM requires
+- No redundant selectors: Avoid repeating parent class names inside children
+- Co-locate states: Put `:hover`, `:focus`, `:checked` inside the element they affect
+- Use combinators cleanly: e.g. `+ li`, `> div` within nesting
+- Keep formatting consistent: One selector per block, clean indentation, no compressed lines
+- Avoid inline styles: Prefer classes over `[style]` selectors
+
 ---
 
 # JavaScript Rules (2026 Best Practice)
