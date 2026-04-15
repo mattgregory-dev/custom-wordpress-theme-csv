@@ -1269,7 +1269,7 @@ p.course-description {
     }
   }
   @media (min-width: 700px) {
-    grid-template-columns: 120px 1fr auto;
+    grid-template-columns: 7.06rem 1fr auto;
     align-items: stretch;
   }
   &:hover {
@@ -2493,13 +2493,13 @@ p.course-description {
 @media (min-width: 768px) {
   .blog-layout {
     padding: 3.53rem 2.82rem 5.88rem;
-    grid-template-columns: 1fr 300px;
+    grid-template-columns: 1fr 17.65rem;
     gap: 3.29rem;
   }
 }
 @media (min-width: 960px) {
   .blog-layout {
-    grid-template-columns: 1fr 320px;
+    grid-template-columns: 1fr 18.82rem;
     gap: 3.76rem;
   }
 }
@@ -2837,13 +2837,13 @@ p.course-description {
 @media (min-width: 768px) {
   .post-layout {
     padding: 3.53rem 2.82rem 5.88rem;
-    grid-template-columns: 1fr 300px;
+    grid-template-columns: 1fr 17.65rem;
     gap: 3.29rem;
   }
 }
 @media (min-width: 960px) {
   .post-layout {
-    grid-template-columns: 1fr 320px;
+    grid-template-columns: 1fr 18.82rem;
     gap: 3.76rem;
   }
 }

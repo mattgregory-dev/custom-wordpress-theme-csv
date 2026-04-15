@@ -1,11 +1,12 @@
 <nav class="main-menu">
   <ul>
+    <?php /*
     <li class="no-sub-menu hidden">
       <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
         <span class="menu-item">Home</span>
         <span class="menu-item2">Home</span>
       </a>
-    </li>
+    </li> */ ?>
 
     <li class="no-sub-menu">
       <a href="<?php echo esc_url( home_url( '/courses/' ) ); ?>">
@@ -67,7 +68,7 @@
         <span>Login</span>
       </a>
     <?php endif; ?>
-    <a href="<?php echo esc_url( home_url( '/cart/' ) ); ?>" class="ibt-btn ibt-btn-outline-3 ibt-btn-rounded">
+    <a href="<?php echo esc_url( home_url( '/cart/' ) ); ?>" class="ibt-btn ibt-btn-outline ibt-btn-rounded">
       <i class="fa fa-solid fa-cart-shopping"></i><span>Cart</span>
     </a>
 
@@ -77,11 +78,11 @@
       <i class="fa fa-solid fa-cart-shopping"></i><span>Cart</span>
     </a>
     <?php if ( is_user_logged_in() ) : ?>
-      <a href="<?php echo esc_url( home_url( '/account/' ) ); ?>" class="ibt-btn ibt-btn-outline-3 ibt-btn-rounded">
+      <a href="<?php echo esc_url( home_url( '/account/' ) ); ?>" class="ibt-btn ibt-btn-outline ibt-btn-rounded">
         <span>Account</span>
       </a>
     <?php else : ?>
-      <a href="<?php echo esc_url( home_url( '/account/' ) ); ?>" class="ibt-btn ibt-btn-outline-3 ibt-btn-rounded">
+      <a href="<?php echo esc_url( home_url( '/account/' ) ); ?>" class="ibt-btn ibt-btn-outline ibt-btn-rounded">
         <span>Login</span>
       </a>
     <?php endif; ?>
