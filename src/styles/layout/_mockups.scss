@@ -110,8 +110,8 @@ p {
 .eyebrow {
   font-family: var(--font-eyebrow);
   font-weight: 700;
-  font-size: 0.65rem;
-  letter-spacing: 0.15rem;
+  font-size: .65rem;
+  letter-spacing: .15rem;
   text-transform: uppercase;
   color: var(--forest-green);
   margin-bottom: 1.4rem;
@@ -122,12 +122,12 @@ p {
   display: inline-block;
   font-family: var(--font-eyebrow);
   font-weight: 700;
-  font-size: 0.76rem;
-  letter-spacing: 0.12rem;
+  font-size: .76rem;
+  letter-spacing: .12rem;
   text-transform: uppercase;
   text-decoration: none;
-  border-radius: 0.29rem;
-  padding: 0.94rem 2.12rem;
+  border-radius: .29rem;
+  padding: .94rem 2.12rem;
   cursor: pointer;
   transition: all 0.3s ease;
   border: 2px solid transparent;
@@ -157,9 +157,9 @@ p {
   }
 }
 .btn-sm{
-  padding: 0.59rem 1.18rem;
-  font-size: 0.59rem;
-  letter-spacing: 0.09rem;
+  padding: .59rem 1.18rem;
+  font-size: .59rem;
+  letter-spacing: .09rem;
 }
 .btn-ghost{
   background: none;
@@ -167,8 +167,8 @@ p {
   color: var(--forest-green);
   font-family: var(--font-eyebrow);
   font-weight: 700;
-  font-size: 0.65rem;
-  letter-spacing: 0.09rem;
+  font-size: .65rem;
+  letter-spacing: .09rem;
   text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
@@ -187,7 +187,7 @@ p {
 
 .site-footer {
   background: #2E524A;
-  padding: 56px 24px 0;
+  padding: 3.29rem 1.41rem 0;
   color: #C3DBC5;
   .footer-inner {
     max-width: 900px;
@@ -195,40 +195,40 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 36px;
+    gap: 2.12rem;
   }
   .footer-brand {
     text-align: center;
     .footer-brand-name {
       font-family: 'Lora', serif;
       font-weight: 400;
-      font-size: 22px;
+      font-size: 1.29rem;
       color: #F9F6EE;
-      letter-spacing: 0.5px;
+      letter-spacing: .03rem;
     }
     .footer-brand-tag {
       font-family: 'Montserrat', sans-serif;
       font-weight: 700;
-      font-size: 10px;
+      font-size: .59rem;
       text-transform: uppercase;
-      letter-spacing: 3px;
+      letter-spacing: .18rem;
       color: #84AE9D;
-      margin-top: 4px;
+      margin-top: .24rem;
     }
   }
   .footer-nav {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 8px 28px;
+    gap: .47rem 1.65rem;
     a {
       font-family: 'Lato', sans-serif;
-      font-size: 14px;
+      font-size: .82rem;
       font-weight: 400;
       color: #C3DBC5;
       text-decoration: none;
       transition: color 0.2s ease;
-      padding: 4px 0;
+      padding: .24rem 0;
       &:hover {
         color: #F9F6EE;
       }
@@ -265,18 +265,18 @@ p {
     margin: 0;
   }
   .footer-disclosure {
-    padding: 28px 24px 24px;
+    padding: 1.65rem 1.41rem 1.41rem;
     max-width: 800px;
     margin: 0 auto;
     .footer-disclosure-inner {
       text-align: center;
-      font-size: 15px;
+      font-size: .88rem;
       font-style: italic;
       line-height: 1.7;
       color: rgb(195 219 197 / 61%);
       font-weight: 300;
       p + p {
-        margin-top: 8px;
+        margin-top: .47rem;
       }
     }
   }
@@ -287,7 +287,7 @@ p {
   }
   .footer-bottom {
     width: 100%;
-    padding: 20px 24px 28px;
+    padding: 1.18rem 1.41rem 1.65rem;
     .footer-bottom-inner {
       max-width: 900px;
       margin: 0 auto;
@@ -295,17 +295,17 @@ p {
       flex-wrap: wrap;
       justify-content: center;
       align-items: center;
-      gap: 6px 20px;
+      gap: .35rem 1.18rem;
     }
     .footer-copy {
-      font-size: 12px;
+      font-size: .71rem;
       color: rgba(195, 219, 197, 0.5);
     }
     .footer-legal {
       display: flex;
-      gap: 16px;
+      gap: .94rem;
       a {
-        font-size: 12px;
+        font-size: .71rem;
         color: rgba(195, 219, 197, 0.5);
         text-decoration: none;
         transition: color 0.2s ease;
@@ -316,18 +316,18 @@ p {
     }
   }
   @media (max-width: 600px) {
-    padding: 40px 20px 0;
+    padding: 2.35rem 1.18rem 0;
     .footer-inner {
-      gap: 28px;
+      gap: 1.65rem;
     }
     .footer-nav {
       flex-direction: column;
       align-items: center;
-      gap: 12px;
+      gap: .71rem;
     }
     .footer-bottom-inner {
       flex-direction: column;
-      gap: 8px;
+      gap: .47rem;
     }
   }
 }
@@ -355,7 +355,7 @@ p {
   }
   h2 {
     color: #fff;
-    margin-bottom: 10px
+    margin-bottom: .59rem
   }
   p {
     color: rgba(255, 255, 255, .7)
@@ -382,22 +382,22 @@ p {
       max-width: 460px;
       width: 100%;
       margin: 0 auto;
-      border-radius: 0.29rem;
+      border-radius: .29rem;
       overflow: visible;
       background: #fff;
       box-shadow: 0 4px 24px rgba(0, 0, 0, .2);
       .forminator-response-message {
         position: absolute;
-        top: calc(100% + 14px);
+        top: calc(100% + .82rem);
         left: 0;
         width: 100%;
         order: 99;
         background: transparent;
         color: #f5c6c6;
-        font-size: 13px;
+        font-size: .76rem;
         text-align: center;
         padding: 0;
-        border-radius: 4px;
+        border-radius: .24rem;
       }
       .forminator-response-message[aria-hidden="true"] {
         display: none;
@@ -419,14 +419,14 @@ p {
       .forminator-input.forminator-email--field {
         border: none;
         outline: none;
-        padding: 0.88rem 1.06rem;
+        padding: .88rem 1.06rem;
         font-family: var(--font-body);
-        font-size: 0.88rem;
+        font-size: .88rem;
         color: var(--charcoal);
         width: 100%;
         height: 100%;
         background: transparent;
-        border-radius: 0.29rem 0 0 0.29rem;
+        border-radius: .29rem 0 0 .29rem;
         &::placeholder {
           color: #bbb;
         }
@@ -436,19 +436,19 @@ p {
         display: flex;
       }
       .forminator-button-submit {
-        padding: 0.88rem 1.41rem;
+        padding: .88rem 1.41rem;
         background: var(--soft-orange);
         color: var(--dark-brown);
         border: none;
         font-family: var(--font-eyebrow);
         font-weight: 700;
-        font-size: 0.65rem;
-        letter-spacing: 0.09rem;
+        font-size: .65rem;
+        letter-spacing: .09rem;
         text-transform: uppercase;
         cursor: pointer;
         transition: background .3s;
         white-space: nowrap;
-        border-radius: 0 0.29rem 0.29rem 0;
+        border-radius: 0 .29rem .29rem 0;
         &:hover {
           background: var(--bright-orange);
           color: #fff;
@@ -479,32 +479,32 @@ p {
         }
         .forminator-response-message {
           position: static;
-          margin-top: 8px;
+          margin-top: .47rem;
         }
         .forminator-input.forminator-email--field {
-          padding: 0.98rem 1.1rem;
-          font-size: 0.92rem;
-          border-radius: 0.29rem 0.29rem 0 0;
+          padding: .98rem 1.1rem;
+          font-size: .92rem;
+          border-radius: .29rem .29rem 0 0;
         }
         .forminator-button-submit {
           width: 100%;
-          padding: 0.95rem 1rem;
-          font-size: 0.68rem;
-          letter-spacing: 0.08rem;
-          border-radius: 0 0 0.29rem 0.29rem;
+          padding: .95rem 1rem;
+          font-size: .68rem;
+          letter-spacing: .08rem;
+          border-radius: 0 0 .29rem .29rem;
         }
       }
       .email-micro {
         max-width: 100%;
-        padding: 0 8px;
+        padding: 0 .47rem;
         text-align: center;
       }
     }
   }
   .email-micro {
-    font-size: 0.71rem;
+    font-size: .71rem;
     color: rgba(255, 255, 255, .4);
-    margin-top: 12px;
+    margin-top: .71rem;
     max-width: 460px;
     margin-left: auto;
     margin-right: auto;
@@ -513,23 +513,23 @@ p {
 }
 
 .hero-quote {
-  margin-top: 36px;
+  margin-top: 2.12rem;
   padding: 1.18rem 0 0;
   border-top: 1px solid rgba(177,153,134,0.25);
 }
 .hero-quote blockquote {
   font-family: var(--font-heading);
   font-style: italic;
-  font-size: 0.94rem;
+  font-size: .94rem;
   line-height: 1.7;
   color: var(--deep-teal);
-  margin-bottom: 6px;
+  margin-bottom: .35rem;
 }
 .hero-quote cite {
   font-style: normal;
   font-family: var(--font-eyebrow);
-  font-size: 0.59rem;
-  letter-spacing: 0.09rem;
+  font-size: .59rem;
+  letter-spacing: .09rem;
   text-transform: uppercase;
   color: var(--warm-taupe);
 }
@@ -539,7 +539,7 @@ p {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 0.82rem;
+  gap: .82rem;
 }
 
 .botanical-divider {
@@ -567,30 +567,30 @@ p {
   line-height: 1.7;
   color: var(--deep-teal);
   border-left: 3px solid var(--sage-green);
-  padding-left: 24px;
+  padding-left: 1.41rem;
   margin: 1.65rem 0 0;
 }
 
 .credentials-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.59rem;
+  gap: .59rem;
   margin: 1.65rem 0;
 }
 .credential-tag {
   font-family: var(--font-eyebrow);
   font-weight: 700;
-  font-size: 0.59rem;
-  letter-spacing: 0.11rem;
+  font-size: .59rem;
+  letter-spacing: .11rem;
   text-transform: uppercase;
-  padding: 0.47rem 1.06rem;
-  border-radius: 0.24rem;
+  padding: .47rem 1.06rem;
+  border-radius: .24rem;
   background: var(--pale-sage-cream);
   color: var(--deep-teal);
   border: 1px solid rgba(86,134,115,0.12);
 }
 .content-img {
-  border-radius: 0.71rem;
+  border-radius: .71rem;
   overflow: hidden;
   box-shadow: 0 12px 48px rgba(58,29,2,0.12);
 }
@@ -623,7 +623,7 @@ p {
 }
 .testimonial-card {
   background: #fff;
-  border-radius: 0.59rem;
+  border-radius: .59rem;
   padding: 2.12rem 1.76rem;
   border: 1px solid rgba(177,153,134,0.15);
   position: relative;
@@ -635,7 +635,7 @@ p {
     color: var(--sage-green);
     opacity: 0.25;
     position: absolute;
-    top: 0.47rem;
+    top: .47rem;
     left: 1.06rem;
     line-height: 1;
   }
@@ -645,15 +645,15 @@ p {
   font-size: 1rem;
   line-height: 1.8;
   color: var(--charcoal);
-  margin-bottom: 0.94rem;
+  margin-bottom: .94rem;
   position: relative;
   z-index: 1;
 }
 .testimonial-attr {
   font-family: var(--font-eyebrow);
   font-weight: 700;
-  font-size: 0.59rem;
-  letter-spacing: 0.09rem;
+  font-size: .59rem;
+  letter-spacing: .09rem;
   color: var(--warm-taupe);
   text-transform: uppercase;
 }
@@ -664,7 +664,7 @@ p {
   font-style: italic;
   color: #777;
   line-height: 1.8;
-  font-size: 0.94rem;
+  font-size: .94rem;
   transition-delay: 0.2s;
 }
 .emphasis-note {
@@ -673,7 +673,7 @@ p {
   font-family: var(--font-heading);
   font-style: italic;
   font-size: 1.12rem;
-  margin-top: 0.47rem;
+  margin-top: .47rem;
 }
 
 .invitation-section {
@@ -700,7 +700,7 @@ p {
   }
   h2 {
     color: #fff;
-    margin-bottom: 0.94rem;
+    margin-bottom: .94rem;
   }
   p {
     color: rgba(255,255,255,0.75);
@@ -718,7 +718,7 @@ p {
 .offering-card {
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 0.47rem;
+  border-radius: .47rem;
   padding: 1.41rem;
   text-decoration: none;
   transition: all 0.3s ease;
@@ -731,10 +731,10 @@ p {
   h3 {
     color: #fff;
     font-size: 1.06rem;
-    margin-bottom: 0.47rem;
+    margin-bottom: .47rem;
   }
   p {
-    font-size: 0.82rem;
+    font-size: .82rem;
     color: rgba(255,255,255,0.55);
     line-height: 1.6;
   }
@@ -742,32 +742,32 @@ p {
 .social-row {
   margin-top: 2.35rem;
   p {
-    font-size: 0.88rem;
+    font-size: .88rem;
     color: var(--sage-green);
   }
 }
 
 .day-card {
   background: #fff;
-  border-radius: 0.59rem;
+  border-radius: .59rem;
   padding: 1.76rem 1.53rem;
   border: 1px solid rgba(177,153,134,0.1);
   box-shadow: 0 2px 16px rgba(58,29,2,0.03);
   .day-label {
     font-family: var(--font-eyebrow);
     font-weight: 700;
-    font-size: 0.59rem;
-    letter-spacing: 0.12rem;
+    font-size: .59rem;
+    letter-spacing: .12rem;
     text-transform: uppercase;
     color: var(--forest-green);
-    margin-bottom: 0.47rem;
+    margin-bottom: .47rem;
   }
   h3 {
     font-size: 1rem;
-    margin-bottom: 0.59rem;
+    margin-bottom: .59rem;
   }
   p {
-    font-size: 0.88rem;
+    font-size: .88rem;
     line-height: 1.7;
     color: #666;
   }
@@ -780,8 +780,8 @@ p {
 }
 .friction-text {
   display: block;
-  margin-top: 0.82rem;
-  font-size: 0.82rem;
+  margin-top: .82rem;
+  font-size: .82rem;
   color: #999;
   font-style: italic;
   font-weight: 300;
@@ -789,7 +789,7 @@ p {
 
 .v-card {
   background: #fff;
-  border-radius: 0.59rem;
+  border-radius: .59rem;
   padding: 1.88rem 1.53rem;
   border: 1px solid rgba(177,153,134,0.12);
   position: relative;
@@ -801,30 +801,30 @@ p {
     color: var(--sage-green);
     opacity: 0.22;
     position: absolute;
-    top: 0.35rem;
-    left: 0.94rem;
+    top: .35rem;
+    left: .94rem;
     line-height: 1;
   }
   .vq {
     font-style: italic;
-    font-size: 0.94rem;
+    font-size: .94rem;
     line-height: 1.8;
     color: var(--charcoal);
-    margin-bottom: 0.82rem;
+    margin-bottom: .82rem;
     position: relative;
     z-index: 1;
   }
   .va {
     font-family: var(--font-eyebrow);
     font-weight: 700;
-    font-size: 0.59rem;
-    letter-spacing: 0.09rem;
+    font-size: .59rem;
+    letter-spacing: .09rem;
     color: var(--warm-taupe);
     text-transform: uppercase;
   }
 }
 .placeholder-note {
-  font-size: 0.71rem;
+  font-size: .71rem;
   color: #bbb;
   text-align: center;
   margin-top: 1.41rem;
@@ -854,7 +854,7 @@ p {
   text-align: left;
   padding: 1.29rem 2.35rem 1.29rem 0;
   font-family: var(--font-body);
-  font-size: 0.94rem;
+  font-size: .94rem;
   font-weight: 700;
   color: var(--dark-brown);
   cursor: pointer;
@@ -878,7 +878,7 @@ p {
   transition: max-height 0.4s ease, padding 0.3s;
   padding: 0;
   p {
-    font-size: 0.88rem;
+    font-size: .88rem;
     line-height: 1.7;
     color: #666;
   }
@@ -891,7 +891,7 @@ p {
   }
   h2 {
     color: #fff;
-    margin-bottom: 0.94rem;
+    margin-bottom: .94rem;
   }
   p {
     color: rgba(255,255,255,0.75);
@@ -900,31 +900,31 @@ p {
     display: inline-block;
     font-family: var(--font-eyebrow);
     font-weight: 700;
-    font-size: 0.65rem;
-    letter-spacing: 0.12rem;
+    font-size: .65rem;
+    letter-spacing: .12rem;
     text-transform: uppercase;
-    padding: 0.47rem 1.18rem;
-    border-radius: 0.24rem;
+    padding: .47rem 1.18rem;
+    border-radius: .24rem;
     background: rgba(253,160,67,0.15);
     color: var(--soft-orange);
     border: 1px solid rgba(253,160,67,0.25);
     margin-bottom: 1.65rem;
   }
   .avail-note {
-    margin-top: 28px;
-    font-size: 0.82rem;
+    margin-top: 1.65rem;
+    font-size: .82rem;
     color: rgba(255,255,255,0.5);
     font-style: italic;
   }
   .meta-line {
-    font-size: 0.76rem;
+    font-size: .76rem;
     color: rgba(255,255,255,0.5);
     margin-top: 1.06rem;
     line-height: 1.8;
   }
   .cross-sell {
     margin-top: 2.35rem;
-    font-size: 0.82rem;
+    font-size: .82rem;
     color: rgba(255,255,255,0.45);
     font-style: italic;
     a {
@@ -943,8 +943,8 @@ p {
     pointer-events: none;
   }
   .tertiary {
-    margin-top: 36px;
-    font-size: 0.88rem;
+    margin-top: 2.12rem;
+    font-size: .88rem;
     a {
       color: var(--sage-green);
       text-decoration: underline;
@@ -952,7 +952,7 @@ p {
     }
   }
   .description {
-    font-size: 0.94rem;
+    font-size: .94rem;
   }
   blockquote {
     font-family: var(--font-heading);
@@ -961,13 +961,13 @@ p {
     line-height: 1.7;
     color: rgba(255,255,255,0.85);
     max-width: 700px;
-    margin: 0 auto 0.71rem;
+    margin: 0 auto .71rem;
   }
   cite {
     font-style: normal;
     font-family: var(--font-eyebrow);
-    font-size: 0.59rem;
-    letter-spacing: 0.09rem;
+    font-size: .59rem;
+    letter-spacing: .09rem;
     text-transform: uppercase;
     color: var(--sage-green);
   }
@@ -979,7 +979,7 @@ p {
 
 .featured-card {
   background: var(--soft-cream);
-  border-radius: 0.71rem;
+  border-radius: .71rem;
   overflow: hidden;
   border: 1px solid rgba(177, 153, 134, 0.12);
   box-shadow: 0 8px 40px rgba(58, 29, 2, 0.06);
@@ -1005,17 +1005,17 @@ p {
 
   .badge-rec {
     position: absolute;
-    top: 0.94rem;
-    left: 0.94rem;
+    top: .94rem;
+    left: .94rem;
     font-family: var(--font-eyebrow);
     font-weight: 700;
-    font-size: 0.53rem;
-    letter-spacing: 0.11rem;
+    font-size: .53rem;
+    letter-spacing: .11rem;
     text-transform: uppercase;
     background: var(--forest-green);
     color: #fff;
-    padding: 0.35rem 0.82rem;
-    border-radius: 0.24rem;
+    padding: .35rem .82rem;
+    border-radius: .24rem;
     z-index: 2;
   }
 
@@ -1039,12 +1039,12 @@ p {
   }
 
   .eyebrow {
-    margin-bottom: 0.59rem;
+    margin-bottom: .59rem;
   }
 
   h2 {
     font-size: clamp(1.29rem, 3vw, 1.88rem);
-    margin-bottom: 0.82rem;
+    margin-bottom: .82rem;
     a {
       &:hover {
         border-bottom: 1px solid rgb(58 29 2 / 44%);
@@ -1053,7 +1053,7 @@ p {
   }
 
   .desc {
-    font-size: 0.92rem;
+    font-size: .92rem;
     color: #666;
     line-height: 1.7;
 
@@ -1069,17 +1069,17 @@ p {
 .meta-strip {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.47rem;
+  gap: .47rem;
 }
 
 .meta-tag {
   font-family: var(--font-eyebrow);
   font-weight: 700;
-  font-size: 0.53rem;
-  letter-spacing: 0.09rem;
+  font-size: .53rem;
+  letter-spacing: .09rem;
   text-transform: uppercase;
-  padding: 0.29rem 0.71rem;
-  border-radius: 0.18rem;
+  padding: .29rem .71rem;
+  border-radius: .18rem;
   background: var(--pale-sage-cream);
   color: var(--deep-teal);
   border: 1px solid rgba(86, 134, 115, 0.08);
@@ -1098,11 +1098,11 @@ p {
   h4 {
     font-family: var(--font-eyebrow);
     font-weight: 700;
-    font-size: 0.59rem;
-    letter-spacing: 0.12rem;
+    font-size: .59rem;
+    letter-spacing: .12rem;
     text-transform: uppercase;
     color: var(--forest-green);
-    margin-bottom: 0.59rem;
+    margin-bottom: .59rem;
   }
 
   ul {
@@ -1110,19 +1110,19 @@ p {
     padding: 0;
 
     li {
-      font-size: 0.9rem;
+      font-size: .9rem;
       color: #666;
       line-height: 1.7;
-      padding: 0.24rem 0 0.24rem 1.06rem;
+      padding: .24rem 0 .24rem 1.06rem;
       position: relative;
 
       &::before {
         content: '';
         position: absolute;
         left: 0;
-        top: 0.65rem;
-        width: 0.35rem;
-        height: 0.35rem;
+        top: .65rem;
+        width: .35rem;
+        height: .35rem;
         border-radius: 50%;
         background: var(--sage-green);
         opacity: 0.5;
@@ -1135,7 +1135,7 @@ p {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.94rem;
+  gap: .94rem;
   padding-top: 1.18rem;
   border-top: 1px solid rgba(177, 153, 134, 0.12);
 }
@@ -1147,7 +1147,7 @@ p {
 }
 
 .featured-price-note {
-  font-size: 0.76rem;
+  font-size: .76rem;
   color: #999;
 }
 
@@ -1160,7 +1160,7 @@ p.course-description {
 
 .course-row {
   background: #fff;
-  border-radius: 0.59rem;
+  border-radius: .59rem;
   border: 1px solid rgba(177,153,134,0.1);
   overflow: hidden;
   display: grid;
@@ -1179,7 +1179,7 @@ p.course-description {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 0.53rem 0 0 0.53rem;
+      border-radius: .53rem 0 0 .53rem;
     }
   }
   .course-info {
@@ -1203,17 +1203,17 @@ p.course-description {
     .course-meta {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.35rem;
+      gap: .35rem;
       .cm {
         font-family: var(--font-eyebrow);
         font-weight: 700;
-        font-size: 0.6rem;
-        letter-spacing: 0.07rem;
+        font-size: .6rem;
+        letter-spacing: .07rem;
         text-transform: uppercase;
         color: #aaa;
         & + .cm::before {
           content: '\00B7';
-          margin-right: 6px;
+          margin-right: .35rem;
         }
       }
     }
@@ -1223,16 +1223,16 @@ p.course-description {
     .series-label {
       font-family: var(--font-eyebrow);
       font-weight: 700;
-      font-size: 0.53rem;
-      letter-spacing: 0.11rem;
+      font-size: .53rem;
+      letter-spacing: .11rem;
       text-transform: uppercase;
       color: var(--dusty-rose);
-      margin-bottom: 4px;
+      margin-bottom: .24rem;
       display: inline-block;
     }
     h3 {
       font-size: 1rem;
-      margin-bottom: 6px;
+      margin-bottom: .35rem;
       line-height: 1.35;
       a {
         &:hover {
@@ -1241,25 +1241,25 @@ p.course-description {
       }
     }
     .cd {
-      font-size: 0.82rem;
+      font-size: .82rem;
       color: #777;
       line-height: 1.6;
-      margin-bottom: 8px;
+      margin-bottom: .47rem;
     }
   }
   .course-actions {
-    padding: 0.94rem 1.41rem 1.18rem;
+    padding: .94rem 1.41rem 1.18rem;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 0.47rem;
+    gap: .47rem;
     justify-content: center;
     min-width: 160px;
     @media (max-width: 699px) {
       flex-direction: row;
       align-items: center;
       padding: 0 1.41rem 1.18rem;
-      gap: 0.71rem;
+      gap: .71rem;
     }
     .course-price {
       font-family: var(--font-heading);
@@ -1281,46 +1281,46 @@ p.course-description {
 .support-card {
   padding: 1.65rem 1.41rem;
   background: var(--soft-cream);
-  border-radius: 0.59rem;
+  border-radius: .59rem;
   border: 1px solid rgba(177, 153, 134, .1);
   h3 {
-    font-size: 0.94rem;
-    margin-bottom: 8px;
+    font-size: .94rem;
+    margin-bottom: .47rem;
   }
   p {
-    font-size: 0.82rem;
+    font-size: .82rem;
     color: #777;
     line-height: 1.7;
   }
 }
 
 .commitment-list {
-  margin-top: 32px;
+  margin-top: 1.88rem;
 }
 .commitment-item {
   display: flex;
-  gap: 0.94rem;
-  padding: 0.82rem 0;
+  gap: .94rem;
+  padding: .82rem 0;
   border-bottom: 1px solid rgba(177,153,134,0.15);
 }
 .commitment-item:last-child { border-bottom: none; }
 .commitment-item .ci-label {
   font-family: var(--font-eyebrow);
   font-weight: 700;
-  font-size: 0.59rem;
-  letter-spacing: 0.11rem;
+  font-size: .59rem;
+  letter-spacing: .11rem;
   text-transform: uppercase;
   color: var(--forest-green);
   min-width: 120px;
-  padding-top: 2px;
+  padding-top: .12rem;
 }
 .commitment-item .ci-value {
-  font-size: 0.88rem; color: #555; line-height: 1.6;
+  font-size: .88rem; color: #555; line-height: 1.6;
 }
 
 .curr-card {
   background: #fff;
-  border-radius: 0.59rem;
+  border-radius: .59rem;
   padding: 1.65rem 1.41rem;
   border: 1px solid rgba(177,153,134,0.1);
   box-shadow: 0 2px 16px rgba(58,29,2,0.03);
@@ -1334,34 +1334,34 @@ p.course-description {
 .curr-card p { font-size: 14px; line-height: 1.7; color: #666; }
 
 .ft-quotes {
-  margin-top: 32px;
+  margin-top: 1.88rem;
   display: flex;
   flex-direction: column;
   gap: 1.18rem;
 }
 .ft-quote {
-  padding-left: 20px;
+  padding-left: 1.18rem;
   border-left: 3px solid var(--sage-green);
 }
 .ft-quote p {
   font-style: italic;
-  font-size: 0.88rem;
+  font-size: .88rem;
   line-height: 1.7;
   color: var(--charcoal);
-  margin-bottom: 6px;
+  margin-bottom: .35rem;
 }
 .ft-quote cite {
   font-style: normal;
   font-family: var(--font-eyebrow);
-  font-size: 0.59rem;
-  letter-spacing: 0.09rem;
+  font-size: .59rem;
+  letter-spacing: .09rem;
   color: var(--warm-taupe);
   text-transform: uppercase;
 }
 
 .s-card {
   background: #fff;
-  border-radius: 0.59rem;
+  border-radius: .59rem;
   padding: 1.88rem 1.65rem;
   border: 1px solid rgba(177,153,134,0.15);
   position: relative;
@@ -1374,7 +1374,7 @@ p.course-description {
   color: var(--sage-green);
   opacity: 0.22;
   position: absolute;
-  top: 0.35rem; left: 0.94rem;
+  top: .35rem; left: .94rem;
   line-height: 1;
 }
 .s-card .sq {
@@ -1385,8 +1385,8 @@ p.course-description {
 .s-card .sa {
   font-family: var(--font-eyebrow);
   font-weight: 700;
-  font-size: 0.59rem;
-  letter-spacing: 0.09rem;
+  font-size: .59rem;
+  letter-spacing: .09rem;
   color: var(--warm-taupe);
   text-transform: uppercase;
 }
@@ -1401,11 +1401,11 @@ p.course-description {
   .section-label {
     font-family: var(--font-eyebrow);
     font-weight: 700;
-    font-size: 0.65rem;
-    letter-spacing: 0.15rem;
+    font-size: .65rem;
+    letter-spacing: .15rem;
     text-transform: uppercase;
     color: var(--forest-green);
-    margin-bottom: 0.94rem;
+    margin-bottom: .94rem;
     display: inline-block;
   }
   .section-title {
@@ -1417,7 +1417,7 @@ p.course-description {
     line-height: 1.2;
   }
   .section-desc {
-    font-size: 0.94rem;
+    font-size: .94rem;
     line-height: 1.7;
     color: var(--taupe-brown);
     max-width: 580px;
@@ -1432,7 +1432,7 @@ p.course-description {
   .card {
     background: var(--soft-cream);
     border: 1.5px solid transparent;
-    border-radius: 0.5rem;
+    border-radius: .5rem;
     padding: 2.12rem 1.41rem 1.88rem;
     position: relative;
     cursor: default;
@@ -1453,26 +1453,26 @@ p.course-description {
   }
   .badge {
     position: absolute;
-    top: -0.76rem;
+    top: -.76rem;
     left: 50%;
     transform: translateX(-50%);
     background: var(--forest-green);
     color: var(--white);
-    font-size: 0.65rem;
+    font-size: .65rem;
     font-weight: 600;
-    letter-spacing: 0.12rem;
+    letter-spacing: .12rem;
     text-transform: uppercase;
-    padding: 0.29rem 0.94rem;
-    border-radius: 0.25rem;
+    padding: .29rem .94rem;
+    border-radius: .25rem;
     white-space: nowrap;
   }
   .card-plan {
     font-weight: 600;
-    font-size: 0.71rem;
-    letter-spacing: 0.16rem;
+    font-size: .71rem;
+    letter-spacing: .16rem;
     text-transform: uppercase;
     color: var(--forest-green);
-    margin-bottom: 0.47rem;
+    margin-bottom: .47rem;
   }
   .card-price {
     font-family: var(--font-heading);
@@ -1480,15 +1480,15 @@ p.course-description {
     font-weight: 400;
     color: var(--cocoa-brown);
     line-height: 1;
-    margin-bottom: 0.24rem;
+    margin-bottom: .24rem;
   }
   .card-freq {
-    font-size: 0.82rem;
+    font-size: .82rem;
     color: var(--stone-beige);
-    margin-bottom: 0.35rem;
+    margin-bottom: .35rem;
   }
   .card-total {
-    font-size: 0.76rem;
+    font-size: .76rem;
     color: var(--stone-beige);
     font-weight: 400;
     margin-bottom: 1.18rem;
@@ -1496,11 +1496,11 @@ p.course-description {
   }
   .card-savings {
     display: inline-block;
-    font-size: 0.71rem;
+    font-size: .71rem;
     font-weight: 500;
     color: var(--forest-green);
     background: rgba(45, 74, 62, 0.08);
-    padding: 0.18rem 0.59rem;
+    padding: .18rem .59rem;
     border-radius: 1.18rem;
     margin-bottom: 1.18rem;
     min-height: 1.41rem;
@@ -1511,12 +1511,12 @@ p.course-description {
   .cta-btn {
     display: block;
     width: 100%;
-    padding: 0.82rem 1.18rem;
-    border-radius: 0.38rem;
+    padding: .82rem 1.18rem;
+    border-radius: .38rem;
     font-family: var(--font-eyebrow);
-    font-size: 0.76rem;
+    font-size: .76rem;
     font-weight: 600;
-    letter-spacing: 0.12rem;
+    letter-spacing: .12rem;
     text-transform: uppercase;
     cursor: pointer;
     transition: all 0.25s ease;
@@ -1543,7 +1543,7 @@ p.course-description {
     }
   }
   .footer-note {
-    font-size: 0.82rem;
+    font-size: .82rem;
     color: var(--stone-beige);
     line-height: 1.7;
     max-width: 600px;
@@ -1553,19 +1553,19 @@ p.course-description {
     display: flex;
     justify-content: center;
     gap: 1.88rem;
-    margin-top: 0.71rem;
+    margin-top: .71rem;
     flex-wrap: wrap;
   }
   .perk {
     display: flex;
     align-items: center;
-    gap: 0.35rem;
-    font-size: 0.82rem;
+    gap: .35rem;
+    font-size: .82rem;
     color: var(--taupe-brown);
     font-weight: 400;
     svg {
-      width: 0.94rem;
-      height: 0.94rem;
+      width: .94rem;
+      height: .94rem;
       color: var(--forest-green);
       flex-shrink: 0;
     }
@@ -1586,15 +1586,15 @@ p.course-description {
     .perks {
       flex-direction: column;
       align-items: center;
-      gap: 0.71rem;
+      gap: .71rem;
     }
   }
 }
 
 .friction-text {
   display: block;
-  margin-top: 0.82rem;
-  font-size: 0.82rem;
+  margin-top: .82rem;
+  font-size: .82rem;
   color: #999;
   font-style: italic;
   font-weight: 300;
@@ -1602,7 +1602,7 @@ p.course-description {
 
 .profile-card {
   background: var(--soft-cream);
-  border-radius: 0.59rem;
+  border-radius: .59rem;
   padding: 1.88rem 1.65rem;
   border: 1px solid rgba(177,153,134,0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -1619,21 +1619,21 @@ p.course-description {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 18px;
+  margin-bottom: 1.06rem;
   font-size: 1.18rem;
   color: var(--deep-teal);
 }
 .profile-card h3 {
-  margin-bottom: 12px;
+  margin-bottom: .71rem;
   font-size: 1.06rem;
 }
 .profile-card p {
-  font-size: 0.88rem;
+  font-size: .88rem;
   line-height: 1.7;
   color: #666;
 }
 .transition-line {
-  margin-top: 40px;
+  margin-top: 2.35rem;
   text-align: center;
   font-family: var(--font-heading);
   font-style: italic;
@@ -1643,7 +1643,7 @@ p.course-description {
 
 .get-card {
   background: #fff;
-  border-radius: 0.59rem;
+  border-radius: .59rem;
   padding: 1.76rem 1.65rem;
   border: 1px solid rgba(177,153,134,0.12);
   box-shadow: 0 2px 16px rgba(58,29,2,0.04);
@@ -1653,36 +1653,36 @@ p.course-description {
   font-size: 1.88rem;
   color: var(--sage-green);
   opacity: 0.5;
-  margin-bottom: 8px;
+  margin-bottom: .47rem;
   line-height: 1;
 }
 .get-card h3 {
   font-size: 1rem;
-  margin-bottom: 10px;
+  margin-bottom: .59rem;
 }
 .get-card p {
-  font-size: 0.88rem;
+  font-size: .88rem;
   line-height: 1.7;
   color: #666;
 }
 
 .comparison-wrap {
-  margin-top: 48px;
+  margin-top: 2.82rem;
   overflow-x: auto;
 }
 .comparison-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.88rem;
+  font-size: .88rem;
   min-width: 520px;
 }
 .comparison-table th {
   font-family: var(--font-eyebrow);
   font-weight: 700;
-  font-size: 0.59rem;
-  letter-spacing: 0.12rem;
+  font-size: .59rem;
+  letter-spacing: .12rem;
   text-transform: uppercase;
-  padding: 0.82rem 1.06rem;
+  padding: .82rem 1.06rem;
   text-align: left;
   border-bottom: 2px solid var(--light-taupe);
   color: var(--deep-teal);
@@ -1694,7 +1694,7 @@ p.course-description {
   color: var(--deep-teal);
 }
 .comparison-table td {
-  padding: 0.82rem 1.06rem;
+  padding: .82rem 1.06rem;
   border-bottom: 1px solid rgba(177,153,134,0.15);
   color: #555;
   vertical-align: top;
@@ -1702,7 +1702,7 @@ p.course-description {
 .comparison-table td:first-child {
   font-weight: 700;
   color: var(--charcoal);
-  font-size: 0.82rem;
+  font-size: .82rem;
 }
 .comparison-table td.highlight {
   background: rgba(195,219,197,0.15);
@@ -1721,7 +1721,7 @@ p.course-description {
 }
 .t-card {
   background: #fff;
-  border-radius: 0.59rem;
+  border-radius: .59rem;
   padding: 1.88rem 1.65rem;
   border: 1px solid rgba(177,153,134,0.15);
   position: relative;
@@ -1734,47 +1734,47 @@ p.course-description {
   color: var(--sage-green);
   opacity: 0.22;
   position: absolute;
-  top: 0.35rem;
-  left: 0.94rem;
+  top: .35rem;
+  left: .94rem;
   line-height: 1;
 }
 .t-card .tq {
   font-style: italic;
-  font-size: 0.94rem;
+  font-size: .94rem;
   line-height: 1.8;
   color: var(--charcoal);
-  margin-bottom: 14px;
+  margin-bottom: .82rem;
   position: relative;
   z-index: 1;
 }
 .t-card .ta {
   font-family: var(--font-eyebrow);
   font-weight: 700;
-  font-size: 0.59rem;
-  letter-spacing: 0.09rem;
+  font-size: .59rem;
+  letter-spacing: .09rem;
   color: var(--warm-taupe);
   text-transform: uppercase;
 }
 
 .detail-item {
-  margin-bottom: 20px;
+  margin-bottom: 1.18rem;
 }
 .detail-item .dl {
   font-family: var(--font-eyebrow);
   font-weight: 700;
-  font-size: 0.8rem;
-  letter-spacing: 0.12rem;
+  font-size: .8rem;
+  letter-spacing: .12rem;
   text-transform: uppercase;
   color: var(--forest-green);
-  margin-bottom: 6px;
+  margin-bottom: .35rem;
 }
 .detail-item p {
-  font-size: 0.94rem;
+  font-size: .94rem;
   color: #555;
 }
 .price-box {
   background: var(--soft-cream);
-  border-radius: 0.59rem;
+  border-radius: .59rem;
   padding: 2.12rem 1.88rem;
   border: 1px solid rgba(177,153,134,0.15);
   text-align: center;
@@ -1784,24 +1784,24 @@ p.course-description {
   font-size: clamp(2.12rem, 5vw, 3.06rem);
   color: var(--dark-brown);
   line-height: 1.1;
-  margin-bottom: 4px;
+  margin-bottom: .24rem;
 }
 .price-period {
-  font-size: 0.82rem;
+  font-size: .82rem;
   color: #999;
-  margin-bottom: 16px;
+  margin-bottom: .94rem;
 }
 .price-breakdown {
-  font-size: 0.88rem;
+  font-size: .88rem;
   color: var(--forest-green);
   font-weight: 700;
-  margin-bottom: 8px;
+  margin-bottom: .47rem;
 }
 .price-context {
-  font-size: 0.76rem;
+  font-size: .76rem;
   color: #999;
   line-height: 1.6;
-  margin-bottom: 28px;
+  margin-bottom: 1.65rem;
 }
 
 .proof-bar {
@@ -1811,7 +1811,7 @@ p.course-description {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 0.71rem 2.35rem;
+    gap: .71rem 2.35rem;
     text-align: center;
     align-items: center;
   }
@@ -1829,7 +1829,7 @@ p.course-description {
     white-space: nowrap;
   }
   .ps-label {
-    font-size: 0.76rem;
+    font-size: .76rem;
     color: #888;
     text-align: left;
     line-height: 1.4;
@@ -1851,13 +1851,13 @@ p.course-description {
   }
   .proof-bar .container {
     flex-direction: column;
-    gap: 0.71rem;
+    gap: .71rem;
   }
 }
 
 .route-card {
   background: var(--soft-cream);
-  border-radius: 0.59rem;
+  border-radius: .59rem;
   padding: 1.88rem 1.41rem 1.65rem;
   border: 1px solid rgba(177, 153, 134, .1);
   text-align: center;
@@ -1871,26 +1871,26 @@ p.course-description {
   .rc-label {
     font-family: var(--font-eyebrow);
     font-weight: 700;
-    font-size: 0.53rem;
-    letter-spacing: 0.12rem;
+    font-size: .53rem;
+    letter-spacing: .12rem;
     text-transform: uppercase;
     color: var(--forest-green);
-    margin-bottom: 12px;
+    margin-bottom: .71rem;
   }
   h3 {
     font-size: 1.06rem;
-    margin-bottom: 10px;
+    margin-bottom: .59rem;
   }
   p {
-    font-size: 0.82rem;
+    font-size: .82rem;
     line-height: 1.7;
     color: #777;
     flex: 1;
-    margin-bottom: 20px;
+    margin-bottom: 1.18rem;
   }
   .btn {
-    padding: 0.71rem 1.41rem;
-    font-size: 0.65rem;
+    padding: .71rem 1.41rem;
+    font-size: .65rem;
     width: 100%;
   }
 }
@@ -1922,7 +1922,7 @@ p.course-description {
       opacity: .2;
       position: absolute;
       top: -1.18rem;
-      left: -0.59rem;
+      left: -.59rem;
       line-height: 1;
       font-family: var(--font-heading);
     }
@@ -1930,26 +1930,26 @@ p.course-description {
   cite {
     font-style: normal;
     font-family: var(--font-eyebrow);
-    font-size: 0.65rem;
-    letter-spacing: 0.09rem;
+    font-size: .65rem;
+    letter-spacing: .09rem;
     text-transform: uppercase;
     color: var(--warm-taupe)
   }
 }
 
 .footer-links {
-  margin-top: 40px;
+  margin-top: 2.35rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.94rem 1.65rem;
+  gap: .94rem 1.65rem;
   justify-content: center;
   a {
     color: var(--sage-green);
     text-decoration: none;
     font-family: var(--font-eyebrow);
     font-weight: 700;
-    font-size: 0.65rem;
-    letter-spacing: 0.09rem;
+    font-size: .65rem;
+    letter-spacing: .09rem;
     text-transform: uppercase;
     transition: color .2s;
     &:hover {
@@ -1968,7 +1968,7 @@ p.course-description {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 1.18rem;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.45s ease, visibility 0.45s ease;
@@ -1981,7 +1981,7 @@ p.course-description {
     width: 100%;
     max-width: 520px;
     background: var(--deep-teal);
-    border-radius: 12px;
+    border-radius: .71rem;
     overflow: hidden;
     transform: translateY(30px) scale(0.96);
     transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
@@ -2017,15 +2017,15 @@ p.course-description {
       width: 36px;
       height: 4px;
       background: rgba(255, 255, 255, 0.25);
-      border-radius: 2px;
-      margin: 12px auto 4px;
+      border-radius: .12rem;
+      margin: .71rem auto .24rem;
       position: relative;
       z-index: 5;
     }
     .popup-close {
       position: absolute;
-      top: 14px;
-      right: 14px;
+      top: .82rem;
+      right: .82rem;
       z-index: 10;
       width: 36px;
       height: 36px;
@@ -2051,24 +2051,24 @@ p.course-description {
     .popup-content {
       position: relative;
       z-index: 2;
-      padding: 44px 40px 36px;
+      padding: 2.59rem 2.35rem 2.12rem;
       text-align: center;
       .popup-eyebrow {
         font-family: var(--font-eyebrow);
-        font-size: 11px;
+        font-size: .65rem;
         font-weight: 700;
-        letter-spacing: 3px;
+        letter-spacing: .18rem;
         text-transform: uppercase;
         color: var(--soft-orange);
-        margin-bottom: 14px;
+        margin-bottom: .82rem;
       }
       .popup-heading {
         font-family: var(--font-heading);
-        font-size: 32px;
+        font-size: 1.88rem;
         font-weight: 500;
         line-height: 1.2;
         color: #fff;
-        margin-bottom: 16px;
+        margin-bottom: .94rem;
       }
       .popup-description {
         font-family: var(--font-body);
@@ -2076,7 +2076,7 @@ p.course-description {
         font-weight: 300;
         line-height: 1.65;
         color: rgba(255, 255, 255, 0.78);
-        margin-bottom: 24px;
+        margin-bottom: 1.41rem;
         max-width: 420px;
         margin-left: auto;
         margin-right: auto;
@@ -2090,11 +2090,11 @@ p.course-description {
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 8px;
-        margin-bottom: 24px;
+        gap: .47rem;
+        margin-bottom: 1.41rem;
         .stars {
           display: flex;
-          gap: 2px;
+          gap: .12rem;
           svg {
             width: 14px;
             height: 14px;
@@ -2119,15 +2119,15 @@ p.course-description {
       .popup-step1-cta {
         display: inline-block;
         font-family: var(--font-body);
-        font-size: 13px;
+        font-size: .76rem;
         font-weight: 700;
-        letter-spacing: 1.5px;
+        letter-spacing: .09rem;
         text-transform: uppercase;
         background: var(--bright-orange);
         color: #fff;
         border: none;
-        padding: 16px 40px;
-        border-radius: 50px;
+        padding: .94rem 2.35rem;
+        border-radius: 2.94rem;
         cursor: pointer;
         transition: background 0.25s, transform 0.15s;
         box-shadow: 0 4px 20px rgba(252, 132, 17, 0.3);
@@ -2158,25 +2158,25 @@ p.course-description {
       }
       .step2-heading {
         font-family: "Lora", Georgia, serif;
-        font-size: 26px;
+        font-size: 1.53rem;
         font-weight: 500;
         color: #fff;
-        margin-bottom: 6px;
+        margin-bottom: .35rem;
       }
       .step2-subtext {
         font-family: "Lato", sans-serif;
-        font-size: 14px;
+        font-size: .82rem;
         font-weight: 300;
         color: rgba(255, 255, 255, 0.6);
-        margin-bottom: 22px;
+        margin-bottom: 1.29rem;
       }
         .forminator-ui {
           position: relative;
           display: flex;
           gap: 0;
           max-width: 420px;
-          margin: 0 auto 30px;
-          border-radius: 50px;
+          margin: 0 auto 1.76rem;
+          border-radius: 2.94rem;
           overflow: visible;
           background: rgba(255, 255, 255, 0.95);
           box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
@@ -2186,18 +2186,18 @@ p.course-description {
           }
           .forminator-response-message {
             position: absolute;
-            top: calc(100% + 14px);
+            top: calc(100% + .82rem);
             left: 0;
             width: 100%;
             font-family: "Lato", sans-serif;
-            font-size: 13px;
+            font-size: .76rem;
             color: #f5c6c6;
             margin: 0;
             text-align: center;
             justify-content: center;
             align-items: center;
             padding: 0;
-            border-radius: 4px;
+            border-radius: .24rem;
             background: transparent;
             display: flex;
             p {
@@ -2230,31 +2230,31 @@ p.course-description {
             flex: 1;
             border: none;
             outline: none;
-            padding: 15px 22px;
+            padding: .88rem 1.29rem;
             font-family: "Lato", sans-serif;
             font-size: .9rem;
             color: var(--charcoal);
             background: transparent;
             min-width: 0;
-            border-radius: 50px 0 0 50px;
+            border-radius: 2.94rem 0 0 2.94rem;
             &::placeholder {
               color: #999;
             }
           }
           .forminator-button-submit {
             font-family: "Lato", sans-serif;
-            font-size: 12px;
+            font-size: .71rem;
             font-weight: 700;
-            letter-spacing: 1.5px;
+            letter-spacing: .09rem;
             text-transform: uppercase;
             white-space: nowrap;
             border: none;
             background: var(--bright-orange);
             color: #fff;
-            padding: 15px 26px;
+            padding: .88rem 1.53rem;
             cursor: pointer;
             transition: background 0.25s;
-            border-radius: 0 50px 50px 0;
+            border-radius: 0 2.94rem 2.94rem 0;
             &:hover {
               background: #e87400;
             }
@@ -2262,7 +2262,7 @@ p.course-description {
       }
         .popup-disclaimer {
           font-family: var(--font-body);
-          font-size: 11px;
+          font-size: .65rem;
           color: rgba(255, 255, 255, 0.4);
           line-height: 1.5;
           margin-top: 2.5rem;
@@ -2271,9 +2271,9 @@ p.course-description {
       .popup-error {
         display: none;
         font-family: "Lato", sans-serif;
-        font-size: 13px;
+        font-size: .76rem;
         color: #f0a0a0;
-        margin-bottom: 8px;
+        margin-bottom: .47rem;
         &.show {
           display: block;
         }
@@ -2281,7 +2281,7 @@ p.course-description {
       .popup-success {
         display: none;
         text-align: center;
-        padding: 10px 0;
+        padding: .59rem 0;
         &.show {
           display: block;
         }
@@ -2293,7 +2293,7 @@ p.course-description {
           display: flex;
           align-items: center;
           justify-content: center;
-          margin: 0 auto 16px;
+          margin: 0 auto .94rem;
           svg {
             width: 28px;
             height: 28px;
@@ -2304,14 +2304,14 @@ p.course-description {
         }
         h3 {
           font-family: "Lora", Georgia, serif;
-          font-size: 24px;
+          font-size: 1.41rem;
           font-weight: 500;
           color: #fff;
-          margin-bottom: 10px;
+          margin-bottom: .59rem;
         }
         p {
           font-family: "Lato", sans-serif;
-          font-size: 14px;
+          font-size: .82rem;
           font-weight: 300;
           color: rgba(255, 255, 255, 0.7);
           line-height: 1.6;
@@ -2327,7 +2327,7 @@ p.course-description {
     padding: 0;
     .popup-card {
       max-width: 100%;
-      border-radius: 20px 20px 0 0;
+      border-radius: 1.18rem 1.18rem 0 0;
       transform: translateY(100%);
       transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
       box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.25);
@@ -2338,31 +2338,31 @@ p.course-description {
         display: block;
       }
       .popup-content {
-        padding: 8px 24px 30px;
-        padding-bottom: max(30px, env(safe-area-inset-bottom, 30px));
+        padding: .47rem 1.41rem 1.76rem;
+        padding-bottom: max(1.76rem, env(safe-area-inset-bottom, 1.76rem));
         .popup-heading {
-          font-size: 26px;
+          font-size: 1.53rem;
         }
         .popup-description {
-          font-size: 14px;
+          font-size: .82rem;
         }
         .forminator-ui {
           flex-direction: column;
-          border-radius: 12px;
+          border-radius: .71rem;
           .forminator-input.forminator-email--field {
             border-bottom: 1px solid #e8e8e8;
             text-align: center;
-            padding: 16px 20px;
+            padding: .94rem 1.18rem;
           }
           .forminator-button-submit {
-            padding: 16px 20px;
-            border-radius: 0 0 12px 12px;
+            padding: .94rem 1.18rem;
+            border-radius: 0 0 .71rem .71rem;
           }
         }
       }
       .popup-close {
-        top: 10px;
-        right: 10px;
+        top: .59rem;
+        right: .59rem;
       }
     }
     &.active .popup-card {
@@ -2385,13 +2385,13 @@ p.course-description {
 // Blog post index page
 .page-header {
   background: var(--soft-cream);
-  padding: 64px 24px 56px;
+  padding: 3.76rem 1.41rem 3.29rem;
   border-bottom: 1px solid rgba(177,153,134,.12);
   .container {
     max-width: 1100px;
     margin: 0 auto;
     p {
-      font-size: 17px;
+      font-size: 1.00rem;
       color: #888;
       max-width: 480px;
       line-height: 1.7;
@@ -2401,24 +2401,24 @@ p.course-description {
 }
 @media (min-width: 768px) {
   .page-header {
-    padding: 80px 48px 64px;
+    padding: 4.71rem 2.82rem 3.76rem;
   }
 }
 
 .blog-layout {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 48px 24px 80px;
+  padding: 2.82rem 1.41rem 4.71rem;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 48px;
+  gap: 2.82rem;
   > div {
     .post-list {
       list-style: none;
       .post-item {
         display: flex;
-        gap: 20px;
-        padding: 28px 0;
+        gap: 1.18rem;
+        padding: 1.65rem 0;
         border-bottom: 1px solid rgba(177,153,134,.12);
         transition: background .2s;
         &:first-child {
@@ -2431,7 +2431,7 @@ p.course-description {
           flex-shrink: 0;
           width: 140px;
           height: 105px;
-          border-radius: 8px;
+          border-radius: .47rem;
           overflow: hidden;
           background: var(--light-taupe);
           a {
@@ -2453,20 +2453,20 @@ p.course-description {
           justify-content: center;
           .post-date {
             font-family: var(--font-eyebrow);
-            font-size: 11px;
-            letter-spacing: 1.5px;
+            font-size: .65rem;
+            letter-spacing: .09rem;
             text-transform: uppercase;
             color: var(--warm-taupe);
-            margin-bottom: 6px;
+            margin-bottom: .35rem;
             display: block;
           }
           .post-title {
             font-family: var(--font-heading);
-            font-size: clamp(17px,2vw,20px);
+            font-size: clamp(1.00rem,2vw,1.18rem);
             font-weight: 700;
             line-height: 1.35;
             color: var(--dark-brown);
-            margin-bottom: 6px;
+            margin-bottom: .35rem;
             a {
               color: var(--dark-brown);
               text-decoration: none;
@@ -2476,7 +2476,7 @@ p.course-description {
             }
           }
           .post-excerpt {
-            font-size: 15px;
+            font-size: .88rem;
             line-height: 1.65;
             color: #777;
             margin: 0;
@@ -2492,15 +2492,15 @@ p.course-description {
 }
 @media (min-width: 768px) {
   .blog-layout {
-    padding: 60px 48px 100px;
+    padding: 3.53rem 2.82rem 5.88rem;
     grid-template-columns: 1fr 300px;
-    gap: 56px;
+    gap: 3.29rem;
   }
 }
 @media (min-width: 960px) {
   .blog-layout {
     grid-template-columns: 1fr 320px;
-    gap: 64px;
+    gap: 3.76rem;
   }
 }
 @media (min-width: 480px) {
@@ -2519,11 +2519,11 @@ p.course-description {
   .blog-layout {
     .post-list {
       .post-item {
-        gap: 14px;
+        gap: .82rem;
         .post-thumb {
           width: 100px;
           height: 80px;
-          border-radius: 6px;
+          border-radius: .35rem;
         }
         .post-body {
           .post-excerpt {
@@ -2541,13 +2541,13 @@ p.course-description {
 }
 .breadcrumb-bar {
   background: var(--soft-cream);
-  padding: 16px 24px;
+  padding: .94rem 1.41rem;
   border-bottom: 1px solid rgba(177,153,134,.1);
   nav {
     max-width: 1100px;
     margin: 0 auto;
     font-family: var(--font-body);
-    font-size: 13px;
+    font-size: .76rem;
     color: #aaa;
     a {
       color: var(--warm-taupe);
@@ -2558,7 +2558,7 @@ p.course-description {
       }
     }
     .sep {
-      margin: 0 8px;
+      margin: 0 .47rem;
       color: #ccc;
     }
     span {
@@ -2570,29 +2570,29 @@ p.course-description {
 }
 @media(min-width:768px) {
   .breadcrumb-bar {
-    padding: 16px 48px;
+    padding: .94rem 2.82rem;
   }
 }
 .article-body {
-  margin-top: 40px;
+  margin-top: 2.35rem;
   p {
-    font-size: 17px;
+    font-size: 1.00rem;
     line-height: 1.85;
     color: #555;
-    margin-bottom: 22px;
+    margin-bottom: 1.29rem;
     &:last-child {
       margin-bottom: 0;
     }
   }
   h2 {
-    margin-top: 44px;
-    margin-bottom: 16px;
-    font-size: clamp(22px, 2.8vw, 28px);
+    margin-top: 2.59rem;
+    margin-bottom: .94rem;
+    font-size: clamp(1.29rem, 2.8vw, 1.65rem);
   }
   h3 {
-    margin-top: 36px;
-    margin-bottom: 12px;
-    font-size: clamp(18px, 2.2vw, 22px);
+    margin-top: 2.12rem;
+    margin-bottom: .71rem;
+    font-size: clamp(1.06rem, 2.2vw, 1.29rem);
   }
   a {
     color: var(--forest-green);
@@ -2605,12 +2605,12 @@ p.course-description {
     }
   }
   blockquote {
-    margin: 32px 0;
-    padding: 20px 0 20px 24px;
+    margin: 1.88rem 0;
+    padding: 1.18rem 0 1.18rem 1.41rem;
     border-left: 3px solid var(--sage-green);
     font-family: var(--font-heading);
     font-style: italic;
-    font-size: 19px;
+    font-size: 1.12rem;
     line-height: 1.7;
     color: var(--dark-brown);
     p {
@@ -2622,22 +2622,22 @@ p.course-description {
   }
   ul,
   ol {
-    margin: 0 0 22px 24px;
+    margin: 0 0 1.29rem 1.41rem;
     color: #555;
   }
   li {
-    margin-bottom: 8px;
+    margin-bottom: .47rem;
     line-height: 1.75;
   }
   figure {
-    margin: 32px 0;
-    border-radius: 10px;
+    margin: 1.88rem 0;
+    border-radius: .59rem;
     overflow: hidden;
     box-shadow: 0 6px 30px rgba(58,29,2,.08);
   }
   figcaption {
-    padding: 12px 0 0;
-    font-size: 13px;
+    padding: .71rem 0 0;
+    font-size: .76rem;
     color: #aaa;
     text-align: center;
     font-style: italic;
@@ -2646,7 +2646,7 @@ p.course-description {
     border: none;
     height: 1px;
     background: linear-gradient(90deg, transparent, rgba(177,153,134,.3), transparent);
-    margin: 40px 0;
+    margin: 2.35rem 0;
   }
 }
 
@@ -2654,45 +2654,45 @@ p.course-description {
 .sidebar {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 1.88rem;
   .sidebar-card {
     background: var(--pale-sage-cream);
-    border-radius: 10px;
-    padding: 28px 24px;
+    border-radius: .59rem;
+    padding: 1.65rem 1.41rem;
     border: 1px solid rgba(132,174,157,.12);
     .eyebrow {
-      margin-bottom: 10px;
-      font-size: 10px;
+      margin-bottom: .59rem;
+      font-size: .59rem;
     }
     h3 {
-      font-size: 18px;
-      margin-bottom: 8px;
+      font-size: 1.06rem;
+      margin-bottom: .47rem;
     }
     p {
-      font-size: 14px;
+      font-size: .82rem;
       line-height: 1.65;
       color: #777;
-      margin-bottom: 16px;
+      margin-bottom: .94rem;
     }
     .sidebar-form {
       .forminator-ui {
         display: flex;
         flex-direction: column;
-        gap: 8px;
+        gap: .47rem;
         margin: 0;
       }
       .forminator-error-message {
-        margin-top: 0.4rem;
+        margin-top: .4rem;
         color: rgba(202, 27, 27, 0.59);
-        font-size: 0.85rem;
+        font-size: .85rem;
         font-style: italic;
         display: block;
         text-align: center;
       }
       .forminator-response-message {
         display: none !important;
-        margin-bottom: 6px;
-        font-size: 12px;
+        margin-bottom: .35rem;
+        font-size: .71rem;
         color: #b06a6a;
       }
       .forminator-response-message[aria-hidden="true"] {
@@ -2706,11 +2706,11 @@ p.course-description {
         width: 100%;
       }
       .forminator-input.forminator-email--field {
-        padding: 12px 14px;
+        padding: .71rem .82rem;
         border: 1px solid rgba(177,153,134,.25);
-        border-radius: 5px;
+        border-radius: .29rem;
         font-family: var(--font-body);
-        font-size: 14px;
+        font-size: .82rem;
         color: var(--charcoal);
         outline: none;
         background: #fff;
@@ -2726,13 +2726,13 @@ p.course-description {
       .forminator-button-submit {
         display: inline-block;
         width: 100%;
-        padding: 0.78rem 1.1rem;
+        padding: .78rem 1.1rem;
         font-family: var(--font-eyebrow);
         font-weight: 700;
-        font-size: 0.65rem;
-        letter-spacing: 0.09rem;
+        font-size: .65rem;
+        letter-spacing: .09rem;
         text-transform: uppercase;
-        border-radius: 0.29rem;
+        border-radius: .29rem;
         cursor: pointer;
         transition: all 0.3s ease;
         border: 2px solid var(--soft-orange);
@@ -2757,7 +2757,7 @@ p.course-description {
     }
     .micro {
       //text-align: center;
-      font-size: 12px;
+      font-size: .71rem;
       color: #bbb;
       margin-top: .8rem;
       margin-bottom: 0;
@@ -2767,25 +2767,25 @@ p.course-description {
 }
 .ad-slot {
   background: var(--soft-cream);
-  border-radius: 10px;
+  border-radius: .59rem;
   border: 1px dashed rgba(177,153,134,.3);
   min-height: 250px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #ccc;
-  font-size: 13px;
+  font-size: .76rem;
   font-family: var(--font-eyebrow);
-  letter-spacing: 1px;
+  letter-spacing: .06rem;
   text-transform: uppercase;
 }
 .author-card {
   display: flex;
-  gap: 16px;
+  gap: .94rem;
   align-items: center;
-  padding: 24px;
+  padding: 1.41rem;
   background: var(--soft-cream);
-  border-radius: 10px;
+  border-radius: .59rem;
   .author-avatar {
     width: 56px;
     height: 56px;
@@ -2803,20 +2803,20 @@ p.course-description {
     .author-name {
       font-family: var(--font-heading);
       font-weight: 700;
-      font-size: 16px;
+      font-size: .94rem;
       color: var(--dark-brown);
-      margin-bottom: 2px;
+      margin-bottom: .12rem;
     }
     .author-bio {
-      font-size: 13px;
+      font-size: .76rem;
       line-height: 1.6;
       color: #888;
-      margin-bottom: 4px;
+      margin-bottom: .24rem;
     }
     .author-link {
       font-family: var(--font-eyebrow);
-      font-size: 10px;
-      letter-spacing: 1.5px;
+      font-size: .59rem;
+      letter-spacing: .09rem;
       text-transform: uppercase;
       color: var(--forest-green);
       text-decoration: none;
@@ -2829,49 +2829,49 @@ p.course-description {
 .post-layout {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 48px 24px 80px;
+  padding: 2.82rem 1.41rem 4.71rem;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 48px;
+  gap: 2.82rem;
 }
 @media (min-width: 768px) {
   .post-layout {
-    padding: 60px 48px 100px;
+    padding: 3.53rem 2.82rem 5.88rem;
     grid-template-columns: 1fr 300px;
-    gap: 56px;
+    gap: 3.29rem;
   }
 }
 @media (min-width: 960px) {
   .post-layout {
     grid-template-columns: 1fr 320px;
-    gap: 64px;
+    gap: 3.76rem;
   }
 }
 .featured-image {
-  border-radius: 10px;
+  border-radius: .59rem;
   overflow: hidden;
   box-shadow: 0 8px 40px rgba(58, 29, 2, 0.1);
   aspect-ratio: 16 / 9;
   margin-bottom: 0;
 }
 .post-footer {
-  margin-top: 48px;
-  padding-top: 32px;
+  margin-top: 2.82rem;
+  padding-top: 1.88rem;
   border-top: 1px solid rgba(177, 153, 134, 0.15);
 }
 .article-header {
-  margin-bottom: 36px;
+  margin-bottom: 2.12rem;
   .eyebrow {
-    margin-bottom: 12px;
+    margin-bottom: .71rem;
   }
   .article-meta {
     font-family: var(--font-body);
-    font-size: 14px;
+    font-size: .82rem;
     color: var(--warm-taupe);
-    margin-bottom: 28px;
+    margin-bottom: 1.65rem;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: .59rem;
     .dot {
       width: 3px;
       height: 3px;
@@ -2885,24 +2885,24 @@ p.course-description {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 24px;
-  margin-bottom: 40px;
+  gap: 1.41rem;
+  margin-bottom: 2.35rem;
   .post-nav-link {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: .24rem;
     max-width: 48%;
     text-decoration: none;
     .nav-label {
       font-family: var(--font-eyebrow);
-      font-size: 10px;
-      letter-spacing: 2px;
+      font-size: .59rem;
+      letter-spacing: .12rem;
       text-transform: uppercase;
       color: var(--warm-taupe);
     }
     .nav-title {
       font-family: var(--font-heading);
-      font-size: 15px;
+      font-size: .88rem;
       line-height: 1.4;
       color: var(--dark-brown);
       transition: color .2s;
@@ -2921,12 +2921,12 @@ p.course-description {
 // Contact page
 .contact-page {
   .contact-section {
-    padding: 80px 24px;
+    padding: 4.71rem 1.41rem;
     background: #fff;
   }
   @media(min-width:768px) {
     .contact-section {
-      padding: 100px 48px
+      padding: 5.88rem 2.82rem
     }
   }
   .contact-container {
@@ -2936,18 +2936,18 @@ p.course-description {
   .contact-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: 2.82rem;
     align-items: start;
   }
   @media(min-width:860px) {
     .contact-grid {
       grid-template-columns: 1.4fr .6fr;
-      gap: 64px
+      gap: 3.76rem
     }
   }
   .hero {
     position: relative;
-    padding: 100px 24px 80px;
+    padding: 5.88rem 1.41rem 4.71rem;
     background: var(--mint-green);
     overflow: hidden;
     text-align: center;
@@ -2966,7 +2966,7 @@ p.course-description {
       max-width: 700px;
       margin: 0 auto;
       p {
-        font-size: 18px;
+        font-size: 1.06rem;
         line-height: 1.8;
         color: #666;
         //font-weight: 300;
@@ -2977,8 +2977,8 @@ p.course-description {
   }
   .form-card {
     background: var(--soft-cream);
-    border-radius: 14px;
-    padding: 40px 32px;
+    border-radius: .82rem;
+    padding: 2.35rem 1.88rem;
     border: 1px solid rgba(177,153,134,.3);
     box-shadow: 0 8px 40px rgba(58,29,2,.06);
     .form-title {
@@ -2986,12 +2986,12 @@ p.course-description {
       font-size: 1.6rem;
       color: var(--dark-brown);
       font-weight: 400;
-      margin-bottom: 8px;
+      margin-bottom: .47rem;
     }
     .form-subtitle {
-      font-size: 15px;
+      font-size: .88rem;
       color: #888;
-      margin-bottom: 32px;
+      margin-bottom: 1.88rem;
       //font-weight: 300;
     }
     .forminator-contact {
@@ -2999,8 +2999,8 @@ p.course-description {
         display: block;
       }
       .forminator-response-message {
-        margin: 0 0 16px;
-        font-size: 13px;
+        margin: 0 0 .94rem;
+        font-size: .76rem;
         color: #c36c6c;
       }
       .forminator-response-message[aria-hidden="true"] {
@@ -3009,7 +3009,7 @@ p.course-description {
       .forminator-row {
         display: grid;
         grid-template-columns: repeat(12, minmax(0, 1fr));
-        gap: 20px;
+        gap: 1.18rem;
         margin-bottom: .5rem;
         .forminator-error-message {
           margin-top: .4rem;
@@ -3042,25 +3042,25 @@ p.course-description {
         font-family: var(--font-eyebrow);
         font-weight: 700;
         font-size: .65rem;
-        letter-spacing: 2px;
+        letter-spacing: .12rem;
         text-transform: uppercase;
         color: var(--forest-green);
-        margin-bottom: 8px;
+        margin-bottom: .47rem;
       }
       .forminator-required {
         color: var(--dusty-rose);
-        margin-left: 2px;
+        margin-left: .12rem;
       }
       .forminator-input,
       .forminator-textarea,
       select {
         font-family: var(--font-body);
-        font-size: 16px;
+        font-size: .94rem;
         color: var(--charcoal);
         background: #fff;
         border: 1.5px solid var(--light-taupe);
-        border-radius: 8px;
-        padding: 14px 16px;
+        border-radius: .47rem;
+        padding: .82rem .94rem;
         transition: border-color .25s, box-shadow .25s;
         outline: none;
         width: 100%;
@@ -3079,11 +3079,11 @@ p.course-description {
       }
       .forminator-field-radio,
       .forminator-field-checkbox {
-        margin-bottom: 20px;
+        margin-bottom: 1.18rem;
       }
       .forminator-field-radio .forminator-label,
       .forminator-field-checkbox .forminator-label {
-        margin-bottom: 12px;
+        margin-bottom: .71rem;
         display: block;
       }
       .forminator-radio,
@@ -3092,10 +3092,10 @@ p.course-description {
         cursor: pointer;
         display: flex;
         align-items: center;
-        gap: 10px;
-        font-size: 15px;
+        gap: .59rem;
+        font-size: .88rem;
         color: #555;
-        margin-bottom: 10px;
+        margin-bottom: .59rem;
       }
       .forminator-radio input,
       .forminator-checkbox input {
@@ -3133,7 +3133,7 @@ p.course-description {
       .forminator-checkbox-box {
         width: 20px;
         height: 20px;
-        border-radius: 5px;
+        border-radius: .29rem;
         border: 2px solid var(--light-taupe);
         background: #fff;
         transition: all .2s;
@@ -3159,18 +3159,18 @@ p.course-description {
         transform: rotate(45deg) scale(1);
       }
       .forminator-row-last {
-        margin-top: 32px;
+        margin-top: 1.88rem;
       }
       .forminator-button-submit {
         width: 100%;
         text-align: center;
-        padding: 18px 36px;
+        padding: 1.06rem 2.12rem;
         font-family: var(--font-eyebrow);
         font-weight: 700;
-        font-size: 0.76rem;
-        letter-spacing: 0.12rem;
+        font-size: .76rem;
+        letter-spacing: .12rem;
         text-transform: uppercase;
-        border-radius: 0.29rem;
+        border-radius: .29rem;
         border: 2px solid transparent;
         background: var(--stone-beige);
         color: var(--white);
@@ -3197,7 +3197,7 @@ p.course-description {
   }
   @media (max-width: 700px) {
     .form-card {
-      padding: 28px 20px;
+      padding: 1.65rem 1.18rem;
       .forminator-contact {
         .forminator-row {
           grid-template-columns: 1fr;
@@ -3211,40 +3211,40 @@ p.course-description {
   }
   @media (min-width: 600px) {
     .form-card {
-      padding: 48px 44px;
+      padding: 2.82rem 2.59rem;
     }
   }
   .sidebar {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 1.41rem;
     .info-card {
       background: var(--soft-cream);
-      border-radius: 14px;
-      padding: 28px 28px;
+      border-radius: .82rem;
+      padding: 1.65rem 1.65rem;
       border: 1px solid rgba(177,153,134,.1);
       box-shadow: 0 4px 20px rgba(58,29,2,.04);
       .info-icon {
         width: 44px;
         height: 44px;
-        border-radius: 10px;
+        border-radius: .59rem;
         background: linear-gradient(135deg, var(--mint-green), var(--sage-green));
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-bottom: 16px;
+        margin-bottom: .94rem;
         svg {
           width: 22px;
-          height: 22px;
+          height: 1.29rem;
           color: #fff;
         }
       }
       h3 {
-        font-size: 17px;
-        margin-bottom: 10px;
+        font-size: 1.00rem;
+        margin-bottom: .59rem;
       }
       p {
-        font-size: 15px;
+        font-size: .88rem;
         color: #666;
         line-height: 1.7;
         margin-bottom: 0;
@@ -3261,8 +3261,8 @@ p.course-description {
       .info-detail {
         display: flex;
         align-items: center;
-        gap: 10px;
-        margin-bottom: 8px;
+        gap: .59rem;
+        margin-bottom: .47rem;
         &:last-child {
           margin-bottom: 0;
         }
@@ -3273,23 +3273,23 @@ p.course-description {
           flex-shrink: 0;
         }
         span {
-          font-size: 15px;
+          font-size: .88rem;
           color: #555;
         }
       }
     }
     .response-card {
       background: linear-gradient(135deg, var(--deep-teal), #3a6b5f);
-      border-radius: 14px;
-      padding: 24px 28px;
+      border-radius: .82rem;
+      padding: 1.41rem 1.65rem;
       color: #fff;
       position: relative;
       overflow: hidden;
       &::before {
         content: '';
         position: absolute;
-        top: -30px;
-        right: -30px;
+        top: -1.76rem;
+        right: -1.76rem;
         width: 100px;
         height: 100px;
         border-radius: 50%;
@@ -3299,8 +3299,8 @@ p.course-description {
       &::after {
         content: '';
         position: absolute;
-        bottom: -20px;
-        left: -20px;
+        bottom: -1.18rem;
+        left: -1.18rem;
         width: 70px;
         height: 70px;
         border-radius: 50%;
@@ -3309,14 +3309,14 @@ p.course-description {
       }
       h3 {
         color: #fff;
-        font-size: 16px;
-        margin-bottom: 6px;
+        font-size: .94rem;
+        margin-bottom: .35rem;
         position: relative;
         z-index: 1;
       }
       p {
         color: rgba(255,255,255,.75);
-        font-size: 14px;
+        font-size: .82rem;
         margin-bottom: 0;
         position: relative;
         z-index: 1;
@@ -3325,15 +3325,15 @@ p.course-description {
     }
     .helpful-card {
       background: var(--warm-linen);
-      border-radius: 14px;
-      padding: 24px 28px;
+      border-radius: .82rem;
+      padding: 1.41rem 1.65rem;
       border: 1px solid rgba(177,153,134,.08);
       h3 {
-        font-size: 16px;
-        margin-bottom: 8px;
+        font-size: .94rem;
+        margin-bottom: .47rem;
       }
       p {
-        font-size: 14px;
+        font-size: .82rem;
         color: #777;
         line-height: 1.7;
         margin-bottom: 0;
@@ -3358,12 +3358,12 @@ p.course-description {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          gap: 12px;
-          padding: 10px 0;
+          gap: .71rem;
+          padding: .59rem 0;
           border-top: 0;
           text-decoration: none;
           font-family: var(--font-heading);
-          font-size: 15px;
+          font-size: .88rem;
           color: var(--dark-brown);
           transition: color .2s;
           &:hover {
@@ -3385,7 +3385,7 @@ p.course-description {
     .info-card,
     .response-card,
     .helpful-card {
-      padding: 22px 20px;
+      padding: 1.29rem 1.18rem;
     }
   }
 }
@@ -3442,14 +3442,14 @@ p.course-description {
   .contact-card {
     background: var(--soft-cream);
     padding: 1.8rem 2rem;
-    border-radius: 10px;
+    border-radius: .59rem;
     border: 1px dashed rgba(177,153,134,.3);
     display: inline-block;
     align-items: center;
     justify-content: center;
     color: #666;
-    font-size: 13px;
-    letter-spacing: 1px;
+    font-size: .76rem;
+    letter-spacing: .06rem;
     text-transform: uppercase;
     a {
       display: block;
