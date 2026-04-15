@@ -2779,7 +2779,6 @@ p.course-description {
   letter-spacing: 1px;
   text-transform: uppercase;
 }
-
 .author-card {
   display: flex;
   gap: 16px;
@@ -2827,7 +2826,6 @@ p.course-description {
     }
   }
 }
-
 .post-layout {
   max-width: 1200px;
   margin: 0 auto;
@@ -2849,7 +2847,6 @@ p.course-description {
     gap: 64px;
   }
 }
-
 .featured-image {
   border-radius: 10px;
   overflow: hidden;
@@ -2857,13 +2854,11 @@ p.course-description {
   aspect-ratio: 16 / 9;
   margin-bottom: 0;
 }
-
 .post-footer {
   margin-top: 48px;
   padding-top: 32px;
   border-top: 1px solid rgba(177, 153, 134, 0.15);
 }
-
 .article-header {
   margin-bottom: 36px;
   .eyebrow {
@@ -2886,7 +2881,6 @@ p.course-description {
     }
   }
 }
-
 .post-nav {
   display: flex;
   justify-content: space-between;
@@ -2924,7 +2918,6 @@ p.course-description {
     }
   }
 }
-
 // Contact page
 .contact-page {
   .contact-section {
@@ -3396,3 +3389,78 @@ p.course-description {
     }
   }
 }
+
+// Standard pages, default page template
+.page-template-default {
+  .section {
+    padding: 3rem 0;
+    .container {
+      max-width: 900px;
+    }
+  }
+  .eyebrow {
+    margin-bottom: .9rem;
+  }
+  h1 {
+    margin-bottom: 0;
+  }
+  .page-description {
+    line-height: 1.3;
+    margin-top: 1.2rem;
+    font-size: .95rem;
+    p {
+      margin-bottom: .8rem;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  h2.wp-block-heading {
+    font-size: 1.5rem;
+    margin-top: 1.7rem;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+  h3.wp-block-heading {
+    font-size: 1.3rem;
+    margin-top: 1.7rem;
+  }
+  hr.wp-block-separator {
+    border: 0;
+    border-top: 1px solid var(--light-taupe);
+    margin: 1.85rem 0 1.65rem;
+    max-width: none;
+    opacity: 1;
+  }
+  main {
+    a {
+      text-decoration: underline;
+      color: #2190e2;
+    }
+  }
+  .contact-card {
+    background: var(--soft-cream);
+    padding: 1.8rem 2rem;
+    border-radius: 10px;
+    border: 1px dashed rgba(177,153,134,.3);
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    a {
+      display: block;
+      margin-top: .5rem;
+      //text-transform: capitalize;
+    }
+  }
+}
+
+
+
+
+
+

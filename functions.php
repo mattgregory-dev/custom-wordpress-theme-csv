@@ -78,6 +78,55 @@ add_filter( 'script_loader_tag', 'csv_block_module_scripts', 10, 3 );
 ///////////////// WordPress Theme ////////////////
 //////////////////////////////////////////////////
 
+// Add page template column to Pages list.
+function csv_add_page_template_column( $columns ) {
+  $columns['csv_page_template'] = 'Template';
+  return $columns;
+}
+add_filter( 'manage_pages_columns', 'csv_add_page_template_column' );
+
+// Render page template column content.
+function csv_render_page_template_column( $column, $post_id ) {
+  if ( 'csv_page_template' !== $column ) {
+    return;
+  }
+
+  $template = get_page_template_slug( $post_id );
+  if ( ! $template ) {
+    echo 'Default';
+    return;
+  }
+
+  echo esc_html( basename( $template ) );
+}
+add_action( 'manage_pages_custom_column', 'csv_render_page_template_column', 10, 2 );
+
+// Make page template column sortable.
+function csv_page_template_sortable_column( $columns ) {
+  $columns['csv_page_template'] = 'csv_page_template';
+  return $columns;
+}
+add_filter( 'manage_edit-page_sortable_columns', 'csv_page_template_sortable_column' );
+
+// Apply sorting by page template when requested.
+function csv_page_template_orderby( $query ) {
+  if ( ! is_admin() || ! $query->is_main_query() ) {
+    return;
+  }
+
+  if ( 'page' !== $query->get( 'post_type' ) ) {
+    return;
+  }
+
+  if ( 'csv_page_template' !== $query->get( 'orderby' ) ) {
+    return;
+  }
+
+  $query->set( 'meta_key', '_wp_page_template' );
+  $query->set( 'orderby', 'meta_value' );
+}
+add_action( 'pre_get_posts', 'csv_page_template_orderby' );
+
 // Register navigation menus
 function csv_setup() {
   add_theme_support( 'title-tag' );
