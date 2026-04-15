@@ -296,9 +296,122 @@ JS;
 }
 add_action( 'wp_enqueue_scripts', 'csv_disable_stripe_sandbox_assistant', 20 );
 
-// Cart/Checkout blocks: link cart items back to the related Event (ACF: event_post).
-function csv_cart_item_permalink_event_link( $permalink, $cart_item, $cart_item_key ) {
-  if ( ! function_exists( 'get_field' ) || empty( $cart_item['data'] ) ) {
+// Normalize mixed field/meta values (ID, WP_Post, array) into a valid post ID.
+function csv_resolve_linked_post_id( $value, $expected_post_type = '' ) {
+  $post_id = 0;
+
+  if ( $value instanceof WP_Post ) {
+    $post_id = (int) $value->ID;
+  } elseif ( is_numeric( $value ) ) {
+    $post_id = absint( $value );
+  } elseif ( is_array( $value ) ) {
+    if ( isset( $value['ID'] ) && is_numeric( $value['ID'] ) ) {
+      $post_id = absint( $value['ID'] );
+    } elseif ( isset( $value['id'] ) && is_numeric( $value['id'] ) ) {
+      $post_id = absint( $value['id'] );
+    } else {
+      foreach ( $value as $candidate ) {
+        $candidate_id = csv_resolve_linked_post_id( $candidate, $expected_post_type );
+        if ( $candidate_id > 0 ) {
+          return $candidate_id;
+        }
+      }
+    }
+  } elseif ( is_string( $value ) && '' !== trim( $value ) ) {
+    $parts = array_filter( array_map( 'trim', explode( ',', $value ) ) );
+    foreach ( $parts as $part ) {
+      if ( is_numeric( $part ) ) {
+        $post_id = absint( $part );
+        break;
+      }
+    }
+  }
+
+  if ( $post_id <= 0 ) {
+    return 0;
+  }
+
+  if ( '' !== $expected_post_type && get_post_type( $post_id ) !== $expected_post_type ) {
+    return 0;
+  }
+
+  return $post_id;
+}
+
+// Resolve the linked LearnDash course from product data (ACF + LearnDash Woo meta fallbacks).
+function csv_get_product_linked_course_id( $product_id ) {
+  if ( $product_id <= 0 ) {
+    return 0;
+  }
+
+  if ( function_exists( 'get_field' ) ) {
+    $acf_course = get_field( 'courses_post', $product_id );
+    $course_id = csv_resolve_linked_post_id( $acf_course, 'sfwd-courses' );
+    if ( $course_id > 0 ) {
+      return $course_id;
+    }
+  }
+
+  // LearnDash WooCommerce integration commonly stores linked courses in one of these keys.
+  $course_meta_keys = array(
+    '_related_course',
+    'related_course',
+    '_learndash_woocommerce_related_course',
+    'learndash_woocommerce_related_course',
+    'learndash_woocommerce_courses',
+  );
+
+  foreach ( $course_meta_keys as $meta_key ) {
+    $meta_value = get_post_meta( $product_id, $meta_key, true );
+    $course_id = csv_resolve_linked_post_id( $meta_value, 'sfwd-courses' );
+    if ( $course_id > 0 ) {
+      return $course_id;
+    }
+
+    $meta_values = get_post_meta( $product_id, $meta_key, false );
+    if ( ! empty( $meta_values ) ) {
+      $course_id = csv_resolve_linked_post_id( $meta_values, 'sfwd-courses' );
+      if ( $course_id > 0 ) {
+        return $course_id;
+      }
+    }
+  }
+
+  return 0;
+}
+
+// Resolve the preferred frontend URL for a Woo product in cart contexts.
+function csv_get_product_linked_frontend_url( $product_id ) {
+  if ( $product_id <= 0 ) {
+    return '';
+  }
+
+  // Prefer linked course pages over product pages.
+  $course_id = csv_get_product_linked_course_id( $product_id );
+  if ( $course_id > 0 ) {
+    $course_url = get_permalink( $course_id );
+    if ( $course_url ) {
+      return $course_url;
+    }
+  }
+
+  // Legacy fallback: linked event page.
+  if ( function_exists( 'get_field' ) ) {
+    $event_id = csv_resolve_linked_post_id( get_field( 'event_post', $product_id ) );
+    if ( $event_id > 0 ) {
+      $event_url = get_permalink( $event_id );
+      if ( $event_url ) {
+        return $event_url;
+      }
+    }
+  }
+
+  return '';
+}
+
+// Cart/Checkout links: point products to linked course/event pages instead of product pages.
+function csv_cart_item_permalink_linked_content( $permalink, $cart_item, $cart_item_key ) {
+  if ( empty( $cart_item['data'] ) || ! is_a( $cart_item['data'], 'WC_Product' ) ) {
     return $permalink;
   }
 
@@ -309,14 +422,40 @@ function csv_cart_item_permalink_event_link( $permalink, $cart_item, $cart_item_
     $product_id = $product->get_parent_id();
   }
 
-  $event_id = get_field( 'event_post', $product_id );
-  if ( $event_id ) {
-    return get_permalink( $event_id );
+  $linked_url = csv_get_product_linked_frontend_url( $product_id );
+  if ( '' !== $linked_url ) {
+    return $linked_url;
   }
 
   return $permalink;
 }
-add_filter( 'woocommerce_cart_item_permalink', 'csv_cart_item_permalink_event_link', 10, 3 );
+add_filter( 'woocommerce_cart_item_permalink', 'csv_cart_item_permalink_linked_content', 10, 3 );
+
+// Safety net: if cart name markup already includes an anchor, force its href to linked content URL.
+function csv_cart_item_name_linked_content( $product_name, $cart_item, $cart_item_key ) {
+  if ( empty( $cart_item['data'] ) || ! is_a( $cart_item['data'], 'WC_Product' ) ) {
+    return $product_name;
+  }
+
+  $product = $cart_item['data'];
+  $product_id = $product->get_id();
+
+  if ( $product->is_type( 'variation' ) ) {
+    $product_id = $product->get_parent_id();
+  }
+
+  $linked_url = csv_get_product_linked_frontend_url( $product_id );
+  if ( '' === $linked_url ) {
+    return $product_name;
+  }
+
+  if ( false !== stripos( $product_name, '<a ' ) ) {
+    $product_name = preg_replace( '/href=(["\']).*?\1/i', 'href="' . esc_url( $linked_url ) . '"', $product_name, 1 );
+  }
+
+  return $product_name;
+}
+add_filter( 'woocommerce_cart_item_name', 'csv_cart_item_name_linked_content', 10, 3 );
 
 // Remove Downloads from My Account navigation.
 function csv_remove_account_downloads_menu_item( $items ) {
