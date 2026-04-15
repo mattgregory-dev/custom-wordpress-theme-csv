@@ -344,7 +344,7 @@ get_header();
 </section>
 
 <!-- ========== FINAL CTA ========== -->
-<section class="section final-cta bg-deep-teal text-center" id="final">
+<section class="section final-cta text-center" id="final">
   <div class="container reveal">
     <div class="eyebrow">The 2027 Program Is Coming</div>
     <h2 class="max-w-2xl mx-auto">Study Herbalism the Way It Was Meant to Be Learned</h2>

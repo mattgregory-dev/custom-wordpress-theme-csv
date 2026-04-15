@@ -12,9 +12,12 @@
   &.woocommerce-checkout,
   &.woocommerce-cart,
   &.woocommerce-account {
+    header {
+      border-bottom: 1px solid rgb(0 0 0 / 8%);
+    }
     main {
       max-width: 1200px;
-      margin: 0 auto;
+      margin: 3rem auto 0;
       background-color: #fff;
       border: 1px solid #ccc;
       padding: 0 3rem;

@@ -149,7 +149,7 @@ get_header();
   </div>
 </section>
 
-<section class="section bg-deep-teal invitation-section">
+<section class="section invitation-section">
   <div class="container reveal">
     <div class="eyebrow">What&rsquo;s Next</div>
     <h2>If This Resonates, Here&rsquo;s Where to Start</h2>

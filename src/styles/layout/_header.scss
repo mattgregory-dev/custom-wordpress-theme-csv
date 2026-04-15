@@ -180,11 +180,12 @@ $header-mini: 390px;
 
 // Relative positioned top nav
 .csv-header-standard {
+  background-color: #fff;
   position: relative;
   z-index: 2;
   .header-menu-area {
     //border: 1px solid #CCCCCC;
-    background-color: unset;
+    //background-color: unset;
     border-radius: 1.47rem;
     @media (max-width: $header-mobile) {
       border: 0;
@@ -268,10 +269,6 @@ $header-mini: 390px;
     top: 1.88rem;
   }
 }
-
-
-
-
 
 // Full width hero header for dark backgrounds
 .csv-header-absolute.white {
@@ -1073,11 +1070,6 @@ $header-mini: 390px;
     justify-content: center;
   }
 }
-
-
-
-
-
 
 @media (max-width: $header-mobile) {
   .header-logo {

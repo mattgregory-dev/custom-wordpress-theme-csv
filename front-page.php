@@ -126,7 +126,7 @@ get_header();
 <div class="botanical-divider"></div>
 
 <!-- ========== FOOTER CTA + EMAIL CAPTURE ========== -->
-<section class="section footer-cta bg-deep-teal">
+<section class="section footer-cta">
   <div class="container text-center reveal">
     <div class="eyebrow">Free Course</div>
     <h2>New to Herbs? Start Here&thinsp;&mdash;&thinsp;No Cost.</h2>
