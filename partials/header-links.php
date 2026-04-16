@@ -1,13 +1,5 @@
 <nav class="main-menu">
   <ul>
-    <?php /*
-    <li class="no-sub-menu hidden">
-      <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-        <span class="menu-item">Home</span>
-        <span class="menu-item2">Home</span>
-      </a>
-    </li> */ ?>
-
     <li class="no-sub-menu">
       <a href="<?php echo esc_url( home_url( '/courses/' ) ); ?>">
         <span class="menu-item">Courses</span>

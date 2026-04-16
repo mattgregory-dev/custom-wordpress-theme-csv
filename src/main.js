@@ -595,6 +595,18 @@ const sideMenu = () => {
     LenisScroll.start();
   };
 
+  const setMenuState = (menu, isOpen, sourceToggle = null) => {
+    if (!menu) return;
+    menu.classList.toggle("active", isOpen);
+    menu.classList.toggle("open", isOpen);
+    menu.setAttribute("aria-hidden", isOpen ? "false" : "true");
+
+    if (sourceToggle) {
+      sourceToggle.classList.toggle("open", isOpen);
+      sourceToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    }
+  };
+
   toggles.forEach((toggle) => {
     toggle.addEventListener("click", () => {
       const menuName = toggle.getAttribute("data-menu");
@@ -603,8 +615,9 @@ const sideMenu = () => {
       );
 
       if (menu) {
-        menu.classList.add("active");
+        setMenuState(menu, true, toggle);
         overlay.classList.add("active");
+        overlay.classList.add("open");
         lockScroll();
       }
     });
@@ -614,8 +627,9 @@ const sideMenu = () => {
     closeBtn.addEventListener("click", () => {
       const menu = closeBtn.closest(".side-menu");
       if (!menu) return;
-      menu.classList.remove("active");
+      setMenuState(menu, false);
       overlay.classList.remove("active");
+      overlay.classList.remove("open");
       unlockScroll();
       menu.querySelectorAll(".active").forEach((el) => {
         el.classList.remove("active");
@@ -625,12 +639,23 @@ const sideMenu = () => {
 
   overlay.addEventListener("click", () => {
     sideMenus.forEach((menu) => {
-      menu.classList.remove("active");
+      setMenuState(menu, false);
       menu.querySelectorAll(".active").forEach((el) => {
         el.classList.remove("active");
       });
     });
     overlay.classList.remove("active");
+    overlay.classList.remove("open");
+    unlockScroll();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape") return;
+    sideMenus.forEach((menu) => {
+      setMenuState(menu, false);
+    });
+    overlay.classList.remove("active");
+    overlay.classList.remove("open");
     unlockScroll();
   });
 
@@ -1153,6 +1178,20 @@ const resizeHeaderHeight = () => {
 const activeMenu = () => {
   const currentPath = window.location.pathname.replace(/\/+$/, "") || "/";
 
+  const pathMatchesCurrent = (href) => {
+    if (!href || href === "#" || href.indexOf("mailto:") === 0 || href.indexOf("tel:") === 0) {
+      return false;
+    }
+
+    try {
+      const url = new URL(href, window.location.origin);
+      const linkPath = url.pathname.replace(/\/+$/, "") || "/";
+      return linkPath === currentPath;
+    } catch (error) {
+      return false;
+    }
+  };
+
   const setActive = (menuLi) => {
     const links = menuLi.querySelectorAll("a");
     let found = false;
@@ -1160,20 +1199,9 @@ const activeMenu = () => {
     for (let i = 0; i < links.length; i++) {
       const link = links[i];
       const href = link.getAttribute("href");
-      if (!href || href === "#" || href.indexOf("mailto:") === 0 || href.indexOf("tel:") === 0) {
-        continue;
-      }
-
-      try {
-        const url = new URL(href, window.location.origin);
-        const linkPath = url.pathname.replace(/\/+$/, "") || "/";
-
-        if (linkPath === currentPath) {
-          link.classList.add("active");
-          found = true;
-        }
-      } catch (error) {
-        // Ignore malformed URLs.
+      if (pathMatchesCurrent(href)) {
+        link.classList.add("active");
+        found = true;
       }
     }
 
@@ -1212,6 +1240,16 @@ const activeMenu = () => {
   for (let j = 0; j < mobileMenuItems.length; j++) {
     setActive(mobileMenuItems[j]);
   }
+
+  const drawerLinks = document.querySelectorAll(".side-menu.menu-drawer .nav-section .nav-item");
+  drawerLinks.forEach((link) => {
+    link.classList.toggle("active", pathMatchesCurrent(link.getAttribute("href")));
+  });
+
+  const drawerActionLinks = document.querySelectorAll(".side-menu.menu-drawer .drawer-actions .action-btn");
+  drawerActionLinks.forEach((link) => {
+    link.classList.toggle("active", pathMatchesCurrent(link.getAttribute("href")));
+  });
 };
 
 // GSAP animation orchestrator.

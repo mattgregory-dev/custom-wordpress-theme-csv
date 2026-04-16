@@ -38,7 +38,7 @@ get_header();
       <div class="eyebrow">Is This for You?</div>
       <h2>This Mentorship Was Made for You If&hellip;</h2>
     </div>
-    <div class="grid grid-cols-1 gap-4 mt-10 min-[700px]:grid-cols-3 md:gap-6 reveal">
+    <div class="grid grid-cols-1 gap-4 mt-10 min-[830px]:grid-cols-3 md:gap-6 reveal">
       <div class="profile-card">
         <div class="profile-icon">&curren;</div>
         <h3>You&rsquo;re just getting started and want a guide</h3>

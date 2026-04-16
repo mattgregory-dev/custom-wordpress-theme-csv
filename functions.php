@@ -134,9 +134,10 @@ function csv_setup() {
   add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption', 'style', 'script' ) );
 
   register_nav_menus( array(
-    'primary' => 'Primary Menu',
-    'footer' => 'Footer Menu',
-    'mobile' => 'Mobile Menu',
+    //'primary' => 'Primary Menu',
+    //'footer' => 'Footer Menu',
+    'mobile' => 'Mobile Menu - Top',
+    'mobile-about' => 'Mobile Menu - Bottom',
   ) );
 }
 add_action( 'after_setup_theme', 'csv_setup' );
