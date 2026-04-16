@@ -31,6 +31,17 @@
   // box-shadow: 2px 2px 7px 2px rgb(0 0 0 / 14%);
   border: 1px solid #372407;
 }
+@media (max-width: 480px) {
+  #scrollBtn {
+    bottom: 24px;
+    right: 24px;
+    width: 2.8rem;
+    height: 2.8rem;
+    font-size: 13px;
+    text-align: center;
+    line-height: 70px;
+  }
+}
 
 #themeBtn {
   position: fixed;

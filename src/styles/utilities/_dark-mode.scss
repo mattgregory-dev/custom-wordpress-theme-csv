@@ -1,5 +1,4 @@
 @use "../paths" as *;
-@use "../abstracts" as *;
 
 .active-btn {
   background-color: var(--white) !important;
@@ -93,13 +92,13 @@
     }
   }
   .csv-header-standard {
-    @include ml {
+    @media (max-width: 1201px) {
       background-color: var(--black);
     }
     .header-menu-area {
       background-color: unset;
       border-color: #454545;
-      @include ml {
+      @media (max-width: 1201px) {
         background-color: unset;
       }
       .logo-group {
@@ -134,7 +133,7 @@
     .header-menu-area {
       background-color: unset;
       border-color: #454545;
-      @include ml {
+      @media (max-width: 1201px) {
         background-color: unset;
       }
       .logo-group {

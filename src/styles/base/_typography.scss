@@ -1,19 +1,5 @@
 @use "../paths" as *;
 
-// @font-face {
-//   font-family: "Playfair Display";
-//   src: url("#{$theme-root}/fonts/playfair-display.woff2") format("woff2");
-//   font-weight: 400;
-//   font-style: normal;
-//   font-display: swap;
-// }
-// @font-face {
-//   font-family: "Marcellus";
-//   src: url("#{$theme-root}/fonts/marcellus.woff2") format("woff2");
-//   font-weight: 400;
-//   font-style: normal;
-//   font-display: swap;
-// }
 @font-face {
   font-family: "Lato";
   src: url("#{$theme-root}/fonts/lato-300-regular.woff2") format("woff2");

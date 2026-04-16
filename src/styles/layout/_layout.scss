@@ -1,18 +1,4 @@
-@use "../abstracts" as *;
 @use "../paths" as *;
-
-main {
-  z-index: 0;
-  position: relative;
-}
-section {
-  position: relative;
-  z-index: 100;
-}
-section#preparation {
-  position: relative;
-  z-index: 0;
-}
 
 .page-image {
   box-shadow: 0 24px 60px var(--shadow);
