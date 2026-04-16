@@ -13,7 +13,7 @@ get_header();
     <div class="eyebrow">Journal</div>
     <h1>Blog</h1>
     <div class="page-description">
-      <p><em>Quiet reflections, guidance, and notes from the retreat path.</em></p>
+      <p><em>Quiet reflections, guidance, and notes from the herbal path.</em></p>
     </div>
   </div>
 </section>

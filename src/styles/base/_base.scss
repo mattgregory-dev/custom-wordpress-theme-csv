@@ -42,7 +42,7 @@ section {
       }
     }
     &.blog-section-container {
-      max-width: 1000px;
+      max-width: 1100px;
     }
   }
 }
@@ -89,7 +89,8 @@ section {
     padding-inline: 1rem .8rem;
   }
 }
-.single main .post-layout {
+.single main .post-layout,
+.blog main .blog-layout {
   max-width: 1100px;
 }
 .blog main .blog-layout {

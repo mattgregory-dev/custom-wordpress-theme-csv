@@ -1109,7 +1109,7 @@ p {
   }
 
   h2 {
-    font-size: clamp(1.29rem, 3vw, 1.88rem);
+    font-size: 1.88rem;
     margin-bottom: .82rem;
     a {
       &:hover {
@@ -1881,7 +1881,7 @@ p.course-description {
 }
 .price-amount {
   font-family: var(--font-heading);
-  font-size: clamp(2.12rem, 5vw, 3.06rem);
+  font-size: 3.06rem;
   color: var(--dark-brown);
   line-height: 1.1;
   margin-bottom: .24rem;
@@ -2559,8 +2559,8 @@ p.course-description {
           }
           .post-title {
             font-family: var(--font-heading);
-            font-size: clamp(1.00rem,2vw,1.18rem);
-            font-weight: 700;
+            font-size: 1.18rem;
+            font-weight: 500;
             line-height: 1.35;
             color: var(--dark-brown);
             margin-bottom: .35rem;
@@ -2578,7 +2578,7 @@ p.course-description {
             color: #777;
             margin: 0;
             display: -webkit-box;
-            -webkit-line-clamp: 2;
+            -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
             overflow: hidden;
           }
@@ -2683,12 +2683,12 @@ p.course-description {
   h2 {
     margin-top: 2.59rem;
     margin-bottom: .94rem;
-    font-size: clamp(1.29rem, 2.8vw, 1.65rem);
+    font-size: 1.65rem;
   }
   h3 {
     margin-top: 2.12rem;
     margin-bottom: .71rem;
-    font-size: clamp(1.06rem, 2.2vw, 1.29rem);
+    font-size: 1.29rem;
   }
   a {
     color: var(--forest-green);
@@ -2878,7 +2878,7 @@ p.course-description {
 .author-card {
   display: flex;
   gap: .94rem;
-  align-items: center;
+  align-items: flex-start;
   padding: 1.41rem;
   background: var(--soft-cream);
   border-radius: .59rem;
@@ -3002,6 +3002,7 @@ p.course-description {
       line-height: 1.4;
       color: var(--dark-brown);
       transition: color .2s;
+      font-weight: 600;
     }
     &:hover {
       .nav-title {

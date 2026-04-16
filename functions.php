@@ -142,6 +142,12 @@ function csv_setup() {
 }
 add_action( 'after_setup_theme', 'csv_setup' );
 
+// Set the global excerpt word count for get_the_excerpt().
+function csv_excerpt_length( $length ) {
+  return 45;
+}
+add_filter( 'excerpt_length', 'csv_excerpt_length', 999 );
+
 // Conveinent way to keep copyright updated
 function shortcode_current_year() {
   return date('Y');
