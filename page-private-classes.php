@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Template Name: Private Classes
  */
@@ -124,7 +124,7 @@ get_header(
       </div>
       <div class="reveal md:self-center">
         <div class="content-img aspect-[1/1]">
-          <img class="w-full h-full object-cover object-center" src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="">
+          <img class="w-full h-full object-cover object-center" src="<?php echo get_template_directory_uri(); ?>/images/placeholder.webp" alt="">
         </div>
       </div>
 
@@ -178,18 +178,22 @@ get_header(
     <div class="grid grid-cols-1 gap-12 items-center md:grid-cols-[1fr_2fr] md:gap-14">
       <div class="reveal">
         <div class="content-img">
-          <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>" aria-label="About Feather Jones">
+          <a class="front-page-feather-link" href="<?php echo esc_url( home_url( '/about/' ) ); ?>" aria-label="About Feather Jones">
             <img class="object-top" src="<?php echo get_template_directory_uri(); ?>/images/feather/feather-jones-registered-herbalist.jpg" alt="Feather Jones herbalist portrait outdoors with greenery background">
+            <span class="front-page-feather-hover-label" aria-hidden="true">Read Feather&rsquo;s Story &raquo;</span>
           </a>
         </div>
       </div>
-      <div class="reveal">
+      <div class="reveal content">
         <div class="eyebrow">Meet Your Mentor</div>
         <h2>Feather Jones</h2>
-        <p>Feather is a Registered Herbalist with the American Herbalists Guild and has been in clinical practice for over 40 years. She has served as president of the American Herbalists Guild&thinsp;&mdash;&thinsp;twice. She&rsquo;s a Botanical Field Guide for the Sonoran University of Health Sciences, an international lecturer, and the author of the <em>Medicinal Herb Handbook</em>.</p>
+
+        <p>Feather is a Registered Herbalist with the American Herbalists Guild and has been in clinical practice for over 40 years. She has served as president of the American Herbalists Guild&thinsp;&mdash;&thinsp;twice. She&rsquo;s a Botanical Field Guide for the Sonoran University of Health Sciences, an international lecturer, and the author of the <a href="https://www.amazon.com/gp/product/091495587X/ref=x_gr_w_bb_sout?ie=UTF8&amp;tag=x_gr_w_bb_sout-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=091495587X&amp;SubscriptionId=1MGPYB6YW3HWK55XCGG2" target="_blank" rel="noopener noreferrer"><em>Medicinal Herb Handbook</em></a>.</p>
         <p>But credentials only tell part of the story.</p>
+
         <p>Feather teaches because she believes the wisdom of herbalism must be passed down. She&rsquo;s watched too many aspiring herbalists feel lost because they lacked one thing: a mentor who could show them the way. That&rsquo;s why she created this program&thinsp;&mdash;&thinsp;not as a product to sell, but as a practice she&rsquo;s chosen, because mentorship is how this knowledge has always traveled.</p>
         <p>She has personally mentored hundreds of students over her career. Many of them have gone on to build their own herbal practices and schools. When you study with Feather, you&rsquo;re not just learning information. You&rsquo;re joining a lineage.</p>
+
         <div class="smaller-quote">&ldquo;I don&rsquo;t just teach the basics of herbal medicine. I teach how to work with clients, how to do a proper intake and formulation strategies. How to feel confident and armed with your knowledge in complex case studies.&rdquo;</div>
       </div>
     </div>
@@ -201,7 +205,7 @@ get_header(
 <!-- ========== TESTIMONIALS ========== -->
 <section class="section bg-warm-linen">
   <div class="container">
-    <div class="text-center reveal" style="margin-bottom: 40px;">
+    <div class="text-center reveal mb-10">
       <div class="eyebrow">Student Stories</div>
       <h2>What Students Are Saying</h2>
     </div>
@@ -219,7 +223,7 @@ get_header(
         <div class="ta">&mdash; Mark</div>
       </div>
     </div>
-    <div class="text-center reveal" style="margin-top: 44px; transition-delay: 0.15s;">
+    <div class="text-center reveal mt-10">
       <a href="https://calendly.com/feather-jones/private-mentorship" target="_blank" class="btn btn-primary">Book My Free Consultation</a>
       <span class="friction-text">Start with a conversation. See if it&rsquo;s the right fit.</span>
     </div>
@@ -345,6 +349,7 @@ get_header(
 <?php
 get_footer();
 ?>
+
 
 
 

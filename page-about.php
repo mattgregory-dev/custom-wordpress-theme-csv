@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Template Name: About
  */
@@ -43,7 +43,7 @@ get_header(
       </div>
       <div class="reveal md:self-center">
         <div class="content-img aspect-[4/5]">
-          <img src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="" class="w-full h-full object-cover">
+          <img src="<?php echo get_template_directory_uri(); ?>/images/placeholder.webp" alt="" class="w-full h-full object-cover">
         </div>
       </div>
     </div>
@@ -55,7 +55,7 @@ get_header(
     <div class="grid gap-12 md:grid-cols-[4fr_5fr] md:gap-[4rem] items-start">
       <div class="reveal md:self-center">
         <div class="content-img aspect-[4/5]">
-          <img src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="" class="w-full h-full object-cover">
+          <img src="<?php echo get_template_directory_uri(); ?>/images/placeholder.webp" alt="" class="w-full h-full object-cover">
         </div>
       </div>
       <div class="reveal">
@@ -95,7 +95,7 @@ get_header(
         <p>Earlier in her career, Feather co-instructed a three-year program at the Rocky Mountain Center for Botanical Studies in Boulder, Colorado, graduating over 400 students as trained Western herbalists. As a solo instructor through Canyon Spirit Ventures, she has trained roughly another thousand&thinsp;&mdash;&thinsp;through apprenticeships, field studies, online courses, and symposiums. Many of her graduates have gone on to open their own herb schools and build thriving practices.</p>
       </div>
       <div class="content-img aspect-[4/5] reveal md:self-center">
-        <img src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="" class="w-full h-full object-cover">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/placeholder.webp" alt="" class="w-full h-full object-cover">
       </div>
     </div>
   </div>
@@ -151,7 +151,7 @@ get_header(
       </div>
       <div class="reveal md:self-center">
         <div class="content-img aspect-[1/1]">
-          <img src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="" class="w-full h-full object-cover">
+          <img src="<?php echo get_template_directory_uri(); ?>/images/placeholder.webp" alt="" class="w-full h-full object-cover">
         </div>
       </div>
     </div>
@@ -191,3 +191,4 @@ get_header(
 <?php
 get_footer();
 ?>
+

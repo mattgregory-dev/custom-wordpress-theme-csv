@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Template Name: Group Classes
  */
@@ -79,7 +79,7 @@ get_header(
       </div>
       <div class="reveal md:self-center">
         <div class="content-img" style="aspect-ratio:4/5;">
-          <img class="w-full h-full object-cover object-center" src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="">
+          <img class="w-full h-full object-cover object-center" src="<?php echo get_template_directory_uri(); ?>/images/placeholder.webp" alt="">
         </div>
       </div>
     </div>
@@ -143,7 +143,7 @@ get_header(
 
       <div class="reveal md:self-center">
         <div class="content-img" style="aspect-ratio:4/5;">
-          <img class="w-full h-full object-cover object-center" src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="">
+          <img class="w-full h-full object-cover object-center" src="<?php echo get_template_directory_uri(); ?>/images/placeholder.webp" alt="">
         </div>
       </div>
 
@@ -177,8 +177,9 @@ get_header(
     <div class="grid grid-cols-1 gap-12 items-center md:grid-cols-[1fr_2fr] md:gap-14">
       <div class="reveal">
         <div class="content-img">
-          <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>" aria-label="About Feather Jones">
+          <a class="front-page-feather-link" href="<?php echo esc_url( home_url( '/about/' ) ); ?>" aria-label="About Feather Jones">
             <img class="object-top" src="<?php echo get_template_directory_uri(); ?>/images/feather/feather-jones-registered-herbalist.jpg" alt="Feather Jones herbalist portrait outdoors with greenery background">
+            <span class="front-page-feather-hover-label" aria-hidden="true">Feather&rsquo;s Story &raquo;</span>
           </a>
         </div>
       </div>
@@ -186,7 +187,7 @@ get_header(
         <div class="eyebrow">Your Guide for the Year</div>
         <h2>Meet Feather Jones</h2>
         <p>Feather Jones is a Registered Herbalist with the American Herbalists Guild and has been in clinical practice since 1982. That&rsquo;s over 40 years of working with plants and people.</p>
-        <p>She&rsquo;s served twice as president of the American Herbalists Guild. She&rsquo;s the Botanical Field Guide for the Sonoran University of Health Sciences. And she&rsquo;s trained hundreds of students through this program over the years.</p>
+        <p>She served twice as president of the American Herbalists Guild, was the Botanical Field Guide for the Sonoran University of Health Sciences, and trained hundreds of students through this program over the years.</p>
         <p>Feather isn&rsquo;t a content creator reading from a script. She&rsquo;s a practicing clinical herbalist who teaches from decades of real experience&thinsp;&mdash;&thinsp;in the field, in the kitchen, and in the clinic.</p>
         <p>Her students call her &ldquo;herb mama.&rdquo; Her peers in the herbal world&thinsp;&mdash;&thinsp;names like David Winston, Brigitte Mars, and Rosita Arvigo&thinsp;&mdash;&thinsp;respect her deeply. When you learn with Feather, you&rsquo;re learning from someone who has devoted her life to this work.</p>
         <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>" class="btn btn-secondary" style="margin-top: 16px;">Read More About Feather &rarr;</a>
@@ -364,6 +365,7 @@ get_header(
 <?php
 get_footer();
 ?>
+
 
 
 

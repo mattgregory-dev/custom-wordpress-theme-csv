@@ -35,7 +35,7 @@ get_header(
         <div class="featured-img">
           <div class="badge-rec">Recommended Starting Point</div>
           <a href="<?php echo esc_url( home_url( '/courses/womens-wellness/' ) ); ?>">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="" class="w-full h-full object-cover">
+            <img src="<?php echo get_template_directory_uri(); ?>/images/placeholder.webp" alt="" class="w-full h-full object-cover">
           </a>
         </div>
         <div class="featured-body">
@@ -140,7 +140,7 @@ get_header(
           $thumb_id = get_post_thumbnail_id( $course_id );
           $thumb_url = $thumb_id ? wp_get_attachment_image_url( $thumb_id, 'large' ) : '';
           $thumb_alt = $thumb_id ? get_post_meta( $thumb_id, '_wp_attachment_image_alt', true ) : '';
-          $fallback_image = get_template_directory_uri() . '/images/bg/2760649.webp';
+          $fallback_image = get_template_directory_uri() . '/images/placeholder.webp';
           $description = function_exists( 'get_field' )
             ? get_field( 'course_short_description', $course_id )
             : '';
@@ -355,5 +355,6 @@ get_header(
 <?php
 get_footer();
 ?>
+
 
 

@@ -103,8 +103,9 @@ get_header(
     <div class="grid grid-cols-1 gap-12 items-center md:grid-cols-[1fr_2.2fr] md:gap-14">
       <div class="reveal">
         <div class="content-img">
-          <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>" aria-label="About Feather Jones">
+          <a class="front-page-feather-link" href="<?php echo esc_url( home_url( '/about/' ) ); ?>" aria-label="About Feather Jones">
             <img class="object-top" src="<?php echo get_template_directory_uri(); ?>/images/feather/feather-jones-registered-herbalist.jpg" alt="Feather Jones herbalist portrait outdoors with greenery background">
+            <span class="front-page-feather-hover-label" aria-hidden="true">Feather&rsquo;s Story &raquo;</span>
           </a>
         </div>
       </div>
