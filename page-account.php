@@ -7,9 +7,9 @@ get_header();
 
 <?php if ( have_posts() ) : ?>
   <?php while ( have_posts() ) : the_post(); ?>
-    <article class="py-12">
-      <h1 class="text-3xl font-semibold page-heading"><?php the_title(); ?></h1>
-      <div class="mt-6 prose max-w-none">
+    <article>
+      <h1><?php the_title(); ?></h1>
+      <div>
         <?php the_content(); ?>
       </div>
     </article>

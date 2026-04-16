@@ -8,11 +8,13 @@ get_header();
 ?>
 
 <!-- ========== PAGE HEADER ========== -->
-<section class="page-header">
-  <div class="container">
+<section class="section bg-mint-green">
+  <div class="container blog-section-container mx-auto">
     <div class="eyebrow">Journal</div>
     <h1>Blog</h1>
-    <p>Quiet reflections, guidance, and notes from the retreat path.</p>
+    <div class="page-description">
+      <p><em>Quiet reflections, guidance, and notes from the retreat path.</em></p>
+    </div>
   </div>
 </section>
 

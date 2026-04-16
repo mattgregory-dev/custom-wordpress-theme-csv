@@ -627,7 +627,7 @@ $header-mini: 390px;
 .header-menu-area {
   position: relative;
   //background-color: #FFFFFF;
-  border-radius: 1.47rem;
+  border-radius: 1rem;
   padding: .8rem 1.7rem;
   > .flex.items-center.justify-between {
     display: grid;
@@ -664,7 +664,7 @@ $header-mini: 390px;
   right: 0;
   transform: translateY(-100%);
   background-color: var(--white);
-  border-radius: 0 0 1.18rem 1.18rem;
+  border-radius: 0 0 .7rem .7rem;
   transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
   will-change: transform;
   z-index: 99999;
@@ -911,6 +911,22 @@ $header-mini: 390px;
     // -webkit-text-fill-color: transparent;
     // color: var(--white);
 
+  }
+}
+
+.login-btn-checkout {
+  position: relative;
+  font-size: .82rem;
+  line-height: 27px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-right: 1.3rem;
+  transition: all 0.3s ease;
+  i {
+    margin-right: .59rem;
+  }
+  &:hover {
+    color: var(--forest-green);
   }
 }
 

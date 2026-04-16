@@ -9,7 +9,6 @@ section {
   }
  }
 }
-
 main {
   z-index: 0;
   position: relative;
@@ -18,7 +17,124 @@ section {
   position: relative;
   z-index: 100;
 }
-section#preparation {
-  position: relative;
-  z-index: 0;
+
+// Header sections for standard pages
+.page-template-default .section,
+.blog .section {
+  padding: 3rem 0;
+  .container {
+    max-width: 900px;
+    .eyebrow {
+      margin-bottom: .9rem;
+    }
+    h1 {
+      margin-bottom: 0;
+    }
+    .page-description {
+      line-height: 1.3;
+      margin-top: 1.2rem;
+      font-size: .95rem;
+      p {
+        margin-bottom: .8rem;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+    &.blog-section-container {
+      max-width: 1000px;
+    }
+  }
 }
+
+// Add space between page content wrapper and screen edge
+.woocommerce-page.woocommerce-checkout main,
+.woocommerce-page.woocommerce-cart main,
+.woocommerce-page.woocommerce-account main,
+.learndash-cpt main#main-content,
+.single main {
+  padding-inline: 8px;
+  @media (max-width: 768px) {
+    padding-inline: 0;
+  }
+}
+
+// Standard page, wrapper
+.woocommerce-page.woocommerce-checkout main article,
+.woocommerce-page.woocommerce-cart main article,
+.woocommerce-page.woocommerce-account main article,
+.learndash-cpt main#main-content article,
+.single main .post-layout,
+.blog main .blog-layout {
+  max-width: 1000px;
+  margin: 2rem auto 3rem;
+  padding: 2.5rem;
+  background-color: #fff;
+  border: 1px solid rgb(204 204 204 / 50%);
+  border-radius: 8px;
+  h1 {
+    font-size: 2.1rem;
+  }
+  @media (max-width: 768px) {
+    margin: 0;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    border: none;
+    border-radius: 0;
+  }
+  @media (max-width: 650px) {
+    padding-inline: 1.5rem;
+  }
+  @media (max-width: 480px) {
+    padding-inline: 1rem .8rem;
+  }
+}
+.single main .post-layout {
+  max-width: 1100px;
+}
+.blog main .blog-layout {
+  padding: 1.2rem;
+  @media (max-width: 1000px) {
+    margin-inline: 8px; 
+  }
+  @media (max-width: 768px) {
+    margin-inline: 0; 
+  }
+  @media (max-width: 768px) {
+    margin: 0;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    border: none;
+    border-radius: 0;
+  }
+  @media (max-width: 650px) {
+    padding-inline: 1.5rem;
+  }
+  @media (max-width: 480px) {
+    padding-inline: 1rem .8rem;
+  }
+}
+
+// Cart and account buttons for checkout pages
+.woocommerce-page.woocommerce-checkout .checkout-cart,
+.woocommerce-page.woocommerce-checkout .checkout-myaccount {
+  max-width: 1000px;
+  margin: 2rem auto 2rem;
+  text-align: right;
+}
+
+// Hide footer on checkout
+.woocommerce-page.woocommerce-checkout footer {
+  display: none;
+}
+// Make page wrapper tiny for my account
+.woocommerce-page.woocommerce-account.logged-out main {
+  max-width: 640px;
+  margin: 2rem auto 3rem;
+}
+
+// .woocommerce-page.woocommerce-checkout header,
+// .woocommerce-page.woocommerce-cart header,
+// .woocommerce-page.woocommerce-account header {
+//   border-bottom: 1px solid rgb(0 0 0 / 8%);
+// }

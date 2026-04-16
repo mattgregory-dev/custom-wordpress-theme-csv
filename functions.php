@@ -489,11 +489,11 @@ add_filter( 'woocommerce_account_menu_items', 'csv_rename_account_dashboard_menu
 // }
 // add_filter( 'gettext', 'csv_rename_browse_products_text', 10, 3 );
 
-// Point "return to shop" links to Retreats.
-// function csv_return_to_shop_redirect( $url ) {
-//   return home_url( '/retreats/' );
-// }
-// add_filter( 'woocommerce_return_to_shop_redirect', 'csv_return_to_shop_redirect' );
+// oint "return to shop" links to courses.
+function csv_return_to_shop_redirect( $url ) {
+  return home_url( '/courses/' );
+}
+add_filter( 'woocommerce_return_to_shop_redirect', 'csv_return_to_shop_redirect' );
 
 // Move orders from processing to complete after webhook triggers for successful payment
 function auto_complete_paid_orders($order_id) {
@@ -598,6 +598,18 @@ add_action('template_redirect', function () {
     wp_safe_redirect(wc_get_checkout_url());
     exit;
 }, 20);
+
+// Suppress WooCommerce "added to cart" notices sitewide.
+function csv_suppress_add_to_cart_message_html( $message, $products = array(), $show_qty = false ) {
+  return '';
+}
+add_filter( 'wc_add_to_cart_message_html', 'csv_suppress_add_to_cart_message_html', 10, 3 );
+
+// Legacy filter support for older WooCommerce notice rendering.
+function csv_suppress_add_to_cart_message_legacy( $message, $product_id = 0 ) {
+  return '';
+}
+add_filter( 'wc_add_to_cart_message', 'csv_suppress_add_to_cart_message_legacy', 10, 2 );
 
 // Suppress WooCommerce notices on My Account when returning to checkout.
 function csv_suppress_checkout_redirect_notices() {
@@ -1270,60 +1282,4 @@ function csv_disable_oembed() {
   remove_action( 'wp_head', 'wp_oembed_add_host_js' );
 }
 add_action( 'init', 'csv_disable_oembed', 20 );
-*/
-
-//////////////////////////////////////////////////////////////////
-///////////// [FOR DEVELOPMENT ONLY] /////////////////////////////
-//////////////////////////////////////////////////////////////////
-
-/*
-function csv_dev_disable_block_editor() {
-  if ( ! csv_is_vite_dev() ) {
-    return;
-  }
-
-  add_filter( 'use_block_editor_for_post', '__return_false', 100 );
-  add_filter( 'use_block_editor_for_post_type', '__return_false', 100 );
-  remove_theme_support( 'core-block-patterns' );
-}
-add_action( 'after_setup_theme', 'csv_dev_disable_block_editor', 1 );
-
-function csv_dev_disable_oembed() {
-  if ( ! csv_is_vite_dev() ) {
-    return;
-  }
-
-  remove_action( 'rest_api_init', 'wp_oembed_register_route' );
-}
-add_action( 'init', 'csv_dev_disable_oembed', 1 );
-
-function csv_dev_prevent_block_assets() {
-  if ( ! csv_is_vite_dev() ) {
-    return;
-  }
-
-  add_filter( 'should_load_block_editor_scripts_and_styles', '__return_false' );
-  add_filter( 'wp_should_load_block_editor_scripts_and_styles', '__return_false' );
-
-  remove_action( 'wp_enqueue_scripts', 'wp_enqueue_global_styles' );
-  remove_action( 'wp_footer', 'wp_enqueue_global_styles', 1 );
-
-  remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
-  remove_action( 'wp_footer', 'wp_global_styles_render_svg_filters', 1 );
-  remove_action( 'wp_footer', 'wp_global_styles_render_svg_filters', 9 );
-}
-add_action( 'wp_enqueue_scripts', 'csv_dev_prevent_block_assets', 1 );
-
-function csv_dev_dequeue_block_assets() {
-  if ( ! csv_is_vite_dev() ) {
-    return;
-  }
-
-  wp_dequeue_style( 'wp-block-library' );
-  wp_dequeue_style( 'wp-block-library-theme' );
-  wp_dequeue_style( 'wc-block-style' );
-  wp_dequeue_style( 'global-styles' );
-  wp_dequeue_style( 'classic-theme-styles' );
-}
-add_action( 'wp_enqueue_scripts', 'csv_dev_dequeue_block_assets', 100 );
 */

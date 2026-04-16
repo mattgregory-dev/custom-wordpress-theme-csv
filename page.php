@@ -5,6 +5,7 @@ get_header();
 <?php if ( have_posts() ) : ?>
   <?php while ( have_posts() ) : the_post(); ?>
 
+    <!-- ========== PAGE HEADER ========== -->
     <section class="section bg-mint-green">
       <div class="container mx-auto">
         <?php

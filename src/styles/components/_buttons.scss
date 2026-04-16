@@ -42,6 +42,9 @@
     line-height: 70px;
   }
 }
+.woocommerce-checkout #scrollBtn {
+  display: none !important;
+}
 
 #themeBtn {
   position: fixed;
