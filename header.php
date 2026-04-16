@@ -62,7 +62,7 @@ $header_class = implode( ' ', $header_classes );
 </header>
 <?php
 get_template_part(
-  'partials/mobile-menu',
+  'partials/drawer',
   null,
   array(
     'header_color' => $header_color,

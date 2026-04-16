@@ -68,7 +68,7 @@
         <span>Login</span>
       </a>
     <?php endif; ?>
-    <a href="<?php echo esc_url( home_url( '/cart/' ) ); ?>" class="ibt-btn ibt-btn-outline ibt-btn-rounded">
+    <a href="<?php echo esc_url( home_url( '/cart/' ) ); ?>" class="ibt-btn ibt-btn-outline ibt-btn-rounded cart">
       <i class="fa fa-solid fa-cart-shopping"></i><span>Cart</span>
     </a>
 

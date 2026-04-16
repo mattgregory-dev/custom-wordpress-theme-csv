@@ -11,7 +11,7 @@
   z-index: 100;
   border: none;
   outline: none;
-  background-color: var(--black);
+  background-color: #372407;
   color: var(--white);
   cursor: pointer;
   border-radius: 50%;
@@ -27,9 +27,9 @@
   //   90deg, #45d0bd, #44b6e9
   // );
   background-color: var(--white);
-  color: var(--black);
+  color: #372407;
   // box-shadow: 2px 2px 7px 2px rgb(0 0 0 / 14%);
-  border: 1px solid var(--black);
+  border: 1px solid #372407;
 }
 
 #themeBtn {

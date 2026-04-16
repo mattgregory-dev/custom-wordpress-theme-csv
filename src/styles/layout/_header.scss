@@ -627,7 +627,7 @@ $header-mini: 390px;
 
 .header-menu-area {
   position: relative;
-  background-color: #FFFFFF;
+  //background-color: #FFFFFF;
   border-radius: 1.47rem;
   padding: .8rem 1.7rem;
   > .flex.items-center.justify-between {
@@ -669,7 +669,7 @@ $header-mini: 390px;
   transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
   will-change: transform;
   z-index: 99999;
-  margin: 0 1.18rem;
+  margin: 0 .7rem;
   @media (max-width: $header-mobile) {
     margin: 0;
     padding: 0 .94rem 0 1.18rem;
@@ -1068,6 +1068,12 @@ $header-mini: 390px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    &.cart {
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
   }
 }
 
