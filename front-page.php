@@ -54,7 +54,7 @@ get_header();
       <div class="route-card">
         <div class="rc-label">Self-Paced Courses</div>
         <h3>Learn at Your Own Pace</h3>
-        <p>Pick a topic, go at your speed, and come back whenever you want. Courses from $75. Lifetime access.</p>
+        <p>Pick a topic, go at your speed, and come back whenever you want. Courses from $11. Lifetime access.</p>
         <a href="<?php echo esc_url( home_url( '/courses-catalog/' ) ); ?>" class="btn btn-secondary">Browse Courses</a>
       </div>
       <div class="route-card">

@@ -52,12 +52,9 @@ $header-mini: 390px;
       font-variant: normal;
       text-transform: none;
       line-height: 1;
-      -webkit-font-smoothing: antialiased;
       position: absolute;
       right: 0;
       transform: translateX(-110%) translateY(200%);
-      -webkit-transform: translateX(-110%) translateY(200%);
-      -ms-transform: translateX(-110%) translateY(200%);
     }
   }
 
@@ -69,14 +66,10 @@ $header-mini: 390px;
     span[class="icon-arrow-top"] {
       &::before {
         transform: translateX(100%) translateY(-170%);
-        -webkit-transform: translateX(100%) translateY(-170%);
-        -ms-transform: translateX(100%) translateY(-170%);
       }
 
       &::after {
         transform: translateX(-1px) translateY(1px);
-        -webkit-transform: translateX(-1px) translateY(1px);
-        -ms-transform: translateX(-1px) translateY(1px);
       }
     }
   }
@@ -104,11 +97,14 @@ $header-mini: 390px;
       border-radius: 12px;
       //background: linear-gradient(90deg, #45d0bd, #44b6e9);
       background: var(--forest-green);
+      mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      mask-composite: exclude;
       -webkit-mask:
         linear-gradient(#fff 0 0) content-box,
         linear-gradient(#fff 0 0);
       -webkit-mask-composite: xor;
-      mask-composite: exclude;
     }
     &::after {
       //background: var(--gradient-3);
@@ -783,6 +779,7 @@ $header-mini: 390px;
   button[type="submit"]:hover {
     background: linear-gradient(to bottom, #45D0BD, #44B6E9);
     background-clip: text;
+    color: transparent;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
@@ -846,6 +843,7 @@ $header-mini: 390px;
   &:hover {
     background: linear-gradient(to bottom, #45D0BD, #44B6E9);
     background-clip: text;
+    color: transparent;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
@@ -870,6 +868,7 @@ $header-mini: 390px;
 .close-popup:hover {
   background: linear-gradient(to bottom, #45D0BD, #44B6E9);
   background-clip: text;
+  color: transparent;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -907,8 +906,6 @@ $header-mini: 390px;
     color: var(--forest-green);
     // background: linear-gradient(to bottom, #45D0BD, #44B6E9);
     // background-clip: text;
-    // -webkit-background-clip: text;
-    // -webkit-text-fill-color: transparent;
     // color: var(--white);
 
   }
