@@ -72,4 +72,4 @@ get_template_part(
 <?php if ( function_exists( 'is_checkout' ) && is_checkout() ) : ?>
   <?php get_template_part( 'partials/checkout-cart' ); ?>
 <?php endif; ?>
-<main id="main-content">
+<main id="main-content" class="<?php echo esc_attr( $header_class ); ?>">

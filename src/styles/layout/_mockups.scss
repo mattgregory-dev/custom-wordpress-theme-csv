@@ -1,3 +1,5 @@
+@use "../paths" as *;
+
 .section {
   padding: 4rem 0;
 }
@@ -3922,3 +3924,48 @@ p.course-description {
     transform: rotate(90deg) scale(1.08);
   }
 }
+
+main.csv-header-absolute .hero {
+  padding-top: 10rem;
+}
+
+// main.csv-header-absolute .hero.hero-home {
+//   position: relative;
+//   background-color: var(--mint-green);
+//   background-image: url('#{$theme-root}/images/images-horizontal/Colorado_Herb_Trip_JUN_2021_241.webp');
+//   background-repeat: no-repeat;
+//   background-position: center;
+//   background-size: cover;
+//   overflow: hidden;
+
+//   &::before {
+//     content: '';
+//     position: absolute;
+//     inset: 0;
+//     background: linear-gradient(
+//       115deg,
+//       rgb(22 35 30 / 72%) 0%,
+//       rgb(22 35 30 / 58%) 45%,
+//       rgb(22 35 30 / 44%) 100%
+//     );
+//     pointer-events: none;
+//   }
+
+//   .container {
+//     position: relative;
+//     z-index: 1;
+//   }
+
+//   .eyebrow {
+//     color: rgb(230 245 236);
+//   }
+
+//   h1 {
+//     color: #fff;
+//   }
+
+//   p,
+//   .text-neutral-700 {
+//     color: rgb(241 245 242);
+//   }
+// }

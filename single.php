@@ -117,10 +117,14 @@ $journal_url = $posts_page_id ? get_permalink( $posts_page_id ) : home_url( '/bl
           <!-- Author card -->
           <div class="author-card">
             <div class="author-avatar">
-              <img src="<?php echo esc_url( $author_avatar ); ?>" alt="<?php echo esc_attr( $author_profile_image_alt ); ?>">
+              <a href="<?php echo esc_url( $author_link ); ?>" aria-label="About <?php echo esc_attr( $author_name ); ?>">
+                <img src="<?php echo esc_url( $author_avatar ); ?>" alt="<?php echo esc_attr( $author_profile_image_alt ); ?>">
+              </a>
             </div>
             <div class="author-info">
-              <div class="author-name"><?php echo esc_html( $author_name ); ?></div>
+              <div class="author-name">
+                <a href="<?php echo esc_url( $author_link ); ?>"><?php echo esc_html( $author_name ); ?></a>
+              </div>
               <?php if ( $author_bio ) : ?>
                 <p class="author-bio"><?php echo esc_html( $author_bio ); ?></p>
               <?php endif; ?>
@@ -152,4 +156,3 @@ $journal_url = $posts_page_id ? get_permalink( $posts_page_id ) : home_url( '/bl
 <?php
 get_footer();
 ?>
-

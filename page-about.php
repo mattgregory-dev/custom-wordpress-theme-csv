@@ -2,12 +2,18 @@
 /**
  * Template Name: About
  */
-get_header();
+get_header(
+  null,
+  array(
+    //'header_variant' => 'absolute',
+    //'header_color' => 'white',
+  )
+);
 ?>
 
 <section class="section bg-mint-green">
   <div class="container mx-auto px-4 md:px-6 lg:px-8">
-    <div class="grid gap-12 md:grid-cols-[1fr_1fr] md:gap-[4rem] items-start">
+    <div class="grid gap-12 md:grid-cols-[1.1fr_0.9fr] md:gap-[4rem] items-start">
       <div class="reveal">
         <p class="eyebrow">About Feather Jones</p>
         <h1>She's been learning from the plants for over four decades. She's still at it.</h1>
@@ -15,7 +21,7 @@ get_header();
       </div>
       <div class="reveal">
         <div class="content-img aspect-[4/5] w-full max-w-[400px]">
-          <img src="https://featherjones.com/wp-content/uploads/feather-jones.webp" alt="" class="h-full object-cover">
+          <img src="<?php echo get_template_directory_uri(); ?>/images/feather/feather-jones-registered-herbalist.jpg" alt="" class="h-full w-full object-cover">
         </div>
       </div>
     </div>
@@ -81,7 +87,10 @@ get_header();
           <span class="credential-tag">International Lecturer</span>
           <span class="credential-tag">40+ Years in Practice</span>
         </div>
-        <p>She is the author of the <em>Medicinal Herb Handbook</em>, a reference guide to herbal remedies organized by organ system and symptom. She has lectured at conferences across the country and internationally, including the Southwest Conference of Botanical Medicine, the American Herbalists Guild Symposium, the Florida Herbal Conference, and events in the United Kingdom.</p>
+
+        <img src="<?php echo get_template_directory_uri(); ?>/images/images-v/feather-jones-herbalist-001-medicinal-herb-handbook.jpg" alt="medicinal herb handbook book cover featuring woman in natural landscape holding herbs">
+
+        <p>She is the author of the <em><a href="https://www.amazon.com/gp/product/091495587X/ref=x_gr_w_bb_sout?ie=UTF8&tag=x_gr_w_bb_sout-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=091495587X&SubscriptionId=1MGPYB6YW3HWK55XCGG2" target="_blank">Medicinal Herb Handbook</a></em>, a reference guide to herbal remedies organized by organ system and symptom. She has lectured at conferences across the country and internationally, including the Southwest Conference of Botanical Medicine, the American Herbalists Guild Symposium, the Florida Herbal Conference, and events in the United Kingdom.</p>
         <p>Her peers in the herbalism world&thinsp;&mdash;&thinsp;people like David Winston, Roy Upton, Brigitte Mars, Rosita Arvigo, and Juliet Blankespoor&thinsp;&mdash;&thinsp;know her as a colleague and a friend. She has been called "legendary" and "a national treasure" by people who have spent their own lifetimes in this work. That kind of respect isn't earned with titles. It's earned with decades of showing up.</p>
         <p>Earlier in her career, Feather co-instructed a three-year program at the Rocky Mountain Center for Botanical Studies in Boulder, Colorado, graduating over 400 students as trained Western herbalists. As a solo instructor through Canyon Spirit Ventures, she has trained roughly another thousand&thinsp;&mdash;&thinsp;through apprenticeships, field studies, online courses, and symposiums. Many of her graduates have gone on to open their own herb schools and build thriving practices.</p>
       </div>

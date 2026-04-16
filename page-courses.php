@@ -2,7 +2,13 @@
 /**
  * Template Name: Courses
  */
-get_header();
+get_header(
+  null,
+  array(
+    //'header_variant' => 'absolute',
+    //'header_color' => 'white',
+  )
+);
 ?>
 
 <section class="section bg-mint-green">
@@ -17,9 +23,6 @@ get_header();
           <a class="btn btn-primary" href="#catalog">Browse All Courses</a>
           <a class="btn btn-secondary" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Contact Us</a>
         </div>
-      </div>
-      <div class="w-full">
-        <div class="bg-white/70 rounded-3xl shadow-sm aspect-[4/5]"></div>
       </div>
     </div>
   </div>

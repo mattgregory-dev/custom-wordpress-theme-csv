@@ -10,21 +10,6 @@
   align-items: center;
   justify-content: center;
   z-index: 99999999;
-  .aya-motif {
-    animation: scalePulse 1.5s infinite ease-in-out;
-    height: 150px;
-    width: 150px;
-    border: none;
-    svg {
-      width: 130px;
-      height: 130px;
-      background: #fff;
-      .stroke {
-        stroke: #000;
-        stroke-width: 3;
-      }
-    }
-  }
 }
 // .preloader-wrapper {
 //   overflow: hidden;

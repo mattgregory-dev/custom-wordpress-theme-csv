@@ -1,10 +1,18 @@
 <?php
-get_header();
+get_header(
+  null,
+  array(
+    'header_variant' => 'absolute',
+    //'header_color' => 'white',
+  )
+);
 ?>
 
-<section class="section bg-mint-green">
+<!-- ========== Hero Header ========== -->
+<section class="section bg-mint-green hero hero-home">
   <div class="container mx-auto px-4 md:px-6 lg:px-8">
     <div class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] items-center">
+
       <div>
         <p class="eyebrow">Herbal Medicine Education</p>
         <h1>Learn From a Herbalist Who Has Been Doing This for 40 Years</h1>
@@ -14,9 +22,7 @@ get_header();
           <a class="btn btn-secondary" href="<?php echo esc_url( home_url( '/about/' ) ); ?>">Meet Feather &raquo;</a>
         </div>
       </div>
-      <div class="w-full">
-        <div class="bg-white/70 rounded-3xl shadow-sm aspect-[4/5]"></div>
-      </div>
+
     </div>
   </div>
 </section>
@@ -97,7 +103,9 @@ get_header();
     <div class="grid grid-cols-1 gap-12 items-center md:grid-cols-[1fr_2.2fr] md:gap-14">
       <div class="reveal">
         <div class="content-img">
-          <img class="object-top" src="https://featherjones.com/wp-content/uploads/feather-jones.webp" alt="Feather Jones, Registered Herbalist">
+          <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>" aria-label="About Feather Jones">
+            <img class="object-top" src="<?php echo get_template_directory_uri(); ?>/images/feather/feather-jones-registered-herbalist.jpg" alt="Feather Jones herbalist portrait outdoors with greenery background">
+          </a>
         </div>
       </div>
       <div class="reveal">

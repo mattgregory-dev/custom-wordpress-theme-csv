@@ -166,7 +166,7 @@ $header-mini: 390px;
 }
 
 // Variant: white header
-.csv-header-absolute.white {
+header.csv-header-absolute.white {
   .logo {
     img.logo-black { display: none; }
     img.logo-white { display: inline; }
@@ -174,7 +174,7 @@ $header-mini: 390px;
 }
 
 // Relative positioned top nav
-.csv-header-standard {
+header.csv-header-standard {
   background-color: #fff;
   position: relative;
   z-index: 2;
@@ -192,7 +192,7 @@ $header-mini: 390px;
 }
 
 // Full width hero header with overlapping top nav
-.csv-header-absolute {
+header.csv-header-absolute {
   position: absolute;
   z-index: 2;
   top: 0;
@@ -257,16 +257,16 @@ $header-mini: 390px;
 }
 
 .logged-in {
-  .csv-header-absolute {
+  header.csv-header-absolute {
     top: 1.88rem;
   }
-  .sticky-active.is-sticky {
+  header.sticky-active.is-sticky {
     top: 1.88rem;
   }
 }
 
 // Full width hero header for dark backgrounds
-.csv-header-absolute.white {
+header.csv-header-absolute.white {
   .header-menu-area {
     background-color: unset;
     border-color: #454545;
@@ -293,7 +293,7 @@ $header-mini: 390px;
         > a {
           color: var(--white);
           &:hover {
-            background-color: var(--black);
+            background-color: #1e0f02;
           }
           &::before {
             filter: brightness(9);
@@ -937,7 +937,7 @@ $header-mini: 390px;
     }
   }
 }
-.csv-header-standard {
+header.csv-header-standard {
   padding-left: 0.0rem;
   padding-right: 0.0rem;
   @media (max-width: 1000px) {
@@ -958,7 +958,7 @@ $header-mini: 390px;
     }
   }
 }
-.csv-header-absolute {
+header.csv-header-absolute {
   padding-left: 1.53rem;
   padding-right: 33px;
   padding-top: .53rem;
@@ -1021,7 +1021,7 @@ $header-mini: 390px;
     margin-right: 1.06rem;
   }
 
-  .csv-header-standard {
+  header.csv-header-standard {
     padding-left: 0;
     padding-right: 0;
     .header-menu-area {
@@ -1032,7 +1032,7 @@ $header-mini: 390px;
     }
   }
 
-  .csv-header-absolute {
+  header.csv-header-absolute {
     padding-left: .94rem;
     padding-right: .94rem;
   }

@@ -2,7 +2,13 @@
 /**
  * Template Name: Events
  */
-get_header();
+get_header(
+  null,
+  array(
+    //'header_variant' => 'absolute',
+    //'header_color' => 'white',
+  )
+);
 ?>
 
 <section class="section bg-mint-green">
@@ -18,9 +24,6 @@ get_header();
           <a class="btn btn-primary" href="<?php echo esc_url( home_url( 'checkout/?add-to-cart=1652' ) ); ?>">Reserve Your Spot</a>
           <a class="btn btn-secondary" href="#faq">View FAQ</a>
         </div>
-      </div>
-      <div class="w-full">
-        <div class="bg-white/70 rounded-3xl shadow-sm aspect-[4/5]"></div>
       </div>
     </div>
   </div>
@@ -40,7 +43,7 @@ get_header();
       </div>
       <div class="reveal">
         <div class="content-img aspect-[3/4]">
-          <img src="<?php echo get_template_directory_uri(); ?>/images/sedona-red-rocks.webp" alt="Sedona red rock landscape at sunset" class="w-full h-full object-cover">
+          <img src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="Sedona red rock landscape at sunset" class="w-full h-full object-cover">
         </div>
       </div>
     </div>
@@ -56,10 +59,10 @@ get_header();
         <div class="flex flex-col gap-4">
 
           <div class="content-img aspect-[4/3] mb-6">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/sedona-red-rocks.webp" alt="Sedona red rock landscape at sunset" class="w-full h-full object-cover">
+            <img src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="Sedona red rock landscape at sunset" class="w-full h-full object-cover">
           </div>
           <div class="content-img aspect-[4/3]">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/sedona-red-rocks.webp" alt="Sedona red rock landscape at sunset" class="w-full h-full object-cover">
+            <img src="<?php echo get_template_directory_uri(); ?>/images/bg/2760649.webp" alt="Sedona red rock landscape at sunset" class="w-full h-full object-cover">
           </div>
 
         </div>
