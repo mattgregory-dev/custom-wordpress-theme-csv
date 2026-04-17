@@ -1572,6 +1572,70 @@ const initFreeClassPopup = () => {
   }
 };
 
+// LearnDash: keep course accordion expanded by default on single course template.
+const initLearnDashAccordionExpandedDefault = () => {
+  const templateRoot = document.querySelector('[data-ld-force-expand="true"]');
+  if (!templateRoot) return;
+
+  const selector = '.ld-accordion.ld-accordion--course';
+
+  const forceExpand = () => {
+    const accordions = document.querySelectorAll(selector);
+    if (!accordions.length) return;
+
+    accordions.forEach((accordion) => {
+      const expandButtons = accordion.querySelectorAll(
+        '.ld-accordion__expand-button[data-ld-expand-button="true"]'
+      );
+
+      expandButtons.forEach((button) => {
+        const isExpanded =
+          button.getAttribute('aria-expanded') === 'true' ||
+          button.classList.contains('ld-expanded');
+
+        if (!isExpanded) {
+          button.click();
+        }
+      });
+    });
+  };
+
+  forceExpand();
+
+  // LearnDash can re-apply collapsed state after its own init; re-run briefly.
+  [120, 320, 700, 1400, 2200].forEach((delay) => {
+    window.setTimeout(forceExpand, delay);
+  });
+
+  const observer = new MutationObserver((mutations) => {
+    let shouldRun = false;
+
+    mutations.forEach((mutation) => {
+      mutation.addedNodes.forEach((node) => {
+        if (!(node instanceof Element)) return;
+
+        if (
+          node.matches(selector) ||
+          node.querySelector(selector) ||
+          node.matches('.ld-accordion__expand-button[data-ld-expand-button="true"]') ||
+          node.querySelector('.ld-accordion__expand-button[data-ld-expand-button="true"]')
+        ) {
+          shouldRun = true;
+        }
+      });
+    });
+
+    if (shouldRun) {
+      window.requestAnimationFrame(forceExpand);
+    }
+  });
+
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true,
+  });
+};
+
 const init = () => {
   preloader();
   //ayaMotifSVGDraw();
@@ -1586,6 +1650,7 @@ const init = () => {
   //gsapAnimations();
   //initAcfMaps();
   initFreeClassPopup();
+  initLearnDashAccordionExpandedDefault();
   //searchPopup();
   //revealUpAnimation();
   //revealFadeAnimation();

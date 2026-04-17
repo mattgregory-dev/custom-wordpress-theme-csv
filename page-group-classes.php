@@ -78,8 +78,8 @@ get_header(
         </div>
       </div>
       <div class="reveal md:self-center">
-        <div class="content-img" style="aspect-ratio:4/5;">
-          <img class="w-full h-full object-cover object-center" src="<?php echo get_template_directory_uri(); ?>/images/placeholder.webp" alt="">
+        <div class="content-img" style="aspect-ratio:2/3;">
+          <img class="w-full h-full object-cover object-center" src="<?php echo get_template_directory_uri(); ?>/images/images-v/feather-jones-herbalist-012.webp" alt="">
         </div>
       </div>
     </div>
@@ -142,8 +142,8 @@ get_header(
     <div class="grid grid-cols-1 gap-12 items-center md:grid-cols-[4fr_5fr] md:gap-16">
 
       <div class="reveal md:self-center">
-        <div class="content-img" style="aspect-ratio:4/5;">
-          <img class="w-full h-full object-cover object-center" src="<?php echo get_template_directory_uri(); ?>/images/placeholder.webp" alt="">
+        <div class="content-img" style="aspect-ratio:2/3;">
+          <img class="w-full h-full object-cover object-center" src="<?php echo get_template_directory_uri(); ?>/images/images-v/feather-jones-herbalist-010.webp" alt="">
         </div>
       </div>
 
@@ -352,6 +352,7 @@ get_header(
 <!-- ========== FINAL CTA ========== -->
 <section class="section final-cta text-center" id="final">
   <div class="container reveal">
+    <img src="<?php echo esc_url( get_template_directory_uri() . '/images/icons/icons-st-johns-wort.webp' ); ?>" alt="St. John's wort icon" class="w-10 h-auto mx-auto mb-4" />
     <div class="eyebrow">The 2027 Program Is Coming</div>
     <h2 class="max-w-2xl mx-auto">Study Herbalism the Way It Was Meant to Be Learned</h2>
     <p class="description mx-auto mb-8 max-w-xl text-white">If you&rsquo;ve been thinking about studying herbalism&thinsp;&mdash;&thinsp;really studying it, with a teacher, a community, and a plan&thinsp;&mdash;&thinsp;this is the program people come back to year after year.</p>

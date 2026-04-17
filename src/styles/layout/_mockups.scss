@@ -17,7 +17,7 @@
   --ink: #2e2a24;
   --muted: #8a8176;
   --accent: #d5c1c9;
-  --link-color: #0095ff;
+  --link-color: #3598df;
   --shadow: rgba(48, 40, 36, 0.12);
   --color-body: #333333;
   --ink: #2e2a24;
@@ -646,9 +646,36 @@ p {
   border-radius: .71rem;
   overflow: hidden;
   box-shadow: 0 12px 48px rgba(58,29,2,0.12);
+  &.book {
+    max-width: 380px;
+    border-radius: .4rem;
+  }
 }
 
-.front-page-feather-link {
+.content {
+  .about-book-cover {
+    float: left;
+    width: 180px;
+    max-width: 100%;
+    height: auto;
+    margin: .3rem 1.6rem .6rem 0;
+    border-radius: .35rem;
+    box-shadow: 0 8px 22px rgba(58, 29, 2, 0.18);
+  }
+}
+
+@media (max-width: 600px) {
+  .content {
+    .about-book-cover {
+      float: none;
+      display: block;
+      margin: 0 auto .82rem;
+    }
+  }
+}
+
+.front-page-feather-link,
+.media-hover-link {
   position: relative;
   display: block;
 
@@ -668,7 +695,8 @@ p {
     transition: transform .35s ease;
   }
 
-  .front-page-feather-hover-label {
+  .front-page-feather-hover-label,
+  .media-hover-label {
     position: absolute;
     right: 1rem;
     bottom: 1rem;
@@ -697,7 +725,8 @@ p {
       transform: scale(1.03);
     }
 
-    .front-page-feather-hover-label {
+    .front-page-feather-hover-label,
+    .media-hover-label {
       opacity: 1;
       transform: translateY(0);
     }
@@ -709,11 +738,22 @@ p {
   }
 }
 
+.media-hover-link {
+  &:hover,
+  &:focus-visible {
+    img {
+      transform: scale(1);
+    }
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .front-page-feather-link {
+  .front-page-feather-link,
+  .media-hover-link {
     &::before,
     img,
-    .front-page-feather-hover-label {
+    .front-page-feather-hover-label,
+    .media-hover-label {
       transition: none;
     }
 
@@ -1326,6 +1366,11 @@ p.course-description {
     @media (min-width: 700px) {
       display: block;
     }
+    > a {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
     img {
       position: absolute;
       inset: 0;
@@ -1449,7 +1494,7 @@ p.course-description {
     }
   }
   @media (min-width: 700px) {
-    grid-template-columns: 7.06rem 1fr auto;
+    grid-template-columns: 10rem 1fr auto;
     align-items: stretch;
   }
   &:hover {
@@ -1792,8 +1837,8 @@ p.course-description {
   box-shadow: 0 12px 36px rgba(58,29,2,0.08);
 }
 .profile-icon {
-  width: 44px;
-  height: 44px;
+  width: 7rem;
+  height: 7rem;
   border-radius: 50%;
   background: var(--mint-green);
   display: flex;
@@ -1802,6 +1847,7 @@ p.course-description {
   margin-bottom: 1.06rem;
   font-size: 1.18rem;
   color: var(--deep-teal);
+  padding: .4rem;
 }
 .profile-card h3 {
   margin-bottom: .71rem;
@@ -2072,6 +2118,10 @@ p.course-description {
     padding: .71rem 1.41rem;
     font-size: .65rem;
     width: 100%;
+  }
+  img {
+    border: 3px solid rgb(46 81 74 / 15%);
+    border-radius: 9999px;
   }
 }
 

@@ -43,7 +43,7 @@ get_header(
       </div>
       <div class="reveal">
         <div class="content-img aspect-[3/4]">
-          <img src="<?php echo get_template_directory_uri(); ?>/images/placeholder.webp" alt="Sedona red rock landscape at sunset" class="w-full h-full object-cover">
+          <img src="<?php echo get_template_directory_uri(); ?>/images/images-v/feather-jones-herbalist-014.webp" alt="" class="w-full h-full object-cover">
         </div>
       </div>
     </div>
@@ -56,15 +56,12 @@ get_header(
   <div class="container mx-auto px-4 md:px-6 lg:px-8">
     <div class="grid gap-12 md:grid-cols-[4fr_5fr] md:gap-[4rem] items-start">
       <div class="reveal md:self-center">
-        <div class="flex flex-col gap-4">
-
-          <div class="content-img aspect-[4/3] mb-6">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/placeholder.webp" alt="Sedona red rock landscape at sunset" class="w-full h-full object-cover">
-          </div>
-          <div class="content-img aspect-[4/3]">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/placeholder.webp" alt="Sedona red rock landscape at sunset" class="w-full h-full object-cover">
-          </div>
-
+        <div class="grid grid-cols-2 gap-4">
+          <?php for ( $i = 0; $i < 8; $i++ ) : ?>
+            <div class="content-img aspect-[1/1]">
+              <img src="<?php echo get_template_directory_uri(); ?>/images/placeholder.webp" alt="" class="w-full h-full object-cover">
+            </div>
+          <?php endfor; ?>
         </div>
       </div>
       <div class="reveal">
@@ -247,4 +244,3 @@ get_header(
 <?php
 get_footer();
 ?>
-

@@ -42,8 +42,8 @@ get_header(
         <p>Feather studied with some of the most respected herbalists of that era. She trained under Michael Moore at his Southwest School of Botanical Medicine, earning her certification as a Clinical Herbalist in Western Herbalism. She also studied with traditional women healers, including Apache Elder Oshinna FastWolf and medicine woman Judy Whitesinger in North Dakota. These teachers shaped the way she sees healing&thinsp;&mdash;&thinsp;not just as science, but as relationship.</p>
       </div>
       <div class="reveal md:self-center">
-        <div class="content-img aspect-[4/5]">
-          <img src="<?php echo get_template_directory_uri(); ?>/images/placeholder.webp" alt="" class="w-full h-full object-cover">
+        <div class="content-img aspect-[2/3]">
+          <img src="<?php echo get_template_directory_uri(); ?>/images/images-v/feather-jones-herbalist-015.webp" alt="" class="w-full h-full object-cover">
         </div>
       </div>
     </div>
@@ -53,9 +53,9 @@ get_header(
 <section class="section bg-warm-linen">
   <div class="container mx-auto px-4 md:px-6 lg:px-8">
     <div class="grid gap-12 md:grid-cols-[4fr_5fr] md:gap-[4rem] items-start">
-      <div class="reveal md:self-center">
-        <div class="content-img aspect-[4/5]">
-          <img src="<?php echo get_template_directory_uri(); ?>/images/placeholder.webp" alt="" class="w-full h-full object-cover">
+      <div class="reveal">
+        <div class="content-img aspect-[2/3]">
+          <img src="<?php echo get_template_directory_uri(); ?>/images/images-v/feather-jones-herbalist-016.webp" alt="" class="w-full h-full object-cover">
         </div>
       </div>
       <div class="reveal">
@@ -73,13 +73,17 @@ get_header(
 
 <div class="botanical-divider"></div>
 
-<section class="section bg-white">
+<section class="section bg-white ">
   <div class="container mx-auto px-4 md:px-6 lg:px-8">
     <div class="grid gap-12 md:grid-cols-[5fr_4fr] md:gap-[4rem] items-start">
-      <div class="reveal">
+      <div class="reveal content">
+
         <p class="eyebrow">Credentials &amp; Contributions</p>
+
         <h2>A career that speaks for itself</h2>
+
         <p>Feather has served twice as president of the American Herbalists Guild&thinsp;&mdash;&thinsp;the leading professional organization for herbalists in the United States. She also serves on their Admissions Committee, helping set the standard for who enters the profession. She has been a Botanical Field Guide for the Sonoran University of Health Sciences, teaching alongside naturopathic doctors and medical professionals.</p>
+
         <div class="credentials-list">
           <span class="credential-tag">Registered Herbalist&thinsp;&mdash;&thinsp;AHG</span>
           <span class="credential-tag">2x AHG President</span>
@@ -88,15 +92,26 @@ get_header(
           <span class="credential-tag">40+ Years in Practice</span>
         </div>
 
-        <img src="<?php echo get_template_directory_uri(); ?>/images/images-v/feather-jones-herbalist-001-medicinal-herb-handbook.jpg" alt="medicinal herb handbook book cover featuring woman in natural landscape holding herbs">
-
         <p>She is the author of the <em><a href="https://www.amazon.com/gp/product/091495587X/ref=x_gr_w_bb_sout?ie=UTF8&tag=x_gr_w_bb_sout-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=091495587X&SubscriptionId=1MGPYB6YW3HWK55XCGG2" target="_blank">Medicinal Herb Handbook</a></em>, a reference guide to herbal remedies organized by organ system and symptom. She has lectured at conferences across the country and internationally, including the Southwest Conference of Botanical Medicine, the American Herbalists Guild Symposium, the Florida Herbal Conference, and events in the United Kingdom.</p>
+
         <p>Her peers in the herbalism world&thinsp;&mdash;&thinsp;people like David Winston, Roy Upton, Brigitte Mars, Rosita Arvigo, and Juliet Blankespoor&thinsp;&mdash;&thinsp;know her as a colleague and a friend. She has been called "legendary" and "a national treasure" by people who have spent their own lifetimes in this work. That kind of respect isn't earned with titles. It's earned with decades of showing up.</p>
+
         <p>Earlier in her career, Feather co-instructed a three-year program at the Rocky Mountain Center for Botanical Studies in Boulder, Colorado, graduating over 400 students as trained Western herbalists. As a solo instructor through Canyon Spirit Ventures, she has trained roughly another thousand&thinsp;&mdash;&thinsp;through apprenticeships, field studies, online courses, and symposiums. Many of her graduates have gone on to open their own herb schools and build thriving practices.</p>
+
       </div>
-      <div class="content-img aspect-[4/5] reveal md:self-center">
-        <img src="<?php echo get_template_directory_uri(); ?>/images/placeholder.webp" alt="" class="w-full h-full object-cover">
+      
+      <div class="w-full flex justify-center flex-col gap-20 mt-10">
+        
+        <img class="block mx-auto max-w-full h-auto" width="300" src="<?php echo get_template_directory_uri(); ?>/images/images-h/feather-jones-herbalist-051-american-herbalists-guild.webp" alt="American Herbalists Guild Registered Herbalist Member certification badge logo">
+
+        <div class="content-img mx-auto w-full book">
+          <a class="block w-full h-full" href="https://www.amazon.com/gp/product/091495587X/ref=x_gr_w_bb_sout?ie=UTF8&tag=x_gr_w_bb_sout-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=091495587X&SubscriptionId=1MGPYB6YW3HWK55XCGG2" target="_blank" rel="noopener noreferrer">
+            <img class="block w-full h-full object-cover" src="<?php echo get_template_directory_uri(); ?>/images/images-v/feather-jones-herbalist-001-medicinal-herb-handbook.jpg" alt="medicinal herb handbook book cover featuring woman in natural landscape holding herbs">
+          </a>
+        </div>
+
       </div>
+
     </div>
   </div>
 </section>
@@ -151,7 +166,7 @@ get_header(
       </div>
       <div class="reveal md:self-center">
         <div class="content-img aspect-[1/1]">
-          <img src="<?php echo get_template_directory_uri(); ?>/images/placeholder.webp" alt="" class="w-full h-full object-cover">
+          <img src="<?php echo get_template_directory_uri(); ?>/images/images-v/feather-jones-herbalist-017.webp" alt="" class="w-full h-full object-cover">
         </div>
       </div>
     </div>

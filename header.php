@@ -23,9 +23,9 @@ $is_cart_page = function_exists( 'is_cart' ) && is_cart();
 $is_checkout_page = function_exists( 'is_checkout' ) && is_checkout();
 $is_account_page = function_exists( 'is_account_page' ) && is_account_page();
 
-if ( ! ( $is_woocommerce_page || $is_cart_page || $is_checkout_page || $is_account_page ) ) {
-  get_template_part( 'partials/preloader' );
-}
+// if ( ! ( $is_woocommerce_page || $is_cart_page || $is_checkout_page || $is_account_page ) ) {
+//   get_template_part( 'partials/preloader' );
+// }
 ?>
 <?php /* <button id="themeBtn"><i class="far fa-moon"></i></button> */ ?>
 <?php get_template_part('partials/sticky-header') ?>

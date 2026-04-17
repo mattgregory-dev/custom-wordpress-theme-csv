@@ -34,8 +34,9 @@ get_header(
       <div class="featured-inner">
         <div class="featured-img">
           <div class="badge-rec">Recommended Starting Point</div>
-          <a href="<?php echo esc_url( home_url( '/courses/womens-wellness/' ) ); ?>">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/placeholder.webp" alt="" class="w-full h-full object-cover">
+          <a class="media-hover-link" href="<?php echo esc_url( home_url( '/courses/womens-wellness/' ) ); ?>">
+            <img src="<?php echo esc_url( trailingslashit( wp_get_upload_dir()['baseurl'] ) . 'feather-jones-herbalist-061-thumb.webp' ); ?>" alt="Feather Jones herbalist course featured image" class="w-full h-full object-cover">
+            <span class="media-hover-label" aria-hidden="true">View Course</span>
           </a>
         </div>
         <div class="featured-body">
@@ -288,8 +289,9 @@ get_header(
           ?>
           <div class="course-row">
             <div class="course-thumb">
-              <a href="<?php echo esc_url( $course_link ); ?>">
+              <a class="media-hover-link" href="<?php echo esc_url( $course_link ); ?>">
                 <img src="<?php echo esc_url( $thumb_url ? $thumb_url : $fallback_image ); ?>" alt="<?php echo esc_attr( $thumb_alt ); ?>" style="object-position:center">
+                <span class="media-hover-label" aria-hidden="true">View Course</span>
               </a>
             </div>
             <div class="course-info">

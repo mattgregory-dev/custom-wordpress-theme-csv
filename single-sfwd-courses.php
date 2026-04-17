@@ -4,7 +4,7 @@ get_header();
 
 <?php if ( have_posts() ) : ?>
   <?php while ( have_posts() ) : the_post(); ?>
-    <article>
+    <article class="single-course-template" data-ld-force-expand="true">
       <?php
       $course_categories = get_the_terms( get_the_ID(), 'ld_course_category' );
       if ( ! empty( $course_categories ) && ! is_wp_error( $course_categories ) ) :
