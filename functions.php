@@ -65,6 +65,16 @@ function csv_assets() {
 }
 add_action( 'wp_enqueue_scripts', 'csv_assets', 999 );
 
+// Force the theme main bundle to render as an ES module to avoid global scope collisions.
+function csv_force_csv_main_module_tag( $tag, $handle, $src ) {
+  if ( 'csv-main' !== $handle ) {
+    return $tag;
+  }
+
+  return '<script type="module" src="' . esc_url( $src ) . '"></script>';
+}
+add_filter( 'script_loader_tag', 'csv_force_csv_main_module_tag', 20, 3 );
+
 // Ensure Vite-built block scripts load as ES modules.
 function csv_block_module_scripts( $tag, $handle, $src ) {
   if ( false !== strpos( $src, '/dist/blocks/' ) ) {
