@@ -79,7 +79,7 @@ get_header(
       </div>
       <div class="reveal md:self-center">
         <div class="content-img" style="aspect-ratio:2/3;">
-          <img class="w-full h-full object-cover object-center" src="<?php echo get_template_directory_uri(); ?>/images/images-v/feather-jones-herbalist-012.webp" alt="">
+          <img class="w-full h-full object-cover object-center" src="<?php echo get_template_directory_uri(); ?>/images/images-v/feather-jones-herbalist-012.webp" alt="Student holding harvested herbs and a woven basket in a garden">
         </div>
       </div>
     </div>
@@ -143,7 +143,7 @@ get_header(
 
       <div class="reveal md:self-center">
         <div class="content-img" style="aspect-ratio:2/3;">
-          <img class="w-full h-full object-cover object-center" src="<?php echo get_template_directory_uri(); ?>/images/images-v/feather-jones-herbalist-010.webp" alt="">
+          <img class="w-full h-full object-cover object-center" src="<?php echo get_template_directory_uri(); ?>/images/images-v/feather-jones-herbalist-010.webp" alt="Sedona red rock cliffs and desert landscape">
         </div>
       </div>
 

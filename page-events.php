@@ -43,7 +43,7 @@ get_header(
       </div>
       <div class="reveal">
         <div class="content-img aspect-[3/4]">
-          <img src="<?php echo get_template_directory_uri(); ?>/images/images-v/feather-jones-herbalist-014.webp" alt="" class="w-full h-full object-cover">
+          <img src="<?php echo get_template_directory_uri(); ?>/images/images-v/feather-jones-herbalist-014.webp" alt="Student sitting in a field with a bag of freshly picked flowers" class="w-full h-full object-cover">
         </div>
       </div>
     </div>
@@ -59,7 +59,7 @@ get_header(
         <div class="grid grid-cols-2 gap-4">
           <?php for ( $i = 0; $i < 8; $i++ ) : ?>
             <div class="content-img aspect-[1/1]">
-              <img src="<?php echo get_template_directory_uri(); ?>/images/placeholder.webp" alt="" class="w-full h-full object-cover">
+              <img src="<?php echo get_template_directory_uri(); ?>/images/placeholder.webp" alt="Purple wildflowers in bloom" class="w-full h-full object-cover">
             </div>
           <?php endfor; ?>
         </div>

@@ -21,7 +21,7 @@ get_header(
       </div>
       <div class="reveal">
         <div class="content-img aspect-[4/5] w-full max-w-[400px]">
-          <img src="<?php echo get_template_directory_uri(); ?>/images/feather/feather-jones-registered-herbalist.jpg" alt="" class="h-full w-full object-cover">
+          <img src="<?php echo get_template_directory_uri(); ?>/images/feather/feather-jones-registered-herbalist.jpg" alt="Portrait of Feather Jones outdoors" class="h-full w-full object-cover">
         </div>
       </div>
     </div>
@@ -43,7 +43,7 @@ get_header(
       </div>
       <div class="reveal md:self-center">
         <div class="content-img aspect-[2/3]">
-          <img src="<?php echo get_template_directory_uri(); ?>/images/images-v/feather-jones-herbalist-015.webp" alt="" class="w-full h-full object-cover">
+          <img src="<?php echo get_template_directory_uri(); ?>/images/images-v/feather-jones-herbalist-015.webp" alt="Red barn and vegetable rows on a working farm" class="w-full h-full object-cover">
         </div>
       </div>
     </div>
@@ -55,7 +55,7 @@ get_header(
     <div class="grid gap-12 md:grid-cols-[4fr_5fr] md:gap-[4rem] items-start">
       <div class="reveal">
         <div class="content-img aspect-[2/3]">
-          <img src="<?php echo get_template_directory_uri(); ?>/images/images-v/feather-jones-herbalist-016.webp" alt="" class="w-full h-full object-cover">
+          <img src="<?php echo get_template_directory_uri(); ?>/images/images-v/feather-jones-herbalist-016.webp" alt="Feather Jones teaching students during an outdoor plant walk" class="w-full h-full object-cover">
         </div>
       </div>
       <div class="reveal">
@@ -166,7 +166,7 @@ get_header(
       </div>
       <div class="reveal md:self-center">
         <div class="content-img aspect-[1/1]">
-          <img src="<?php echo get_template_directory_uri(); ?>/images/images-v/feather-jones-herbalist-017.webp" alt="" class="w-full h-full object-cover">
+          <img src="<?php echo get_template_directory_uri(); ?>/images/images-v/feather-jones-herbalist-017.webp" alt="Feather Jones seated in sunlit grass outdoors" class="w-full h-full object-cover">
         </div>
       </div>
     </div>

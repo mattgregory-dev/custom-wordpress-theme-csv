@@ -43,17 +43,17 @@ get_header(
     </div>
     <div class="grid grid-cols-1 gap-4 mt-10 min-[830px]:grid-cols-3 md:gap-6 reveal">
       <div class="profile-card">
-        <div class="profile-icon"><img src="<?php echo get_template_directory_uri(); ?>/images/icons/icon-magnifying-glass-2.webp"></div>
+        <div class="profile-icon"><img src="<?php echo get_template_directory_uri(); ?>/images/icons/icon-magnifying-glass-2.webp" alt="Magnifying glass icon"></div>
         <h3>You&rsquo;re just getting started and want a guide</h3>
         <p>You&rsquo;ve read the books. You&rsquo;ve watched the videos. But you want someone with real experience to walk beside you and show you the path&thinsp;&mdash;&thinsp;not just point at it from a distance.</p>
       </div>
       <div class="profile-card">
-        <div class="profile-icon"><img src="<?php echo get_template_directory_uri(); ?>/images/icons/icon-notebook-leaf.webp"></div>
+        <div class="profile-icon"><img src="<?php echo get_template_directory_uri(); ?>/images/icons/icon-notebook-leaf.webp" alt="Notebook and botanical sketch icon"></div>
         <h3>You&rsquo;ve studied before, but there are gaps</h3>
         <p>Maybe you took a group course and loved it, but you have questions that need deeper answers. You want focused attention on the areas that matter most to you.</p>
       </div>
       <div class="profile-card">
-        <div class="profile-icon"><img src="<?php echo get_template_directory_uri(); ?>/images/icons/icon-bottle-st-johns.webp"></div>
+        <div class="profile-icon"><img src="<?php echo get_template_directory_uri(); ?>/images/icons/icon-bottle-st-johns.webp" alt="Herbal tincture bottle and leaf icon"></div>
         <h3>You&rsquo;re a practitioner adding herbal skills</h3>
         <p>You&rsquo;re a nutritionist, naturopath, health coach, or acupuncturist, and you want to work one-on-one with a clinical herbalist who can help you apply this knowledge with real clients.</p>
       </div>
@@ -124,7 +124,7 @@ get_header(
       </div>
       <div class="reveal md:self-center">
         <div class="content-img aspect-[2/3]">
-          <img class="w-full h-full object-cover object-center" src="<?php echo get_template_directory_uri(); ?>/images/images-v/feather-jones-herbalist-011.webp" alt="">
+          <img class="w-full h-full object-cover object-center" src="<?php echo get_template_directory_uri(); ?>/images/images-v/feather-jones-herbalist-011.webp" alt="Woman preparing fresh herbs at an outdoor table">
         </div>
       </div>
 

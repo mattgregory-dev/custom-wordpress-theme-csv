@@ -58,28 +58,36 @@ get_header(
     <!-- <div class="grid grid-cols-1 gap-5 mt-11 sm:grid-cols-2 reveal"> -->
     <div class="grid grid-cols-1 gap-5 mt-11 min-[600px]:grid-cols-2 min-[990px]:grid-cols-4 reveal">
       <div class="route-card">
-        <img src="<?php echo esc_url( get_template_directory_uri() . '/images/icons/icon-courses-2.webp' ); ?>" alt="Self-paced courses icon" class="block mx-auto mb-5 w-full max-w-[160px] h-auto object-contain">
+        <a href="<?php echo esc_url( home_url( '/courses-catalog/' ) ); ?>">
+          <img src="<?php echo esc_url( get_template_directory_uri() . '/images/icons/icon-courses-3.webp' ); ?>" alt="Self-paced courses icon">
+        </a>
         <div class="rc-label">Self-Paced Courses</div>
         <h3>Learn at Your Own Pace</h3>
         <p>Pick a topic, go at your speed, and come back whenever you want. Courses from $11. Lifetime access.</p>
         <a href="<?php echo esc_url( home_url( '/courses-catalog/' ) ); ?>" class="btn btn-secondary">Browse Courses</a>
       </div>
       <div class="route-card">
-        <img src="<?php echo esc_url( get_template_directory_uri() . '/images/icons/icon-group-classes.webp' ); ?>" alt="Live group classes icon" class="block mx-auto mb-5 w-full max-w-[160px] h-auto object-contain">
+        <a href="<?php echo esc_url( home_url( '/live-group-classes/' ) ); ?>">
+          <img src="<?php echo esc_url( get_template_directory_uri() . '/images/icons/icon-group-classes-2.webp' ); ?>" alt="Live group classes icon">
+        </a>
         <div class="rc-label">Live Group Classes</div>
         <h3>Join a Year-Long Apprenticeship</h3>
         <p>Weekly live classes with Feather and a small group of fellow students. A real curriculum&thinsp;&mdash;&thinsp;not drop-in workshops. Includes a Sedona field trip.</p>
         <a href="<?php echo esc_url( home_url( '/live-group-classes/' ) ); ?>" class="btn btn-secondary">Learn About Group Classes</a>
       </div>
       <div class="route-card">
-        <img src="<?php echo esc_url( get_template_directory_uri() . '/images/icons/icon-private-classes.webp' ); ?>" alt="Private mentorship icon" class="block mx-auto mb-5 w-full max-w-[160px] h-auto object-contain">
+        <a href="<?php echo esc_url( home_url( '/study-with-feather/' ) ); ?>">
+          <img src="<?php echo esc_url( get_template_directory_uri() . '/images/icons/icon-private-classes-2.webp' ); ?>" alt="Private mentorship icon">
+        </a>
         <div class="rc-label">Private Mentorship</div>
         <h3>Study One-on-One With Feather</h3>
         <p>A program built around your goals. Ideal for professionals adding herbal skills to an existing practice, or students who want a customized path.</p>
         <a href="<?php echo esc_url( home_url( '/study-with-feather/' ) ); ?>" class="btn btn-secondary">Explore Mentorship</a>
       </div>
       <div class="route-card">
-        <img src="<?php echo esc_url( get_template_directory_uri() . '/images/icons/icon-basket.webp' ); ?>" alt="Sedona field trip icon" class="block mx-auto mb-5 w-full max-w-[160px] h-auto object-contain">
+        <a href="<?php echo esc_url( home_url( '/field-trips/' ) ); ?>">
+          <img src="<?php echo esc_url( get_template_directory_uri() . '/images/icons/icon-basket-2.webp' ); ?>" alt="Sedona field trip icon">
+        </a>
         <div class="rc-label">Sedona Field Trip</div>
         <h3>Four Days in the High Desert</h3>
         <p>Plant walks, wild harvesting, and medicine making in Sedona, Arizona. Limited to 13 students. One trip per year.</p>
