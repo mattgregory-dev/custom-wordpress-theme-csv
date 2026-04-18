@@ -1848,6 +1848,9 @@ p.course-description {
   font-size: 1.18rem;
   color: var(--deep-teal);
   padding: .4rem;
+  @media (max-width: 600px) {
+    margin-inline: auto;
+  }
 }
 .profile-card h3 {
   margin-bottom: .71rem;
@@ -2033,7 +2036,7 @@ p.course-description {
 .proof-bar {
   padding: 1.65rem 1.41rem;
   border-bottom: 1px solid rgba(177, 153, 134, .12);
-  .container {
+  .proof-bar__container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -2045,8 +2048,8 @@ p.course-description {
 
 .proof-stat {
   display: flex;
-  align-items: center;
-  gap: 1rem;
+  align-items: baseline;
+  gap: .6rem;
   .ps-num {
     font-family: var(--font-heading);
     font-size: 1.18rem;
@@ -2059,7 +2062,6 @@ p.course-description {
     color: #888;
     text-align: left;
     line-height: 1.4;
-    text-align: center;
   }
 }
 
@@ -2068,16 +2070,67 @@ p.course-description {
   height: 4px;
   border-radius: 50%;
   background: var(--sage-green);
-  opacity: .5
+  opacity: .5;
 }
 
 @media(max-width:600px) {
-  .proof-dot {
-    display: none
+  .proof-bar {
+    padding: 1.25rem 0;
   }
-  .proof-bar .container {
+  .proof-dot {
+    display: none;
+  }
+  .proof-bar .proof-bar__container {
     flex-direction: column;
-    gap: .71rem;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+    gap: 1rem;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+  .proof-stat {
+    display: flex;
+    align-items: baseline;
+    gap: .6rem;
+    justify-content: flex-start;
+    width: 100%;
+    .ps-num {
+      font-size: 1.05rem;
+      font-weight: 500;
+      white-space: normal;
+    }
+    .ps-label {
+      font-size: .65rem;
+      line-height: 1.4;
+      text-align: left;
+    }
+  }
+  .proof-stat + .proof-stat {
+    border-top: 1px solid rgb(0 0 0 / 8%);
+    padding-top: .75rem;
+    margin-top: .75rem;
+  }
+
+  @media (max-width: 480px) {
+    .proof-stat {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
+      column-gap: .75rem;
+      align-items: start;
+      .ps-num {
+        line-height: 1.25;
+      }
+      .ps-label {
+        align-self: center;
+      }
+    }
+  }
+}
+
+@media (min-width: 600px) and (max-width: 757px) {
+  .proof-dot {
+    display: none;
   }
 }
 
@@ -2120,8 +2173,15 @@ p.course-description {
     width: 100%;
   }
   img {
-    border: 3px solid rgb(46 81 74 / 15%);
+    //border: 3px solid rgb(46 81 74 / 15%);
     border-radius: 9999px;
+    max-width: 100px;
+    width: 100%;
+    object-fit: contain;
+    display: block;
+    margin-inline: auto;
+    margin-bottom: 30px;
+    background-color: var(--mint-green);
   }
 }
 
@@ -4053,47 +4113,222 @@ p.course-description {
   }
 }
 
-main.csv-header-absolute .hero {
-  padding-top: 10rem;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.csv-header-absolute .hero {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 7rem 0;
 }
 
-// main.csv-header-absolute .hero.hero-home {
-//   position: relative;
-//   background-color: var(--mint-green);
-//   background-image: url('#{$theme-root}/images/images-horizontal/Colorado_Herb_Trip_JUN_2021_241.webp');
-//   background-repeat: no-repeat;
-//   background-position: center;
-//   background-size: cover;
-//   overflow: hidden;
+main .hero {
+  position: relative;
+  background-color: var(--mint-green);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
 
-//   &::before {
-//     content: '';
-//     position: absolute;
-//     inset: 0;
-//     background: linear-gradient(
-//       115deg,
-//       rgb(22 35 30 / 72%) 0%,
-//       rgb(22 35 30 / 58%) 45%,
-//       rgb(22 35 30 / 44%) 100%
-//     );
-//     pointer-events: none;
-//   }
+  @media (min-width: 500px) {
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      // background: linear-gradient(
+      //   115deg,
+      //   rgb(22 35 30 / 72%) 0%,
+      //   rgb(22 35 30 / 58%) 45%,
+      //   rgb(22 35 30 / 44%) 100%
+      // );
+      // background: linear-gradient(
+      //   90deg,
+      //   rgb(255 255 255 / 90%) 0%,
+      //   rgb(255 255 255 / 84%) 58%,
+      //   rgb(255 255 255 / 0%) 100%);
+      //background: linear-gradient(160deg, rgba(46, 82, 74, .82) 0%, rgba(46, 82, 74, .6) 35%, rgba(58, 29, 2, .35) 100%);
+      //background: linear-gradient(90deg, #c3dbc5 0%, #c3dbc5 35%, rgba(58, 29, 2, 0.35) 100%);
+      background: linear-gradient(to right, rgba(250, 246, 239, 0.97) 0%, rgba(250, 246, 239, 0.93) 37%, rgba(250, 246, 239, 0.78) 51%, rgba(250, 246, 239, 0.35) 68%, rgba(250, 246, 239, 0) 78%);
+      pointer-events: none;
+    }
+  }
 
-//   .container {
-//     position: relative;
-//     z-index: 1;
-//   }
+  .container {
+    position: relative;
+    z-index: 1;
+  }
 
-//   .eyebrow {
-//     color: rgb(230 245 236);
-//   }
+  // .eyebrow {
+  //   color: rgb(230 245 236);
+  // }
 
-//   h1 {
-//     color: #fff;
-//   }
+  // h1 {
+  //   color: #fff;
+  // }
 
-//   p,
-//   .text-neutral-700 {
-//     color: rgb(241 245 242);
+  // p,
+  // .text-neutral-700 {
+  //   color: rgb(241 245 242);
+  // }
+}
+
+main .hero.hero-about {
+  @media (min-width: 500px) {
+    &::before {
+      background: linear-gradient(to right, rgba(250, 246, 239, 0.97) 0%, rgba(250, 246, 239, 0.93) 37%, rgba(250, 246, 239, 0.78) 51%, rgba(250, 246, 239, 0.35) 111%, rgba(250, 246, 239, 0) 100%);
+    }
+  }
+}
+
+.hero {
+  .hero__grid {
+    display: grid;
+    gap: 2.5rem;
+    align-items: center;
+  }
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  @media (min-width: 500px) {
+    .hero__grid {
+      grid-template-columns: 1.5fr 0.5fr;
+    }
+  }
+  @media (min-width: 840px) {
+    .hero__grid {
+      grid-template-columns: 1.1fr 0.9fr;
+    }
+  }
+}
+.hero-mobile {
+  display: none;
+  background-position: center center;
+  background-size: cover;
+  min-height: 17rem;
+}
+@media (max-width: 500px) {
+  .hero-mobile {
+    display: block;
+  }
+ .hero {
+    padding: 2rem 0 3rem;
+  }
+}
+
+// .hero {
+//   @media (min-width: 768px) {
+
+// Same girl, smiling in a field
+//background-image: url('#{$theme-root}/images/tests/feather-jones-herbalist-026.jpg');
+//background-image: url('#{$theme-root}/images/images-h/feather-jones-herbalist-066.webp');
+//background-image: url('#{$theme-root}/images/images-h/feather-jones-herbalist-068.webp');
+//background-position: center top;
+
+// Secondary
+// Feather on the ground
+//background-image: url('#{$theme-root}/images/tests/feather-jones-herbalist-003.jpg');
+// Lavander close up
+//background-image: url('#{$theme-root}/images/images-h/feather-jones-herbalist-012.webp');
+// Close up leaves, yellow fruit 2
+//background-image: url('#{$theme-root}/images/images-h/feather-jones-herbalist-021.webp');
+
+// Close up yellow meadow
+//background-image: url('#{$theme-root}/images/images-h/feather-jones-herbalist-002.webp');
+// Feather on the ground
+//background-image: url('#{$theme-root}/images/tests/feather-jones-herbalist-022.jpg');
+// Sedona
+//background-image: url('#{$theme-root}/images/tests/feather-jones-herbalist-029.jpg');
+//background-position: center -100px;
+// Sedona 2
+//background-image: url('#{$theme-root}/images/images-h/feather-jones-herbalist-045.webp');
+// Jar of herbs
+//background-image: url('#{$theme-root}/images/tests/feather-jones-herbalist-016.jpg');
+// Hands digging
+//background-image: url('#{$theme-root}/images/tests/feather-jones-herbalist-034.jpg');
+// Feather and students digging
+//background-image: url('#{$theme-root}/images/tests/feather-jones-herbalist-033.jpg');
+// Holding 2 jars
+//background-image: url('#{$theme-root}/images/tests/feather-jones-herbalist-018.jpg');
+// Woman in a field
+//background-image: url('#{$theme-root}/images/tests/feather-jones-herbalist-010.jpg');
+// Cactus, prickly pear 
+//background-image: url('#{$theme-root}/images/images-h/feather-jones-herbalist-057.webp');
+// Sedona
+//background-image: url('#{$theme-root}/images/images-h/feather-jones-herbalist-043.webp');
+
+// No
+// Meadow
+//background-image: url('#{$theme-root}/images/tests/feather-jones-herbalist-035.webp');
+// Close purple flower
+//background-image: url('#{$theme-root}/images/images-h/feather-jones-herbalist-014.webp');
+// Feather sitting in field with students
+//background-image: url('#{$theme-root}/images/images-h/colorado-field-trip/field-trip-004.webp');
 //   }
 // }
+
+.hero-mobile-home {
+  background-image: url('#{$theme-root}/images/images-h/feather-jones-herbalist-073.webp');
+}
+.hero-mobile-courses {
+  // Meadow, whild flowers
+  background-image: url('#{$theme-root}/images/images-h/feather-jones-herbalist-016.webp');
+}
+.hero-mobile-group-classes {
+  // Meadow, whild flowers
+  background-image: url('#{$theme-root}/images/images-h/feather-jones-herbalist-070.webp');
+}
+.hero-mobile-private-classes {
+  background-image: url('#{$theme-root}/images/images-h/feather-jones-herbalist-074.webp');
+}
+.hero-mobile-events {
+  background-image: url('#{$theme-root}/images/images-h/feather-jones-herbalist-063.webp');
+}
+@media (min-width: 500px) {
+  .hero.hero-home {
+    // Clipping herbs into a basket
+    background-image: url('#{$theme-root}/images/images-h/feather-jones-herbalist-073.webp');
+  }
+  .hero.hero-courses {
+    // Wild flowers meadow
+    background-image: url('#{$theme-root}/images/images-h/feather-jones-herbalist-016.webp');
+  }
+  .hero.hero-group-classes {
+    // Jar of herbs
+    //background-image: url('#{$theme-root}/images/tests/feather-jones-herbalist-015.jpg');
+    background-image: url('#{$theme-root}/images/images-h/feather-jones-herbalist-070.webp');
+  }
+  .hero.hero-private-classes {
+    // Yellow flowers, with purple flowers
+    background-image: url('#{$theme-root}/images/images-h/feather-jones-herbalist-074.webp');
+  }
+  .hero.hero-events {
+    // Group photo
+    background-image: url('#{$theme-root}/images/images-h/feather-jones-herbalist-063.webp');
+    background-position: center top;
+  }
+  .hero.hero-about {
+    // Meadow, purple and yellow flowers
+    background-image: url('#{$theme-root}/images/images-h/feather-jones-herbalist-027.webp');
+  }
+}

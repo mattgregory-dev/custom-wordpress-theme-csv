@@ -2,22 +2,23 @@
 get_header(
   null,
   array(
-    'header_variant' => 'absolute',
+    //'header_variant' => 'absolute',
     //'header_color' => 'white',
   )
 );
 ?>
 
 <!-- ========== Hero Header ========== -->
-<section class="section bg-mint-green hero hero-home">
+<section class="section hero-mobile hero-mobile-home"></section>
+<section class="section hero hero-home">
   <div class="container mx-auto px-4 md:px-6 lg:px-8">
-    <div class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] items-center">
+    <div class="hero__grid">
 
       <div>
         <p class="eyebrow">Herbal Medicine Education</p>
         <h1>Learn From a Herbalist Who Has Been Doing This for 40 Years</h1>
         <p class="text-lg text-neutral-700 mb-8">Feather Jones is a Registered Herbalist with a clinical practice, two terms as president of the American Herbalists Guild, and decades of teaching under her belt. Whether you're brand new to plants or deepening an existing practice, there's a path here for you.</p>
-        <div class="flex flex-wrap gap-4">
+        <div class="hero__actions">
           <a class="btn btn-primary" href="#paths">Find Your Path</a>
           <a class="btn btn-secondary" href="<?php echo esc_url( home_url( '/about/' ) ); ?>">Meet Feather &raquo;</a>
         </div>
@@ -29,21 +30,23 @@ get_header(
 
 <!-- ========== SOCIAL PROOF BAR ========== -->
 <div class="proof-bar bg-soft-cream">
-  <div class="container">
+  <div class="container proof-bar__container">
     <div class="proof-stat">
       <div class="ps-num">40+ Years</div>
-      <div class="ps-label">Teaching &amp;<br>Practicing</div>
+      <div class="ps-label">Teaching &amp; Practicing</div>
     </div>
-    <div class="proof-dot"></div>
+    <div class="proof-dot" aria-hidden="true"></div>
+
     <div class="proof-stat">
       <div class="ps-num">Registered Herbalist</div>
-      <div class="ps-label">American<br>Herbalists Guild</div>
+      <div class="ps-label">American Herbalists Guild</div>
     </div>
 
-    <div class="proof-dot hidden"></div>
+    <div class="proof-dot" aria-hidden="true"></div>
+
     <div class="proof-stat">
       <div class="ps-num">1000's of Students</div>
-      <div class="ps-label">Taught in the<br>class and the field</div>
+      <div class="ps-label">Taught in the class and the field</div>
     </div>
   </div>
 </div>

@@ -11,14 +11,15 @@ get_header(
 );
 ?>
 
-<section class="section bg-mint-green">
+<section class="section hero-mobile hero-mobile-private-classes"></section>
+<section class="section hero hero-private-classes">
   <div class="container mx-auto px-4 md:px-6 lg:px-8">
-    <div class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] items-center">
+    <div class="hero__grid">
       <div>
         <p class="eyebrow">Private Mentorship</p>
         <h1>Study One-on-One With Feather Jones and Build the Herbal Practice You've Been Dreaming Of</h1>
         <p class="text-lg text-neutral-700 mb-8">A year-long private mentorship designed around your goals, your pace, and your life. Feather works with you personally to turn your passion for plant medicine into real skill and lasting confidence.</p>
-        <div class="flex flex-wrap gap-4">
+        <div class="hero__actions">
           <a class="btn btn-primary" href="https://calendly.com/feather-jones/private-mentorship" target="_blank">Book My Free Consultation</a>
         </div>
         <p class="text-sm text-neutral-500 mt-4 italic">A free 30-minute Zoom call to talk about your goals and see if this is the right fit. No pressure, no commitment.</p>

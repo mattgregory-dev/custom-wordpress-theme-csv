@@ -11,15 +11,15 @@ get_header(
 );
 ?>
 
-<section class="section bg-mint-green">
+<section class="section hero hero-about">
   <div class="container mx-auto px-4 md:px-6 lg:px-8">
-    <div class="grid gap-12 md:grid-cols-[1.1fr_0.9fr] md:gap-[4rem] items-start">
+    <div class="hero__grid">
       <div class="reveal">
         <p class="eyebrow">About Feather Jones</p>
         <h1>She's been learning from the plants for over four decades. She's still at it.</h1>
         <p class="text-lg">As a Registered Herbalist with the American Herbalists Guild, Feather has spent more than 40 years in clinical practice, teaching, and walking the land with the plants she knows by name. She has trained over a thousand students in herbal medicine, helped hundreds of clients find their way back to health, and still gets excited every time she spots a patch of wild medicine growing on a hillside.</p>
       </div>
-      <div class="reveal">
+      <div class="reveal photo">
         <div class="content-img aspect-[4/5] w-full max-w-[400px]">
           <img src="<?php echo get_template_directory_uri(); ?>/images/feather/feather-jones-registered-herbalist.jpg" alt="Portrait of Feather Jones outdoors" class="h-full w-full object-cover">
         </div>

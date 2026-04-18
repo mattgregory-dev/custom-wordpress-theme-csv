@@ -11,16 +11,17 @@ get_header(
 );
 ?>
 
-<section class="section bg-mint-green">
+<section class="section hero-mobile hero-mobile-events"></section>
+<section class="section hero hero-events">
   <div class="container mx-auto px-4 md:px-6 lg:px-8">
-    <div class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] items-center">
+    <div class="hero__grid">
       <div>
         <p class="eyebrow">Sedona Field Trip</p>
         <h1>Walk the Desert. Learn the Plants. Make Your Own Medicine.</h1>
         <p class="text-lg text-neutral-700 mb-4">A four-day herbal field trip in Sedona, Arizona. You'll identify wild plants, harvest them by hand, and make remedies you can keep making at home.</p>
         <p class="text-neutral-600 mb-6">June 2-5, 2026 | Sedona, AZ | $450 | Only 13 spots</p>
         <p class="text-neutral-600 mb-8">No prior experience required | Packing list sent after registration</p>
-        <div class="flex flex-wrap gap-4">
+        <div class="hero__actions">
           <a class="btn btn-primary" href="<?php echo esc_url( home_url( 'checkout/?add-to-cart=1652' ) ); ?>">Reserve Your Spot</a>
           <a class="btn btn-secondary" href="#faq">View FAQ</a>
         </div>
@@ -55,13 +56,21 @@ get_header(
 <section class="section bg-white">
   <div class="container mx-auto px-4 md:px-6 lg:px-8">
     <div class="grid gap-12 md:grid-cols-[4fr_5fr] md:gap-[4rem] items-start">
-      <div class="reveal md:self-center">
-        <div class="grid grid-cols-2 gap-4">
-          <?php for ( $i = 0; $i < 8; $i++ ) : ?>
-            <div class="content-img aspect-[1/1]">
-              <img src="<?php echo get_template_directory_uri(); ?>/images/placeholder.webp" alt="Purple wildflowers in bloom" class="w-full h-full object-cover">
-            </div>
-          <?php endfor; ?>
+      <div class="reveal md:self-center flex gap-4 flex-col">
+        <div class="content-img">
+          <img src="<?php echo get_template_directory_uri(); ?>/images/ft/ft-11.webp" alt="" class="w-full">
+        </div>
+        <div class="content-img">
+          <img src="<?php echo get_template_directory_uri(); ?>/images/ft/ft-09.webp" alt="" class="w-full">
+        </div>
+        <div class="content-img">
+          <img src="<?php echo get_template_directory_uri(); ?>/images/ft/ft-01.webp" alt="" class="w-full">
+        </div>
+        <div class="content-img">
+          <img src="<?php echo get_template_directory_uri(); ?>/images/ft/ft-02.webp" alt="" class="w-full">
+        </div>
+        <div class="content-img">
+          <img src="<?php echo get_template_directory_uri(); ?>/images/ft/ft-05.webp" alt="" class="w-full">
         </div>
       </div>
       <div class="reveal">

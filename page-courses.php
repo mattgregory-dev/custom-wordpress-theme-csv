@@ -11,15 +11,16 @@ get_header(
 );
 ?>
 
-<section class="section bg-mint-green">
+<section class="section hero-mobile hero-mobile-courses"></section>
+<section class="section hero hero-courses">
   <div class="container mx-auto px-4 md:px-6 lg:px-8">
-    <div class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] items-center">
+    <div class="hero__grid">
       <div>
         <p class="eyebrow">Self-Paced Courses</p>
         <h1>Self-Paced Herbal Courses You Can Start Today</h1>
-        <p class="text-lg text-neutral-700 mb-4">Learn at your own pace with Feather Jones. Each course blends traditional herbal knowledge with hands-on tools you can use right away. Courses start at $75.</p>
+        <p class="text-lg text-neutral-700 mb-4">Learn at your own pace with Feather Jones. Each course blends traditional herbal knowledge with hands-on tools you can use right away. Courses start at $11.</p>
         <p class="text-neutral-600 mb-8">Instructor: Feather Jones | <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>">Meet Feather on the About page</a></p>
-        <div class="flex flex-wrap gap-4">
+        <div class="hero__actions">
           <a class="btn btn-primary" href="#catalog">Browse All Courses</a>
           <a class="btn btn-secondary" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Contact Us</a>
         </div>
