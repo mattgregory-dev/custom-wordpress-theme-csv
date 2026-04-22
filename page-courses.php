@@ -170,14 +170,39 @@ get_header(
             }
           }
           $meta_items = array();
-          $course_hours = function_exists( 'get_field' )
+          $course_hours_raw = function_exists( 'get_field' )
             ? get_field( 'course_hours', $course_id )
             : get_post_meta( $course_id, 'course_hours', true );
+          $course_minutes_raw = function_exists( 'get_field' )
+            ? get_field( 'course_minutes', $course_id )
+            : get_post_meta( $course_id, 'course_minutes', true );
           $course_level = get_post_meta( $course_id, 'course_level', true );
           $course_access = get_post_meta( $course_id, 'course_access', true );
+          $course_hours = is_numeric( $course_hours_raw ) ? (int) $course_hours_raw : 0;
+          $course_minutes = is_numeric( $course_minutes_raw ) ? (int) $course_minutes_raw : 0;
+          $course_hours = max( 0, $course_hours );
+          $course_minutes = max( 0, $course_minutes );
 
-          if ( $course_hours ) {
-            $meta_items[] = $course_hours . ' Hours';
+          if ( $course_hours > 0 && $course_minutes > 0 ) {
+            $meta_items[] = sprintf(
+              '%1$d %2$s %3$d %4$s',
+              $course_hours,
+              _n( 'hour', 'hours', $course_hours, 'csv' ),
+              $course_minutes,
+              _n( 'minute', 'minutes', $course_minutes, 'csv' )
+            );
+          } elseif ( $course_minutes > 0 ) {
+            $meta_items[] = sprintf(
+              '%1$d %2$s',
+              $course_minutes,
+              _n( 'minute', 'minutes', $course_minutes, 'csv' )
+            );
+          } elseif ( $course_hours > 0 ) {
+            $meta_items[] = sprintf(
+              '%1$d %2$s',
+              $course_hours,
+              _n( 'hour', 'hours', $course_hours, 'csv' )
+            );
           }
 
           if ( function_exists( 'learndash_get_post_type_slug' ) ) {

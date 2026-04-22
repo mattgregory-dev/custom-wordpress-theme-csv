@@ -307,6 +307,7 @@ p {
       color: #C3DBC5;
       text-decoration: none;
       transition: border-color 0.2s ease, color 0.2s ease;
+      margin-inline: .4rem;
       &:hover {
         border-color: #84AE9D;
         color: #F9F6EE;
@@ -1408,23 +1409,6 @@ p.course-description {
       font-weight: 600;
       line-height: 1;
     }
-    .course-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .35rem;
-      .cm {
-        font-family: var(--font-eyebrow);
-        font-weight: 700;
-        font-size: .6rem;
-        letter-spacing: .07rem;
-        text-transform: uppercase;
-        color: #aaa;
-        & + .cm::before {
-          content: '\00B7';
-          margin-right: .35rem;
-        }
-      }
-    }
     @media (min-width: 700px) {
       padding: 1.18rem 1.41rem;
     }
@@ -1508,6 +1492,33 @@ p.course-description {
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 32px rgba(58,29,2,0.06);
+  }
+}
+
+.course-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem;
+  .cm {
+    font-family: var(--font-eyebrow);
+    font-weight: 700;
+    font-size: .6rem;
+    letter-spacing: .07rem;
+    text-transform: uppercase;
+    color: #aaa;
+    & + .cm::before {
+      content: '\00B7';
+      margin-right: .35rem;
+    }
+  }
+}
+.single-course-template {
+  .course-meta {
+    justify-content: center;
+    margin-bottom: 1rem;
+    .cm {
+      font-size: .65rem;
+    }
   }
 }
 
