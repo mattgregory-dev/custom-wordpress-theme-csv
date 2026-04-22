@@ -141,15 +141,8 @@ $journal_url = $posts_page_id ? get_permalink( $posts_page_id ) : home_url( '/bl
   <aside class="sidebar">
 
     <!-- Free class offer -->
-    <?php
-    $offer_variant = isset( $_COOKIE['offer_variant'] ) ? sanitize_key( wp_unslash( $_COOKIE['offer_variant'] ) ) : 'a';
-    $offer_variant = in_array( $offer_variant, array( 'a', 'b' ), true ) ? $offer_variant : 'a';
-    if ( 'b' === $offer_variant ) {
-      get_template_part( 'partials/offers/pest-control/sidebar' );
-    } else {
-      get_template_part( 'partials/offers/earth-ceremony/sidebar' );
-    }
-    ?>
+    <?php get_template_part( 'partials/offers/earth-ceremony/sidebar' ); ?>
+    <?php get_template_part( 'partials/offers/pest-control/sidebar' ); ?>
 
     <?php /*
     <!-- Ad slot 1 -->

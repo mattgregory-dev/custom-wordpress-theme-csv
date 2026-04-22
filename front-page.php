@@ -149,15 +149,8 @@ get_header(
 
 <div class="botanical-divider"></div>
 
-<?php
-$offer_variant = isset( $_COOKIE['offer_variant'] ) ? sanitize_key( wp_unslash( $_COOKIE['offer_variant'] ) ) : 'a';
-$offer_variant = in_array( $offer_variant, array( 'a', 'b' ), true ) ? $offer_variant : 'a';
-if ( 'b' === $offer_variant ) {
-  get_template_part( 'partials/offers/pest-control/banner' );
-} else {
-  get_template_part( 'partials/offers/earth-ceremony/banner' );
-}
-?>
+<?php get_template_part( 'partials/offers/earth-ceremony/banner' ); ?>
+<?php get_template_part( 'partials/offers/pest-control/banner' ); ?>
 
 <?php
 get_footer();

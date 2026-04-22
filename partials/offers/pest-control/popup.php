@@ -7,7 +7,7 @@
  */
 ?>
 
-<div class="popup-overlay offer offer-b" id="fjPopup">
+<div class="popup-overlay offer offer-b" data-offer-popup="b">
   <div class="popup-card">
     <div class="popup-drag-handle"></div>
 
@@ -19,7 +19,7 @@
     </button>
 
     <div class="popup-content">
-      <div class="popup-step active" id="fjStep1">
+      <div class="popup-step active" data-popup-step="1">
         <div class="popup-eyebrow">Free Course (pest control)</div>
         <h2 class="popup-heading">New to Herbs?<br>Start Here - No Cost.</h2>
 
@@ -38,21 +38,21 @@
           <span class="proof-text">Trusted by thousands of students over 20+ years</span>
         </div>
 
-        <button class="popup-step1-cta" id="fjCtaBtn">
+        <button class="popup-step1-cta" data-popup-action="cta">
           Yes, Send Me the Free Course
         </button>
 
-        <button class="popup-step1-skip" id="fjSkipBtn">
+        <button class="popup-step1-skip" data-popup-action="skip">
           No thanks, I'm not interested
         </button>
       </div>
 
-      <div class="popup-step" id="fjStep2">
+      <div class="popup-step" data-popup-step="2">
         <div class="popup-eyebrow">Almost There</div>
         <h2 class="step2-heading">Where Should We Send It?</h2>
         <p class="step2-subtext">Enter your email and we'll send your free course link right away.</p>
 
-        <p class="popup-error" id="fjError"></p>
+        <p class="popup-error" data-popup-error="true"></p>
 
         <?php echo do_shortcode( '[forminator_form id="2338"]' ); ?>
 
@@ -61,7 +61,7 @@
         </p>
       </div>
 
-      <div class="popup-step" id="fjStep3">
+      <div class="popup-step" data-popup-step="3">
         <div class="popup-success show">
           <div class="check-circle">
             <svg viewBox="0 0 24 24"><polyline points="6 12 10 16 18 8"></polyline></svg>
@@ -73,3 +73,4 @@
     </div>
   </div>
 </div>
+

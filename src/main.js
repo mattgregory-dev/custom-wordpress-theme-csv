@@ -1365,13 +1365,18 @@ const initFreeClassPopup = () => {
   const FORCE_POPUP = false;
 
   // Core element lookups.
-  const overlay = document.getElementById('fjPopup');
+  const offerVariant =
+    document.documentElement.getAttribute('data-offer-variant') === 'b' ? 'b' : 'a';
+  const overlay =
+    document.querySelector(`.popup-overlay[data-offer-popup="${offerVariant}"]`) ||
+    document.querySelector('.popup-overlay[data-offer-popup="a"]') ||
+    document.querySelector('.popup-overlay[data-offer-popup="b"]');
   if (!overlay) return;
 
   const card = overlay.querySelector('.popup-card');
   const closeBtn = overlay.querySelector('.popup-close');
-  const ctaBtn = document.getElementById('fjCtaBtn');
-  const skipBtn = document.getElementById('fjSkipBtn');
+  const ctaBtn = overlay.querySelector('[data-popup-action="cta"]');
+  const skipBtn = overlay.querySelector('[data-popup-action="skip"]');
   const getPopupForm = () =>
     overlay.querySelector('form.forminator-ui') ||
     overlay.querySelector('form[data-form-id]') ||
@@ -1385,10 +1390,11 @@ const initFreeClassPopup = () => {
         node.querySelector('.forminator-response-message'))
     );
   let isForminator = isForminatorForm(form);
-  const errorEl = document.getElementById('fjError');
-  const step1 = document.getElementById('fjStep1');
-  const step2 = document.getElementById('fjStep2');
-  const step3 = document.getElementById('fjStep3');
+  const errorEl = overlay.querySelector('[data-popup-error="true"]');
+  const step1 = overlay.querySelector('[data-popup-step="1"]');
+  const step2 = overlay.querySelector('[data-popup-step="2"]');
+  const step3 = overlay.querySelector('[data-popup-step="3"]');
+  if (!card || !closeBtn || !ctaBtn || !skipBtn || !errorEl || !step1 || !step2 || !step3) return;
   let step2At = 0;
   let step3Triggered = false;
 
@@ -1422,7 +1428,7 @@ const initFreeClassPopup = () => {
     step2.classList.add('active');
     step2At = Date.now();
     window.setTimeout(() => {
-      const emailInput = form.querySelector('input[type="email"]');
+      const emailInput = form ? form.querySelector('input[type="email"]') : null;
       if (emailInput) emailInput.focus();
     }, 100);
   };

@@ -139,13 +139,22 @@ add_action( 'pre_get_posts', 'csv_page_template_orderby' );
 
 // Assign an A/B offer variant once per visitor.
 function set_offer_variant() {
+  // Optional override via wp-config.php:
+  // define( 'CSV_FORCE_OFFER_VARIANT', 'a' ); // or 'b'
+  $forced_variant = defined( 'CSV_FORCE_OFFER_VARIANT' ) ? sanitize_key( (string) CSV_FORCE_OFFER_VARIANT ) : '';
+  if ( in_array( $forced_variant, array( 'a', 'b' ), true ) ) {
+    setcookie( 'offer_variant', $forced_variant, time() + 60 * 60 * 24, '/' );
+    $_COOKIE['offer_variant'] = $forced_variant; // make it available immediately
+    return;
+  }
+
   if ( isset( $_COOKIE['offer_variant'] ) ) {
     return;
   }
 
   $variant = ( mt_rand( 0, 1 ) === 0 ) ? 'a' : 'b';
 
-  setcookie( 'offer_variant', $variant, time() + 60 * 60 * 24 * 30, '/' );
+  setcookie( 'offer_variant', $variant, time() + 60 * 60 * 24, '/' );
   $_COOKIE['offer_variant'] = $variant; // make it available immediately
 }
 add_action( 'init', 'set_offer_variant' );
