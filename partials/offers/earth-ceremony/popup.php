@@ -20,11 +20,11 @@
 
     <div class="popup-content">
       <div class="popup-step active" data-popup-step="1">
-        <div class="popup-eyebrow">Free Course (earth ceremony)</div>
+        <div class="popup-eyebrow">Free Course</div>
         <h2 class="popup-heading">New to Herbs?<br>Start Here - No Cost.</h2>
 
         <p class="popup-description">
-          Get instant access to <em>Natural Pest Control with Plants</em> - a short, practical course on using herbs and essential oils to repel common pests, naturally. It's 25-35 minutes and you can use what you learn right away.
+          Get instant access to <em>Sacred Plant Ceremony, Part I: Foundations</em> — a short, gentle teaching on sage, sweetgrass, juniper, and the meaning of ceremony. It's 26 minutes, filmed from a vortex in the Sedona Red Rocks.
         </p>
 
         <div class="popup-social-proof">

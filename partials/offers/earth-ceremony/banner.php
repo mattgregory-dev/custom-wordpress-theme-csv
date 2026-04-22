@@ -1,9 +1,9 @@
 <!-- ========== FOOTER CTA + EMAIL CAPTURE ========== -->
 <section class="section footer-cta offer offer-a">
   <div class="container text-center reveal">
-    <div class="eyebrow">Free Course (earth ceremony)</div>
+    <div class="eyebrow">Free Course</div>
     <h2>New to Herbs? Start Here&thinsp;&mdash;&thinsp;No Cost.</h2>
-    <p class="mx-auto mb-4 descriptor">Sign up and get instant access to <em>Natural Pest Control with Plants: Safe, Herbal Solutions for Home & Pets</em>&thinsp;&mdash;&thinsp;a short, practical course on using herbs and essential oils to repel common pests, naturally. It&rsquo;s 25&ndash;35 minutes and you can use what you learn right away.</p>
+    <p class="mx-auto mb-4 descriptor">Sign up and get instant access to <em>Sacred Plant Ceremony, Part I: Foundations</em>&thinsp;&mdash;&thinsp;a short, gentle course on sage, sweetgrass, juniper, and the meaning of ceremony. In 26 minutes, Feather introduces the sacred plants, shows how to set intention with care, and closes with a live ceremony to the four directions — filmed from a vortex in the Sedona Red Rocks.</p>
     <p class="mx-auto mb-10 sub-line">Part of Feather&rsquo;s Get Your Feet Wet Series: short, focused lessons designed for people just getting started.</p>
 
     <div class="forminator-cta-form mt-12 mb-10">

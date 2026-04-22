@@ -4,9 +4,9 @@
  */
 ?>
 <div class="sidebar-card offer offer-a">
-  <div class="eyebrow">Free Course (earth ceremony)</div>
+  <div class="eyebrow">Free Course</div>
   <h3>New to Herbs? Start Here — No Cost.</h3>
-  <p>Get instant access to Natural Pest Control with Plants: Safe, Herbal Solutions for Home & Pets — a short, practical course on using herbs and essential oils to repel common pests, naturally. It's 25–35 minutes and you can use what you learn right away.</p>
+  <p>Get instant access to <em>Sacred Plant Ceremony, Part I: Foundations</em> — a 26-minute teaching on sage, sweetgrass, juniper, and the meaning of ceremony, closing with a live four-directions ceremony filmed in the Sedona Red Rocks.</p>
 
   <div class="sidebar-form">
     <?php echo do_shortcode( '[forminator_form id="2451"]' ); ?>

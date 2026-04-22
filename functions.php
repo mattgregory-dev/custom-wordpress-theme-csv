@@ -643,12 +643,6 @@ function csv_suppress_add_to_cart_message_html( $message, $products = array(), $
 }
 add_filter( 'wc_add_to_cart_message_html', 'csv_suppress_add_to_cart_message_html', 10, 3 );
 
-// Legacy filter support for older WooCommerce notice rendering.
-function csv_suppress_add_to_cart_message_legacy( $message, $product_id = 0 ) {
-  return '';
-}
-add_filter( 'wc_add_to_cart_message', 'csv_suppress_add_to_cart_message_legacy', 10, 2 );
-
 // Suppress WooCommerce notices on My Account when returning to checkout.
 function csv_suppress_checkout_redirect_notices() {
   if ( is_admin() || wp_doing_ajax() || ! function_exists( 'is_account_page' ) ) {
