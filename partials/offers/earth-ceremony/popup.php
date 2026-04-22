@@ -7,7 +7,7 @@
  */
 ?>
 
-<div class="popup-overlay" id="fjPopup">
+<div class="popup-overlay offer offer-a" id="fjPopup">
   <div class="popup-card">
     <div class="popup-drag-handle"></div>
 
@@ -20,7 +20,7 @@
 
     <div class="popup-content">
       <div class="popup-step active" id="fjStep1">
-        <div class="popup-eyebrow">Free Course</div>
+        <div class="popup-eyebrow">Free Course (earth ceremony)</div>
         <h2 class="popup-heading">New to Herbs?<br>Start Here - No Cost.</h2>
 
         <p class="popup-description">

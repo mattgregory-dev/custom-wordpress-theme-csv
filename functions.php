@@ -137,6 +137,19 @@ function csv_page_template_orderby( $query ) {
 }
 add_action( 'pre_get_posts', 'csv_page_template_orderby' );
 
+// Assign an A/B offer variant once per visitor.
+function set_offer_variant() {
+  if ( isset( $_COOKIE['offer_variant'] ) ) {
+    return;
+  }
+
+  $variant = ( mt_rand( 0, 1 ) === 0 ) ? 'a' : 'b';
+
+  setcookie( 'offer_variant', $variant, time() + 60 * 60 * 24 * 30, '/' );
+  $_COOKIE['offer_variant'] = $variant; // make it available immediately
+}
+add_action( 'init', 'set_offer_variant' );
+
 // Register navigation menus
 function csv_setup() {
   add_theme_support( 'title-tag' );

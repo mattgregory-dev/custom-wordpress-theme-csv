@@ -1,6 +1,8 @@
 <?php
+$variant = isset( $_COOKIE['offer_variant'] ) ? sanitize_key( wp_unslash( $_COOKIE['offer_variant'] ) ) : 'a';
+$variant = in_array( $variant, array( 'a', 'b' ), true ) ? $variant : 'a';
 ?><!doctype html>
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?> data-offer-variant="<?php echo esc_attr( $variant ); ?>">
 <head>
   <meta charset="<?php bloginfo( 'charset' ); ?>">
   <meta name="viewport" content="width=device-width, initial-scale=1">

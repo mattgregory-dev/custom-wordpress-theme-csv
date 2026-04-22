@@ -1,5 +1,13 @@
 @use "../paths" as *;
 
+// Offer A/B tests
+[data-offer-variant="a"] .offer-b {
+  display: none;
+}
+[data-offer-variant="b"] .offer-a {
+  display: none;
+}
+
 .section {
   padding: 4rem 0;
 }
@@ -2979,10 +2987,13 @@ p.course-description {
         text-align: center;
       }
       .forminator-response-message {
-        display: none !important;
+        //display: none !important;
         margin-bottom: .35rem;
         font-size: .71rem;
-        color: #b06a6a;
+        color: #e34141;
+        text-align: center;
+        max-width: 192px;
+        margin-inline: auto;
       }
       .forminator-response-message[aria-hidden="true"] {
         display: none;
@@ -4236,6 +4247,35 @@ main .hero.hero-about {
   }
 }
 
+@media (min-width: 500px) and (max-width: 839px) {
+  main .hero.hero-about {
+    &::before {
+      background: linear-gradient(to bottom, rgba(250, 246, 239, 0.96) 0%, rgba(250, 246, 239, 0.9) 52%, rgba(250, 246, 239, 0.62) 78%, rgba(250, 246, 239, 0.35) 100%);
+    }
+
+    .hero__grid {
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+      align-items: start;
+    }
+
+    .reveal:first-child {
+      max-width: 42rem;
+    }
+
+    .photo {
+      display: flex;
+      justify-content: center;
+    }
+
+    .photo .content-img {
+      width: min(100%, 360px);
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
+}
+
 // .hero {
 //   @media (min-width: 768px) {
 
@@ -4332,3 +4372,4 @@ main .hero.hero-about {
     background-image: url('#{$theme-root}/images/images-h/feather-jones-herbalist-027.webp');
   }
 }
+

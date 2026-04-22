@@ -3,8 +3,8 @@
  * Sidebar free class offer.
  */
 ?>
-<div class="sidebar-card">
-  <div class="eyebrow">Free Course</div>
+<div class="sidebar-card offer offer-a">
+  <div class="eyebrow">Free Course (earth ceremony)</div>
   <h3>New to Herbs? Start Here — No Cost.</h3>
   <p>Get instant access to Natural Pest Control with Plants: Safe, Herbal Solutions for Home & Pets — a short, practical course on using herbs and essential oils to repel common pests, naturally. It's 25–35 minutes and you can use what you learn right away.</p>
 

@@ -54,9 +54,15 @@ $is_shop = function_exists( 'is_shop' ) && is_shop();
 $is_privacy_policy = function_exists( 'is_privacy_policy' ) && is_privacy_policy();
 $is_excluded_slug = is_page( $popup_excluded_slugs );
 $show_popup = ! ( $is_woocommerce_page || $is_cart || $is_checkout || $is_account || $is_shop || $is_privacy_policy || $is_excluded_slug );
+$offer_variant = isset( $_COOKIE['offer_variant'] ) ? sanitize_key( wp_unslash( $_COOKIE['offer_variant'] ) ) : 'a';
+$offer_variant = in_array( $offer_variant, array( 'a', 'b' ), true ) ? $offer_variant : 'a';
 
 if ( $show_popup ) {
-  get_template_part( 'partials/popup-free-class' );
+  if ( 'b' === $offer_variant ) {
+    get_template_part( 'partials/offers/pest-control/popup' );
+  } else {
+    get_template_part( 'partials/offers/earth-ceremony/popup' );
+  }
 }
 ?>
 <?php wp_footer(); ?>
