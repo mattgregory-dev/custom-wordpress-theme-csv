@@ -7,7 +7,7 @@
     <p class="mx-auto mb-10 sub-line">Part of Feather&rsquo;s Get Your Feet Wet Series: short, focused lessons designed for people just getting started.</p>
 
     <div class="forminator-cta-form mt-12 mb-10">
-      <?php echo do_shortcode( '[forminator_form id="2348"]' ); ?>
+      <?php echo do_shortcode( '[forminator_form id="2452"]' ); ?>
     </div>
 
     <p class="email-micro">You&rsquo;ll also receive herbal insights and program updates. Unsubscribe any time.</p>

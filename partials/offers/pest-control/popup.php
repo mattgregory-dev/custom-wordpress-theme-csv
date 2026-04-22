@@ -54,7 +54,7 @@
 
         <p class="popup-error" data-popup-error="true"></p>
 
-        <?php echo do_shortcode( '[forminator_form id="2338"]' ); ?>
+        <?php echo do_shortcode( '[forminator_form id="2452"]' ); ?>
 
         <p class="popup-disclaimer">
           You'll also receive herbal insights and program updates. Unsubscribe any time.

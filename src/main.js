@@ -1642,26 +1642,105 @@ const initLearnDashAccordionExpandedDefault = () => {
   });
 };
 
+// Normalize Forminator submit button labels across offer placements.
+const initForminatorButtonLabels = () => {
+  const labelRules = [
+    {
+      selector: '.sidebar-form .forminator-button',
+      text: 'Get Your Free Course',
+    },
+    {
+      selector: '.popup-content .forminator-button',
+      text: 'Send It',
+    },
+    {
+      selector: '.forminator-cta-form .forminator-button',
+      text: 'Send Me the Free Course',
+    },
+  ];
+  const relevantSelector =
+    '.forminator-button, .sidebar-form, .popup-content, .forminator-cta-form';
+  let rafId = 0;
+  let isApplying = false;
+
+  const applyLabels = () => {
+    isApplying = true;
+    labelRules.forEach(({ selector, text }) => {
+      document.querySelectorAll(selector).forEach((button) => {
+        if (button.textContent.trim() !== text) {
+          button.textContent = text;
+        }
+      });
+    });
+    isApplying = false;
+  };
+
+  const scheduleApplyLabels = () => {
+    if (rafId) return;
+    rafId = window.requestAnimationFrame(() => {
+      rafId = 0;
+      applyLabels();
+    });
+  };
+
+  applyLabels();
+
+  const observer = new MutationObserver((mutations) => {
+    if (isApplying) {
+      return;
+    }
+
+    const hasRelevantMutation = mutations.some((mutation) => {
+      if (mutation.target instanceof Element) {
+        if (
+          mutation.target.matches(relevantSelector) ||
+          mutation.target.closest(relevantSelector)
+        ) {
+          return true;
+        }
+      }
+
+      return Array.from(mutation.addedNodes).some(
+        (node) =>
+          node instanceof Element &&
+          (node.matches(relevantSelector) || node.querySelector(relevantSelector))
+      );
+    });
+
+    if (!hasRelevantMutation) {
+      return;
+    }
+
+    scheduleApplyLabels();
+  });
+
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true,
+  });
+};
+
 const init = () => {
   preloader();
-  //ayaMotifSVGDraw();
   scrollToTop();
-  //smoothAnchors();
-  //LenisScroll.init();
   stickyHeader();
-  //csvParallax();
-  //themeToggle();
   activeMenu();
   sideMenu();
-  //gsapAnimations();
-  //initAcfMaps();
   initFreeClassPopup();
   initLearnDashAccordionExpandedDefault();
+  initForminatorButtonLabels();
+  revealOnScroll();
+  initFaqAccordions();
+  //ayaMotifSVGDraw();
+  //smoothAnchors();
+  //LenisScroll.init();
+  //csvParallax();
+  //themeToggle();
+  //gsapAnimations();
+  //initAcfMaps();
   //searchPopup();
   //revealUpAnimation();
   //revealFadeAnimation();
-  revealOnScroll();
-  initFaqAccordions();
 };
 
 if (document.readyState === "loading") {

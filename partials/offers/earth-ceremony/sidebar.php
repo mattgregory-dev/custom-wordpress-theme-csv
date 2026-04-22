@@ -9,7 +9,7 @@
   <p>Get instant access to Natural Pest Control with Plants: Safe, Herbal Solutions for Home & Pets — a short, practical course on using herbs and essential oils to repel common pests, naturally. It's 25–35 minutes and you can use what you learn right away.</p>
 
   <div class="sidebar-form">
-    <?php echo do_shortcode( '[forminator_form id="2366"]' ); ?>
+    <?php echo do_shortcode( '[forminator_form id="2451"]' ); ?>
   </div>
   <p class="micro">You'll also receive herbal insights and program updates. Unsubscribe any time.</p>
 </div>
