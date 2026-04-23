@@ -66,7 +66,7 @@ get_header(
         </a>
         <div class="rc-label">Self-Paced Courses</div>
         <h3>Learn at Your Own Pace</h3>
-        <p>Pick a topic, go at your speed, and come back whenever you want. Courses from $11. Lifetime access.</p>
+        <p>Pick a topic, go at your speed, and come back whenever you want. Courses from $5. Lifetime access.</p>
         <a href="<?php echo esc_url( home_url( '/courses-catalog/' ) ); ?>" class="btn btn-secondary">Browse Courses</a>
       </div>
       <div class="route-card">
@@ -127,7 +127,8 @@ get_header(
       <div class="reveal">
         <div class="eyebrow">Your Teacher</div>
         <h2>Feather Jones, Registered Herbalist (AHG)</h2>
-        <p>Feather has been studying, practicing, and teaching herbal medicine since the early 1980s. She is a Registered Herbalist with the American Herbalists Guild&thinsp;&mdash;&thinsp;an organization she has served as president twice&thinsp;&mdash;&thinsp;and a Botanical Field Guide at the Sonoran University of Health Sciences.</p>
+        
+        <p>Feather has been studying, practicing, and teaching herbal medicine since the early 1980s. She is a Registered Herbalist with the American Herbalists Guild&thinsp;&mdash;&thinsp;an organization she has served as president twice&thinsp;&mdash;&thinsp;and has been a Botanical Field Guide at the Sonoran University of Health Sciences.</p>
         <p>Her students range from complete beginners to licensed practitioners looking to add herbal knowledge to their work. What they have in common is that they come to her to learn the real thing.</p>
         <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>" class="btn-ghost">Read Feather&rsquo;s Full Story &rarr;</a>
       </div>

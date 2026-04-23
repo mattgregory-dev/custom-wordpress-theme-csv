@@ -189,7 +189,7 @@ get_header(
         <div class="eyebrow">Meet Your Mentor</div>
         <h2>Feather Jones</h2>
 
-        <p>Feather is a Registered Herbalist with the American Herbalists Guild and has been in clinical practice for over 40 years. She has served as president of the American Herbalists Guild&thinsp;&mdash;&thinsp;twice. She&rsquo;s a Botanical Field Guide for the Sonoran University of Health Sciences, an international lecturer, and the author of the <a href="https://www.amazon.com/gp/product/091495587X/ref=x_gr_w_bb_sout?ie=UTF8&amp;tag=x_gr_w_bb_sout-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=091495587X&amp;SubscriptionId=1MGPYB6YW3HWK55XCGG2" target="_blank" rel="noopener noreferrer"><em>Medicinal Herb Handbook</em></a>.</p>
+        <p>Feather is a Registered Herbalist with the American Herbalists Guild and has been in clinical practice for over 40 years. She has served as president of the American Herbalists Guild&thinsp;&mdash;&thinsp;twice. She has been a Botanical Field Guide for the Sonoran University of Health Sciences, an international keynote speaker, and the author of the <em>Medicinal Herb Handbook</em>. <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>">Read her full bio.</a></p>
         <p>But credentials only tell part of the story.</p>
 
         <p>Feather teaches because she believes the wisdom of herbalism must be passed down. She&rsquo;s watched too many aspiring herbalists feel lost because they lacked one thing: a mentor who could show them the way. That&rsquo;s why she created this program&thinsp;&mdash;&thinsp;not as a product to sell, but as a practice she&rsquo;s chosen, because mentorship is how this knowledge has always traveled.</p>
@@ -254,14 +254,14 @@ get_header(
         </div>
         <div class="detail-item">
           <div class="dl">Availability</div>
-          <p>Feather takes on up to 30 private mentorship students at a time to ensure each person gets real attention and care.</p>
+          <p>Feather works with only three private mentorship students at a time. That&rsquo;s how she ensures each student gets her genuine, undivided attention.</p>
         </div>
       </div>
       <div>
         <div class="price-box">
           <div class="price-amount">$2,200</div>
           <div class="price-period">for the full year</div>
-          <div class="price-breakdown">~$42 per two-hour private session</div>
+          <div class="price-breakdown">~$58 per two-hour private session</div>
           <p class="price-context">with a Registered Herbalist with over 40 years of clinical experience. Comparable one-on-one instruction in health professions typically runs $150&ndash;$300 per hour. Everything is included.</p>
           <a href="https://calendly.com/feather-jones/private-mentorship" target="_blank" class="btn btn-primary">Book My Free Consultation</a>
           <span class="friction-text" style="color: #999;">Start with a free 30-minute conversation.<br>No cost. No commitment.</span>
@@ -324,7 +324,7 @@ get_header(
       <div class="faq-item">
         <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-8" id="faq-q-8">How many students does Feather mentor at a time?</button>
         <div class="faq-a" id="faq-a-8" role="region" aria-labelledby="faq-q-8" aria-hidden="true">
-          <p>Feather takes on up to 30 private mentorship students at a time to make sure each person gets real attention and care.</p>
+          <p>Feather takes on up to 3 private mentorship students at a time to make sure each person gets real attention and care.</p>
         </div>
       </div>
     </div>
@@ -343,7 +343,7 @@ get_header(
       <a href="https://calendly.com/feather-jones/private-mentorship" target="_blank" class="btn btn-primary">Book My Free Consultation</a>
       <span class="friction-text" style="color: rgba(255,255,255,0.55);">30 minutes. No cost. No commitment. Just a conversation about your goals.</span>
     </div>
-    <p class="avail-note">Feather takes on a limited number of private mentorship students each year to ensure everyone gets her full attention.<br>If spots are full, you can join the waitlist to be notified when space opens up.</p>
+    <p class="avail-note">Feather takes only tree students at a time to ensure everyone gets her full attention.<br>If spots are full, you can join the waitlist to be notified when space opens up.</p>
   </div>
 </section>
 

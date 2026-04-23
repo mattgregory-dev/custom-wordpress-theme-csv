@@ -18,7 +18,7 @@ get_header(
       <div>
         <p class="eyebrow">Self-Paced Courses</p>
         <h1>Self-Paced Herbal Courses You Can Start Today</h1>
-        <p class="text-lg text-neutral-700 mb-4">Learn at your own pace with Feather Jones. Each course blends traditional herbal knowledge with hands-on tools you can use right away. Courses start at $11.</p>
+        <p class="text-lg text-neutral-700 mb-4">Learn at your own pace with Feather Jones. Each course blends traditional herbal knowledge with hands-on tools you can use right away. Courses start at $5.</p>
         <p class="text-neutral-600 mb-8">Instructor: Feather Jones | <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>">Meet Feather on the About page</a></p>
         <div class="hero__actions">
           <a class="btn btn-primary" href="#catalog">Browse All Courses</a>

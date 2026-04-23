@@ -18,7 +18,7 @@ get_header(
       <div>
         <p class="eyebrow">Year-Long Herbalism Training Program</p>
         <h1 class="mb-6">Learn Herbalism Live&thinsp;&mdash;&thinsp;One Year, One Group, One Dedicated Teacher</h1>
-        <p class="text-lg text-neutral-700 mb-4">A 114-hour training program with clinical herbalist Feather Jones. Live weekly classes on Zoom. A hands-on field trip in Sedona. And a community of students learning right alongside you.</p>
+        <p class="text-lg text-neutral-700 mb-4">A 120-hour training program with clinical herbalist Feather Jones. Live weekly classes on Zoom. A hands-on field trip in Sedona. And a community of students learning right alongside you.</p>
         <p class="text-lg text-neutral-700 mb-8"><strong>The Herbal Apprenticeship Program</strong> takes you from curious beginner to confident herbalist over 10 months. No prior experience needed. Just bring your love of plants and a willingness to show up each week.</p>
         <div class="hero__actions">
           <a class="btn btn-primary" href="#">Get Notified for 2027 Enrollment</a>
@@ -54,7 +54,7 @@ get_header(
         <p>This is not a self-paced course you do alone. It&rsquo;s a live, guided training program that runs from January through November.</p>
         <p>Every Sunday morning, you&rsquo;ll join Feather and your class on Zoom for a 2.5-hour class. You&rsquo;ll study plant identification, herbal medicine-making, body systems, and clinical applications&thinsp;&mdash;&thinsp;building your skills week by week in a clear sequence.</p>
         <p>In June, you&rsquo;ll travel to Sedona, Arizona for a 4-day botanical field trip. You&rsquo;ll identify plants in the wild, practice mindful harvesting, and spend a full day making herbal medicines in the kitchen together.</p>
-        <p>By the end of the year, you&rsquo;ll have 114 hours of training, a library of herbal knowledge, hands-on field experience, and a community of fellow herbalists.</p>
+        <p>By the end of the year, you&rsquo;ll have 120 hours of training, a library of herbal knowledge, hands-on field experience, and a community of fellow herbalists.</p>
         <div class="commitment-list">
           <div class="commitment-item">
             <div class="ci-label">Weekly Classes</div>
@@ -66,7 +66,7 @@ get_header(
           </div>
           <div class="commitment-item">
             <div class="ci-label">Total Hours</div>
-            <div class="ci-value">114 (90 classroom + 24 field hours)</div>
+            <div class="ci-value">120 (96 classroom + 24 field hours)</div>
           </div>
           <div class="commitment-item">
             <div class="ci-label">Field Trip</div>
@@ -187,10 +187,15 @@ get_header(
       <div class="reveal">
         <div class="eyebrow">Your Guide for the Year</div>
         <h2>Meet Feather Jones</h2>
-        <p>Feather Jones is a Registered Herbalist with the American Herbalists Guild and has been in clinical practice since 1982. That&rsquo;s over 40 years of working with plants and people.</p>
-        <p>She served twice as president of the American Herbalists Guild, was the Botanical Field Guide for the Sonoran University of Health Sciences, and trained hundreds of students through this program over the years.</p>
+
+        <p>Feather Jones is a Registered Herbalist with the American Herbalists Guild and has been in clinical practice since the early 1980s. That&rsquo;s more than 40 years of working with plants and people.</p>
+
+        <p>She has served twice as president of the American Herbalists Guild. She has been a Botanical Field Guide for the Sonoran University of Health Sciences. And she has trained hundreds of students through her programs over the years.</p>
+
         <p>Feather isn&rsquo;t a content creator reading from a script. She&rsquo;s a practicing clinical herbalist who teaches from decades of real experience&thinsp;&mdash;&thinsp;in the field, in the kitchen, and in the clinic.</p>
-        <p>Her students call her &ldquo;herb mama.&rdquo; Her peers in the herbal world&thinsp;&mdash;&thinsp;names like David Winston, Brigitte Mars, and Rosita Arvigo&thinsp;&mdash;&thinsp;respect her deeply. When you learn with Feather, you&rsquo;re learning from someone who has devoted her life to this work.</p>
+
+        <p>Her colleagues in the herbal community respect her deeply, and her students tend to stay connected long after their studies end. When you learn with Feather, you&rsquo;re learning from someone who has devoted her life to this work.</p>
+
         <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>" class="btn btn-secondary" style="margin-top: 16px;">Read More About Feather &rarr;</a>
       </div>
     </div>
@@ -337,7 +342,7 @@ get_header(
       <div class="faq-item">
         <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-6" id="faq-q-6">Is the certificate accredited or formally recognized?</button>
         <div class="faq-a" id="faq-a-6" role="region" aria-labelledby="faq-q-6" aria-hidden="true">
-          <p>The Certificate of Completion recognizes that you finished the full program. It is not accredited by an external institution. What it represents is 114 hours of structured training with a Registered Herbalist&thinsp;&mdash;&thinsp;a foundation that many graduates have used to start their own practices and continue their herbal education.</p>
+          <p>The Certificate of Completion recognizes that you finished the full program. It is not accredited by an external institution. What it represents is 120 hours of structured training with a Registered Herbalist&thinsp;&mdash;&thinsp;a foundation that many graduates have used to start their own practices and continue their herbal education.</p>
         </div>
       </div>
       <div class="faq-item">
