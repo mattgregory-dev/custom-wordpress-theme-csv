@@ -93,7 +93,7 @@ get_header(
 
         <h2>A career that speaks for itself</h2>
 
-        <p>Feather has served twice as president of the American Herbalists Guild&thinsp;&mdash;&thinsp;the leading professional organization for herbalists in the United States. She also serves on their Admissions Review Advisory Committee, helping set the standard for who enters the profession. She has been a Botanical Field Guide for the Sonoran University of Health Sciences, teaching alongside naturopathic doctors and medical professionals.</p>
+        <p>Feather has served as past president of the American Herbalists Guild &mdash; the leading professional organization for herbalists in the United States. She also serves on their Admissions Review Advisory Committee, helping set professional standards of practice. She has been a Botanical Field Guide for the Sonoran University of Health Sciences (formerly Southwest College of Naturopathic Medicine), teaching alongside naturopathic doctors and medical professionals.</p>
 
         <div class="credentials-list">
           <span class="credential-tag">Registered Herbalist&thinsp;&mdash;&thinsp;AHG</span>
@@ -103,11 +103,11 @@ get_header(
           <span class="credential-tag">40+ Years in Practice</span>
         </div>
 
-        <p>She is the author of the <em><a href="https://www.amazon.com/gp/product/091495587X/ref=x_gr_w_bb_sout?ie=UTF8&tag=x_gr_w_bb_sout-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=091495587X&SubscriptionId=1MGPYB6YW3HWK55XCGG2" target="_blank">Medicinal Herb Handbook</a></em>, a reference guide to herbal remedies organized by organ system and symptom. She has lectured at conferences across the country and internationally&thinsp;&mdash;&thinsp;including the Southwest Conference of Botanical Medicine, the American Herbalists Guild Symposium, the Florida Herbal Conference, and as a keynote speaker at the International Herb Conference in Sydney, Australia.</p>
+        <p>She is the author of the <em><a href="https://www.amazon.com/gp/product/091495587X/ref=x_gr_w_bb_sout?ie=UTF8&tag=x_gr_w_bb_sout-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=091495587X&SubscriptionId=1MGPYB6YW3HWK55XCGG2" target="_blank" rel="noopener noreferrer">Medicinal Herb Handbook</a></em>, a reference guide to herbal remedies organized by organ system and symptom. She has lectured at conferences across the country and internationally &mdash; including the Southwest Conference of Botanical Medicine, the American Herbalists Guild Symposium, the Florida Herbal Conference, and as a keynote speaker at the International Herb Conference in Sydney, Australia.</p>
 
-        <p>For eleven years, Feather ran the Rocky Mountain Center for Botanical Studies in Boulder, Colorado&thinsp;&mdash;&thinsp;at the time, one of the leading herbalism schools in the country. The school offered three-year clinical programs, operated a free herbal clinic, brought in guest speakers for round table discussions, and was staffed by twenty instructors. Over those years, the program graduated hundreds of students as trained Western herbalists.
+        <p>For eleven years, Feather ran the Rocky Mountain Center for Botanical Studies in Boulder, Colorado &mdash; at the time, one of the leading herbalism schools in the country. The school offered three-year clinical programs, operated a free herbal clinic, brought in guest speakers for round table discussions, and was staffed by twenty instructors. Over those years, the program graduated hundreds of students as trained Western herbalists.</p>
 
-        <p>As a solo instructor through Canyon Spirit Ventures, she has trained countless more&thinsp;&mdash;&thinsp;through apprenticeships, field studies, online courses, and symposiums. Many of her graduates have gone on to open their own herb schools and build thriving practices.</p>
+        <p>As a solo instructor through Canyon Spirit Ventures, she has trained countless more &mdash; through apprenticeships, field studies, online courses, and symposiums. Many of her graduates have gone on to open their own herb schools and build thriving practices.</p>
 
       </div>
       

@@ -1642,6 +1642,38 @@ const initLearnDashAccordionExpandedDefault = () => {
   });
 };
 
+// Group classes page: week-by-week curriculum toggle.
+const initCurriculumToggle = () => {
+  const toggleButton = document.querySelector('[data-curriculum-toggle]');
+  const panel = document.querySelector('[data-curriculum-panel]');
+  if (!toggleButton || !panel) return;
+
+  const labelNode = toggleButton.querySelector('.ct-text');
+  const arrowNode = toggleButton.querySelector('.ct-arrow');
+  const collapsedLabel =
+    toggleButton.getAttribute('data-label-collapsed') || 'View Curriculum';
+  const expandedLabel =
+    toggleButton.getAttribute('data-label-expanded') || 'Hide Curriculum';
+
+  const setExpandedState = (expanded) => {
+    toggleButton.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    panel.hidden = !expanded;
+    if (labelNode) {
+      labelNode.textContent = expanded ? expandedLabel : collapsedLabel;
+    }
+    if (arrowNode) {
+      arrowNode.innerHTML = expanded ? '&#9652;' : '&#9662;';
+    }
+  };
+
+  setExpandedState(false);
+
+  toggleButton.addEventListener('click', () => {
+    const isExpanded = toggleButton.getAttribute('aria-expanded') === 'true';
+    setExpandedState(!isExpanded);
+  });
+};
+
 // Normalize Forminator submit button labels across offer placements.
 const initForminatorButtonLabels = () => {
   const labelRules = [
@@ -1728,6 +1760,7 @@ const init = () => {
   sideMenu();
   initFreeClassPopup();
   initLearnDashAccordionExpandedDefault();
+  initCurriculumToggle();
   initForminatorButtonLabels();
   revealOnScroll();
   initFaqAccordions();

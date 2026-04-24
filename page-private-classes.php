@@ -18,7 +18,7 @@ get_header(
       <div>
         <p class="eyebrow">Private Mentorship</p>
         <h1>Study One-on-One With Feather Jones and Build the Herbal Practice You've Been Dreaming Of</h1>
-        <p class="text-lg text-neutral-700 mb-8">A year-long private mentorship designed around your goals, your pace, and your life. Feather works with you personally to turn your passion for plant medicine into real skill and lasting confidence.</p>
+        <p class="text-lg text-neutral-700 mb-8">A private mentorship spanning 4-6 months, designed around your goals, your pace, and your life. Feather works with you personally to turn your passion for plant medicine into real skill and lasting confidence.</p>
         <div class="hero__actions">
           <a class="btn btn-primary" href="https://calendly.com/feather-jones/private-mentorship" target="_blank">Book My Free Consultation</a>
         </div>
@@ -68,7 +68,7 @@ get_header(
   <div class="container">
     <div class="text-center reveal">
       <div class="eyebrow">What&rsquo;s Included</div>
-      <h2>What You&rsquo;ll Get in Your Mentorship Year</h2>
+      <h2>What You&rsquo;ll Get in Your Mentorship</h2>
     </div>
     <div class="grid grid-cols-1 gap-5 mt-10 min-[650px]:grid-cols-2 reveal">
       <div class="get-card">
@@ -84,7 +84,7 @@ get_header(
       <div class="get-card">
         <div class="card-num">03</div>
         <h3>Full Access to Feather&rsquo;s Online Library</h3>
-        <p>Your mentorship includes unlimited access to all of Feather&rsquo;s online courses, including the 22-hour Women&rsquo;s Wellness Certificate Program. These serve as companion study between your weekly sessions.</p>
+        <p>Your mentorship includes unlimited access to all of Feather&rsquo;s online courses, including the 20-hour Women&rsquo;s Wellness Certificate Program. These serve as companion study between your weekly sessions.</p>
       </div>
       <div class="get-card">
         <div class="card-num">04</div>
@@ -99,7 +99,7 @@ get_header(
       <div class="get-card">
         <div class="card-num">06</div>
         <h3>Certificate of Completion</h3>
-        <p>When you finish your year, you receive a certificate of completion from Feather&rsquo;s program&thinsp;&mdash;&thinsp;recognition of a thorough, professional-level herbal education.</p>
+        <p>When you finish the program, you receive a certificate of completion from Feather&rsquo;s program&thinsp;&mdash;&thinsp;recognition of a thorough, professional-level herbal education.</p>
       </div>
     </div>
     <div class="text-center reveal" style="margin-top: 48px; transition-delay: 0.15s;">
@@ -147,9 +147,19 @@ get_header(
             <td class="highlight">One-on-one, custom curriculum</td>
           </tr>
           <tr>
+            <td>Length</td>
+            <td>11 Months</td>
+            <td class="highlight">4-6 Months</td>
+          </tr>
+          <tr>
+            <td>Hours</td>
+            <td>120 Hours</td>
+            <td class="highlight">32 Hours</td>
+          </tr>
+          <tr>
             <td>Schedule</td>
-            <td>Fixed Sundays, 10 months</td>
-            <td class="highlight">Flexible weekly sessions, 12 months</td>
+            <td>Fixed Sundays</td>
+            <td class="highlight">Flexible weekly sessions</td>
           </tr>
           <tr>
             <td>Access</td>
@@ -163,12 +173,12 @@ get_header(
           </tr>
           <tr>
             <td>Investment</td>
-            <td>$2,800/year</td>
-            <td class="highlight">$2,200/year</td>
+            <td>$2,800</td>
+            <td class="highlight">$2,200</td>
           </tr>
         </tbody>
       </table>
-      <p style="font-size: 14px; color: #999; margin-top: 16px; text-align: center;">Both programs are taught by Feather. Both are excellent. The right choice depends on how you learn best.</p>
+      <p class="comparison-note">Both programs are taught by Feather. Both are excellent. The right choice depends on how you learn best.</p>
     </div>
   </div>
 </section>
@@ -242,7 +252,7 @@ get_header(
       <div>
         <div class="detail-item">
           <div class="dl">Duration</div>
-          <p>One full year of private mentorship.</p>
+          <p>4-6 months of private mentorship, tailored to your goals.</p>
         </div>
         <div class="detail-item">
           <div class="dl">Sessions</div>
@@ -260,9 +270,9 @@ get_header(
       <div>
         <div class="price-box">
           <div class="price-amount">$2,200</div>
-          <div class="price-period">for the full year</div>
-          <div class="price-breakdown">~$58 per two-hour private session</div>
-          <p class="price-context">with a Registered Herbalist with over 40 years of clinical experience. Comparable one-on-one instruction in health professions typically runs $150&ndash;$300 per hour. Everything is included.</p>
+          <div class="price-period">for the full program</div>
+          <div class="price-breakdown hidden">~$58 per two-hour private session</div>
+          <p class="price-context hidden">with a Registered Herbalist with over 40 years of clinical experience. Comparable one-on-one instruction in health professions typically runs $150&ndash;$300 per hour. Everything is included.</p>
           <a href="https://calendly.com/feather-jones/private-mentorship" target="_blank" class="btn btn-primary">Book My Free Consultation</a>
           <span class="friction-text" style="color: #999;">Start with a free 30-minute conversation.<br>No cost. No commitment.</span>
         </div>
@@ -306,7 +316,7 @@ get_header(
       <div class="faq-item">
         <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-5" id="faq-q-5">How is this different from the Live Group Classes?</button>
         <div class="faq-a" id="faq-a-5" role="region" aria-labelledby="faq-q-5" aria-hidden="true">
-          <p>The Live Group Classes follow a set curriculum with a group of other students. Study With Feather is fully one-on-one with a curriculum built around your specific goals. Both are taught by Feather. The group program is great for community and structure. The private mentorship is for people who want a fully personalized experience.</p>
+          <p>The Live Group Classes are an 11-month, 120-hour program with a set curriculum and a group of fellow students. Study With Feather is a 4-6 month, 32-hour private mentorship&thinsp;&mdash;&thinsp;fully one-on-one with a curriculum built around your specific goals. Both are taught by Feather. The group program is ideal for community and structure. The private mentorship is for people who want a fully personalized experience and flexible scheduling.</p>
         </div>
       </div>
       <div class="faq-item">

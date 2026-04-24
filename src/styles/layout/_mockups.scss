@@ -142,7 +142,7 @@ h2 {
 }
 h3 {
   font-size: 1.29rem;
-  font-weight: 700;
+  //font-weight: 700;
   line-height: 1.4;
 }
 @media (max-width: 480px) {
@@ -1538,30 +1538,6 @@ p.course-description {
   }
 }
 
-.commitment-list {
-  margin-top: 1.88rem;
-}
-.commitment-item {
-  display: flex;
-  gap: .94rem;
-  padding: .82rem 0;
-  border-bottom: 1px solid rgba(177,153,134,0.15);
-}
-.commitment-item:last-child { border-bottom: none; }
-.commitment-item .ci-label {
-  font-family: var(--font-eyebrow);
-  font-weight: 700;
-  font-size: .59rem;
-  letter-spacing: .11rem;
-  text-transform: uppercase;
-  color: var(--forest-green);
-  min-width: 120px;
-  padding-top: .12rem;
-}
-.commitment-item .ci-value {
-  font-size: .88rem; color: #555; line-height: 1.6;
-}
-
 .curr-card {
   background: #fff;
   border-radius: .59rem;
@@ -1569,38 +1545,179 @@ p.course-description {
   border: 1px solid rgba(177,153,134,0.1);
   box-shadow: 0 2px 16px rgba(58,29,2,0.03);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 32px rgba(58,29,2,0.08);
+  }
+  h3 {
+    font-size: 17px;
+    margin-bottom: 8px;
+  }
+  p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #666;
+  }
 }
-.curr-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 32px rgba(58,29,2,0.08);
+.commitment-list {
+  margin-top: 1.88rem;
+  .commitment-item {
+    display: flex;
+    gap: .94rem;
+    padding: .82rem 0;
+    border-bottom: 1px solid rgba(177,153,134,0.15);
+    &:last-child {
+      border-bottom: none;
+    }
+    .ci-label {
+      font-family: var(--font-eyebrow);
+      font-weight: 700;
+      font-size: .59rem;
+      letter-spacing: .11rem;
+      text-transform: uppercase;
+      color: var(--forest-green);
+      min-width: 120px;
+      padding-top: .12rem;
+    }
+    .ci-value {
+      font-size: .88rem;
+      color: #555;
+      line-height: 1.6;
+    }
+  }
 }
-.curr-card h3 { font-size: 17px; margin-bottom: 8px; }
-.curr-card p { font-size: 14px; line-height: 1.7; color: #666; }
-
+.curriculum-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .59rem;
+  min-height: 50px;
+  min-width: min(100%, 460px);
+  padding: .82rem 1.41rem;
+  border-radius: .35rem;
+  border: 2px solid rgba(86,134,115,0.85);
+  background: transparent;
+  color: var(--forest-green);
+  font-family: var(--font-eyebrow);
+  font-size: .82rem;
+  font-weight: 700;
+  letter-spacing: .16rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color .2s ease, color .2s ease, background-color .2s ease;
+  &:hover,
+  &:focus-visible {
+    border-color: var(--deep-teal);
+    color: var(--deep-teal);
+  }
+  &:focus-visible {
+    outline: 2px solid var(--soft-orange);
+    outline-offset: 3px;
+  }
+  .ct-arrow {
+    font-size: .65rem;
+    transform: translateY(-1px);
+  }
+}
+.full-curriculum {
+  margin-top: 1.65rem;
+  border-top: 1px solid rgba(177,153,134,0.18);
+  padding-top: 1.18rem;
+  &[hidden] {
+    display: none;
+  }
+  .fc-note {
+    text-align: center;
+    font-family: var(--font-eyebrow);
+    font-size: .65rem;
+    font-weight: 700;
+    letter-spacing: .14rem;
+    text-transform: uppercase;
+    color: #b19986;
+    margin: .35rem auto 1.18rem;
+    max-width: 41rem;
+  }
+  .fc-month {
+    background: #fff;
+    border: 1px solid rgba(177,153,134,0.16);
+    border-radius: .47rem;
+    padding: 1.29rem 1.18rem;
+    margin-bottom: 1.06rem;
+    &.fc-highlight {
+      border-color: rgba(252,132,17,0.34);
+      box-shadow: inset 0 0 0 1px rgba(252,132,17,0.1);
+      background-color: var(--spring-cream);
+    }
+    .fc-month-label {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #2a2118;
+      margin-bottom: .82rem;
+    }
+    .fc-item {
+      position: relative;
+      padding-left: 1.24rem;
+      margin: .53rem 0;
+      color: #616161;
+      line-height: 1.65;
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: .63rem;
+        width: .35rem;
+        height: .35rem;
+        border-radius: 50%;
+        background: rgba(132,174,157,0.5);
+      }
+      &.fc-field-trip {
+        color: #2e524a;
+        font-weight: 600;
+      }
+      a {
+        text-decoration: underline;
+      }
+    }
+  }
+}
 .ft-quotes {
   margin-top: 1.88rem;
   display: flex;
   flex-direction: column;
   gap: 1.18rem;
+  .ft-quote {
+    padding-left: 1.18rem;
+    border-left: 3px solid var(--sage-green);
+    p {
+      font-style: italic;
+      font-size: .88rem;
+      line-height: 1.7;
+      color: var(--charcoal);
+      margin-bottom: .35rem;
+    }
+    cite {
+      font-style: normal;
+      font-family: var(--font-eyebrow);
+      font-size: .59rem;
+      letter-spacing: .09rem;
+      color: var(--warm-taupe);
+      text-transform: uppercase;
+    }
+  }
 }
-.ft-quote {
-  padding-left: 1.18rem;
-  border-left: 3px solid var(--sage-green);
-}
-.ft-quote p {
-  font-style: italic;
-  font-size: .88rem;
-  line-height: 1.7;
-  color: var(--charcoal);
-  margin-bottom: .35rem;
-}
-.ft-quote cite {
-  font-style: normal;
-  font-family: var(--font-eyebrow);
-  font-size: .59rem;
-  letter-spacing: .09rem;
-  color: var(--warm-taupe);
-  text-transform: uppercase;
+@media (max-width: 767px) {
+  .curriculum-toggle {
+    width: 100%;
+    min-width: 0;
+    letter-spacing: .1rem;
+    font-size: .71rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .fc-month-label {
+    font-size: 1.18rem;
+  }
 }
 
 .s-card {
@@ -1610,29 +1727,34 @@ p.course-description {
   border: 1px solid rgba(177,153,134,0.15);
   position: relative;
   box-shadow: 0 4px 24px rgba(58,29,2,0.04);
-}
-.s-card::before {
-  content: '\201C';
-  font-family: var(--font-heading);
-  font-size: 2.94rem;
-  color: var(--sage-green);
-  opacity: 0.22;
-  position: absolute;
-  top: .35rem; left: .94rem;
-  line-height: 1;
-}
-.s-card .sq {
-  font-style: italic; font-size: 16px; line-height: 1.8;
-  color: var(--charcoal); margin-bottom: 14px;
-  position: relative; z-index: 1;
-}
-.s-card .sa {
-  font-family: var(--font-eyebrow);
-  font-weight: 700;
-  font-size: .59rem;
-  letter-spacing: .09rem;
-  color: var(--warm-taupe);
-  text-transform: uppercase;
+  &::before {
+    content: '\201C';
+    font-family: var(--font-heading);
+    font-size: 2.94rem;
+    color: var(--sage-green);
+    opacity: 0.22;
+    position: absolute;
+    top: .35rem;
+    left: .94rem;
+    line-height: 1;
+  }
+  .sq {
+    font-style: italic;
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--charcoal);
+    margin-bottom: 14px;
+    position: relative;
+    z-index: 1;
+  }
+  .sa {
+    font-family: var(--font-eyebrow);
+    font-weight: 700;
+    font-size: .59rem;
+    letter-spacing: .09rem;
+    color: var(--warm-taupe);
+    text-transform: uppercase;
+  }
 }
 
 .tuition-pricing {
@@ -1923,38 +2045,51 @@ p.course-description {
   border-collapse: collapse;
   font-size: .88rem;
   min-width: 520px;
+  th {
+    font-family: var(--font-eyebrow);
+    font-weight: 700;
+    font-size: .59rem;
+    letter-spacing: .12rem;
+    text-transform: uppercase;
+    padding: .82rem 1.06rem;
+    text-align: left;
+    border-bottom: 2px solid var(--light-taupe);
+    color: var(--deep-teal);
+    background: var(--pale-sage-cream);
+    &:first-child {
+      background: transparent;
+    }
+    &.highlight {
+      background: var(--mint-green);
+      color: var(--deep-teal);
+    }
+  }
+  td {
+    padding: .82rem 1.06rem;
+    border-bottom: 1px solid rgba(177,153,134,0.15);
+    color: #555;
+    vertical-align: top;
+    &:first-child {
+      font-weight: 700;
+      color: var(--charcoal);
+      font-size: .82rem;
+    }
+    &.highlight {
+      background: rgba(195,219,197,0.15);
+    }
+  }
 }
-.comparison-table th {
-  font-family: var(--font-eyebrow);
-  font-weight: 700;
-  font-size: .59rem;
-  letter-spacing: .12rem;
-  text-transform: uppercase;
-  padding: .82rem 1.06rem;
-  text-align: left;
-  border-bottom: 2px solid var(--light-taupe);
-  color: var(--deep-teal);
-  background: var(--pale-sage-cream);
+.comparison-note {
+  font-size: 14px;
+  color: #999;
+  margin-top: 16px;
+  text-align: center;
+  margin-inline: auto;
+  max-width: 46rem;
 }
-.comparison-table th:first-child { background: transparent; }
-.comparison-table th.highlight {
-  background: var(--mint-green);
-  color: var(--deep-teal);
-}
-.comparison-table td {
-  padding: .82rem 1.06rem;
-  border-bottom: 1px solid rgba(177,153,134,0.15);
-  color: #555;
-  vertical-align: top;
-}
-.comparison-table td:first-child {
-  font-weight: 700;
-  color: var(--charcoal);
-  font-size: .82rem;
-}
-.comparison-table td.highlight {
-  background: rgba(195,219,197,0.15);
-}
+
+
+
 
 .testimonial-row {
   display: grid;
@@ -2881,80 +3016,144 @@ p.course-description {
     padding: .94rem 2.82rem;
   }
 }
-.article-body {
-  margin-top: 2.35rem;
-  p {
-    font-size: 1.00rem;
-    line-height: 1.85;
-    color: #555;
-    margin-bottom: 1.29rem;
-    &:last-child {
-      margin-bottom: 0;
+.single main .post-layout {
+  max-width: 1200px;
+  margin: 2rem auto 0;
+  padding: 2.82rem 1.41rem 4.71rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.82rem;
+  header.article-header {
+    margin-bottom: 2.12rem;
+    .eyebrow {
+      margin-bottom: .71rem;
+    }
+    h1 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 2.1rem;
+      line-height: 1.3;
+    }
+    .article-meta {
+      font-family: var(--font-body);
+      font-size: .82rem;
+      color: var(--warm-taupe);
+      margin-bottom: 1.65rem;
+      display: flex;
+      align-items: center;
+      gap: .59rem;
+      .dot {
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        background: var(--warm-taupe);
+        opacity: .5;
+      }
     }
   }
-  h2 {
-    margin-top: 2.59rem;
-    margin-bottom: .94rem;
-    font-size: 1.65rem;
-  }
-  h3 {
-    margin-top: 2.12rem;
-    margin-bottom: .71rem;
-    font-size: 1.29rem;
-  }
-  a {
-    color: var(--forest-green);
-    text-decoration: underline;
-    text-decoration-color: rgba(86,134,115,.3);
-    text-underline-offset: 3px;
-    transition: text-decoration-color .2s;
-    &:hover {
-      text-decoration-color: var(--forest-green);
-    }
-  }
-  blockquote {
-    margin: 1.88rem 0;
-    padding: 1.18rem 0 1.18rem 1.41rem;
-    border-left: 3px solid var(--sage-green);
-    font-family: var(--font-heading);
-    font-style: italic;
-    font-size: 1.12rem;
-    line-height: 1.7;
-    color: var(--dark-brown);
+  .article-body {
     p {
+      font-size: 1.00rem;
+      line-height: 1.85;
+      color: #555;
+      margin-bottom: 1.29rem;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    h2 {
+      margin-top: 2.6rem;
+      margin-bottom: 1rem;
+      font-size: 1.47rem;
+    }
+    h3 {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+    a {
+      color: var(--forest-green);
+      text-decoration: underline;
+      text-decoration-color: rgba(86,134,115,.3);
+      text-underline-offset: 3px;
+      transition: text-decoration-color .2s;
+      &:hover {
+        text-decoration-color: var(--forest-green);
+      }
+    }
+    blockquote {
+      p {
+        color: var(--dark-brown);
+        font-size: inherit;
+        line-height: inherit;
+        margin-bottom: 0;
+      }
+      margin: 1.88rem 0;
+      padding: 1.18rem 0 1.18rem 1.41rem;
+      border-left: 3px solid var(--sage-green);
+      font-family: var(--font-heading);
+      font-style: italic;
+      font-size: 1.12rem;
+      line-height: 1.7;
       color: var(--dark-brown);
-      font-size: inherit;
-      line-height: inherit;
-      margin-bottom: 0;
+    }
+    details {
+      summary {
+        strong {
+          margin-bottom: 1rem;
+          font-family: var(--font-primary);
+          font-size: 1.3rem;
+          font-weight: 400;
+        }
+        &::marker {
+          display: none;
+          content: '';
+        }
+      }
+    }
+    ul,
+    ol {
+      margin: 0 0 1.29rem 1.41rem;
+      color: #555;
+      list-style-type: disc;
+    }
+    li {
+      margin-bottom: .47rem;
+      line-height: 1.75;
+    }
+    figure {
+      margin: 1.88rem 0;
+      border-radius: .59rem;
+      overflow: hidden;
+      box-shadow: 0 6px 30px rgba(58,29,2,.08);
+    }
+    figcaption {
+      padding: .71rem 0 0;
+      font-size: .76rem;
+      color: #aaa;
+      text-align: center;
+      font-style: italic;
+    }
+    hr {
+      border: none;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(177,153,134,.3), transparent);
+      margin: 2.35rem 0;
     }
   }
-  ul,
-  ol {
-    margin: 0 0 1.29rem 1.41rem;
-    color: #555;
+  .post-footer {
+    margin-top: 2.82rem;
+    padding-top: 1.88rem;
+    border-top: 1px solid rgba(177, 153, 134, 0.15);
   }
-  li {
-    margin-bottom: .47rem;
-    line-height: 1.75;
+  @media (min-width: 768px) {
+    padding: 3.53rem 2.82rem 5.88rem;
+    grid-template-columns: 1fr 17.65rem;
+    gap: 3.29rem;
   }
-  figure {
-    margin: 1.88rem 0;
-    border-radius: .59rem;
-    overflow: hidden;
-    box-shadow: 0 6px 30px rgba(58,29,2,.08);
-  }
-  figcaption {
-    padding: .71rem 0 0;
-    font-size: .76rem;
-    color: #aaa;
-    text-align: center;
-    font-style: italic;
-  }
-  hr {
-    border: none;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(177,153,134,.3), transparent);
-    margin: 2.35rem 0;
+  @media (min-width: 960px) {
+    grid-template-columns: 1fr 18.82rem;
+    gap: 3.76rem;
   }
 }
 
@@ -3137,60 +3336,12 @@ p.course-description {
     }
   }
 }
-.post-layout {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2.82rem 1.41rem 4.71rem;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2.82rem;
-}
-@media (min-width: 768px) {
-  .post-layout {
-    padding: 3.53rem 2.82rem 5.88rem;
-    grid-template-columns: 1fr 17.65rem;
-    gap: 3.29rem;
-  }
-}
-@media (min-width: 960px) {
-  .post-layout {
-    grid-template-columns: 1fr 18.82rem;
-    gap: 3.76rem;
-  }
-}
 .featured-image {
   border-radius: .59rem;
   overflow: hidden;
   box-shadow: 0 8px 40px rgba(58, 29, 2, 0.1);
   aspect-ratio: 16 / 9;
   margin-bottom: 0;
-}
-.post-footer {
-  margin-top: 2.82rem;
-  padding-top: 1.88rem;
-  border-top: 1px solid rgba(177, 153, 134, 0.15);
-}
-.article-header {
-  margin-bottom: 2.12rem;
-  .eyebrow {
-    margin-bottom: .71rem;
-  }
-  .article-meta {
-    font-family: var(--font-body);
-    font-size: .82rem;
-    color: var(--warm-taupe);
-    margin-bottom: 1.65rem;
-    display: flex;
-    align-items: center;
-    gap: .59rem;
-    .dot {
-      width: 3px;
-      height: 3px;
-      border-radius: 50%;
-      background: var(--warm-taupe);
-      opacity: .5;
-    }
-  }
 }
 .post-nav {
   display: flex;
@@ -3230,6 +3381,7 @@ p.course-description {
     }
   }
 }
+
 // Contact page
 .contact-page {
   .contact-section {
@@ -4383,4 +4535,3 @@ main .hero.hero-about {
     background-image: url('#{$theme-root}/images/images-h/feather-jones-herbalist-027.webp');
   }
 }
-

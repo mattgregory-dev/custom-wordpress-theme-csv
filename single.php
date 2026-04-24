@@ -24,7 +24,7 @@ $journal_url = $posts_page_id ? get_permalink( $posts_page_id ) : home_url( '/bl
     <?php if ( have_posts() ) : ?>
       <?php while ( have_posts() ) : the_post(); ?>
         <?php
-        $fallback_image = get_template_directory_uri() . '/images/bg/7178818.webp';
+        $fallback_image = get_template_directory_uri() . '/images/placeholder.webp';
         $thumbnail_url = get_the_post_thumbnail_url( get_the_ID(), 'large' );
         $image_url = $thumbnail_url ? $thumbnail_url : $fallback_image;
         $image_alt = '';

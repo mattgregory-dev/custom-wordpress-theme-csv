@@ -27,7 +27,7 @@ get_header();
   <div>
     <ul class="post-list">
       <?php if ( have_posts() ) : ?>
-        <?php $fallback_image = get_template_directory_uri() . '/images/bg/7178818.webp'; ?>
+        <?php $fallback_image = get_template_directory_uri() . '/images/placeholder.webp'; ?>
         <?php while ( have_posts() ) : the_post(); ?>
           <?php
           $thumbnail_url = get_the_post_thumbnail_url( get_the_ID(), 'medium' );

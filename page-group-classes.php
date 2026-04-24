@@ -19,7 +19,7 @@ get_header(
         <p class="eyebrow">Year-Long Herbalism Training Program</p>
         <h1 class="mb-6">Learn Herbalism Live&thinsp;&mdash;&thinsp;One Year, One Group, One Dedicated Teacher</h1>
         <p class="text-lg text-neutral-700 mb-4">A 120-hour training program with clinical herbalist Feather Jones. Live weekly classes on Zoom. A hands-on field trip in Sedona. And a community of students learning right alongside you.</p>
-        <p class="text-lg text-neutral-700 mb-8"><strong>The Herbal Apprenticeship Program</strong> takes you from curious beginner to confident herbalist over 10 months. No prior experience needed. Just bring your love of plants and a willingness to show up each week.</p>
+        <p class="text-lg text-neutral-700 mb-8"><strong>The Herbal Apprenticeship Program</strong> takes you from curious beginner to confident herbalist over 11 months. No prior experience needed. Just bring your love of plants and a willingness to show up each week.</p>
         <div class="hero__actions">
           <a class="btn btn-primary" href="#">Get Notified for 2027 Enrollment</a>
         </div>
@@ -62,7 +62,7 @@ get_header(
           </div>
           <div class="commitment-item">
             <div class="ci-label">Program Dates</div>
-            <div class="ci-value">January through November (10 months)</div>
+            <div class="ci-value">January through November (11 months)</div>
           </div>
           <div class="commitment-item">
             <div class="ci-label">Total Hours</div>
@@ -128,6 +128,106 @@ get_header(
         <p>Explore your deeper connection to plants through flower essences and intuitive practice. Where head knowledge meets heart knowledge.</p>
       </div>
     </div>
+
+    <div class="text-center reveal" style="margin-top: 48px; transition-delay: 0.15s;">
+      <button
+        type="button"
+        class="curriculum-toggle"
+        data-curriculum-toggle
+        data-label-collapsed="View the Full Curriculum"
+        data-label-expanded="Hide the Full Curriculum"
+        aria-expanded="false"
+        aria-controls="fullCurriculum"
+      >
+        <span class="ct-text">View the Full Curriculum</span>
+        <span class="ct-arrow" aria-hidden="true">&#9662;</span>
+      </button>
+    </div>
+
+    <div class="full-curriculum" id="fullCurriculum" data-curriculum-panel hidden>
+      <div class="fc-note">Classes meet most Sundays, 11:00 AM-1:30 PM Eastern, with breaks for major holidays. The 2027 schedule will follow a similar structure.</div>
+
+      <div class="fc-month">
+        <div class="fc-month-label">January &mdash; Foundations</div>
+        <div class="fc-item">Introduction and stories</div>
+        <div class="fc-item">Classifications, nomenclature, botanical therapeutic definitions, reading &amp; resources</div>
+      </div>
+
+      <div class="fc-month">
+        <div class="fc-month-label">February &mdash; Core Principles &amp; Materia Medica</div>
+        <div class="fc-item">Herbal interactions, metabolism materia medica, nettles monograph</div>
+        <div class="fc-item">Herbal energetics, western constitutional model, excess &amp; deficiency profiles</div>
+        <div class="fc-item">Burdock, Oregon grape, dandelion, milk thistle monographs &amp; formulas</div>
+        <div class="fc-item">Dosage guidelines &amp; project assignments</div>
+      </div>
+
+      <div class="fc-month">
+        <div class="fc-month-label">March &mdash; Digestive &amp; Respiratory Systems</div>
+        <div class="fc-item">Digestive system materia medica, disorders &amp; herbal therapies</div>
+        <div class="fc-item">Upper digestive system, gentian &amp; chamomile monographs, formulas</div>
+        <div class="fc-item">Lower GI, CYP450 detox systems</div>
+        <div class="fc-item">Respiratory system materia medica &amp; monographs</div>
+      </div>
+
+      <div class="fc-month">
+        <div class="fc-month-label">April &mdash; Respiratory &amp; Immune</div>
+        <div class="fc-item">Respiratory materia medica continued</div>
+        <div class="fc-item">Immune physiology &amp; materia medica</div>
+        <div class="fc-item">Osha monograph, respiratory continued</div>
+        <div class="fc-item">Immune diet, echinacea &amp; usnea monographs</div>
+      </div>
+
+      <div class="fc-month">
+        <div class="fc-month-label">May &mdash; Immune System Deep Dive</div>
+        <div class="fc-item">Immune deficiencies, formulations, allergies, Chronic Fatigue Syndrome</div>
+      </div>
+
+      <div class="fc-month fc-highlight">
+        <div class="fc-month-label">June &mdash; Sedona Field Trip &amp; Nervous System</div>
+        <div class="fc-item fc-field-trip">June 2&ndash;5: <a href="<?php echo esc_url( home_url( '/field-trips/' ) ); ?>">High Desert Botanical Field Trip, Sedona, AZ</a> &mdash; includes a full day of medicine making</div>
+        <div class="fc-item">Introduction to the nervous system, esoteric anatomy, physiology &amp; materia medica</div>
+        <div class="fc-item">Adaptogens: ashwagandha, ginkgo &amp; gotu kola monographs</div>
+      </div>
+
+      <div class="fc-month">
+        <div class="fc-month-label">July &mdash; Nervous System Continued</div>
+        <div class="fc-item">Continued nervous system study</div>
+        <div class="fc-item">Pain management</div>
+        <div class="fc-item">ADD/ADHD &amp; depression</div>
+      </div>
+
+      <div class="fc-month">
+        <div class="fc-month-label">August &mdash; Cardiovascular, Endocrine &amp; Metabolic</div>
+        <div class="fc-item">Introduction to the cardiovascular system</div>
+        <div class="fc-item">Cardiovascular materia medica, hawthorn monograph, cardio diet, hypo- &amp; hypertension</div>
+        <div class="fc-item">Endocrine system, adrenal/thyroid stress, licorice monograph</div>
+        <div class="fc-item">Metabolic Syndrome &amp; blood sugar imbalances</div>
+        <div class="fc-item">Herb/drug interactions &amp; heavy metal toxicity</div>
+      </div>
+
+      <div class="fc-month">
+        <div class="fc-month-label">September &mdash; Urinary System</div>
+        <div class="fc-item">Urinary tract materia medica, uva ursi monograph</div>
+        <div class="fc-item">Urinary tract infections &amp; kidney stones</div>
+      </div>
+
+      <div class="fc-month">
+        <div class="fc-month-label">October &mdash; Women&rsquo;s Reproductive &amp; Clinical Skills</div>
+        <div class="fc-item">Women&rsquo;s reproductive physiology &amp; phytoestrogens</div>
+        <div class="fc-item">Hormonal imbalances &amp; gynecological patterns</div>
+        <div class="fc-item">Endometriosis case study</div>
+        <div class="fc-item">Symptomology, assessment &amp; intake forms</div>
+      </div>
+
+      <div class="fc-month">
+        <div class="fc-month-label">November &mdash; Integration &amp; Completion</div>
+        <div class="fc-item">Skin &amp; the integumentary system</div>
+        <div class="fc-item">Organ system review</div>
+        <div class="fc-item">Final sessions &amp; closing circle</div>
+        <div class="fc-item">Assignments due &amp; certificate completion</div>
+      </div>
+    </div>
+
     <div class="text-center reveal" style="margin-top: 44px; transition-delay: 0.15s;">
       <a href="#final" class="btn btn-primary">Get Notified for 2027 Enrollment</a>
       <span class="friction-text">Beginners welcome&thinsp;&mdash;&thinsp;no prior herbal experience required.</span>
