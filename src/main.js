@@ -1356,65 +1356,71 @@ const activeMenu = () => {
 //   });
 // };
 
+const OFFER_VARIANT_COOKIE_NAME = 'offer_variant';
+const OFFER_VARIANT_STORAGE_KEY = 'fj_offer_variant';
+const OFFER_VARIANT_DAYS = 1;
+
+const getCookieValue = (name) => {
+  const cookie = document.cookie
+    .split('; ')
+    .find((row) => row.startsWith(`${name}=`));
+
+  return cookie ? decodeURIComponent(cookie.split('=').slice(1).join('=')) : '';
+};
+
+const setCookie = (name, value, days) => {
+  const dt = new Date();
+  dt.setTime(dt.getTime() + days * 864e5);
+  document.cookie = `${name}=${encodeURIComponent(value)};expires=${dt.toUTCString()};path=/;SameSite=Lax`;
+};
+
+const getStoredOfferVariant = () => {
+  try {
+    return window.localStorage.getItem(OFFER_VARIANT_STORAGE_KEY);
+  } catch (error) {
+    return '';
+  }
+};
+
+const setStoredOfferVariant = (variant) => {
+  try {
+    window.localStorage.setItem(OFFER_VARIANT_STORAGE_KEY, variant);
+  } catch (error) {
+    // Cookie persistence is enough when localStorage is unavailable.
+  }
+};
+
+const getOfferVariant = () => {
+  const storedVariant = getStoredOfferVariant();
+
+  if (storedVariant === 'a' || storedVariant === 'b') {
+    setCookie(OFFER_VARIANT_COOKIE_NAME, storedVariant, OFFER_VARIANT_DAYS);
+    return storedVariant;
+  }
+
+  const randomValue = window.crypto && window.crypto.getRandomValues
+    ? window.crypto.getRandomValues(new Uint32Array(1))[0]
+    : Math.floor(Math.random() * 2);
+  const variant = randomValue % 2 === 0 ? 'a' : 'b';
+
+  setStoredOfferVariant(variant);
+  setCookie(OFFER_VARIANT_COOKIE_NAME, variant, OFFER_VARIANT_DAYS);
+  return variant;
+};
+
+const initOfferVariant = () => {
+  document.documentElement.setAttribute('data-offer-variant', getOfferVariant());
+};
+
+initOfferVariant();
+
 // Feather Jones - Free Class Popup.
 const initFreeClassPopup = () => {
   // Display timing + cookie settings.
   const POPUP_DELAY_MS = 6000;
   const COOKIE_NAME = 'fj_popup_seen';
-  const VARIANT_COOKIE_NAME = 'offer_variant';
-  const VARIANT_STORAGE_KEY = 'fj_offer_variant';
   const COOKIE_DAYS = 1;
-  const VARIANT_DAYS = 1;
   const FORCE_POPUP = false;
-
-  // Keep variant assignment client-side so production full-page cache cannot freeze A/B tests.
-  const getCookieValue = (name) => {
-    const cookie = document.cookie
-      .split('; ')
-      .find((row) => row.startsWith(`${name}=`));
-
-    return cookie ? decodeURIComponent(cookie.split('=').slice(1).join('=')) : '';
-  };
-
-  const setCookie = (name, value, days) => {
-    const dt = new Date();
-    dt.setTime(dt.getTime() + days * 864e5);
-    document.cookie = `${name}=${encodeURIComponent(value)};expires=${dt.toUTCString()};path=/;SameSite=Lax`;
-  };
-
-  const getStoredVariant = () => {
-    try {
-      return window.localStorage.getItem(VARIANT_STORAGE_KEY);
-    } catch (error) {
-      return '';
-    }
-  };
-
-  const setStoredVariant = (variant) => {
-    try {
-      window.localStorage.setItem(VARIANT_STORAGE_KEY, variant);
-    } catch (error) {
-      // Cookie persistence is enough when localStorage is unavailable.
-    }
-  };
-
-  const getOfferVariant = () => {
-    const storedVariant = getStoredVariant();
-
-    if (storedVariant === 'a' || storedVariant === 'b') {
-      setCookie(VARIANT_COOKIE_NAME, storedVariant, VARIANT_DAYS);
-      return storedVariant;
-    }
-
-    const randomValue = window.crypto && window.crypto.getRandomValues
-      ? window.crypto.getRandomValues(new Uint32Array(1))[0]
-      : Math.floor(Math.random() * 2);
-    const variant = randomValue % 2 === 0 ? 'a' : 'b';
-
-    setStoredVariant(variant);
-    setCookie(VARIANT_COOKIE_NAME, variant, VARIANT_DAYS);
-    return variant;
-  };
 
   // Core element lookups.
   const offerVariant = getOfferVariant();
@@ -1718,6 +1724,46 @@ const initCurriculumToggle = () => {
   });
 };
 
+const initContactInterestParam = () => {
+  const params = new URLSearchParams(window.location.search);
+  const interest = params.get('interest');
+  const interestValues = {
+    'live-group-classes': 'two',
+  };
+  const selectedValue = interestValues[interest];
+  if (!selectedValue) return;
+
+  let attempts = 0;
+  const maxAttempts = 20;
+
+  const applyInterest = () => {
+    attempts += 1;
+
+    const select = document.querySelector(
+      '.forminator-contact select[name="select-1"]'
+    );
+
+    if (!select) {
+      if (attempts < maxAttempts) {
+        window.setTimeout(applyInterest, 250);
+      }
+      return;
+    }
+
+    if (select.value !== selectedValue) {
+      select.value = selectedValue;
+    }
+
+    select.dispatchEvent(new Event('change', { bubbles: true }));
+
+    if (window.jQuery) {
+      window.jQuery(select).trigger('change');
+    }
+  };
+
+  applyInterest();
+};
+
 // Normalize Forminator submit button labels across offer placements.
 const initForminatorButtonLabels = () => {
   const labelRules = [
@@ -1821,6 +1867,7 @@ const init = () => {
   initFreeClassPopup();
   initLearnDashAccordionExpandedDefault();
   initCurriculumToggle();
+  initContactInterestParam();
   initForminatorButtonLabels();
   revealOnScroll();
   initFaqAccordions();

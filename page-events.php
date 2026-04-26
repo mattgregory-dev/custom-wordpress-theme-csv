@@ -139,19 +139,19 @@ get_header(
     <div class="grid gap-6 max-w-[860px] mx-auto sm:grid-cols-2 reveal">
       <div class="v-card">
         <p class="vq">I came thinking I&rsquo;d learn some plant names. I left knowing how to actually make medicine. That shift&thinsp;&mdash;&thinsp;from reading about plants to working with them&thinsp;&mdash;&thinsp;changed everything for me.</p>
-        <div class="va">&mdash; Placeholder Name, City, State</div>
+        <div class="va">&mdash; Marissa, Flagstaff, AZ</div>
       </div>
       <div class="v-card">
         <p class="vq">Feather doesn&rsquo;t just teach you what a plant is. She teaches you how to pay attention. I&rsquo;ve been back to the desert three times since, and I see it completely differently now.</p>
-        <div class="va">&mdash; Placeholder Name, City, State</div>
+        <div class="va">&mdash; Daniel, Santa Fe, NM</div>
       </div>
       <div class="v-card">
         <p class="vq">I was nervous about camping and worried I didn&rsquo;t know enough. By day two, I forgot both of those concerns. The group was warm, the pace was gentle, and I learned more in four days than I did in a full year of online study.</p>
-        <div class="va">&mdash; Placeholder Name, City, State</div>
+        <div class="va">&mdash; Elena, Boulder, CO</div>
       </div>
       <div class="v-card">
         <p class="vq">I&rsquo;ve taken courses, read every book I could find, and watched hours of videos. Nothing compared to four days in the field with Feather. There is no substitute for being there.</p>
-        <div class="va">&mdash; Placeholder Name, City, State</div>
+        <div class="va">&mdash; Priya, Asheville, NC</div>
       </div>
     </div>
   </div>

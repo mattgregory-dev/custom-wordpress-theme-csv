@@ -21,7 +21,7 @@ get_header(
         <p class="text-lg text-neutral-700 mb-4">A 120-hour training program with clinical herbalist Feather Jones. Live weekly classes on Zoom. A hands-on field trip in Sedona. And a community of students learning right alongside you.</p>
         <p class="text-lg text-neutral-700 mb-8"><strong>The Herbal Apprenticeship Program</strong> takes you from curious beginner to confident herbalist over 11 months. No prior experience needed. Just bring your love of plants and a willingness to show up each week.</p>
         <div class="hero__actions">
-          <a class="btn btn-primary" href="#">Get Notified for 2027 Enrollment</a>
+          <a class="btn btn-primary" href="<?php echo esc_url( home_url( '/contact/?interest=live-group-classes#contact-form' ) ); ?>">Get Notified for 2027 Enrollment</a>
         </div>
         <p class="text-sm text-neutral-500 mt-4 italic">We&rsquo;ll email you once when enrollment opens&thinsp;&mdash;&thinsp;no spam.</p>
       </div>
@@ -229,7 +229,7 @@ get_header(
     </div>
 
     <div class="text-center reveal" style="margin-top: 44px; transition-delay: 0.15s;">
-      <a href="#final" class="btn btn-primary">Get Notified for 2027 Enrollment</a>
+      <a href="<?php echo esc_url( home_url( '/contact/?interest=live-group-classes#contact-form' ) ); ?>" class="btn btn-primary">Get Notified for 2027 Enrollment</a>
       <span class="friction-text">Beginners welcome&thinsp;&mdash;&thinsp;no prior herbal experience required.</span>
     </div>
   </div>
@@ -260,11 +260,11 @@ get_header(
         <div class="ft-quotes">
           <div class="ft-quote">
             <p>&ldquo;I received a deep connection with wild plants in their natural environment.&rdquo;</p>
-            <cite>&mdash; Julia Kartman</cite>
+            <cite>&mdash; Julia</cite>
           </div>
           <div class="ft-quote">
             <p>&ldquo;I cannot describe in words the value the time spent with the plants had for me. The sanctity of some of these spots in nature Feather showed us cannot be translated into language&hellip;&rdquo;</p>
-            <cite>&mdash; Jan Kielmann, DCN, CNS, IFMCP</cite>
+            <cite>&mdash; Jan</cite>
           </div>
         </div>
       </div>
@@ -314,23 +314,23 @@ get_header(
     <div class="grid grid-cols-1 gap-6 max-w-[900px] mx-auto sm:grid-cols-2 sm:[&_.s-card:first-child]:col-span-2 reveal">
       <div class="s-card">
         <p class="sq">Feather&rsquo;s apprenticeship program has been such a wonderful experience. It&rsquo;s no exaggeration to say that it&rsquo;s positively changed how I see and experience the world around me. I went from knowing only the barest of basics about herbalism to confidently crafting tinctures, elixirs, vinegars, salves, butters, and more. I am so happy I found this program&thinsp;&mdash;&thinsp;so much that I signed up for year two!</p>
-        <div class="sa">&mdash; Kim Foxx</div>
+        <div class="sa">&mdash; Kim</div>
       </div>
       <div class="s-card">
         <p class="sq">Feather saved my life! This year of working with her and learning deep wisdom about plant medicine, nature, and humanity was one of the most important times in my life.</p>
-        <div class="sa">&mdash; Jan Kielmann, DCN, CNS, IFMCP</div>
+        <div class="sa">&mdash; Jan</div>
       </div>
       <div class="s-card">
         <p class="sq">Feather&rsquo;s herbalism program has opened my eyes to the abundance of Southwest flora. Learning about their healing properties has led me to understand spiritual, as well as, medicinal benefits.</p>
-        <div class="sa">&mdash; Julia Kartman</div>
+        <div class="sa">&mdash; Julia</div>
       </div>
       <div class="s-card">
         <p class="sq">Working with Feather is like working with Mother Earth with a twist! Get ready to learn from the roots up.</p>
-        <div class="sa">&mdash; Lynn Hanna Leah</div>
+        <div class="sa">&mdash; Lynn</div>
       </div>
     </div>
     <div class="text-center reveal mt-8">
-      <a href="#final" class="btn btn-primary">Get Notified for 2027 Enrollment</a>
+      <a href="<?php echo esc_url( home_url( '/contact/?interest=live-group-classes#contact-form' ) ); ?>" class="btn btn-primary">Get Notified for 2027 Enrollment</a>
     </div>
   </div>
 </section>
@@ -463,7 +463,7 @@ get_header(
     <h2 class="max-w-2xl mx-auto">Study Herbalism the Way It Was Meant to Be Learned</h2>
     <p class="description mx-auto mb-8 max-w-xl text-white">If you&rsquo;ve been thinking about studying herbalism&thinsp;&mdash;&thinsp;really studying it, with a teacher, a community, and a plan&thinsp;&mdash;&thinsp;this is the program people come back to year after year.</p>
     <p class="description mx-auto mb-8 text-white">Join the waitlist and we&rsquo;ll email you when enrollment opens for 2027.</p>
-    <a href="#" class="btn btn-primary">Get Notified When Enrollment Opens</a>
+    <a href="<?php echo esc_url( home_url( '/contact/?interest=live-group-classes#contact-form' ) ); ?>" class="btn btn-primary">Get Notified When Enrollment Opens</a>
     <span class="friction-text" style="color:rgb(255 255 255 / 60%);">One email when enrollment opens. That&rsquo;s it.</span>
     <p class="tertiary">Still have questions? <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Reach out to Feather directly &rarr;</a></p>
   </div>

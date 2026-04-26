@@ -152,7 +152,7 @@ $journal_url = $posts_page_id ? get_permalink( $posts_page_id ) : home_url( '/bl
   <aside class="sidebar">
 
     <!-- Free class offer -->
-    <?php get_template_part( 'partials/offers/earth-ceremony/sidebar' ); ?>
+    <?php get_template_part( 'partials/offers/earth-ceremony-teaching/sidebar' ); ?>
     <?php get_template_part( 'partials/offers/pest-control/sidebar' ); ?>
 
     <?php /*

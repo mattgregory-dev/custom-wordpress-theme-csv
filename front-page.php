@@ -141,7 +141,7 @@ get_header(
   <div class="container reveal">
     <div class="eyebrow">From the Community</div>
     <blockquote>&ldquo;I went from knowing only the barest of basics about herbalism to confidently crafting an array of herbal medicines&hellip; I signed up for year two!&rdquo;</blockquote>
-    <cite>&mdash; Kim Foxx, Student</cite>
+    <cite>&mdash; Kim, Student</cite>
     <div style="margin-top:24px">
       <a href="#" class="btn-ghost hidden">Read More Student Stories &rarr;</a>
     </div>

@@ -30,7 +30,7 @@ get_header(
       <div class="contact-grid">
 
         <!-- LEFT: FORM -->
-        <div class="form-card reveal">
+        <div class="form-card reveal" id="contact-form">
 
           <h2 class="form-title">Send Us a Message</h2>
           <p class="form-subtitle">Fill out the form and we&rsquo;ll get back to you soon.</p>
