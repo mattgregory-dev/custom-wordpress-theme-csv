@@ -89,14 +89,25 @@ function csv_output_google_analytics_tag() {
   if ( csv_is_vite_dev() || is_user_logged_in() ) {
     return;
   }
+
+  if ( ! defined( 'CSV_GA_MEASUREMENT_ID' ) ) {
+    return;
+  }
+
+  $ga_measurement_id = trim( (string) CSV_GA_MEASUREMENT_ID );
+  if ( '' === $ga_measurement_id ) {
+    return;
+  }
+
+  $ga_script_url = add_query_arg( 'id', $ga_measurement_id, 'https://www.googletagmanager.com/gtag/js' );
   ?>
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7Y4RZRQMF8"></script>
+  <script async src="<?php echo esc_url( $ga_script_url ); ?>"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-7Y4RZRQMF8');
+    gtag('config', <?php echo wp_json_encode( $ga_measurement_id ); ?>);
   </script>
   <?php
 }

@@ -9,10 +9,6 @@
       type="font/woff2"
       crossorigin>
 
-  <?php if ( is_singular( 'event' ) && defined( 'CWP_ACF_GOOGLE_MAPS_KEY' ) && CWP_ACF_GOOGLE_MAPS_KEY ) : ?>
-    <script src="<?php echo esc_url( 'https://maps.googleapis.com/maps/api/js?key=' . rawurlencode( CWP_ACF_GOOGLE_MAPS_KEY ) . '&callback=Function.prototype' ); ?>"></script>
-  <?php endif; ?>
-
   <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
