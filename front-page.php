@@ -61,13 +61,13 @@ get_header(
     <!-- <div class="grid grid-cols-1 gap-5 mt-11 sm:grid-cols-2 reveal"> -->
     <div class="grid grid-cols-1 gap-5 mt-11 min-[600px]:grid-cols-2 min-[990px]:grid-cols-4 reveal">
       <div class="route-card">
-        <a href="<?php echo esc_url( home_url( '/courses-catalog/' ) ); ?>">
+        <a href="<?php echo esc_url( home_url( '/courses/' ) ); ?>">
           <img src="<?php echo esc_url( get_template_directory_uri() . '/images/icons/icon-courses-3.webp' ); ?>" alt="Self-paced courses icon">
         </a>
         <div class="rc-label">Self-Paced Courses</div>
         <h3>Learn at Your Own Pace</h3>
         <p>Pick a topic, go at your speed, and come back whenever you want. Courses from $11. Lifetime access.</p>
-        <a href="<?php echo esc_url( home_url( '/courses-catalog/' ) ); ?>" class="btn btn-secondary">Browse Courses</a>
+        <a href="<?php echo esc_url( home_url( '/courses/' ) ); ?>" class="btn btn-secondary">Browse Courses</a>
       </div>
       <div class="route-card">
         <a href="<?php echo esc_url( home_url( '/live-group-classes/' ) ); ?>">

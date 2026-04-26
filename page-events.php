@@ -238,14 +238,13 @@ get_header(
 
 <section class="section final-cta text-center bg-deep-teal" id="reserve">
   <div class="container reveal">
-    <div class="eyebrow">Only 13 Spots</div>
+    <div class="eyebrow">JUNE 2-5, 2026</div>
     <h2>13 Spots. Four Days. A Practice You&rsquo;ll Carry Home.</h2>
     <p style="font-size:17px;max-width:580px;margin:0 auto 12px;color:rgba(255,255,255,.8);font-weight:300;line-height:1.8;">This trip has run every June since 1994. People come back year after year. People send their friends. The spots fill up.</p>
-    <div class="avail-badge">13 of 13 spots available</div>
     <div>
       <a href="<?php echo esc_url( home_url( 'checkout/?add-to-cart=1652' ) ); ?>" target="_blank" class="btn btn-primary">Reserve My Spot</a>
     </div>
-    <p class="meta-line">June 2&ndash;5, 2026 &middot; Sedona, AZ &middot; $450 &middot; 13 of 13 spots available<br>No prior experience required &middot; Packing list sent after registration</p>
+    <p class="meta-line">June 2&ndash;5, 2026 &middot; Sedona, AZ &middot; $450 &middot; 13 spots available<br>No prior experience required &middot; Packing list sent after registration</p>
     <p class="cross-sell">Interested in studying with Feather beyond the field trip? Explore the <a href="<?php echo esc_url( home_url( '/live-group-classes/' ) ); ?>">Live Group Classes</a> or <a href="<?php echo esc_url( home_url( '/courses-catalog/' ) ); ?>">self-paced online courses</a>.</p>
   </div>
 </section>

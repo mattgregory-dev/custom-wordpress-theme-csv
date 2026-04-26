@@ -131,7 +131,11 @@ section {
 // Make page wrapper tiny for my account
 .woocommerce-page.woocommerce-account.logged-out main {
   max-width: 640px;
-  margin: 2rem auto 3rem;
+  margin: 0 auto;
+  article {
+    padding-top: 1.6rem;
+    padding-bottom: 2rem;
+  }
 }
 
 // .woocommerce-page.woocommerce-checkout header,
