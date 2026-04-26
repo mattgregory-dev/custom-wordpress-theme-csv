@@ -1,5 +1,5 @@
 <!-- ========== FOOTER CTA + EMAIL CAPTURE ========== -->
-<section class="section footer-cta offer offer-a">
+<section class="section footer-cta free-course offer offer-a">
   <div class="container text-center reveal">
     <div class="eyebrow">Free Course</div>
     <h2>New to Herbs? Start Here&thinsp;&mdash;&thinsp;No Cost.</h2>

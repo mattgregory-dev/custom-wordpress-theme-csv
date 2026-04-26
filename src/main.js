@@ -1361,12 +1361,63 @@ const initFreeClassPopup = () => {
   // Display timing + cookie settings.
   const POPUP_DELAY_MS = 6000;
   const COOKIE_NAME = 'fj_popup_seen';
+  const VARIANT_COOKIE_NAME = 'offer_variant';
+  const VARIANT_STORAGE_KEY = 'fj_offer_variant';
   const COOKIE_DAYS = 1;
+  const VARIANT_DAYS = 1;
   const FORCE_POPUP = false;
 
+  // Keep variant assignment client-side so production full-page cache cannot freeze A/B tests.
+  const getCookieValue = (name) => {
+    const cookie = document.cookie
+      .split('; ')
+      .find((row) => row.startsWith(`${name}=`));
+
+    return cookie ? decodeURIComponent(cookie.split('=').slice(1).join('=')) : '';
+  };
+
+  const setCookie = (name, value, days) => {
+    const dt = new Date();
+    dt.setTime(dt.getTime() + days * 864e5);
+    document.cookie = `${name}=${encodeURIComponent(value)};expires=${dt.toUTCString()};path=/;SameSite=Lax`;
+  };
+
+  const getStoredVariant = () => {
+    try {
+      return window.localStorage.getItem(VARIANT_STORAGE_KEY);
+    } catch (error) {
+      return '';
+    }
+  };
+
+  const setStoredVariant = (variant) => {
+    try {
+      window.localStorage.setItem(VARIANT_STORAGE_KEY, variant);
+    } catch (error) {
+      // Cookie persistence is enough when localStorage is unavailable.
+    }
+  };
+
+  const getOfferVariant = () => {
+    const storedVariant = getStoredVariant();
+
+    if (storedVariant === 'a' || storedVariant === 'b') {
+      setCookie(VARIANT_COOKIE_NAME, storedVariant, VARIANT_DAYS);
+      return storedVariant;
+    }
+
+    const randomValue = window.crypto && window.crypto.getRandomValues
+      ? window.crypto.getRandomValues(new Uint32Array(1))[0]
+      : Math.floor(Math.random() * 2);
+    const variant = randomValue % 2 === 0 ? 'a' : 'b';
+
+    setStoredVariant(variant);
+    setCookie(VARIANT_COOKIE_NAME, variant, VARIANT_DAYS);
+    return variant;
+  };
+
   // Core element lookups.
-  const offerVariant =
-    document.documentElement.getAttribute('data-offer-variant') === 'b' ? 'b' : 'a';
+  const offerVariant = getOfferVariant();
   const overlay =
     document.querySelector(`.popup-overlay[data-offer-popup="${offerVariant}"]`) ||
     document.querySelector('.popup-overlay[data-offer-popup="a"]') ||
@@ -1394,19 +1445,9 @@ const initFreeClassPopup = () => {
   const step1 = overlay.querySelector('[data-popup-step="1"]');
   const step2 = overlay.querySelector('[data-popup-step="2"]');
   const step3 = overlay.querySelector('[data-popup-step="3"]');
-  if (!card || !closeBtn || !ctaBtn || !skipBtn || !errorEl || !step1 || !step2 || !step3) return;
+  if (!card || !closeBtn || !ctaBtn || !skipBtn || !errorEl || !step1 || !step2) return;
   let step2At = 0;
-  let step3Triggered = false;
-
-  // Cookie helpers for "seen" state.
-  const setCookie = (name, value, days) => {
-    const dt = new Date();
-    dt.setTime(dt.getTime() + days * 864e5);
-    document.cookie = `${name}=${value};expires=${dt.toUTCString()};path=/;SameSite=Lax`;
-  };
-
-  const getCookie = (name) =>
-    document.cookie.split('; ').find((row) => row.startsWith(`${name}=`));
+  let submitSuccessHandled = false;
 
   // Show/close + scroll lock.
   const showPopup = () => {
@@ -1433,12 +1474,15 @@ const initFreeClassPopup = () => {
     }, 100);
   };
 
-  const goToStep3 = () => {
-    if (step3Triggered) return;
-    step3Triggered = true;
+  const handleSubmitSuccess = () => {
+    if (submitSuccessHandled) return;
+    submitSuccessHandled = true;
+    setCookie(COOKIE_NAME, '1', 30);
+
+    if (!step3) return;
+
     step2.classList.remove('active');
     step3.classList.add('active');
-    setCookie(COOKIE_NAME, '1', 30);
     window.setTimeout(() => {
       closePopup();
     }, 4000);
@@ -1465,7 +1509,7 @@ const initFreeClassPopup = () => {
 
     // Basic bot-timing guard.
     if (step2At && Date.now() - step2At < 1500) {
-      goToStep3();
+      handleSubmitSuccess();
       return;
     }
 
@@ -1474,7 +1518,7 @@ const initFreeClassPopup = () => {
     btn.style.pointerEvents = 'none';
     btn.style.opacity = '0.8';
     window.setTimeout(() => {
-      goToStep3();
+      handleSubmitSuccess();
     }, 1200);
   };
 
@@ -1486,27 +1530,27 @@ const initFreeClassPopup = () => {
     form.addEventListener('submit', handleSubmit);
   }
 
-  // Forminator: advance to Step 3 when success message appears.
-    if (form && isForminator) {
-      const checkForminatorSuccess = () => {
-        const successEl = overlay.querySelector(
-          '.forminator-response-message.forminator-success'
-        );
-        if (!successEl) return;
-        const computed = window.getComputedStyle(successEl);
-        const isShown =
-          successEl.classList.contains('forminator-show') ||
-          successEl.getAttribute('aria-hidden') === 'false' ||
-          successEl.style.display === 'block' ||
-          computed.display !== 'none';
-        if (isShown) {
-          goToStep3();
-        }
-      };
+  // Forminator: complete popup flow when success message appears.
+  if (form && isForminator) {
+    const checkForminatorSuccess = () => {
+      const successEl = overlay.querySelector(
+        '.forminator-response-message.forminator-success'
+      );
+      if (!successEl) return;
+      const computed = window.getComputedStyle(successEl);
+      const isShown =
+        successEl.classList.contains('forminator-show') ||
+        successEl.getAttribute('aria-hidden') === 'false' ||
+        successEl.style.display === 'block' ||
+        computed.display !== 'none';
+      if (isShown) {
+        handleSubmitSuccess();
+      }
+    };
 
     checkForminatorSuccess();
 
-      const observer = new MutationObserver(checkForminatorSuccess);
+    const observer = new MutationObserver(checkForminatorSuccess);
     observer.observe(overlay, {
       attributes: true,
       attributeFilter: ['class', 'style', 'aria-hidden'],
@@ -1514,15 +1558,15 @@ const initFreeClassPopup = () => {
       subtree: true,
     });
 
-      if (window.jQuery) {
-        window.jQuery(document).on(
-          'forminator:form:submit:success',
-          (event, formId) => {
-            const currentId = form.getAttribute('data-form-id');
-            if (!currentId || !formId || `${formId}` === `${currentId}`) {
-              checkForminatorSuccess();
-            }
+    if (window.jQuery) {
+      window.jQuery(document).on(
+        'forminator:form:submit:success',
+        (event, formId) => {
+          const currentId = form.getAttribute('data-form-id');
+          if (!currentId || !formId || `${formId}` === `${currentId}`) {
+            checkForminatorSuccess();
           }
+        }
       );
     }
   }
@@ -1573,7 +1617,7 @@ const initFreeClassPopup = () => {
   })();
 
   // Auto-show after delay if no cookie.
-  if (FORCE_POPUP || !getCookie(COOKIE_NAME)) {
+  if (FORCE_POPUP || !getCookieValue(COOKIE_NAME)) {
     window.setTimeout(showPopup, POPUP_DELAY_MS);
   }
 };
@@ -1677,17 +1721,33 @@ const initCurriculumToggle = () => {
 // Normalize Forminator submit button labels across offer placements.
 const initForminatorButtonLabels = () => {
   const labelRules = [
+
+    // Free Course Offers
     {
-      selector: '.sidebar-form .forminator-button',
+      selector: '.sidebar-form.free-course .forminator-button',
       text: 'Get Your Free Course',
     },
     {
-      selector: '.popup-content .forminator-button',
+      selector: '.popup-content.free-course .forminator-button',
       text: 'Send It',
     },
     {
-      selector: '.forminator-cta-form .forminator-button',
+      selector: '.forminator-cta-form.free-course .forminator-button',
       text: 'Send Me the Free Course',
+    },
+
+    // Free Teaching
+    {
+      selector: '.sidebar-form.free-teaching .forminator-button',
+      text: 'Watch Free',
+    },
+    {
+      selector: '.popup-content.free-teaching .forminator-button',
+      text: 'Take Me There',
+    },
+    {
+      selector: '.forminator-cta-form.free-teaching .forminator-button',
+      text: 'Take Me There',
     },
   ];
   const relevantSelector =

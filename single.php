@@ -35,6 +35,15 @@ $journal_url = $posts_page_id ? get_permalink( $posts_page_id ) : home_url( '/bl
         if ( '' === $image_alt ) {
           $image_alt = get_the_title();
         }
+        $hide_featured_image = false;
+        if ( function_exists( 'get_field' ) ) {
+          $hide_featured_image_value = get_field( 'hide_featured_image', get_the_ID() );
+          if ( is_array( $hide_featured_image_value ) ) {
+            $hide_featured_image = in_array( 'Hide', $hide_featured_image_value, true );
+          } else {
+            $hide_featured_image = ( 'Hide' === $hide_featured_image_value );
+          }
+        }
 
         $content = wp_strip_all_tags( get_the_content() );
         $word_count = str_word_count( $content );
@@ -78,9 +87,11 @@ $journal_url = $posts_page_id ? get_permalink( $posts_page_id ) : home_url( '/bl
             <span class="dot"></span>
             <span><?php echo esc_html( $reading_time ); ?></span>
           </div>
-          <div class="featured-image">
-            <img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $image_alt ); ?>">
-          </div>
+          <?php if ( ! $hide_featured_image ) : ?>
+            <div class="featured-image">
+              <img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $image_alt ); ?>">
+            </div>
+          <?php endif; ?>
         </header>
 
         <!-- Article body -->

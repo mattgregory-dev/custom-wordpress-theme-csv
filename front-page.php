@@ -66,7 +66,7 @@ get_header(
         </a>
         <div class="rc-label">Self-Paced Courses</div>
         <h3>Learn at Your Own Pace</h3>
-        <p>Pick a topic, go at your speed, and come back whenever you want. Courses from $5. Lifetime access.</p>
+        <p>Pick a topic, go at your speed, and come back whenever you want. Courses from $11. Lifetime access.</p>
         <a href="<?php echo esc_url( home_url( '/courses-catalog/' ) ); ?>" class="btn btn-secondary">Browse Courses</a>
       </div>
       <div class="route-card">
@@ -150,7 +150,7 @@ get_header(
 
 <div class="botanical-divider"></div>
 
-<?php get_template_part( 'partials/offers/earth-ceremony/banner' ); ?>
+<?php get_template_part( 'partials/offers/earth-ceremony-teaching/banner' ); ?>
 <?php get_template_part( 'partials/offers/pest-control/banner' ); ?>
 
 <?php

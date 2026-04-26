@@ -55,7 +55,7 @@
   <i class="fas fa-angle-up"></i>
 </button>
 <?php
-$popup_excluded_slugs = array( 'contact', 'faqs', 'profile', 'terms', 'refunds' );
+$popup_excluded_slugs = array( 'contact', 'faqs', 'profile', 'terms', 'refunds', 'earth-ceremony' );
 $is_woocommerce_page = function_exists( 'is_woocommerce' ) && is_woocommerce();
 $is_cart = function_exists( 'is_cart' ) && is_cart();
 $is_checkout = function_exists( 'is_checkout' ) && is_checkout();
@@ -66,7 +66,7 @@ $is_excluded_slug = is_page( $popup_excluded_slugs );
 $show_popup = ! ( $is_woocommerce_page || $is_cart || $is_checkout || $is_account || $is_shop || $is_privacy_policy || $is_excluded_slug );
 
 if ( $show_popup ) {
-  get_template_part( 'partials/offers/earth-ceremony/popup' );
+  get_template_part( 'partials/offers/earth-ceremony-teaching/popup' );
   get_template_part( 'partials/offers/pest-control/popup' );
 }
 ?>

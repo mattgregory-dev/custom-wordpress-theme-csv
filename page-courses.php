@@ -18,7 +18,7 @@ get_header(
       <div>
         <p class="eyebrow">Self-Paced Courses</p>
         <h1>Self-Paced Herbal Courses You Can Start Today</h1>
-        <p class="text-lg text-neutral-700 mb-4">Learn at your own pace with Feather Jones. Each course blends traditional herbal knowledge with hands-on tools you can use right away. Courses start at $5.</p>
+        <p class="text-lg text-neutral-700 mb-4">Learn at your own pace with Feather Jones. Each course blends traditional herbal knowledge with hands-on tools you can use right away. Courses start at $11.</p>
         <p class="text-neutral-600 mb-8">Instructor: Feather Jones | <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>">Meet Feather on the About page</a></p>
         <div class="hero__actions">
           <a class="btn btn-primary" href="#catalog">Browse All Courses</a>
@@ -139,6 +139,11 @@ get_header(
           setup_postdata( $course_post );
           $course_id = $course_post->ID;
           $is_featured = in_array( $course_id, $featured_ids, true );
+          $course_eyebrow = function_exists( 'get_field' )
+            ? get_field( 'course_eyebrow', $course_id )
+            : get_post_meta( $course_id, 'course_eyebrow', true );
+          $course_eyebrow = trim( (string) $course_eyebrow );
+          $has_course_eyebrow = '' !== $course_eyebrow;
           $thumb_id = get_post_thumbnail_id( $course_id );
           $thumb_url = $thumb_id ? wp_get_attachment_image_url( $thumb_id, 'large' ) : '';
           $thumb_alt = $thumb_id ? get_post_meta( $thumb_id, '_wp_attachment_image_alt', true ) : '';
@@ -321,12 +326,15 @@ get_header(
               </a>
             </div>
             <div class="course-info">
-              <?php if ( $is_featured ) : ?>
-                <span class="featured">Featured Course</span>
-              <?php endif; ?>
-              <?php if ( $course_category_label ) : ?>
-                <div class="series-label"><?php echo esc_html( $course_category_label ); ?></div>
-              <?php endif; ?>
+            <?php if ( $is_featured ) : ?>
+              <span class="featured">Featured Course</span>
+            <?php endif; ?>
+            <?php if ( $has_course_eyebrow ) : ?>
+              <span class="featured"><?php echo esc_html( $course_eyebrow ); ?></span>
+            <?php endif; ?>
+            <?php if ( $course_category_label ) : ?>
+              <div class="series-label"><?php echo esc_html( $course_category_label ); ?></div>
+            <?php endif; ?>
               <h3><a href="<?php echo esc_url( $course_link ); ?>"><?php echo esc_html( $course_title ); ?></a></h3>
               <p class="cd"><?php echo esc_html( $description ); ?></p>
               <?php if ( ! empty( $meta_items ) ) : ?>

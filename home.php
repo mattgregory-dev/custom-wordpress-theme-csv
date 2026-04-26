@@ -68,7 +68,7 @@ get_header();
   <aside class="sidebar">
 
     <!-- Free class offer -->
-    <?php get_template_part( 'partials/offers/earth-ceremony/sidebar' ); ?>
+    <?php get_template_part( 'partials/offers/earth-ceremony-teaching/sidebar' ); ?>
     <?php get_template_part( 'partials/offers/pest-control/sidebar' ); ?>
 
     <?php /*

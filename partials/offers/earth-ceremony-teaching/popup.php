@@ -18,13 +18,12 @@
       </svg>
     </button>
 
-    <div class="popup-content free-course">
+    <div class="popup-content free-teaching">
       <div class="popup-step active" data-popup-step="1">
-        <div class="popup-eyebrow">Free Course</div>
-        <h2 class="popup-heading">New to Herbs?<br>Start Here - No Cost.</h2>
+        <h2 class="popup-heading">A Free Teaching:<br>How to Hold a Sacred Plant Ceremony</h2>
 
         <p class="popup-description">
-          Get instant access to <em>Sacred Plant Ceremony, Part I: Foundations</em> — a short, gentle teaching on sage, sweetgrass, juniper, and the meaning of ceremony. It's 26 minutes, filmed from a vortex in the Sedona Red Rocks.
+          A short teaching on sage, sweetgrass, juniper, and the meaning of ceremony — closing with a live ceremony to the four directions, filmed from a vortex. 26 minutes. A gentle introduction to the plant path.
         </p>
 
         <div class="popup-social-proof">
@@ -39,7 +38,7 @@
         </div>
 
         <button class="popup-step1-cta" data-popup-action="cta">
-          Yes, Send Me the Free Course
+          YES, SEND ME THE FREE TEACHING
         </button>
 
         <button class="popup-step1-skip" data-popup-action="skip">
@@ -50,11 +49,11 @@
       <div class="popup-step" data-popup-step="2">
         <div class="popup-eyebrow">Almost There</div>
         <h2 class="step2-heading">Where Should We Send It?</h2>
-        <p class="step2-subtext">Enter your email and we'll send your free course link right away.</p>
+        <p class="step2-subtext">Drop your email and we'll take you straight to the teaching. We'll also send you the link, so you can come back to it anytime.</p>
 
         <p class="popup-error" data-popup-error="true"></p>
 
-        <?php echo do_shortcode( '[forminator_form id="2451"]' ); ?>
+        <?php echo do_shortcode( '[forminator_form id="2548"]' ); ?>
 
         <p class="popup-disclaimer">
           You'll also receive herbal insights and program updates. Unsubscribe any time.
@@ -70,6 +69,7 @@
           <p>We've sent your free course link to your email.<br>Look for a message from Feather Jones.</p>
         </div>
       </div>
+
     </div>
   </div>
 </div>

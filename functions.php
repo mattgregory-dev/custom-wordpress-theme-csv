@@ -84,6 +84,24 @@ function csv_block_module_scripts( $tag, $handle, $src ) {
 }
 add_filter( 'script_loader_tag', 'csv_block_module_scripts', 10, 3 );
 
+// Output GA only outside local Vite dev mode.
+function csv_output_google_analytics_tag() {
+  if ( csv_is_vite_dev() || is_user_logged_in() ) {
+    return;
+  }
+  ?>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7Y4RZRQMF8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7Y4RZRQMF8');
+  </script>
+  <?php
+}
+add_action( 'wp_head', 'csv_output_google_analytics_tag', 5 );
+
 //////////////////////////////////////////////////
 ///////////////// WordPress Theme ////////////////
 //////////////////////////////////////////////////
@@ -136,28 +154,6 @@ function csv_page_template_orderby( $query ) {
   $query->set( 'orderby', 'meta_value' );
 }
 add_action( 'pre_get_posts', 'csv_page_template_orderby' );
-
-// Assign an A/B offer variant once per visitor.
-function set_offer_variant() {
-  // Optional override via wp-config.php:
-  // define( 'CSV_FORCE_OFFER_VARIANT', 'a' ); // or 'b'
-  $forced_variant = defined( 'CSV_FORCE_OFFER_VARIANT' ) ? sanitize_key( (string) CSV_FORCE_OFFER_VARIANT ) : '';
-  if ( in_array( $forced_variant, array( 'a', 'b' ), true ) ) {
-    setcookie( 'offer_variant', $forced_variant, time() + 60 * 60 * 24, '/' );
-    $_COOKIE['offer_variant'] = $forced_variant; // make it available immediately
-    return;
-  }
-
-  if ( isset( $_COOKIE['offer_variant'] ) ) {
-    return;
-  }
-
-  $variant = ( mt_rand( 0, 1 ) === 0 ) ? 'a' : 'b';
-
-  setcookie( 'offer_variant', $variant, time() + 60 * 60 * 24, '/' );
-  $_COOKIE['offer_variant'] = $variant; // make it available immediately
-}
-add_action( 'init', 'set_offer_variant' );
 
 // Register navigation menus
 function csv_setup() {
@@ -565,6 +561,38 @@ function ms_add_logged_out_account_body_class($classes) {
 }
 add_filter('body_class', 'ms_add_logged_out_account_body_class');
 
+// Add custom page-level body classes from ACF.
+function csv_add_acf_page_body_class( $classes ) {
+  if ( ! is_page() ) {
+    return $classes;
+  }
+
+  $page_id = get_queried_object_id();
+  if ( ! $page_id ) {
+    return $classes;
+  }
+
+  $body_class = function_exists( 'get_field' )
+    ? get_field( 'body_class', $page_id )
+    : get_post_meta( $page_id, 'body_class', true );
+  $body_class = trim( (string) $body_class );
+
+  if ( '' === $body_class ) {
+    return $classes;
+  }
+
+  $custom_classes = preg_split( '/\s+/', $body_class );
+  foreach ( $custom_classes as $custom_class ) {
+    $custom_class = sanitize_html_class( $custom_class );
+    if ( '' !== $custom_class ) {
+      $classes[] = $custom_class;
+    }
+  }
+
+  return $classes;
+}
+add_filter( 'body_class', 'csv_add_acf_page_body_class' );
+
 // Redirect to homepage after logout
 function csv_logout_redirect_home( $redirect_to, $requested_redirect_to, $user ) {
   return home_url( '/' );
@@ -783,6 +811,15 @@ add_action( 'template_redirect', 'csv_suppress_checkout_redirect_notices', 9 );
 //////////////////////////////////////////////////
 ////////////////// LearnDash /////////////////////
 //////////////////////////////////////////////////
+
+// Remove LearnDash meta box from pages and posts
+add_action('do_meta_boxes', function () {
+  foreach (['post', 'page', 'product', 'events'] as $screen) {
+    remove_meta_box('learndash-course-grid-meta-box', $screen, 'advanced');
+    remove_meta_box('learndash-course-grid-meta-box', $screen, 'normal');
+    remove_meta_box('learndash-course-grid-meta-box', $screen, 'side');
+  }
+}, 999);
 
 // Point LearnDash login links to the My Account page.
 function csv_learndash_login_url( $login_url, $context, $args ) {
@@ -1068,30 +1105,6 @@ function csv_learndash_reviews_hide_comment_time( $time, $format, $gmt, $comment
   return $time;
 }
 add_filter( 'get_comment_time', 'csv_learndash_reviews_hide_comment_time', 10, 4 );
-
-// Hide the Reviews tab after a user has left a review.
-// function csv_hide_learndash_reviews_tab_after_review( $tabs, $tabs_object ) {
-//   if ( ! function_exists( 'learndash_course_reviews_get_user_review' ) ) {
-//     return $tabs;
-//   }
-
-//   if ( ! is_user_logged_in() ) {
-//     return $tabs;
-//   }
-
-//   $course_id = get_queried_object_id();
-//   if ( empty( $course_id ) || 'sfwd-courses' !== get_post_type( $course_id ) ) {
-//     return $tabs;
-//   }
-
-//   $review = learndash_course_reviews_get_user_review( $course_id );
-//   if ( ! empty( $review ) ) {
-//     unset( $tabs['reviews'] );
-//   }
-
-//   return $tabs;
-// }
-// add_filter( 'learndash_template_tabs_sorted', 'csv_hide_learndash_reviews_tab_after_review', 10, 2 );
 
 // Notify admin when a LearnDash course review is submitted.
 // Generates a plaintext summary email and avoids duplicates via comment meta.

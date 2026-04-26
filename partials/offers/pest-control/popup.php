@@ -18,7 +18,7 @@
       </svg>
     </button>
 
-    <div class="popup-content">
+    <div class="popup-content free-course">
       <div class="popup-step active" data-popup-step="1">
         <div class="popup-eyebrow">Free Course</div>
         <h2 class="popup-heading">New to Herbs?<br>Start Here - No Cost.</h2>

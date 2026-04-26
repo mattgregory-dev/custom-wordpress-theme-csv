@@ -3099,11 +3099,12 @@ p.course-description {
     }
     details {
       summary {
+        margin-bottom: 1rem;
         strong {
-          margin-bottom: 1rem;
           font-family: var(--font-primary);
           font-size: 1.3rem;
           font-weight: 400;
+          color: var(--dark-brown);
         }
         &::marker {
           display: none;
@@ -3123,9 +3124,42 @@ p.course-description {
     }
     figure {
       margin: 1.88rem 0;
-      border-radius: .59rem;
-      overflow: hidden;
-      box-shadow: 0 6px 30px rgba(58,29,2,.08);
+      &.wp-block-image {
+        border-radius: .59rem;
+        overflow: hidden;
+        box-shadow: 0 6px 30px rgba(58,29,2,.08);
+      }
+    }
+    .wp-block-embed {
+      overflow-wrap: break-word;
+      iframe {
+        max-width: 100%;
+        border: 0;
+      }
+      &.wp-has-aspect-ratio {
+        .wp-block-embed__wrapper {
+          position: relative;
+          &::before {
+            content: '';
+            display: block;
+            padding-top: 50%;
+          }
+        }
+        iframe {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+        }
+      }
+      &.wp-embed-aspect-16-9 .wp-block-embed__wrapper::before { padding-top: 56.25%; }
+      &.wp-embed-aspect-4-3 .wp-block-embed__wrapper::before { padding-top: 75%; }
+      &.wp-embed-aspect-1-1 .wp-block-embed__wrapper::before { padding-top: 100%; }
+      &.wp-embed-aspect-21-9 .wp-block-embed__wrapper::before { padding-top: 42.8571%; }
+      &.wp-embed-aspect-9-16 .wp-block-embed__wrapper::before { padding-top: 177.78%; }
     }
     figcaption {
       padding: .71rem 0 0;
@@ -3167,6 +3201,7 @@ p.course-description {
     border-radius: .59rem;
     padding: 1.65rem 1.41rem;
     border: 1px solid rgba(132,174,157,.12);
+    text-align: center;
     .eyebrow {
       margin-bottom: .59rem;
       font-size: .59rem;
@@ -3900,6 +3935,31 @@ p.course-description {
   }
 }
 
+.earth-ceremony-video {
+  max-width: 920px;
+  margin-inline: auto;
+  &__frame {
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: .5rem;
+    background: #171717;
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,.25);
+  }
+  .wp-block-video,
+  .wp-block-embed,
+  .wp-block-embed__wrapper {
+    height: 100%;
+    margin: 0;
+  }
+  video,
+  iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+}
+
 // Mobile menu / sidebar / drawer
 .side-menu.menu-drawer {
   position: fixed;
@@ -4286,26 +4346,6 @@ p.course-description {
     transform: rotate(90deg) scale(1.08);
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .csv-header-absolute .hero {
   min-height: 100vh;
