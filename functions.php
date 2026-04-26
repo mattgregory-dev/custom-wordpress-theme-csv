@@ -694,123 +694,182 @@ function csv_suppress_checkout_redirect_notices() {
 }
 add_action( 'template_redirect', 'csv_suppress_checkout_redirect_notices', 9 );
 
-// Assset loading on Woocommerce pages
-// Delaying load, so the homepage that does not have Woocommerce elments doesn't take a performance hit
-// Load WooCommerce assets on WooCommerce pages
-// function csv_is_woocommerce_page() {
-//   $is_cart = function_exists( 'is_cart' ) && is_cart();
-//   $is_checkout = function_exists( 'is_checkout' ) && is_checkout();
-//   $is_account = function_exists( 'is_account_page' ) && is_account_page();
-//   return $is_cart || $is_checkout || $is_account;
-// }
+// WooCommerce asset loading:
+// Keep official Woo resources on real commerce screens, but remove them from
+// normal marketing/content pages where they add weight without powering UI.
+function csv_is_woocommerce_asset_context() {
+  if ( is_admin() || wp_doing_ajax() || ! function_exists( 'WC' ) ) {
+    return true;
+  }
 
-// Disable WooCommerce Blocks assets everywhere except cart/checkout/account.
-// function csv_should_load_woocommerce_block_assets( $should_load ) {
-//   return csv_is_woocommerce_page();
-// }
-// add_filter( 'woocommerce_should_load_block_assets', 'csv_should_load_woocommerce_block_assets' );
+  $is_woocommerce = function_exists( 'is_woocommerce' ) && is_woocommerce();
+  $is_cart = function_exists( 'is_cart' ) && is_cart();
+  $is_checkout = function_exists( 'is_checkout' ) && is_checkout();
+  $is_account = function_exists( 'is_account_page' ) && is_account_page();
 
-// function csv_should_load_woocommerce_block_styles( $should_load ) {
-//   return csv_is_woocommerce_page();
-// }
-// add_filter( 'woocommerce_should_load_block_styles', 'csv_should_load_woocommerce_block_styles' );
+  return $is_woocommerce || $is_cart || $is_checkout || $is_account;
+}
 
-// Remove script prefetch hints on the front page.
-// function csv_filter_resource_hints( $urls, $relation_type ) {
-//   if ( 'prefetch' !== $relation_type ) {
-//     return $urls;
-//   }
+function csv_should_load_woocommerce_block_assets( $should_load ) {
+  if ( csv_is_woocommerce_asset_context() ) {
+    return $should_load;
+  }
 
-//   if ( ! is_admin() ) {
-//     return array();
-//   }
+  return false;
+}
+add_filter( 'woocommerce_should_load_block_assets', 'csv_should_load_woocommerce_block_assets' );
 
-//   return $urls;
-// }
-// add_filter( 'wp_resource_hints', 'csv_filter_resource_hints', 999, 2 );
+function csv_should_load_woocommerce_block_styles( $should_load ) {
+  if ( csv_is_woocommerce_asset_context() ) {
+    return $should_load;
+  }
 
-// Dequeue all WooCommerce assets (styles + scripts).
-// function csv_dequeue_woocommerce_assets() {
-//   if ( ! is_admin() && csv_is_woocommerce_page() ) {
-//     return;
-//   }
+  return false;
+}
+add_filter( 'woocommerce_should_load_block_styles', 'csv_should_load_woocommerce_block_styles' );
 
-//   $style_handles = array(
-//     'woocommerce-general',
-//     'woocommerce-layout',
-//     'woocommerce-smallscreen',
-//     'woocommerce-inline',
-//     'woocommerce-block-style',
-//     'wc-block-style',
-//     'wc-blocks-vendors-style',
-//     'wc-blocks-style',
-//     'select2',
-//     'selectWoo',
-//     'woocommerce-select2',
-//     'photoswipe',
-//     'photoswipe-default-skin',
-//     'wc-photoswipe',
-//     'wc-photoswipe-lightbox',
-//   );
+function csv_filter_woocommerce_enqueue_styles( $styles ) {
+  if ( csv_is_woocommerce_asset_context() ) {
+    return $styles;
+  }
 
-//   foreach ( $style_handles as $handle ) {
-//     wp_dequeue_style( $handle );
-//     wp_deregister_style( $handle );
-//   }
+  return array();
+}
+add_filter( 'woocommerce_enqueue_styles', 'csv_filter_woocommerce_enqueue_styles' );
 
-//   $script_handles = array(
-//     'wc-jquery-blockui',
-//     'jquery-blockui',
-//     'wc-add-to-cart',
-//     'wc-add-to-cart-variation',
-//     'wc-cart',
-//     'wc-cart-fragments',
-//     'wc-checkout',
-//     'wc-single-product',
-//     'wc-single-product-block',
-//     'woocommerce',
-//     'woocommerce-add-to-cart',
-//     'woocommerce-cart',
-//     'woocommerce-checkout',
-//     'woocommerce-cart-fragments',
-//     'wc-js-cookie',
-//     'sourcebuster-js',
-//     'wc-order-attribution',
-//     'jquery-ui-datepicker',
-//     'selectWoo',
-//     'select2',
-//     'photoswipe',
-//     'photoswipe-ui-default',
-//     'wc-price-slider',
-//     'wc-credit-card-form',
-//     'wc-address-i18n',
-//     'wc-country-select',
-//   );
+function csv_dequeue_woocommerce_offscreen_assets() {
+  if ( is_admin() ) {
+    return;
+  }
 
-//   foreach ( $script_handles as $handle ) {
-//     wp_dequeue_script( $handle );
-//     wp_deregister_script( $handle );
-//   }
+  // The header does not need live cart-count refreshes, so cart fragments can
+  // be disabled globally while cart/checkout still work through normal loads.
+  wp_dequeue_script( 'wc-cart-fragments' );
 
-//   // if ( ! is_admin() && ! is_woocommerce_page() ) {
-//   //   wp_dequeue_script( 'jquery' );
-//   //   wp_dequeue_script( 'jquery-core' );
-//   //   wp_dequeue_script( 'jquery-migrate' );
-//   //   wp_deregister_script( 'jquery' );
-//   //   wp_deregister_script( 'jquery-core' );
-//   //   wp_deregister_script( 'jquery-migrate' );
-//   // }
-// }
-// add_action( 'wp_enqueue_scripts', 'csv_dequeue_woocommerce_assets', 100 );
-// add_action( 'enqueue_block_assets', 'csv_dequeue_woocommerce_assets', 100 );
-// function csv_filter_woocommerce_enqueue_styles( $styles ) {
-//   return csv_is_woocommerce_page() ? $styles : array();
-// }
-// add_filter( 'woocommerce_enqueue_styles', 'csv_filter_woocommerce_enqueue_styles' );
+  if ( csv_is_woocommerce_asset_context() ) {
+    return;
+  }
+
+  $style_handles = array(
+    'woocommerce-general',
+    'woocommerce-layout',
+    'woocommerce-smallscreen',
+    'woocommerce-block-style',
+    'wc-block-style',
+    'wc-blocks-style',
+    'wc-blocks-vendors-style',
+  );
+
+  foreach ( $style_handles as $handle ) {
+    wp_dequeue_style( $handle );
+  }
+
+  $script_handles = array(
+    'woocommerce',
+    'wc-add-to-cart',
+    'wc-add-to-cart-variation',
+    'wc-single-product',
+    'wc-cart',
+    'wc-checkout',
+    'wc-jquery-blockui',
+    'wc-js-cookie',
+  );
+
+  foreach ( $script_handles as $handle ) {
+    wp_dequeue_script( $handle );
+  }
+}
+add_action( 'wp_enqueue_scripts', 'csv_dequeue_woocommerce_offscreen_assets', 100 );
+
+function csv_disable_woocommerce_cart_fragments_data( $params, $handle ) {
+  if ( 'wc-cart-fragments' === $handle ) {
+    return null;
+  }
+
+  return $params;
+}
+add_filter( 'woocommerce_get_script_data', 'csv_disable_woocommerce_cart_fragments_data', 10, 2 );
 
 //////////////////////////////////////////////////
 ////////////////// LearnDash /////////////////////
 //////////////////////////////////////////////////
+
+// LearnDash asset loading:
+// LearnDash enqueues a broad frontend bundle on pages that do not need course
+// UI. Keep those official assets only where students browse or consume courses.
+function csv_is_learndash_asset_context() {
+  if ( is_admin() || wp_doing_ajax() ) {
+    return true;
+  }
+
+  // The WooCommerce account dashboard includes course overview content.
+  if ( is_page( 'account' ) ) {
+    return true;
+  }
+
+  // Keep assets on the course catalog and all course detail URLs.
+  $request_path = trim( (string) parse_url( $_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH ), '/' );
+  if ( 'courses' === $request_path || 0 === strpos( $request_path, 'courses/' ) ) {
+    return true;
+  }
+
+  // Direct lesson/topic/quiz URLs still need LearnDash behavior even if their
+  // public permalink does not live under /courses/.
+  $learndash_post_types = array(
+    'sfwd-courses',
+    'sfwd-lessons',
+    'sfwd-topic',
+    'sfwd-quiz',
+    'sfwd-assignment',
+    'sfwd-essays',
+  );
+
+  if ( is_singular( $learndash_post_types ) ) {
+    return true;
+  }
+
+  return false;
+}
+
+function csv_dequeue_learndash_offscreen_assets() {
+  if ( csv_is_learndash_asset_context() ) {
+    return;
+  }
+
+  $style_handles = array(
+    'learndash_quiz_front_css',
+    'dashicons',
+    'learndash',
+    'jquery-dropdown-css',
+    'learndash_lesson_video',
+    'learndash-admin-bar',
+    'learndash-course-grid-skin-grid',
+    'learndash-course-grid-pagination',
+    'learndash-course-grid-filter',
+    'learndash-course-grid-card-grid-1',
+    'learndash-front',
+  );
+
+  foreach ( $style_handles as $handle ) {
+    wp_dequeue_style( $handle );
+  }
+
+  $script_handles = array(
+    'learndash-course-grid-skin-grid',
+    'learndash',
+    'learndash-main',
+    'learndash-breakpoints',
+    'learndash-front',
+  );
+
+  foreach ( $script_handles as $handle ) {
+    wp_dequeue_script( $handle );
+  }
+}
+add_action( 'wp_enqueue_scripts', 'csv_dequeue_learndash_offscreen_assets', 100 );
+// LearnDash may enqueue some assets late, so catch both enqueue and print time.
+add_action( 'wp_print_styles', 'csv_dequeue_learndash_offscreen_assets', 100 );
+add_action( 'wp_print_scripts', 'csv_dequeue_learndash_offscreen_assets', 100 );
 
 // Remove LearnDash meta box from pages and posts
 add_action('do_meta_boxes', function () {

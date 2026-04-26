@@ -1,7 +1,3 @@
-import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
-import Lenis from 'lenis';
-
 //////////////////////////////////////////
 /////// START DEV ENV ASSET FIX //////////
 //////////////////////////////////////////
@@ -197,81 +193,24 @@ const smoothAnchors = () => {
   }
 };
 
-// Lenis smooth scrolling with GSAP ticker integration.
 const LenisScroll = {
-  setupLenis() {
-    const lenis = new Lenis({
-      duration: 2.8,
-      easing: (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t)),
-      direction: "vertical",
-      gestureDirection: "vertical",
-      smooth: true,
-      mouseMultiplier: 0.8,
-      smoothTouch: false,
-      touchMultiplier: 1.5,
-      infinite: false,
-      orientation: "vertical",
-      lerp: 0.05,
-      wheelEventsTarget: document.body,
-    });
-
-    this.lenis = lenis;
-
-    lenis.on("scroll", ScrollTrigger.update);
-
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 1000);
-    });
-
-    gsap.ticker.lagSmoothing(0);
-
-    lenis.on("scroll", () => {});
-
-    const stopElements = document.querySelectorAll("[data-lenis-prevent]");
-    stopElements.forEach((el) => {
-      el.addEventListener("wheel", (e) => {
-        e.stopPropagation();
-      });
-    });
-  },
-
-  init() {
-    const self = this;
-
-    setTimeout(() => {
-      if (
-        typeof Lenis !== "function" ||
-        typeof gsap === "undefined" ||
-        typeof ScrollTrigger === "undefined"
-      ) {
-        console.error("Lenis library not loaded. Check your install.");
-        return;
-      }
-
-      self.setupLenis();
-    }, 0);
-  },
-
   getInstance() {
-    return this.lenis;
+    return null;
   },
 
-  stop() {
-    if (this.lenis) {
-      this.lenis.stop();
-    }
-  },
+  stop() {},
 
-  start() {
-    if (this.lenis) {
-      this.lenis.start();
-    }
-  },
+  start() {},
 
   scrollTo(target, options = {}) {
-    if (this.lenis) {
-      this.lenis.scrollTo(target, options);
+    if (target instanceof Element) {
+      const offset = Number(options.offset) || 0;
+      const top = target.getBoundingClientRect().top + window.scrollY + offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+      return;
     }
+
+    window.scrollTo({ top: Number(target) || 0, behavior: 'smooth' });
   },
 };
 
