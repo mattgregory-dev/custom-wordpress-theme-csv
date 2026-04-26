@@ -554,7 +554,7 @@ add_action( 'woocommerce_email', 'csv_disable_woocommerce_email_mobile_messages'
 
 // Add body class to logged out my account pages
 function ms_add_logged_out_account_body_class($classes) {
-  if (is_account_page() && !is_user_logged_in()) {
+  if ( function_exists( 'is_account_page' ) && is_account_page() && ! is_user_logged_in() ) {
     $classes[] = 'logged-out';
   }
   return $classes;
