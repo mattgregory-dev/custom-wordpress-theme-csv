@@ -44,7 +44,7 @@ get_header();
           <li class="post-item">
             <div class="post-thumb">
               <a href="<?php the_permalink(); ?>">
-                <img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $image_alt ); ?>">
+                <img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $image_alt ); ?>" loading="lazy" decoding="async">
               </a>
             </div>
             <div class="post-body">
@@ -89,4 +89,3 @@ get_header();
 
 <?php
 get_footer();
-

@@ -44,7 +44,7 @@ get_header(
       </div>
       <div class="reveal">
         <div class="content-img aspect-[3/4]">
-          <img src="<?php echo get_template_directory_uri(); ?>/images/images-v/feather-jones-herbalist-014.webp" alt="Student sitting in a field with a bag of freshly picked flowers" class="w-full h-full object-cover">
+          <img src="<?php echo get_template_directory_uri(); ?>/images/images-v/feather-jones-herbalist-014.webp" alt="Student sitting in a field with a bag of freshly picked flowers" class="w-full h-full object-cover" loading="lazy" decoding="async">
         </div>
       </div>
     </div>
@@ -58,19 +58,19 @@ get_header(
     <div class="grid gap-12 md:grid-cols-[4fr_5fr] md:gap-[4rem] items-start">
       <div class="reveal md:self-center flex gap-4 flex-col">
         <div class="content-img">
-          <img src="<?php echo get_template_directory_uri(); ?>/images/ft/ft-11.webp" alt="" class="w-full">
+          <img src="<?php echo get_template_directory_uri(); ?>/images/ft/ft-11.webp" alt="" class="w-full" loading="lazy" decoding="async">
         </div>
         <div class="content-img">
-          <img src="<?php echo get_template_directory_uri(); ?>/images/ft/ft-09.webp" alt="" class="w-full">
+          <img src="<?php echo get_template_directory_uri(); ?>/images/ft/ft-09.webp" alt="" class="w-full" loading="lazy" decoding="async">
         </div>
         <div class="content-img">
-          <img src="<?php echo get_template_directory_uri(); ?>/images/ft/ft-01.webp" alt="" class="w-full">
+          <img src="<?php echo get_template_directory_uri(); ?>/images/ft/ft-01.webp" alt="" class="w-full" loading="lazy" decoding="async">
         </div>
         <div class="content-img">
-          <img src="<?php echo get_template_directory_uri(); ?>/images/ft/ft-02.webp" alt="" class="w-full">
+          <img src="<?php echo get_template_directory_uri(); ?>/images/ft/ft-02.webp" alt="" class="w-full" loading="lazy" decoding="async">
         </div>
         <div class="content-img">
-          <img src="<?php echo get_template_directory_uri(); ?>/images/ft/ft-05.webp" alt="" class="w-full">
+          <img src="<?php echo get_template_directory_uri(); ?>/images/ft/ft-05.webp" alt="" class="w-full" loading="lazy" decoding="async">
         </div>
       </div>
       <div class="reveal">

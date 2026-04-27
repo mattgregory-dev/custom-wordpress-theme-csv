@@ -80,7 +80,7 @@ get_header(
       </div>
       <div class="reveal md:self-center">
         <div class="content-img" style="aspect-ratio:2/3;">
-          <img class="w-full h-full object-cover object-center" src="<?php echo get_template_directory_uri(); ?>/images/images-v/feather-jones-herbalist-012.webp" alt="Student holding harvested herbs and a woven basket in a garden">
+          <img class="w-full h-full object-cover object-center" src="<?php echo get_template_directory_uri(); ?>/images/images-v/feather-jones-herbalist-012.webp" alt="Student holding harvested herbs and a woven basket in a garden" loading="lazy" decoding="async">
         </div>
       </div>
     </div>
@@ -244,7 +244,7 @@ get_header(
 
       <div class="reveal md:self-center">
         <div class="content-img" style="aspect-ratio:2/3;">
-          <img class="w-full h-full object-cover object-center" src="<?php echo get_template_directory_uri(); ?>/images/images-v/feather-jones-herbalist-010.webp" alt="Sedona red rock cliffs and desert landscape">
+          <img class="w-full h-full object-cover object-center" src="<?php echo get_template_directory_uri(); ?>/images/images-v/feather-jones-herbalist-010.webp" alt="Sedona red rock cliffs and desert landscape" loading="lazy" decoding="async">
         </div>
       </div>
 
@@ -279,7 +279,7 @@ get_header(
       <div class="reveal">
         <div class="content-img">
           <a class="front-page-feather-link" href="<?php echo esc_url( home_url( '/about/' ) ); ?>" aria-label="About Feather Jones">
-            <img class="object-top" src="<?php echo get_template_directory_uri(); ?>/images/feather/feather-jones-registered-herbalist.jpg" alt="Feather Jones herbalist portrait outdoors with greenery background">
+            <img class="object-top" src="<?php echo get_template_directory_uri(); ?>/images/feather/feather-jones-registered-herbalist-04.webp" alt="Feather Jones herbalist portrait outdoors with greenery background" loading="lazy" decoding="async">
             <span class="front-page-feather-hover-label" aria-hidden="true">Feather&rsquo;s Story &raquo;</span>
           </a>
         </div>
@@ -458,7 +458,7 @@ get_header(
 <!-- ========== FINAL CTA ========== -->
 <section class="section final-cta text-center" id="final">
   <div class="container reveal">
-    <img src="<?php echo esc_url( get_template_directory_uri() . '/images/icons/icons-st-johns-wort.webp' ); ?>" alt="St. John's wort icon" class="w-10 h-auto mx-auto mb-4" />
+    <img src="<?php echo esc_url( get_template_directory_uri() . '/images/icons/icons-st-johns-wort.webp' ); ?>" alt="St. John's wort icon" class="w-10 h-auto mx-auto mb-4" loading="lazy" decoding="async" />
     <div class="eyebrow">The 2027 Program Is Coming</div>
     <h2 class="max-w-2xl mx-auto">Study Herbalism the Way It Was Meant to Be Learned</h2>
     <p class="description mx-auto mb-8 max-w-xl text-white">If you&rsquo;ve been thinking about studying herbalism&thinsp;&mdash;&thinsp;really studying it, with a teacher, a community, and a plan&thinsp;&mdash;&thinsp;this is the program people come back to year after year.</p>

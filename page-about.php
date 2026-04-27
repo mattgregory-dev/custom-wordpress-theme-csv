@@ -21,7 +21,7 @@ get_header(
       </div>
       <div class="reveal photo">
         <div class="content-img aspect-[4/5] w-full max-w-[400px]">
-          <img src="<?php echo get_template_directory_uri(); ?>/images/feather/feather-jones-registered-herbalist.jpg" alt="Portrait of Feather Jones outdoors" class="h-full w-full object-cover">
+          <img src="<?php echo get_template_directory_uri(); ?>/images/feather/feather-jones-registered-herbalist-04.webp" alt="Portrait of Feather Jones outdoors" class="h-full w-full object-cover" loading="lazy" decoding="async">
         </div>
       </div>
     </div>
@@ -48,7 +48,7 @@ get_header(
       </div>
       <div class="reveal md:self-center">
         <div class="content-img aspect-[2/3]">
-          <img src="<?php echo get_template_directory_uri(); ?>/images/images-v/feather-jones-herbalist-015.webp" alt="Red barn and vegetable rows on a working farm" class="w-full h-full object-cover">
+          <img src="<?php echo get_template_directory_uri(); ?>/images/images-v/feather-jones-herbalist-015.webp" alt="Red barn and vegetable rows on a working farm" class="w-full h-full object-cover" loading="lazy" decoding="async">
         </div>
       </div>
     </div>
@@ -60,7 +60,7 @@ get_header(
     <div class="grid gap-12 md:grid-cols-[4fr_5fr] md:gap-[4rem] items-start">
       <div class="reveal">
         <div class="content-img aspect-[2/3]">
-          <img src="<?php echo get_template_directory_uri(); ?>/images/images-v/feather-jones-herbalist-016.webp" alt="Feather Jones teaching students during an outdoor plant walk" class="w-full h-full object-cover">
+          <img src="<?php echo get_template_directory_uri(); ?>/images/images-v/feather-jones-herbalist-016.webp" alt="Feather Jones teaching students during an outdoor plant walk" class="w-full h-full object-cover" loading="lazy" decoding="async">
         </div>
       </div>
       <div class="reveal">
@@ -113,11 +113,11 @@ get_header(
       
       <div class="w-full flex justify-center flex-col gap-20 mt-10">
         
-        <img class="block mx-auto max-w-full h-auto" width="300" src="<?php echo get_template_directory_uri(); ?>/images/images-h/feather-jones-herbalist-051-american-herbalists-guild.webp" alt="American Herbalists Guild Registered Herbalist Member certification badge logo">
+        <img class="block mx-auto max-w-full h-auto" width="300" src="<?php echo get_template_directory_uri(); ?>/images/images-h/feather-jones-herbalist-051-american-herbalists-guild.webp" alt="American Herbalists Guild Registered Herbalist Member certification badge logo" loading="lazy" decoding="async">
 
         <div class="content-img mx-auto w-full book">
           <a class="block w-full h-full" href="https://www.amazon.com/gp/product/091495587X/ref=x_gr_w_bb_sout?ie=UTF8&tag=x_gr_w_bb_sout-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=091495587X&SubscriptionId=1MGPYB6YW3HWK55XCGG2" target="_blank" rel="noopener noreferrer">
-            <img class="block w-full h-full object-cover" src="<?php echo get_template_directory_uri(); ?>/images/images-v/feather-jones-herbalist-001-medicinal-herb-handbook.jpg" alt="medicinal herb handbook book cover featuring woman in natural landscape holding herbs">
+            <img class="block w-full h-full object-cover" src="<?php echo get_template_directory_uri(); ?>/images/images-v/feather-jones-herbalist-001-medicinal-herb-handbook.jpg" alt="medicinal herb handbook book cover featuring woman in natural landscape holding herbs" loading="lazy" decoding="async">
           </a>
         </div>
 
@@ -183,7 +183,7 @@ get_header(
       </div>
       <div class="reveal md:self-center">
         <div class="content-img aspect-[1/1]">
-          <img src="<?php echo get_template_directory_uri(); ?>/images/images-v/feather-jones-herbalist-017.webp" alt="Feather Jones seated in sunlit grass outdoors" class="w-full h-full object-cover">
+          <img src="<?php echo get_template_directory_uri(); ?>/images/images-v/feather-jones-herbalist-017.webp" alt="Feather Jones seated in sunlit grass outdoors" class="w-full h-full object-cover" loading="lazy" decoding="async">
         </div>
       </div>
     </div>

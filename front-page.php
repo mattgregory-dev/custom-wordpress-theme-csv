@@ -62,7 +62,7 @@ get_header(
     <div class="grid grid-cols-1 gap-5 mt-11 min-[600px]:grid-cols-2 min-[990px]:grid-cols-4 reveal">
       <div class="route-card">
         <a href="<?php echo esc_url( home_url( '/courses/' ) ); ?>">
-          <img src="<?php echo esc_url( get_template_directory_uri() . '/images/icons/icon-courses-3.webp' ); ?>" alt="Self-paced courses icon">
+          <img src="<?php echo esc_url( get_template_directory_uri() . '/images/icons/icon-courses-3.webp' ); ?>" alt="Self-paced courses icon" loading="lazy" decoding="async">
         </a>
         <div class="rc-label">Self-Paced Courses</div>
         <h3>Learn at Your Own Pace</h3>
@@ -71,7 +71,7 @@ get_header(
       </div>
       <div class="route-card">
         <a href="<?php echo esc_url( home_url( '/live-group-classes/' ) ); ?>">
-          <img src="<?php echo esc_url( get_template_directory_uri() . '/images/icons/icon-group-classes-2.webp' ); ?>" alt="Live group classes icon">
+          <img src="<?php echo esc_url( get_template_directory_uri() . '/images/icons/icon-group-classes-2.webp' ); ?>" alt="Live group classes icon" loading="lazy" decoding="async">
         </a>
         <div class="rc-label">Live Group Classes</div>
         <h3>Join a Year-Long Apprenticeship</h3>
@@ -80,7 +80,7 @@ get_header(
       </div>
       <div class="route-card">
         <a href="<?php echo esc_url( home_url( '/study-with-feather/' ) ); ?>">
-          <img src="<?php echo esc_url( get_template_directory_uri() . '/images/icons/icon-private-classes-2.webp' ); ?>" alt="Private mentorship icon">
+          <img src="<?php echo esc_url( get_template_directory_uri() . '/images/icons/icon-private-classes-2.webp' ); ?>" alt="Private mentorship icon" loading="lazy" decoding="async">
         </a>
         <div class="rc-label">Private Mentorship</div>
         <h3>Study One-on-One With Feather</h3>
@@ -89,7 +89,7 @@ get_header(
       </div>
       <div class="route-card">
         <a href="<?php echo esc_url( home_url( '/field-trips/' ) ); ?>">
-          <img src="<?php echo esc_url( get_template_directory_uri() . '/images/icons/icon-basket-2.webp' ); ?>" alt="Sedona field trip icon">
+          <img src="<?php echo esc_url( get_template_directory_uri() . '/images/icons/icon-basket-2.webp' ); ?>" alt="Sedona field trip icon" loading="lazy" decoding="async">
         </a>
         <div class="rc-label">Sedona Field Trip</div>
         <h3>Four Days in the High Desert</h3>
@@ -119,7 +119,7 @@ get_header(
       <div class="reveal">
         <div class="content-img">
           <a class="front-page-feather-link" href="<?php echo esc_url( home_url( '/about/' ) ); ?>" aria-label="About Feather Jones">
-            <img class="object-top" src="<?php echo get_template_directory_uri(); ?>/images/feather/feather-jones-registered-herbalist.jpg" alt="Feather Jones herbalist portrait outdoors with greenery background">
+            <img class="object-top" src="<?php echo get_template_directory_uri(); ?>/images/feather/feather-jones-registered-herbalist-04.webp" alt="Feather Jones herbalist portrait outdoors with greenery background" loading="lazy" decoding="async">
             <span class="front-page-feather-hover-label" aria-hidden="true">Feather&rsquo;s Story &raquo;</span>
           </a>
         </div>

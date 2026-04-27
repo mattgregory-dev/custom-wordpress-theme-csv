@@ -89,7 +89,7 @@ $journal_url = $posts_page_id ? get_permalink( $posts_page_id ) : home_url( '/bl
           </div>
           <?php if ( ! $hide_featured_image ) : ?>
             <div class="featured-image">
-              <img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $image_alt ); ?>">
+              <img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $image_alt ); ?>" loading="lazy" decoding="async">
             </div>
           <?php endif; ?>
         </header>
@@ -129,7 +129,7 @@ $journal_url = $posts_page_id ? get_permalink( $posts_page_id ) : home_url( '/bl
           <div class="author-card">
             <div class="author-avatar">
               <a href="<?php echo esc_url( $author_link ); ?>" aria-label="About <?php echo esc_attr( $author_name ); ?>">
-                <img src="<?php echo esc_url( $author_avatar ); ?>" alt="<?php echo esc_attr( $author_profile_image_alt ); ?>">
+                <img src="<?php echo esc_url( $author_avatar ); ?>" alt="<?php echo esc_attr( $author_profile_image_alt ); ?>" loading="lazy" decoding="async">
               </a>
             </div>
             <div class="author-info">
