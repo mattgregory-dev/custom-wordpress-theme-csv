@@ -23,9 +23,12 @@ while ( have_posts() ) :
 
     <div class="earth-ceremony-video reveal">
       <div class="earth-ceremony-video__frame">
+        <?php /*
         <figure class="wp-block-video">
           <video controls preload="metadata" src="https://d2xya1zc5sh39g.cloudfront.net/get-your-feet-wet/how-to-create-earth-ceremony-with-sacred-plants.mp4"></video>
         </figure>
+        */ ?>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/WLeFxda-BMA?si=03bJcqU0LU7TVAt2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
     </div>
   </div>
